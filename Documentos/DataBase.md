@@ -1,6 +1,10 @@
 
 
+<<<<<<< HEAD
 # Estructura de la Base de Datos
+=======
+Estructura de la Base de Datos
+>>>>>>> ae80361a3b5a3b3151211f02bb62a7b075ab5ce0
 
 **DataBase**
 
@@ -24,8 +28,12 @@ La Entidad `GRAFICOS` contiene y muestra todos los cómics con los siguientes at
 
 **· PÁGINAS.** Número de Páginas que tiene el cómic. 
 
+<<<<<<< HEAD
 **· FECHA DE PUBLICACIÓN O ESTRENO DEL CÓMIC.** Representa la fecha en que el elemento fue publicado o estrenado. Almacenamiento en BD: Tipo *DATE* formato YYYY-MM-DD (ej: 2025-09-25). Formato de Visualización: Se debe mostrar al usuario como DD · MMM · YYYY , el día, después el mes y luego el año, separados por un punto medio (ejemplo: 25 · Sep · 2025). La conversión se realiza en la capa de aplicación.  
 **Funcionalidad:** Actúa como vínculo a un sitio que muestre todos los gráficos que compartan la **misma fecha completa**, o el **mismo mes**, o el **mismo año**. Esto implica que el sistema debe poder consultar por diferentes niveles de granularidad de la fecha.
+=======
+**· FECHA DE PUBLICACIÓN O ESTRENO DEL CÓMIC.** Representa la fecha en que el elemento fue publicado o estrenado. Formato requerido: Se debe indicar primero el día, después el mes y luego el año, separados por un punto medio (ejemplo: 25 · Sep · 2025). **Funcionalidad:** Actúa como vínculo a un sitio que muestre todos los gráficos que compartan la **misma fecha completa**, o el **mismo mes**, o el **mismo año**. Esto implica que el sistema debe poder consultar por diferentes niveles de granularidad de la fecha.
+>>>>>>> ae80361a3b5a3b3151211f02bb62a7b075ab5ce0
 
 **· SINOPSIS.** Resumen corto de la historia del cómic.
 
@@ -58,7 +66,11 @@ La Entidad `GRAFICOS` contiene y muestra todos los cómics con los siguientes at
 **· CÓDIGO.** Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. Formato de Generación: Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para `GRAFICOS`**:** Prefijo `"GR-"` \+ `id_grafico` (Ej. `GR-123`)
 
 | Entidad Principal GRAFICOS · Tabla Maestra |  |  |  |  |  |  |
+<<<<<<< HEAD
 | :--- | :---: | :---: | :---: | :---: | :---: | ---: |
+=======
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+>>>>>>> ae80361a3b5a3b3151211f02bb62a7b075ab5ce0
 | Nombre del Campo | Tipo de  Dato | Clave Key | Nulidad | Descripción o Función | Relaciones FK | Notas |
 | **id\_grafico** | INT | PK | NO | Id único y primario del registro. | \- | Autoincremental. |
 | **id\_tipo\_grafico** | INT | FK | NO | Id de TIPO\_GRAFICO que estamos vinculando. | Referencia a TIPO\_GRAFICO.id\_tipo\_grafico | \- |
@@ -219,8 +231,12 @@ La Entidad `MAGAZINE` contiene y muestra todos los magazines con los siguientes 
 
 **· PÁGINAS TOTALES.** Representa el número total de páginas del magazine. Regla de Cálculo: Este valor es la suma de las páginas de todos los elementos que componen el `MAGAZINE`.
 
+<<<<<<< HEAD
 **· FECHA DE PUBLICACIÓN O ESTRENO DEL MAGAZINE.** Representa la fecha en que el elemento fue publicado o estrenado. Almacenamiento en BD: Tipo *DATE* formato YYYY-MM-DD (ej: 2025-09-25). Formato de Visualización: Se debe mostrar al usuario como DD · MMM · YYYY , el día, después el mes y luego el año, separados por un punto medio (ejemplo: 25 · Sep · 2025). La conversión se realiza en la capa de aplicación.  
 **Funcionalidad:** Actúa como vínculo a un sitio que muestre todos los `MAGAZINES` que compartan la **misma fecha completa**, o el **mismo mes**, o el **mismo año**. Esto implica que el sistema debe poder consultar por diferentes niveles de granularidad de la fecha.
+=======
+**· FECHA DE PUBLICACIÓN O ESTRENO DEL MAGAZINE.** Representa la fecha en que el elemento fue publicado o estrenado. Formato requerido: Se debe indicar primero el día, después el mes y luego el año, separados por un punto medio (ejemplo: 25 · Sep · 2025). **Funcionalidad:** Actúa como vínculo a un sitio que muestre todos los `MAGAZINES` que compartan la **misma fecha completa**, o el **mismo mes**, o el **mismo año**. Esto implica que el sistema debe poder consultar por diferentes niveles de granularidad de la fecha.
+>>>>>>> ae80361a3b5a3b3151211f02bb62a7b075ab5ce0
 
 **· SINOPSIS.** Resumen corto de la historia del cómic.
 
@@ -256,7 +272,11 @@ La Entidad `MAGAZINE` contiene y muestra todos los magazines con los siguientes 
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Nombre del Campo | Tipo de  Dato | Clave Key | Nulidad | Descripción o Función | Relaciones FK | Notas |
 | **id\_magazine** | INT | PK | NO | Id único y primario del registro. | \- | Autoincremental. |
+<<<<<<< HEAD
 | **paginas\_magazine** | INT | \- | NO | No. de páginas totales. | \- | Campo calculado: suma de páginas de componentes. Se actualiza automáticamente mediante TRIGGERS cuando se insertan, actualizan o eliminan componentes del magazine.  |
+=======
+| **paginas\_magazine** | INT | \- | NO | No. de páginas totales. | \- | Campo calculado: suma de páginas de componentes. Se actualiza automáticamente. |
+>>>>>>> ae80361a3b5a3b3151211f02bb62a7b075ab5ce0
 | **fecha\_publicacion\_magazine** | DATE | \- | SÍ | Fecha de publicación. | \- | Día, Mes y Año. |
 | **sinopsis\_magazine** | TEXT | \- | SÍ | Resumen corto. | \- | \- |
 | **id\_pais** | INT | FK | NO | Id de País que estamos vinculando. | Referencia a PAIS.id\_pais | Regla: Es obligatorio registrar el país. |
@@ -581,6 +601,7 @@ La Entidad `AVISOS` contiene los diferentes valores que muestran el tipo de cont
 | 6 | Contenido Sexual |
 | 7 | Diálogos Sugerentes |
 
+<<<<<<< HEAD
 \*\*Triggers y Reglas de Negocio\*\*
 
 **TRIGGER:** Actualización de páginas\_magazine.  
@@ -634,3 +655,5 @@ WHERE id\_magazine \= \[id\_magazine\_actual\]
 
 
 
+=======
+>>>>>>> ae80361a3b5a3b3151211f02bb62a7b075ab5ce0
