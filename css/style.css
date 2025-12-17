@@ -30,6 +30,7 @@ p {
     margin: 0px;
 }
 
+link,
 .nombreCaja>.link {
     display: flex;
     justify-content: space-between;
