@@ -17,28 +17,28 @@
     </style></head>
 
 <body>
-    <div id="app"><h1 id="estructuradelabasededatos">Estructura de la Base de Datos</h1>
+    <div id="app"><h1>Estructura de la Base de Datos</h1>
 <p><strong>DataBase</strong></p>
 <p>Se desea crear una base de datos.<br>
 Las entidades principales que componen la Base de datos son:<br>
 <strong>GRÁFICOS, MAGAZINES, EPISODIOS, SERIES,</strong><br>
-<strong>FILMES, SAGAS Y EXTRAS.</strong> </p>
+<strong>FILMES, SAGAS Y EXTRAS.</strong></p>
 <p>**Notas Técnicas sobre Tipos de Datos:**</p>
 <p>**BOOLEAN:** SQLite no tiene tipo BOOLEAN nativo.<br>
 Los campos booleanos se almacenan como INTEGER con valores 0 (FALSE) o 1 (TRUE).<br>
 En la documentación se especifica como BOOLEAN por claridad conceptual.</p>
 <p><strong>GRAFICOS</strong><br>
 La Entidad <code>GRAFICOS</code> contiene y muestra todos los cómics con los siguientes atributos:</p>
-<p><strong>· ID GRÁFICO.</strong> Identificador único. </p>
+<p><strong>· ID GRÁFICO.</strong> Identificador único.</p>
 <p><strong>· FK - ID TIPO GRÁFICO.</strong>  Clave Foránea que enlaza con la entidad <code>TIPO_GRAFICO</code>.</p>
-<p><strong>· PÁGINAS.</strong> Número de Páginas que tiene el cómic. </p>
+<p><strong>· PÁGINAS.</strong> Número de Páginas que tiene el cómic.</p>
 <p><strong>· FECHA DE PUBLICACIÓN O ESTRENO DEL CÓMIC.</strong> Representa la fecha en que el elemento fue publicado o estrenado. Almacenamiento en BD: Tipo <em>DATE</em> formato YYYY-MM-DD (ej: 2025-09-25). Formato de Visualización: Se debe mostrar al usuario como DD · MMM · YYYY , el día, después el mes y luego el año, separados por un punto medio (ejemplo: 25 · Sep · 2025). La conversión se realiza en la capa de aplicación.<br>
 <strong>Funcionalidad:</strong> Actúa como vínculo a un sitio que muestre todos los gráficos que compartan la <strong>misma fecha completa</strong>, o el <strong>mismo mes</strong>, o el <strong>mismo año</strong>. Esto implica que el sistema debe poder consultar por diferentes niveles de granularidad de la fecha.</p>
 <p><strong>· SINOPSIS.</strong> Resumen corto de la historia del cómic.</p>
 <p><strong>· FK · ID PAÍS</strong>. Indica el país de origen del Gráfico.</p>
 <p><strong>· FK · ID EDITORIAL</strong>. Indica la editorial del Gráfico.</p>
 <p><strong>· FK · ID TINTA</strong>. Indica el tipo de tinta que tiene el Gráfico.</p>
-<p>· FK · <strong>ID DISTRIBUIDORA</strong>. Indica la distribuidora que tiene el Gráfico. </p>
+<p>· FK · <strong>ID DISTRIBUIDORA</strong>. Indica la distribuidora que tiene el Gráfico.</p>
 <p><strong>· CÓDIGO DISTRIBUIDORA</strong>. Indica el código que le asigna la distribuidora al cómic.</p>
 <p><strong>· RATING.</strong> Calificación del Cómic de 1 a 5.</p>
 <p><strong>· COMENTARIOS.</strong> Puntos de vista personales acerca del cómic y su contenido.</p>
@@ -52,195 +52,195 @@ La Entidad <code>GRAFICOS</code> contiene y muestra todos los cómics con los si
 <table>
 <thead>
 <tr>
-<th style="text-align:left;">Entidad Principal GRAFICOS · Tabla Maestra</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:right;"></th>
+<th style="text-align:left">Entidad Principal GRAFICOS · Tabla Maestra</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:right"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:right;">Notas</td>
+<td style="text-align:left">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:right">Notas</td>
 </tr>
 <tr>
-<td style="text-align:left;"><strong>id_grafico</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">PK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id único y primario del registro.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:right;">Autoincremental.</td>
+<td style="text-align:left"><strong>id_grafico</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id único y primario del registro.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">Autoincremental.</td>
 </tr>
 <tr>
-<td style="text-align:left;"><strong>id_tipo_grafico</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id de TIPO_GRAFICO que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a TIPO_GRAFICO.id_tipo_grafico</td>
-<td style="text-align:right;">-</td>
+<td style="text-align:left"><strong>id_tipo_grafico</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id de TIPO_GRAFICO que estamos vinculando.</td>
+<td style="text-align:center">Referencia a TIPO_GRAFICO.id_tipo_grafico</td>
+<td style="text-align:right">-</td>
 </tr>
 <tr>
-<td style="text-align:left;"><strong>paginas_grafico</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">No. de páginas.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:right;">-</td>
+<td style="text-align:left"><strong>paginas_grafico</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">No. de páginas.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
 </tr>
 <tr>
-<td style="text-align:left;"><strong>fecha_publicacion_grafico</strong></td>
-<td style="text-align:center;">DATE</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">SÍ</td>
-<td style="text-align:center;">Fecha de publicación.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:right;">Día, Mes y Año.</td>
+<td style="text-align:left"><strong>fecha_publicacion_grafico</strong></td>
+<td style="text-align:center">DATE</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">SÍ</td>
+<td style="text-align:center">Fecha de publicación.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">Día, Mes y Año.</td>
 </tr>
 <tr>
-<td style="text-align:left;"><strong>sinopsis_grafico</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">SÍ</td>
-<td style="text-align:center;">Resumen corto.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:right;">-</td>
+<td style="text-align:left"><strong>sinopsis_grafico</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">SÍ</td>
+<td style="text-align:center">Resumen corto.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
 </tr>
 <tr>
-<td style="text-align:left;"><strong>id_pais</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id de País que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a PAIS.id_pais</td>
-<td style="text-align:right;">Regla: Es obligatorio registrar el país.</td>
+<td style="text-align:left"><strong>id_pais</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id de País que estamos vinculando.</td>
+<td style="text-align:center">Referencia a PAIS.id_pais</td>
+<td style="text-align:right">Regla: Es obligatorio registrar el país.</td>
 </tr>
 <tr>
-<td style="text-align:left;"><strong>id_editorial</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">SI</td>
-<td style="text-align:center;">Id de la Editorial que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a EDITORIAL.id_editorial</td>
-<td style="text-align:right;">-</td>
+<td style="text-align:left"><strong>id_editorial</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">SI</td>
+<td style="text-align:center">Id de la Editorial que estamos vinculando.</td>
+<td style="text-align:center">Referencia a EDITORIAL.id_editorial</td>
+<td style="text-align:right">-</td>
 </tr>
 <tr>
-<td style="text-align:left;"><strong>id_tinta</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id de la Tinta que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a TINTA.id_tinta</td>
-<td style="text-align:right;">Regla: Es obligatorio registrar la tinta.</td>
+<td style="text-align:left"><strong>id_tinta</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id de la Tinta que estamos vinculando.</td>
+<td style="text-align:center">Referencia a TINTA.id_tinta</td>
+<td style="text-align:right">Regla: Es obligatorio registrar la tinta.</td>
 </tr>
 <tr>
-<td style="text-align:left;"><strong>id_distribuidora</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">SI</td>
-<td style="text-align:center;">Id de la Distribuidora que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a DISTRIBUIDORA.id_distribuidora</td>
-<td style="text-align:right;">-</td>
+<td style="text-align:left"><strong>id_distribuidora</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">SI</td>
+<td style="text-align:center">Id de la Distribuidora que estamos vinculando.</td>
+<td style="text-align:center">Referencia a DISTRIBUIDORA.id_distribuidora</td>
+<td style="text-align:right">-</td>
 </tr>
 <tr>
-<td style="text-align:left;"><strong>codigo_distribuidora</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">SI</td>
-<td style="text-align:center;">Código de la Distribuidora.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:right;">-</td>
+<td style="text-align:left"><strong>codigo_distribuidora</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">SI</td>
+<td style="text-align:center">Código de la Distribuidora.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
 </tr>
 <tr>
-<td style="text-align:left;"><strong>rating_grafico</strong></td>
-<td style="text-align:center;">FLOAT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">SÍ</td>
-<td style="text-align:center;">Calificación.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:right;">-</td>
+<td style="text-align:left"><strong>rating_grafico</strong></td>
+<td style="text-align:center">FLOAT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">SÍ</td>
+<td style="text-align:center">Calificación.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
 </tr>
 <tr>
-<td style="text-align:left;"><strong>comentarios_grafico</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">SÍ</td>
-<td style="text-align:center;">Comentarios.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:right;">-</td>
+<td style="text-align:left"><strong>comentarios_grafico</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">SÍ</td>
+<td style="text-align:center">Comentarios.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
 </tr>
 <tr>
-<td style="text-align:left;"><strong>anotaciones_grafico</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">SÍ</td>
-<td style="text-align:center;">Notas Personales.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:right;">-</td>
+<td style="text-align:left"><strong>anotaciones_grafico</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">SÍ</td>
+<td style="text-align:center">Notas Personales.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">-</td>
 </tr>
 <tr>
-<td style="text-align:left;"><strong>clasificacion_grafico</strong></td>
-<td style="text-align:center;">BOOLEAN</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">+18 o no.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:right;">TRUE = +18 FALSE = Todo público</td>
+<td style="text-align:left"><strong>clasificacion_grafico</strong></td>
+<td style="text-align:center">BOOLEAN</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">+18 o no.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">TRUE = +18 FALSE = Todo público</td>
 </tr>
 <tr>
-<td style="text-align:left;"><strong>pixelizacion_grafico</strong></td>
-<td style="text-align:center;">BOOLEAN</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Censurado o no.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:right;">TRUE = Censurado FALSE = Sin censura</td>
+<td style="text-align:left"><strong>pixelizacion_grafico</strong></td>
+<td style="text-align:center">BOOLEAN</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Censurado o no.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">TRUE = Censurado FALSE = Sin censura</td>
 </tr>
 <tr>
-<td style="text-align:left;"><strong>id_edicion</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">SI</td>
-<td style="text-align:center;">Id de la expo que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a edicion_EXPO.id_edicion</td>
-<td style="text-align:right;">-</td>
+<td style="text-align:left"><strong>id_edicion</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">SI</td>
+<td style="text-align:center">Id de la expo que estamos vinculando.</td>
+<td style="text-align:center">Referencia a edicion_EXPO.id_edicion</td>
+<td style="text-align:right">-</td>
 </tr>
 <tr>
-<td style="text-align:left;"><strong>leido_grafico</strong></td>
-<td style="text-align:center;">BOOLEAN</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Si fue o no leído ya el cómic.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:right;">TRUE = SÍ FALSE = No</td>
+<td style="text-align:left"><strong>leido_grafico</strong></td>
+<td style="text-align:center">BOOLEAN</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Si fue o no leído ya el cómic.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">TRUE = SÍ FALSE = No</td>
 </tr>
 <tr>
-<td style="text-align:left;"><strong>fecha_captura_grafico</strong></td>
-<td style="text-align:center;">DATE</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Fecha de captura en la Base de Datos.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:right;">Día, Mes y Año.</td>
+<td style="text-align:left"><strong>fecha_captura_grafico</strong></td>
+<td style="text-align:center">DATE</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Fecha de captura en la Base de Datos.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">Día, Mes y Año.</td>
 </tr>
 <tr>
-<td style="text-align:left;"><strong>codigo_grafico</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Código para su Identificación.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:right;">Se usa el prefijo GR-</td>
+<td style="text-align:left"><strong>codigo_grafico</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Código para su Identificación.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:right">Se usa el prefijo GR-</td>
 </tr>
 </tbody>
 </table>
@@ -255,42 +255,42 @@ La Entidad <code>TIPO_GRAFICO</code> contiene e indica la clasificación especí
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad TIPO_GRAFICO</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad TIPO_GRAFICO</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_tipo_grafico</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">PK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id único del registro.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Autoincremental.</td>
+<td style="text-align:center"><strong>id_tipo_grafico</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id único del registro.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Autoincremental.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>nombre_tipo</strong></td>
-<td style="text-align:center;">VARCHAR (50)</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">El nombre del tipo de cómic.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Regla: Es obligatorio registrar el tipo.</td>
+<td style="text-align:center"><strong>nombre_tipo</strong></td>
+<td style="text-align:center">VARCHAR (50)</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">El nombre del tipo de cómic.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Regla: Es obligatorio registrar el tipo.</td>
 </tr>
 </tbody>
 </table>
@@ -298,47 +298,47 @@ La Entidad <code>TIPO_GRAFICO</code> contiene e indica la clasificación especí
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Id</th>
-<th style="text-align:left;">Nombre</th>
+<th style="text-align:center">Id</th>
+<th style="text-align:left">Nombre</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">1</td>
-<td style="text-align:left;">Cómic</td>
+<td style="text-align:center">1</td>
+<td style="text-align:left">Cómic</td>
 </tr>
 <tr>
-<td style="text-align:center;">2</td>
-<td style="text-align:left;">Manga</td>
+<td style="text-align:center">2</td>
+<td style="text-align:left">Manga</td>
 </tr>
 <tr>
-<td style="text-align:center;">3</td>
-<td style="text-align:left;">Doujinshi</td>
+<td style="text-align:center">3</td>
+<td style="text-align:left">Doujinshi</td>
 </tr>
 <tr>
-<td style="text-align:center;">4</td>
-<td style="text-align:left;">Manhua</td>
+<td style="text-align:center">4</td>
+<td style="text-align:left">Manhua</td>
 </tr>
 <tr>
-<td style="text-align:center;">5</td>
-<td style="text-align:left;">Manhwa</td>
+<td style="text-align:center">5</td>
+<td style="text-align:left">Manhwa</td>
 </tr>
 <tr>
-<td style="text-align:center;">6</td>
-<td style="text-align:left;">Webtoon</td>
+<td style="text-align:center">6</td>
+<td style="text-align:left">Webtoon</td>
 </tr>
 <tr>
-<td style="text-align:center;">7</td>
-<td style="text-align:left;">Historieta</td>
+<td style="text-align:center">7</td>
+<td style="text-align:left">Historieta</td>
 </tr>
 </tbody>
 </table>
-<p><em>N: 1 – Muchos a Uno –</em> </p>
+<p><em>N: 1 – Muchos a Uno –</em></p>
 <p><strong>VERSIÓN GRÁFICO</strong><br>
 La Entidad <code>VERSION_GRAFICO</code> contiene y maneja las múltiples versiones que puede tener un único <code>GRAFICOS</code> y posee los siguientes atributos:</p>
 <p><strong>· ID VERSION.</strong> Identificador único de cada versión específica del Gráfico.<br>
 <strong>· FK - ID GRÁFICO.</strong> Enlaza esta versión con el cómic principal en la entidad <code>GRAFICOS</code>.<br>
-<strong>· FK - ID IDIOMA.</strong> El idioma en el que se encuentra esta versión específica<strong>.</strong><br>
+<strong>· FK - ID IDIOMA.</strong> El idioma en el que se encuentra esta versión específica**.**<br>
 <strong>· TÍTULO.</strong> Nombre del gráfico en el idioma de esta versión. (Depende del Idioma)<br>
 <strong>· SOPORTE.</strong> Indica el medio de esta versión. Valores Posibles: <strong><code>Físico</code>, <code>Digital</code>.</strong><br>
 <strong>· FK - ID TIPO FORMATO.</strong> El formato específico de esta versión. (Dependerá del Soporte)<br>
@@ -350,123 +350,123 @@ La Entidad <code>VERSION_GRAFICO</code> contiene y maneja las múltiples version
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad VERSION_GRAFICO</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad VERSION_GRAFICO</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_version</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">PK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id único del registro.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Autoincremental.</td>
+<td style="text-align:center"><strong>id_version</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id único del registro.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Autoincremental.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_grafico</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id del Gráfico que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a GRAFICOS.id_grafico</td>
-<td style="text-align:center;">Regla: Es obligatorio registrar un gráfico.</td>
+<td style="text-align:center"><strong>id_grafico</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id del Gráfico que estamos vinculando.</td>
+<td style="text-align:center">Referencia a GRAFICOS.id_grafico</td>
+<td style="text-align:center">Regla: Es obligatorio registrar un gráfico.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_idioma</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id del Idioma que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a IDIOMA.id_idioma</td>
-<td style="text-align:center;">Regla: Es obligatorio registrar un idioma.</td>
+<td style="text-align:center"><strong>id_idioma</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id del Idioma que estamos vinculando.</td>
+<td style="text-align:center">Referencia a IDIOMA.id_idioma</td>
+<td style="text-align:center">Regla: Es obligatorio registrar un idioma.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>titulo_version</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Título del cómic.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>titulo_version</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Título del cómic.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>soporte_version</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Soporte del cómic. Físico o Digital</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Regla: Es obligatorio registrar el soporte.</td>
+<td style="text-align:center"><strong>soporte_version</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Soporte del cómic. Físico o Digital</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Regla: Es obligatorio registrar el soporte.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_tipo_formato</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id del Tipo de Formato que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a TIPO_FORMATO.id_tipo_formato</td>
-<td style="text-align:center;">Regla: Es obligatorio registrar el tipo de formato.</td>
+<td style="text-align:center"><strong>id_tipo_formato</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id del Tipo de Formato que estamos vinculando.</td>
+<td style="text-align:center">Referencia a TIPO_FORMATO.id_tipo_formato</td>
+<td style="text-align:center">Regla: Es obligatorio registrar el tipo de formato.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>ancho_version</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">SÍ</td>
-<td style="text-align:center;">Ancho de las Imágenes.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Datos en Pixeles.</td>
+<td style="text-align:center"><strong>ancho_version</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">SÍ</td>
+<td style="text-align:center">Ancho de las Imágenes.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Datos en Pixeles.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>alto_version</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">SÍ</td>
-<td style="text-align:center;">Alto de las Imágenes.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Datos en Pixeles.</td>
+<td style="text-align:center"><strong>alto_version</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">SÍ</td>
+<td style="text-align:center">Alto de las Imágenes.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Datos en Pixeles.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>resolucion_version</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">SÍ</td>
-<td style="text-align:center;">Resolución.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Datos en DPI.</td>
+<td style="text-align:center"><strong>resolucion_version</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">SÍ</td>
+<td style="text-align:center">Resolución.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Datos en DPI.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>peso_version</strong></td>
-<td style="text-align:center;">BIGINT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">SÍ</td>
-<td style="text-align:center;">Peso.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Datos en Bytes.</td>
+<td style="text-align:center"><strong>peso_version</strong></td>
+<td style="text-align:center">BIGINT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">SÍ</td>
+<td style="text-align:center">Peso.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Datos en Bytes.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_traductor</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">SI</td>
-<td style="text-align:center;">Id del Ttraductor que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a TRADUCTOR.id_traductor</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>id_traductor</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">SI</td>
+<td style="text-align:center">Id del Ttraductor que estamos vinculando.</td>
+<td style="text-align:center">Referencia a TRADUCTOR.id_traductor</td>
+<td style="text-align:center">-</td>
 </tr>
 </tbody>
 </table>
@@ -481,73 +481,73 @@ La Entidad <code>VERSION_GRAFICO</code> contiene y maneja las múltiples version
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad INDICE_VERSION</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad INDICE_VERSION</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_indice</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">PK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id único del registro.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Autoincremental.</td>
+<td style="text-align:center"><strong>id_indice</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id único del registro.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Autoincremental.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_version</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id de la versión que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a VERSION_GRAFICO.id_version</td>
-<td style="text-align:center;">Restricción: Solo aplica para soporte_version = 'Digital'.</td>
+<td style="text-align:center"><strong>id_version</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id de la versión que estamos vinculando.</td>
+<td style="text-align:center">Referencia a VERSION_GRAFICO.id_version</td>
+<td style="text-align:center">Restricción: Solo aplica para soporte_version = 'Digital'.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>numero_pagina</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Número de página del archivo.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Valor &gt;= 0 (0 = portada)</td>
+<td style="text-align:center"><strong>numero_pagina</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Número de página del archivo.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Valor &gt;= 0 (0 = portada)</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>ruta_archivo</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Ruta del archivo.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Ruta relativa al directorio base.</td>
+<td style="text-align:center"><strong>ruta_archivo</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Ruta del archivo.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Ruta relativa al directorio base.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_tipo_pagina</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id del tipo de página que estamos vinculando</td>
-<td style="text-align:center;">Referencia a TIPO_PAGINA.id_tipo_pagina</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>id_tipo_pagina</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id del tipo de página que estamos vinculando</td>
+<td style="text-align:center">Referencia a TIPO_PAGINA.id_tipo_pagina</td>
+<td style="text-align:center">-</td>
 </tr>
 </tbody>
 </table>
-<p>*Restricciones y Reglas de Negocio: </p>
+<p>*Restricciones y Reglas de Negocio:</p>
 <p>- Esta tabla solo aplica para versiones con soporte_version = 'Digital'.<br>
 - El numero_pagina debe ser único por id_version.<br>
 - numero_pagina = 0 indica portada.<br>
@@ -560,42 +560,42 @@ La Entidad <code>VERSION_GRAFICO</code> contiene y maneja las múltiples version
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad GRAFICOS_GENEROS</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad GRAFICOS_GENEROS</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_grafico</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id del Gráfico que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a GRAFICO.id_grafico</td>
-<td style="text-align:center;">Regla: Es obligatorio registrar un gráfico.</td>
+<td style="text-align:center"><strong>id_grafico</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id del Gráfico que estamos vinculando.</td>
+<td style="text-align:center">Referencia a GRAFICO.id_grafico</td>
+<td style="text-align:center">Regla: Es obligatorio registrar un gráfico.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_genero</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id del Género que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a GENEROS.id_genero</td>
-<td style="text-align:center;">Regla: Es obligatorio registrar un género.</td>
+<td style="text-align:center"><strong>id_genero</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id del Género que estamos vinculando.</td>
+<td style="text-align:center">Referencia a GENEROS.id_genero</td>
+<td style="text-align:center">Regla: Es obligatorio registrar un género.</td>
 </tr>
 </tbody>
 </table>
@@ -606,42 +606,42 @@ La Entidad <code>VERSION_GRAFICO</code> contiene y maneja las múltiples version
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad GRAFICOS_AUTOR</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad GRAFICOS_AUTOR</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_grafico</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id del Gráfico que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a GRAFICO.id_grafico</td>
-<td style="text-align:center;">Regla: Es obligatorio registrar un gráfico.</td>
+<td style="text-align:center"><strong>id_grafico</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id del Gráfico que estamos vinculando.</td>
+<td style="text-align:center">Referencia a GRAFICO.id_grafico</td>
+<td style="text-align:center">Regla: Es obligatorio registrar un gráfico.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_autor</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id del Autor que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a AUTOR.id_autor</td>
-<td style="text-align:center;">Regla: Es obligatorio registrar un autor.</td>
+<td style="text-align:center"><strong>id_autor</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id del Autor que estamos vinculando.</td>
+<td style="text-align:center">Referencia a AUTOR.id_autor</td>
+<td style="text-align:center">Regla: Es obligatorio registrar un autor.</td>
 </tr>
 </tbody>
 </table>
@@ -652,62 +652,62 @@ La Entidad <code>VERSION_GRAFICO</code> contiene y maneja las múltiples version
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad GRAFICOS_AVISOS</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad GRAFICOS_AVISOS</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_grafico</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id del Gráfico que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a GRAFICO.id_grafico</td>
-<td style="text-align:center;">Regla: Es obligatorio registrar un gráfico.</td>
+<td style="text-align:center"><strong>id_grafico</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id del Gráfico que estamos vinculando.</td>
+<td style="text-align:center">Referencia a GRAFICO.id_grafico</td>
+<td style="text-align:center">Regla: Es obligatorio registrar un gráfico.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_aviso</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id del Aviso que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a AVISOS.id_aviso</td>
-<td style="text-align:center;">Regla: Es obligatorio registrar un aviso</td>
+<td style="text-align:center"><strong>id_aviso</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id del Aviso que estamos vinculando.</td>
+<td style="text-align:center">Referencia a AVISOS.id_aviso</td>
+<td style="text-align:center">Regla: Es obligatorio registrar un aviso</td>
 </tr>
 </tbody>
 </table>
 <p><strong>MAGAZINE</strong><br>
 Un Magazine puede componerse de elementos únicos, cómo su portada, índice, contraportada, artículos, ads y Gráficos de diferentes autores. Estos últimos pueden encontrarse ya capturados o capturarse al momento mismo de la captura del Magazine.</p>
 <p>La Entidad <code>MAGAZINE</code> contiene y muestra todos los magazines con los siguientes atributos:</p>
-<p><strong>· ID MAGAZINE.</strong> Identificador único. </p>
+<p><strong>· ID MAGAZINE.</strong> Identificador único.</p>
 <p><strong>· PÁGINAS TOTALES.</strong> Representa el número total de páginas del magazine. Regla de Cálculo: Este valor es la suma de las páginas de todos los elementos que componen el <code>MAGAZINE</code>.</p>
 <p><strong>· FECHA DE PUBLICACIÓN O ESTRENO DEL MAGAZINE.</strong> Representa la fecha en que el elemento fue publicado o estrenado. Almacenamiento en BD: Tipo <em>DATE</em> formato YYYY-MM-DD (ej: 2025-09-25). Formato de Visualización: Se debe mostrar al usuario como DD · MMM · YYYY , el día, después el mes y luego el año, separados por un punto medio (ejemplo: 25 · Sep · 2025). La conversión se realiza en la capa de aplicación.<br>
 <strong>Funcionalidad:</strong> Actúa como vínculo a un sitio que muestre todos los <code>MAGAZINES</code> que compartan la <strong>misma fecha completa</strong>, o el <strong>mismo mes</strong>, o el <strong>mismo año</strong>. Esto implica que el sistema debe poder consultar por diferentes niveles de granularidad de la fecha.</p>
 <p><strong>· SINOPSIS.</strong> Resumen corto de la historia del cómic.</p>
 <p><strong>· FK · ID PAÍS</strong>. Indica el país de origen del Gráfico.</p>
 <p><strong>· FK · ID EDITORIAL</strong>. Indica la editorial del Gráfico.</p>
-<p><strong>· FK · ID TINTA</strong>. Indica el tipo de tinta que tiene el Magazine. </p>
-<p>· FK · <strong>ID DISTRIBUIDORA</strong>. Indica la distribuidora que tiene el Magazine. </p>
+<p><strong>· FK · ID TINTA</strong>. Indica el tipo de tinta que tiene el Magazine.</p>
+<p>· FK · <strong>ID DISTRIBUIDORA</strong>. Indica la distribuidora que tiene el Magazine.</p>
 <p><strong>· CÓDIGO DISTRIBUIDORA</strong>. Indica el código que le asigna la distribuidora al Magazine.</p>
 <p><strong>· RATING.</strong> Calificación del magazine.</p>
 <p><strong>· COMENTARIOS.</strong> Puntos de vista personales acerca del magazine y su contenido.</p>
 <p><strong>· ANOTACIONES.</strong> Notas o anotaciones personales.</p>
-<p><strong>· CLASIFICACIÓN.</strong> Indica si el gráfico es para mayores de 18 años o para todo público. </p>
+<p><strong>· CLASIFICACIÓN.</strong> Indica si el gráfico es para mayores de 18 años o para todo público.</p>
 <p><strong>· PIXELIZACIÓN.</strong> Indica si el gráfico contiene censura o no.</p>
 <p><strong>· FK · ID EDICIÓN</strong>. Indica la Expo en donde se presentó el Magazine.</p>
 <p><strong>· LEÍDO.</strong> Indicar si el magazine ya fue leído o no.</p>
@@ -716,186 +716,186 @@ Un Magazine puede componerse de elementos únicos, cómo su portada, índice, co
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad Principal MAGAZINE · Tabla Maestra</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad Principal MAGAZINE · Tabla Maestra</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_magazine</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">PK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id único y primario del registro.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Autoincremental.</td>
+<td style="text-align:center"><strong>id_magazine</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id único y primario del registro.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Autoincremental.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>paginas_magazine</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">No. de páginas totales.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Campo calculado: suma de páginas de componentes. Se actualiza automáticamente mediante TRIGGERS cuando se insertan, actualizan o eliminan componentes del magazine.</td>
+<td style="text-align:center"><strong>paginas_magazine</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">No. de páginas totales.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Campo calculado: suma de páginas de componentes. Se actualiza automáticamente mediante TRIGGERS cuando se insertan, actualizan o eliminan componentes del magazine.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>fecha_publicacion_magazine</strong></td>
-<td style="text-align:center;">DATE</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">SÍ</td>
-<td style="text-align:center;">Fecha de publicación.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Día, Mes y Año.</td>
+<td style="text-align:center"><strong>fecha_publicacion_magazine</strong></td>
+<td style="text-align:center">DATE</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">SÍ</td>
+<td style="text-align:center">Fecha de publicación.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Día, Mes y Año.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>sinopsis_magazine</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">SÍ</td>
-<td style="text-align:center;">Resumen corto.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>sinopsis_magazine</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">SÍ</td>
+<td style="text-align:center">Resumen corto.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_pais</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id de País que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a PAIS.id_pais</td>
-<td style="text-align:center;">Regla: Es obligatorio registrar el país.</td>
+<td style="text-align:center"><strong>id_pais</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id de País que estamos vinculando.</td>
+<td style="text-align:center">Referencia a PAIS.id_pais</td>
+<td style="text-align:center">Regla: Es obligatorio registrar el país.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_editorial</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">SI</td>
-<td style="text-align:center;">Id de la Editorial que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a EDITORIAL.id_editorial</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>id_editorial</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">SI</td>
+<td style="text-align:center">Id de la Editorial que estamos vinculando.</td>
+<td style="text-align:center">Referencia a EDITORIAL.id_editorial</td>
+<td style="text-align:center">-</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_tinta</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id de la Tinta que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a TINTA.id_tinta</td>
-<td style="text-align:center;">Regla: Es obligatorio registrar la tinta.</td>
+<td style="text-align:center"><strong>id_tinta</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id de la Tinta que estamos vinculando.</td>
+<td style="text-align:center">Referencia a TINTA.id_tinta</td>
+<td style="text-align:center">Regla: Es obligatorio registrar la tinta.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_distribuidora</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">SI</td>
-<td style="text-align:center;">Id de la Distribuidora que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a DISTRIBUIDORA.id_distribuidora</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>id_distribuidora</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">SI</td>
+<td style="text-align:center">Id de la Distribuidora que estamos vinculando.</td>
+<td style="text-align:center">Referencia a DISTRIBUIDORA.id_distribuidora</td>
+<td style="text-align:center">-</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>codigo_distribuidora</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">SI</td>
-<td style="text-align:center;">Código de la Distribuidora.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>codigo_distribuidora</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">SI</td>
+<td style="text-align:center">Código de la Distribuidora.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>rating_magazine</strong></td>
-<td style="text-align:center;">FLOAT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">SÍ</td>
-<td style="text-align:center;">Calificación.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>rating_magazine</strong></td>
+<td style="text-align:center">FLOAT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">SÍ</td>
+<td style="text-align:center">Calificación.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>comentarios_magazine</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">SÍ</td>
-<td style="text-align:center;">Comentarios.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>comentarios_magazine</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">SÍ</td>
+<td style="text-align:center">Comentarios.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>anotaciones_magazine</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">SÍ</td>
-<td style="text-align:center;">Notas Personales.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>anotaciones_magazine</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">SÍ</td>
+<td style="text-align:center">Notas Personales.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>clasificacion_magazine</strong></td>
-<td style="text-align:center;">BOOLEAN</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">+18 o no</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">TRUE = Contiene contenido +18. FALSE =Todo el contenido es apto para todo público.</td>
+<td style="text-align:center"><strong>clasificacion_magazine</strong></td>
+<td style="text-align:center">BOOLEAN</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">+18 o no</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">TRUE = Contiene contenido +18. FALSE =Todo el contenido es apto para todo público.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>pixelizacion_magazine</strong></td>
-<td style="text-align:center;">BOOLEAN</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Censurado o no</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">TRUE = Contiene al menos un contenido censurado. FALSE = Todo el contenido está sin censura.</td>
+<td style="text-align:center"><strong>pixelizacion_magazine</strong></td>
+<td style="text-align:center">BOOLEAN</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Censurado o no</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">TRUE = Contiene al menos un contenido censurado. FALSE = Todo el contenido está sin censura.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_edicion</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">SI</td>
-<td style="text-align:center;">Id de la expo que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a edicion_EXPO.id_edicion</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>id_edicion</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">SI</td>
+<td style="text-align:center">Id de la expo que estamos vinculando.</td>
+<td style="text-align:center">Referencia a edicion_EXPO.id_edicion</td>
+<td style="text-align:center">-</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>leido_magazine</strong></td>
-<td style="text-align:center;">BOOLEAN</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Si ya fue o no leído el magazine.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>leido_magazine</strong></td>
+<td style="text-align:center">BOOLEAN</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Si ya fue o no leído el magazine.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>fecha_captura_magazine</strong></td>
-<td style="text-align:center;">DATE</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Fecha de captura en la Base de Datos.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Día, Mes y Año.</td>
+<td style="text-align:center"><strong>fecha_captura_magazine</strong></td>
+<td style="text-align:center">DATE</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Fecha de captura en la Base de Datos.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Día, Mes y Año.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>codigo_magazine</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Código para su Identificación.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Se usa el prefijo MGZ-</td>
+<td style="text-align:center"><strong>codigo_magazine</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Código para su Identificación.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Se usa el prefijo MGZ-</td>
 </tr>
 </tbody>
 </table>
@@ -910,51 +910,51 @@ Catálogo global que contiene los formatos disponibles para publicaciones impres
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad TIPO_FORMATO</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad TIPO_FORMATO</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_tipo_formato</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">PK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id único del registro.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Autoincremental.</td>
+<td style="text-align:center"><strong>id_tipo_formato</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id único del registro.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Autoincremental.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>nombre_formato</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Formato del cómic.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Regla: Es obligatorio registrar el formato.</td>
+<td style="text-align:center"><strong>nombre_formato</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Formato del cómic.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Regla: Es obligatorio registrar el formato.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>tipo_soporte</strong></td>
-<td style="text-align:center;">VARCHAR(50)</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Soporte del cómic.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Regla: Es obligatorio registrar el soporte.</td>
+<td style="text-align:center"><strong>tipo_soporte</strong></td>
+<td style="text-align:center">VARCHAR(50)</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Soporte del cómic.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Regla: Es obligatorio registrar el soporte.</td>
 </tr>
 </tbody>
 </table>
@@ -962,46 +962,46 @@ Catálogo global que contiene los formatos disponibles para publicaciones impres
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Id</th>
-<th style="text-align:left;">Formato</th>
-<th style="text-align:left;">Soporte</th>
+<th style="text-align:center">Id</th>
+<th style="text-align:left">Formato</th>
+<th style="text-align:left">Soporte</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">1</td>
-<td style="text-align:left;">Pasta Dura</td>
-<td style="text-align:left;">Físico</td>
+<td style="text-align:center">1</td>
+<td style="text-align:left">Pasta Dura</td>
+<td style="text-align:left">Físico</td>
 </tr>
 <tr>
-<td style="text-align:center;">2</td>
-<td style="text-align:left;">Pasta Blanda</td>
-<td style="text-align:left;">Físico</td>
+<td style="text-align:center">2</td>
+<td style="text-align:left">Pasta Blanda</td>
+<td style="text-align:left">Físico</td>
 </tr>
 <tr>
-<td style="text-align:center;">3</td>
-<td style="text-align:left;">JPG</td>
-<td style="text-align:left;">Digital</td>
+<td style="text-align:center">3</td>
+<td style="text-align:left">JPG</td>
+<td style="text-align:left">Digital</td>
 </tr>
 <tr>
-<td style="text-align:center;">4</td>
-<td style="text-align:left;">PNG</td>
-<td style="text-align:left;">Digital</td>
+<td style="text-align:center">4</td>
+<td style="text-align:left">PNG</td>
+<td style="text-align:left">Digital</td>
 </tr>
 <tr>
-<td style="text-align:center;">5</td>
-<td style="text-align:left;">WEBP</td>
-<td style="text-align:left;">Digital</td>
+<td style="text-align:center">5</td>
+<td style="text-align:left">WEBP</td>
+<td style="text-align:left">Digital</td>
 </tr>
 <tr>
-<td style="text-align:center;">6</td>
-<td style="text-align:left;">PDF</td>
-<td style="text-align:left;">Digital</td>
+<td style="text-align:center">6</td>
+<td style="text-align:left">PDF</td>
+<td style="text-align:left">Digital</td>
 </tr>
 <tr>
-<td style="text-align:center;">7</td>
-<td style="text-align:left;">CBR</td>
-<td style="text-align:left;">Digital</td>
+<td style="text-align:center">7</td>
+<td style="text-align:left">CBR</td>
+<td style="text-align:left">Digital</td>
 </tr>
 </tbody>
 </table>
@@ -1014,42 +1014,42 @@ La Entidad <code>TIPO_PAGINA</code> contiene e indica el tipo que tiene página 
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad TIPO_PAGINA</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad TIPO_PAGINA</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_tipo_pagina</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">PK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id único del registro.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Autoincremental.</td>
+<td style="text-align:center"><strong>id_tipo_pagina</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id único del registro.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Autoincremental.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>nombre_tipo</strong></td>
-<td style="text-align:center;">VARCHAR (50)</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">El nombre del tipo.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>nombre_tipo</strong></td>
+<td style="text-align:center">VARCHAR (50)</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">El nombre del tipo.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 </tbody>
 </table>
@@ -1057,30 +1057,30 @@ La Entidad <code>TIPO_PAGINA</code> contiene e indica el tipo que tiene página 
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Id</th>
-<th style="text-align:left;">Nombre</th>
+<th style="text-align:center">Id</th>
+<th style="text-align:left">Nombre</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">1</td>
-<td style="text-align:left;">Portada</td>
+<td style="text-align:center">1</td>
+<td style="text-align:left">Portada</td>
 </tr>
 <tr>
-<td style="text-align:center;">2</td>
-<td style="text-align:left;">Índice</td>
+<td style="text-align:center">2</td>
+<td style="text-align:left">Índice</td>
 </tr>
 <tr>
-<td style="text-align:center;">3</td>
-<td style="text-align:left;">Contenido</td>
+<td style="text-align:center">3</td>
+<td style="text-align:left">Contenido</td>
 </tr>
 <tr>
-<td style="text-align:center;">4</td>
-<td style="text-align:left;">Contraportada</td>
+<td style="text-align:center">4</td>
+<td style="text-align:left">Contraportada</td>
 </tr>
 <tr>
-<td style="text-align:center;">5</td>
-<td style="text-align:left;">Extra</td>
+<td style="text-align:center">5</td>
+<td style="text-align:left">Extra</td>
 </tr>
 </tbody>
 </table>
@@ -1093,42 +1093,42 @@ La Entidad <code>EDITORIAL</code> contiene las compañías editoriales relaciona
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad EDITORIAL</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad EDITORIAL</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_editorial</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">PK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id único del registro.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Autoincremental.</td>
+<td style="text-align:center"><strong>id_editorial</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id único del registro.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Autoincremental.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>nombre_editorial</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">El nombre de la editorial.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>nombre_editorial</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">El nombre de la editorial.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 </tbody>
 </table>
@@ -1141,42 +1141,42 @@ La Entidad <code>DISTRIBUIDORA</code> contiene las distribuidoras relacionadas c
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad DISTRIBUIDORA</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad DISTRIBUIDORA</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_distribuidora</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">PK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id único del registro.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Autoincremental.</td>
+<td style="text-align:center"><strong>id_distribuidora</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id único del registro.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Autoincremental.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>nombre_distribuidora</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">El nombre de la distribuidora.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>nombre_distribuidora</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">El nombre de la distribuidora.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 </tbody>
 </table>
@@ -1189,42 +1189,42 @@ La Entidad <code>GENEROS</code> contiene todos los géneros que clasifican los <
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad GENEROS</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad GENEROS</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_genero</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">PK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id único del registro.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Autoincremental.</td>
+<td style="text-align:center"><strong>id_genero</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id único del registro.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Autoincremental.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>nombre_genero</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">El nombre del género.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>nombre_genero</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">El nombre del género.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 </tbody>
 </table>
@@ -1238,42 +1238,42 @@ La Entidad <code>TINTA</code> contiene los tipos de tintas que están relacionad
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad TINTA</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad TINTA</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_tinta</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">PK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id único del registro.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Autoincremental.</td>
+<td style="text-align:center"><strong>id_tinta</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id único del registro.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Autoincremental.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>nombre_tinta</strong></td>
-<td style="text-align:center;">VARCHAR (50)</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">El nombre de la tinta.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>nombre_tinta</strong></td>
+<td style="text-align:center">VARCHAR (50)</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">El nombre de la tinta.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 </tbody>
 </table>
@@ -1281,26 +1281,26 @@ La Entidad <code>TINTA</code> contiene los tipos de tintas que están relacionad
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Id</th>
-<th style="text-align:left;">Nombre</th>
+<th style="text-align:center">Id</th>
+<th style="text-align:left">Nombre</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">1</td>
-<td style="text-align:left;">Color</td>
+<td style="text-align:center">1</td>
+<td style="text-align:left">Color</td>
 </tr>
 <tr>
-<td style="text-align:center;">2</td>
-<td style="text-align:left;">Blanco &amp; Negro</td>
+<td style="text-align:center">2</td>
+<td style="text-align:left">Blanco &amp; Negro</td>
 </tr>
 <tr>
-<td style="text-align:center;">3</td>
-<td style="text-align:left;">Sepia</td>
+<td style="text-align:center">3</td>
+<td style="text-align:left">Sepia</td>
 </tr>
 <tr>
-<td style="text-align:center;">4</td>
-<td style="text-align:left;">Mixto</td>
+<td style="text-align:center">4</td>
+<td style="text-align:left">Mixto</td>
 </tr>
 </tbody>
 </table>
@@ -1313,42 +1313,42 @@ La Entidad <code>AUTOR</code> contiene a los autores relacionados con <code>GRAF
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad AUTOR</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad AUTOR</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_autor</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">PK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id único del registro.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Autoincremental.</td>
+<td style="text-align:center"><strong>id_autor</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id único del registro.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Autoincremental.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>nombre_autor</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">El nombre del autor.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>nombre_autor</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">El nombre del autor.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 </tbody>
 </table>
@@ -1362,51 +1362,51 @@ La Entidad <code>AKA</code> contiene e indica los alias o seudónimos que puede 
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad AKA</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad AKA</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_aka</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">PK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id único del registro.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Autoincremental.</td>
+<td style="text-align:center"><strong>id_aka</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id único del registro.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Autoincremental.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_autor</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id del Autor que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a AUTOR.id_autor</td>
-<td style="text-align:center;">Regla: Es obligatorio registrar un autor.</td>
+<td style="text-align:center"><strong>id_autor</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id del Autor que estamos vinculando.</td>
+<td style="text-align:center">Referencia a AUTOR.id_autor</td>
+<td style="text-align:center">Regla: Es obligatorio registrar un autor.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>aka</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">El Seudónimo.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>aka</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">El Seudónimo.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 </tbody>
 </table>
@@ -1420,42 +1420,42 @@ La Entidad <code>EXPO</code> contiene un listado de las exposiciones o convencio
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad EXPO</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad EXPO</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_expo</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">PK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id único del registro.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Autoincremental.</td>
+<td style="text-align:center"><strong>id_expo</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id único del registro.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Autoincremental.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>nombre_expo</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">El Nombre de la convención.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>nombre_expo</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">El Nombre de la convención.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 </tbody>
 </table>
@@ -1463,18 +1463,18 @@ La Entidad <code>EXPO</code> contiene un listado de las exposiciones o convencio
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Id</th>
-<th style="text-align:left;">Nombre</th>
+<th style="text-align:center">Id</th>
+<th style="text-align:left">Nombre</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">1</td>
-<td style="text-align:left;">Comic Market</td>
+<td style="text-align:center">1</td>
+<td style="text-align:left">Comic Market</td>
 </tr>
 <tr>
-<td style="text-align:center;">2</td>
-<td style="text-align:left;">Anime Japan</td>
+<td style="text-align:center">2</td>
+<td style="text-align:left">Anime Japan</td>
 </tr>
 </tbody>
 </table>
@@ -1490,69 +1490,69 @@ La Entidad <code>EDCION_EXPO</code> indica los detalles de una exposición o con
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad EDICION_EXPO</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad EDICION_EXPO</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_edicion</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">PK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id único del registro.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Autoincremental.</td>
+<td style="text-align:center"><strong>id_edicion</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id único del registro.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Autoincremental.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_expo</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">FK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id de la Expo que estamos vinculando.</td>
-<td style="text-align:center;">Referencia a EXPO.id_expo</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>id_expo</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">FK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id de la Expo que estamos vinculando.</td>
+<td style="text-align:center">Referencia a EXPO.id_expo</td>
+<td style="text-align:center">-</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>nombre_edicion</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">SI</td>
-<td style="text-align:center;">Nombre completo de la edición.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>nombre_edicion</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">SI</td>
+<td style="text-align:center">Nombre completo de la edición.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>fecha_edicion</strong></td>
-<td style="text-align:center;">DATE</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">SI</td>
-<td style="text-align:center;">Fecha de edición del evento.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>fecha_edicion</strong></td>
+<td style="text-align:center">DATE</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">SI</td>
+<td style="text-align:center">Fecha de edición del evento.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>numero_edicion</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">SI</td>
-<td style="text-align:center;">Número de la edición.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>numero_edicion</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">SI</td>
+<td style="text-align:center">Número de la edición.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 </tbody>
 </table>
@@ -1560,30 +1560,30 @@ La Entidad <code>EDCION_EXPO</code> indica los detalles de una exposición o con
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Elemento</th>
-<th style="text-align:center;">Dato</th>
+<th style="text-align:center">Elemento</th>
+<th style="text-align:center">Dato</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">id_edicion</td>
-<td style="text-align:center;">106</td>
+<td style="text-align:center">id_edicion</td>
+<td style="text-align:center">106</td>
 </tr>
 <tr>
-<td style="text-align:center;">id_expo</td>
-<td style="text-align:center;">1</td>
+<td style="text-align:center">id_expo</td>
+<td style="text-align:center">1</td>
 </tr>
 <tr>
-<td style="text-align:center;">nombre_edicion</td>
-<td style="text-align:center;">Summer Comiket</td>
+<td style="text-align:center">nombre_edicion</td>
+<td style="text-align:center">Summer Comiket</td>
 </tr>
 <tr>
-<td style="text-align:center;">fecha_edicion</td>
-<td style="text-align:center;">Agosto 2025</td>
+<td style="text-align:center">fecha_edicion</td>
+<td style="text-align:center">Agosto 2025</td>
 </tr>
 <tr>
-<td style="text-align:center;">numero_edicion</td>
-<td style="text-align:center;">106</td>
+<td style="text-align:center">numero_edicion</td>
+<td style="text-align:center">106</td>
 </tr>
 </tbody>
 </table>
@@ -1597,42 +1597,42 @@ La Entidad <code>PAIS</code> contiene e indica el país de origen.<br>
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad PAIS</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad PAIS</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_pais</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">PK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id único del registro.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Autoincremental.</td>
+<td style="text-align:center"><strong>id_pais</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id único del registro.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Autoincremental.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>nombre_pais</strong></td>
-<td style="text-align:center;">VARCHAR (50)</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">El nombre del país.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>nombre_pais</strong></td>
+<td style="text-align:center">VARCHAR (50)</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">El nombre del país.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 </tbody>
 </table>
@@ -1640,26 +1640,26 @@ La Entidad <code>PAIS</code> contiene e indica el país de origen.<br>
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Id</th>
-<th style="text-align:left;">Nombre</th>
+<th style="text-align:center">Id</th>
+<th style="text-align:left">Nombre</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">1</td>
-<td style="text-align:left;">Japón</td>
+<td style="text-align:center">1</td>
+<td style="text-align:left">Japón</td>
 </tr>
 <tr>
-<td style="text-align:center;">2</td>
-<td style="text-align:left;">Corea del Sur</td>
+<td style="text-align:center">2</td>
+<td style="text-align:left">Corea del Sur</td>
 </tr>
 <tr>
-<td style="text-align:center;">3</td>
-<td style="text-align:left;">EEUU</td>
+<td style="text-align:center">3</td>
+<td style="text-align:left">EEUU</td>
 </tr>
 <tr>
-<td style="text-align:center;">4</td>
-<td style="text-align:left;">México</td>
+<td style="text-align:center">4</td>
+<td style="text-align:left">México</td>
 </tr>
 </tbody>
 </table>
@@ -1673,42 +1673,42 @@ La Entidad <code>IDIOMA</code> contiene e indica el idioma.<br>
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad IDIOMA</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad IDIOMA</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_idioma</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">PK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id único del registro.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Autoincremental.</td>
+<td style="text-align:center"><strong>id_idioma</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id único del registro.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Autoincremental.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>nombre_idioma</strong></td>
-<td style="text-align:center;">VARCHAR (50)</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">El nombre del idioma.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>nombre_idioma</strong></td>
+<td style="text-align:center">VARCHAR (50)</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">El nombre del idioma.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 </tbody>
 </table>
@@ -1716,26 +1716,26 @@ La Entidad <code>IDIOMA</code> contiene e indica el idioma.<br>
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Id</th>
-<th style="text-align:left;">Nombre</th>
+<th style="text-align:center">Id</th>
+<th style="text-align:left">Nombre</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">1</td>
-<td style="text-align:left;">Japonés</td>
+<td style="text-align:center">1</td>
+<td style="text-align:left">Japonés</td>
 </tr>
 <tr>
-<td style="text-align:center;">2</td>
-<td style="text-align:left;">Coreano</td>
+<td style="text-align:center">2</td>
+<td style="text-align:left">Coreano</td>
 </tr>
 <tr>
-<td style="text-align:center;">3</td>
-<td style="text-align:left;">Inglés</td>
+<td style="text-align:center">3</td>
+<td style="text-align:left">Inglés</td>
 </tr>
 <tr>
-<td style="text-align:center;">4</td>
-<td style="text-align:left;">Español</td>
+<td style="text-align:center">4</td>
+<td style="text-align:left">Español</td>
 </tr>
 </tbody>
 </table>
@@ -1748,42 +1748,42 @@ La Entidad <code>TRADUCTOR</code> contiene los traductores.<br>
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad TRADUCTOR</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad TRADUCTOR</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_traductor</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">PK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id único del registro.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Autoincremental.</td>
+<td style="text-align:center"><strong>id_traductor</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id único del registro.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Autoincremental.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>nombre_traductor</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">El nombre del traductor.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>nombre_traductor</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">El nombre del traductor.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 </tbody>
 </table>
@@ -1798,42 +1798,42 @@ La Entidad <code>AVISOS</code> contiene los diferentes valores que muestran el t
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Entidad AVISOS</th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
-<th style="text-align:center;"></th>
+<th style="text-align:center">Entidad AVISOS</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">Nombre del Campo</td>
-<td style="text-align:center;">Tipo de  Dato</td>
-<td style="text-align:center;">Clave Key</td>
-<td style="text-align:center;">Nulidad</td>
-<td style="text-align:center;">Descripción o Función</td>
-<td style="text-align:center;">Relaciones FK</td>
-<td style="text-align:center;">Notas</td>
+<td style="text-align:center">Nombre del Campo</td>
+<td style="text-align:center">Tipo de  Dato</td>
+<td style="text-align:center">Clave Key</td>
+<td style="text-align:center">Nulidad</td>
+<td style="text-align:center">Descripción o Función</td>
+<td style="text-align:center">Relaciones FK</td>
+<td style="text-align:center">Notas</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>id_aviso</strong></td>
-<td style="text-align:center;">INT</td>
-<td style="text-align:center;">PK</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">Id único del registro.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">Autoincremental.</td>
+<td style="text-align:center"><strong>id_aviso</strong></td>
+<td style="text-align:center">INT</td>
+<td style="text-align:center">PK</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">Id único del registro.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">Autoincremental.</td>
 </tr>
 <tr>
-<td style="text-align:center;"><strong>nombre_aviso</strong></td>
-<td style="text-align:center;">TEXT</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">NO</td>
-<td style="text-align:center;">El valor del aviso.</td>
-<td style="text-align:center;">-</td>
-<td style="text-align:center;">-</td>
+<td style="text-align:center"><strong>nombre_aviso</strong></td>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">NO</td>
+<td style="text-align:center">El valor del aviso.</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
 </tbody>
 </table>
@@ -1841,38 +1841,38 @@ La Entidad <code>AVISOS</code> contiene los diferentes valores que muestran el t
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">Id</th>
-<th style="text-align:left;">Nombre</th>
+<th style="text-align:center">Id</th>
+<th style="text-align:left">Nombre</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">1</td>
-<td style="text-align:left;">Sangre/Gore</td>
+<td style="text-align:center">1</td>
+<td style="text-align:left">Sangre/Gore</td>
 </tr>
 <tr>
-<td style="text-align:center;">2</td>
-<td style="text-align:left;">Desnudez</td>
+<td style="text-align:center">2</td>
+<td style="text-align:left">Desnudez</td>
 </tr>
 <tr>
-<td style="text-align:center;">3</td>
-<td style="text-align:left;">Lenguaje Ofensivo</td>
+<td style="text-align:center">3</td>
+<td style="text-align:left">Lenguaje Ofensivo</td>
 </tr>
 <tr>
-<td style="text-align:center;">4</td>
-<td style="text-align:left;">Tabaquismo</td>
+<td style="text-align:center">4</td>
+<td style="text-align:left">Tabaquismo</td>
 </tr>
 <tr>
-<td style="text-align:center;">5</td>
-<td style="text-align:left;">Violencia</td>
+<td style="text-align:center">5</td>
+<td style="text-align:left">Violencia</td>
 </tr>
 <tr>
-<td style="text-align:center;">6</td>
-<td style="text-align:left;">Contenido Sexual</td>
+<td style="text-align:center">6</td>
+<td style="text-align:left">Contenido Sexual</td>
 </tr>
 <tr>
-<td style="text-align:center;">7</td>
-<td style="text-align:left;">Diálogos Sugerentes</td>
+<td style="text-align:center">7</td>
+<td style="text-align:left">Diálogos Sugerentes</td>
 </tr>
 </tbody>
 </table>
@@ -1889,12 +1889,190 @@ ads, contraportada, etc.).</p>
 · UPDATE en tabla COMPONENTES_MAGAZINE (cuando cambia el número de páginas)<br>
 · DELETE en tabla COMPONENTES_MAGAZINE</p>
 <p><strong>Fórmula de cálculo:</strong></p>
-<pre><code class="sql language-sql">paginas\_magazine \= SUM(paginas\_componente)   
+<pre><code class="language-sql">paginas\_magazine \= SUM(paginas\_componente)   
 FROM COMPONENTES\_MAGAZINE   
 WHERE id\_magazine \= \[id\_magazine\_actual\]
 </code></pre>
-<p>**Nota:** Este campo no debe ser editado manualmente por el usuario.</p></div>
-    <script src="./Database Document_files/showdown.min.js"></script>
+<p>**Nota:** Este campo no debe ser editado manualmente por el usuario.</p>
+<p>Caja 1</p>
+<table>
+<thead>
+<tr>
+<th>Imagen</th>
+<th>Artículo</th>
+<th>No. Piezas en Caja</th>
+<th>No. pzas en exibición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Pantalon Megro 2</td>
+<td>R</td>
+<td>2 pzas</td>
+</tr>
+<tr>
+<td></td>
+<td>Pantalon Azul 32×32</td>
+<td>1 pza</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Pantalon Claro 34×30</td>
+<td>2 pzas</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Blusa Morada  M</td>
+<td>1 pza</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>playera puza roja L (10/12)</td>
+<td>1 pza</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Falda cafe 6</td>
+<td>1 pza</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Playera Rayas Azules  3x</td>
+<td>3 pzas</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Playera Verde xl</td>
+<td>2 Pzas</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Sudadera Café Felpudo L</td>
+<td>5 pzas</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Pantalon Cafe 32x32</td>
+<td>2 pza</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Blusa Rosa Cuello Tortuga M</td>
+<td>6 pzas</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Blusa tirantes negra Xs</td>
+<td>6 pzas</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Playera Cafe XXL</td>
+<td>6 pzas</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Playera Cafe M</td>
+<td>3 pzas</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Calcetines Leñador 4 a 10</td>
+<td>20 pzas</td>
+<td>7 pzas</td>
+</tr>
+</tbody>
+</table>
+<p>Caja 2</p>
+<table>
+<thead>
+<tr>
+<th>Imagen</th>
+<th>Artículo</th>
+<th>No. Piezas en Caja</th>
+<th>No. pzas en exibición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>Sudadera Gris L</td>
+<td>3 pzas</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Pañuelos 6px</td>
+<td>20 pzas</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Gorra chevrolet</td>
+<td>5 pzas</td>
+<td>4 pzas</td>
+</tr>
+<tr>
+<td></td>
+<td>Guantes bebe 2 pares</td>
+<td>20 pzas</td>
+<td>4 pzas</td>
+</tr>
+<tr>
+<td></td>
+<td>Peluche Verde</td>
+<td>1pza</td>
+<td>1 pza</td>
+</tr>
+<tr>
+<td></td>
+<td>Peliche Rojo</td>
+<td>2 pzas</td>
+<td>1 pza</td>
+</tr>
+<tr>
+<td></td>
+<td>Pantuflas plateadas 7/8 (4/5)</td>
+<td>4pzas</td>
+<td>1 pza</td>
+</tr>
+<tr>
+<td></td>
+<td>Pantuflas rosas 5/6 (2/3)</td>
+<td>7pzas</td>
+<td>1 pza</td>
+</tr>
+<tr>
+<td></td>
+<td>Huaraches Chicle 10</td>
+<td>4 pzas</td>
+<td>1 pza</td>
+</tr>
+<tr>
+<td></td>
+<td>Brazo</td>
+<td>6 pzas</td>
+<td>3 pzas</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+    <script src="./Database Document_files/markdown-it.min.js"></script>
     <script src="./Database Document_files/index.js"></script>
 
 

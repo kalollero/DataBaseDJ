@@ -1,0 +1,120 @@
+body {
+    padding: 0px 0px 1rem 8px;
+    margin: 0 !important;
+    background-color: rgb(40, 40, 40) !important;
+    color: beige;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+p {
+    margin: 1rem;
+}
+
+.nombreCaja {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 0 8px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 8vh;
+    z-index: 3;
+    background-color: rgb(40, 40, 40);
+}
+
+.nombreCaja>h1 {
+    margin: 0px;
+}
+
+.nombreCaja>.link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 1rem;
+    background-color: rgb(191, 191, 191);
+    color: black;
+    border-radius: 1rem;
+    font-weight: 700;
+    font-size: 12px;
+    margin-right: 8px;
+}
+
+.caja {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    /*border: 1px orange dashed;*/
+    margin-right: 8px;
+}
+
+.productos {
+    z-index: 2;
+    grid-column: 1;
+    grid-row: 1 / 2;
+    background-color: rgb(40, 40, 40);
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.productos>div {
+    border: 1px rgb(80, 80, 80) solid;
+    width: 100%;
+    height: 20vh;
+}
+
+.descripcion {
+    z-index: 1;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    scroll
+}
+
+#demo_producto>div {
+    width: 30vw;
+}
+
+#descripcion_producto>div {
+    width: 40vw;
+}
+
+#numero_pzas>div {
+    width: 30vw;
+}
+
+#pzas_ex>div {
+    width: 40vw;
+
+}
+
+#demo_producto>div,
+#descripcion_producto>div,
+#numero_pzas>div,
+#pzas_exhibicion>div {
+    border: 1px rgb(80, 80, 80) solid;
+    height: 20vh;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+#titulo,
+#demo_producto>#titulo,
+#descripcion_producto>#titulo,
+#numero_pzas>#titulo,
+#pzas_exhibicion>#titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: small;
+    letter-spacing: 2px;
+}
