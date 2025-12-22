@@ -4,7 +4,7 @@ const app = document.querySelector('#app')
 // Markdown-it no necesita opciones de configuración para tablas o GFM.
 const md = window.markdownit();
 
-fetch("/Documentos/DataBase.md")
+fetch("Documentos/DataBase.md")
     .then((response) => {
         // Asegura que la respuesta sea OK antes de continuar
         if (!response.ok) {
