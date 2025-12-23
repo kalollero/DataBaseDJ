@@ -67,7 +67,18 @@ link,
     height: 20vh;
 }
 
+.img_productos {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
 .img_productos>img {
+    position: absolute;
+    /*height: 20vh;*/
+    width: 100%;
     height: 20vh;
 }
 
