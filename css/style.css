@@ -67,6 +67,10 @@ link,
     height: 20vh;
 }
 
+.img_productos>img {
+    height: 20vh;
+}
+
 .descripcion {
     z-index: 1;
     grid-column: 1 / 2;
