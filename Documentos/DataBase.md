@@ -1,6 +1,6 @@
 
 
-# Estructura de la Base de Datos
+Estructura de la Base de Datos
 
 **DataBase**
 
@@ -15,8 +15,8 @@ Las entidades principales que componen la Base de datos son:
 Los campos booleanos se almacenan como INTEGER con valores 0 (FALSE) o 1 (TRUE).   
 En la documentación se especifica como BOOLEAN por claridad conceptual.
 
-**GRAFICOS**  
-La Entidad `GRAFICOS` contiene y muestra todos los cómics con los siguientes atributos:
+**GRAFICO**  
+La Entidad `GRAFICO` contiene y muestra todos los cómics con los siguientes atributos:
 
 **· ID GRÁFICO.** Identificador único. 
 
@@ -55,10 +55,10 @@ La Entidad `GRAFICOS` contiene y muestra todos los cómics con los siguientes at
 
 **· FECHA DE CAPTURA.** Fecha en que se captura el cómic en la base de datos. Se compone del día/mes/año.
 
-**· CÓDIGO.** Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. Formato de Generación: Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para `GRAFICOS`**:** Prefijo `"GR-"` \+ `id_grafico` (Ej. `GR-123`)
+**· CÓDIGO.** Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. Formato de Generación: Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para `GRAFICO`**:** Prefijo `"GR-"` \+ `ID_GRAFICO` (Ej. `GR-123`)
 
-| Entidad Principal GRAFICOS · Tabla Maestra |  |  |  |  |  |  |
-| :--- | :---: | :---: | :---: | :---: | :---: | ---: |
+| Entidad Principal GRAFICO · Tabla Maestra |  |  |  |  |  |  |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Nombre del Campo | Tipo de  Dato | Clave Key | Nulidad | Descripción o Función | Relaciones FK | Notas |
 | **id\_grafico** | INT | PK | NO | Id único y primario del registro. | \- | Autoincremental. |
 | **id\_tipo\_grafico** | INT | FK | NO | Id de TIPO\_GRAFICO que estamos vinculando. | Referencia a TIPO\_GRAFICO.id\_tipo\_grafico | \- |
@@ -80,8 +80,6 @@ La Entidad `GRAFICOS` contiene y muestra todos los cómics con los siguientes at
 | **fecha\_captura\_grafico** | DATE | \- | NO | Fecha de captura en la Base de Datos. | \- | Día, Mes y Año. |
 | **codigo\_grafico** | TEXT | \- | NO | Código para su Identificación. | \- | Se usa el prefijo GR- |
 
-\*Notas\*
-
 *1:N  – Uno a Muchos –*
 
 **TIPO DE GRÁFICO**  
@@ -90,7 +88,7 @@ La Entidad `TIPO_GRAFICO` contiene e indica la clasificación específica de un 
 **Funcionalidad:** Este elemento funcionará como un vínculo a un sitio donde se muestran todos los que comparten ese mismo tipo.
 
 **· ID TIPO GRÁFICO.** Identificador único.  
-**· NOMBRE DEL TIPO.** Nombre de los valores posibles que puede tener la entidad `GRAFICOS`.
+**· NOMBRE DEL TIPO.** Nombre de los valores posibles que puede tener la entidad `GRAFICO`.
 
 | Entidad TIPO\_GRAFICO |  |  |  |  |  |  |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -113,10 +111,10 @@ La Entidad `TIPO_GRAFICO` contiene e indica la clasificación específica de un 
 *N: 1 – Muchos a Uno –* 
 
 **VERSIÓN GRÁFICO**  
-La Entidad `VERSION_GRAFICO` contiene y maneja las múltiples versiones que puede tener un único `GRAFICOS` y posee los siguientes atributos:
+La Entidad `VERSION_GRAFICO` contiene y maneja las múltiples versiones que puede tener un único `GRAFICO` y posee los siguientes atributos:
 
 **· ID VERSION.** Identificador único de cada versión específica del Gráfico.  
-**· FK \- ID GRÁFICO.** Enlaza esta versión con el cómic principal en la entidad `GRAFICOS`.  
+**· FK \- ID GRÁFICO.** Enlaza esta versión con el cómic principal en la entidad `GRAFICO`.  
 **· FK \- ID IDIOMA.** El idioma en el que se encuentra esta versión específica**.**  
 **· TÍTULO.** Nombre del gráfico en el idioma de esta versión. (Depende del Idioma)   
 **· SOPORTE.** Indica el medio de esta versión. Valores Posibles: **`Físico`, `Digital`.**  
@@ -124,14 +122,14 @@ La Entidad `VERSION_GRAFICO` contiene y maneja las múltiples versiones que pued
 **· ANCHO DE LAS IMAGEN.** Tamaño del ancho de las imágenes en píxeles de esta versión.  
 **· ALTO DE LAS IMAGEN.** Tamaño del alto de las imágenes en píxeles de esta versión.  
 **· RESOLUCIÓN.** Calidad de la imagen en DPI.  
-**· PESO** (Restricción de Datos)**.**  En caso de que el cómic esté en formato digital, indicar el peso del archivo convertido a Bytes siempre.  
+**· PESO. I**ndicar el peso del archivo convertido a Bytes siempre.  
 **· FK \- ID TRADUCTOR.** Indica el traductor de esta versión.
 
 | Entidad VERSION\_GRAFICO |  |  |  |  |  |  |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Nombre del Campo | Tipo de  Dato | Clave Key | Nulidad | Descripción o Función | Relaciones FK | Notas |
 | **id\_version** | INT | PK | NO | Id único del registro. | \- | Autoincremental. |
-| **id\_grafico** | INT | FK | NO | Id del Gráfico que estamos vinculando. | Referencia a GRAFICOS.id\_grafico | Regla: Es obligatorio registrar un gráfico. |
+| **id\_grafico** | INT | FK | NO | Id del Gráfico que estamos vinculando. | Referencia a GRAFICO.id\_grafico | Regla: Es obligatorio registrar un gráfico. |
 | **id\_idioma** | INT | FK | NO | Id del Idioma que estamos vinculando. | Referencia a IDIOMA.id\_idioma | Regla: Es obligatorio registrar un idioma. |
 | **titulo\_version** | TEXT | \- | NO | Título del cómic. | \- | \- |
 | **soporte\_version** | TEXT | \- | NO | Soporte del cómic. Físico o Digital | \- | Regla: Es obligatorio registrar el soporte. |
@@ -144,7 +142,7 @@ La Entidad `VERSION_GRAFICO` contiene y maneja las múltiples versiones que pued
 
 *1:N  \- Uno a Muchos \-*
 
-**ÍNDICE DE LA VERSIÓN**
+**ÍNDICE VERSIÓN**
 
 La Entidad `INDICE_VERSION` almacena el índice o listado de las rutas de archivos que componen una versión digital específica. Esto permite que cada versión en la tabla `VERSION_GRAFICO` tenga su propio listado ordenado de páginas/archivos.
 
@@ -152,7 +150,7 @@ La Entidad `INDICE_VERSION` almacena el índice o listado de las rutas de archiv
 **· FK \- ID VERSION**. Enlaza esta ruta con la versión digital correspondiente en la tabla `VERSION_GRAFICO`.  
 **· NÚMERO DE PÁGINA.** El número de página (o índice) que representa este archivo, es crucial para mantener el orden de lectura.  
 **· RUTA DEL ARCHIVO.** La ruta absoluta o relativa donde se encuentra el archivo de la página en el sistema de almacenamiento.  
-**· FK \- ID TIPO DE PÁGINA.**·El tipo de contenido que es la página del cómic: **`Portada, Índice, Contenido, Contraportada, Extra.`**
+**· FK \- ID TIPO DE PÁGINA.**·El tipo de contenido que es la página del cómic.
 
 | Entidad INDICE\_VERSION |  |  |  |  |  |  |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -173,12 +171,12 @@ La Entidad `INDICE_VERSION` almacena el índice o listado de las rutas de archiv
 
 *N: M \- Muchos a Muchos \-*
 
-**GRAFICOS\_GENEROS**
+**GRAFICO\_GENEROS**
 
-**· FK \- ID GRÁFICO**. Enlaza esta ruta con la tabla `GRAFICOS`.  
+**· FK \- ID GRÁFICO**. Enlaza esta ruta con la tabla `GRAFICO`.  
 **· FK \- ID GÉNERO**. Enlaza esta ruta con la tabla `GENEROS`.
 
-| Entidad GRAFICOS\_GENEROS |  |  |  |  |  |  |
+| Entidad GRAFICO\_GENEROS |  |  |  |  |  |  |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Nombre del Campo | Tipo de  Dato | Clave Key | Nulidad | Descripción o Función | Relaciones FK | Notas |
 | **id\_grafico** | INT | FK | NO | Id del Gráfico que estamos vinculando. | Referencia a GRAFICO.id\_grafico | Regla: Es obligatorio registrar un gráfico. |
@@ -186,12 +184,12 @@ La Entidad `INDICE_VERSION` almacena el índice o listado de las rutas de archiv
 
 *N: M \- Muchos a Muchos \-*
 
-**GRAFICOS\_AUTOR**
+**GRAFICO\_AUTOR**
 
-**· FK \- ID GRÁFICO**. Enlaza esta ruta con la tabla `GRAFICOS`.  
+**· FK \- ID GRÁFICO**. Enlaza esta ruta con la tabla `GRAFICO`.  
 **· FK \- ID AUTOR**. Enlaza esta ruta con la tabla `AUTOR`.
 
-| Entidad GRAFICOS\_AUTOR |  |  |  |  |  |  |
+| Entidad GRAFICO\_AUTOR |  |  |  |  |  |  |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Nombre del Campo | Tipo de  Dato | Clave Key | Nulidad | Descripción o Función | Relaciones FK | Notas |
 | **id\_grafico** | INT | FK | NO | Id del Gráfico que estamos vinculando. | Referencia a GRAFICO.id\_grafico | Regla: Es obligatorio registrar un gráfico. |
@@ -199,16 +197,47 @@ La Entidad `INDICE_VERSION` almacena el índice o listado de las rutas de archiv
 
 *N: M \- Muchos a Muchos \-*
 
-**GRAFICOS\_AVISOS**
+**GRAFICO\_AVISOS**
 
-**· FK \- ID GRÁFICO**. Enlaza esta ruta con la tabla `GRAFICOS`.  
+**· FK \- ID GRÁFICO**. Enlaza esta ruta con la tabla `GRAFICO`.  
 **· FK \- ID AVISO**. Enlaza esta ruta con la tabla `AVISOS`.
 
-| Entidad GRAFICOS\_AVISOS |  |  |  |  |  |  |
+| Entidad GRAFICO\_AVISOS |  |  |  |  |  |  |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Nombre del Campo | Tipo de  Dato | Clave Key | Nulidad | Descripción o Función | Relaciones FK | Notas |
 | **id\_grafico** | INT | FK | NO | Id del Gráfico que estamos vinculando. | Referencia a GRAFICO.id\_grafico | Regla: Es obligatorio registrar un gráfico. |
 | **id\_aviso** | INT | FK | NO | Id del Aviso que estamos vinculando. | Referencia a AVISOS.id\_aviso | Regla: Es obligatorio registrar un aviso |
+
+**COLECCIÓN MAGAZINE**  
+La Entidad `COLECCION` se componen de varios números de magazines con los siguientes atributos:
+
+**· ID COLECCIÓN.** Identificador único. 
+
+**· NOMBRE COLECCIÓN.** Nombre general de la colección de Magazines.
+
+**· TIPO DE PUBLICACIÓN.** Frecuencia de publicación del magazine: **`Semanal, Mensual, Bimestral, Anual o por Evento.`** 
+
+**· ESTADO DE LA EMISIÓN.** Muestra si el Magazine se sigue publicando o ya terminó de publicarse.
+
+**· FECHA INICIO.** Indica la fecha de la primera publicación.
+
+**· FECHA FINAL.** Indica la fecha de la última publicación.
+
+**· DESCRIPCIÓN.** D.
+
+**· CÓDIGO.** Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. Formato de Generación: Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para `COLECCION`**:** Prefijo `"CN-"` \+ `ID_COLECCION` (Ej. `CN-123`)
+
+| Entidad Principal COLECCION MAGAZINE · Tabla Maestra |  |  |  |  |  |  |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Nombre del Campo | Tipo de  Dato | Clave Key | Nulidad | Descripción o Función | Relaciones FK | Notas |
+| **id\_coleccion** | INT | PK | NO | Id único y primario del registro. | \- | Autoincremental. |
+| **nombre\_coleccion** | TEXT | \- | NO | Nombre de la Colección. | \- | \- |
+| **tipo\_publicacion** | TEXT | \- | SI | Frecuencia de publicación. | \- | Semanal, Mensual, Bimestral, Anual o por Evento. |
+| **estado\_emision** | BOOLEAN | \- | NO | Si aún se publica. | \- | TRUE \=  En Emisión FALSE \= Finalizado |
+| **fecha\_inicio** | DATE | \- | SI | Fecha de la primera publicación. | \- | Día, Mes y Año. |
+| **fecha\_fin** | DATE | \- | SI | Fecha de la última publicación. | . | Día, Mes y Año. |
+| **descripcion\_coleccion** | TEXT | \- | SI | Descripción | \- | \- |
+| **codigo\_coleccion** | TEXT | \- | NO | Código para su Identificación. | \- | Se usa el prefijo CN- |
 
 **MAGAZINE**  
 Un Magazine puede componerse de elementos únicos, cómo su portada, índice, contraportada, artículos, ads y Gráficos de diferentes autores. Estos últimos pueden encontrarse ya capturados o capturarse al momento mismo de la captura del Magazine.
@@ -216,6 +245,10 @@ Un Magazine puede componerse de elementos únicos, cómo su portada, índice, co
 La Entidad `MAGAZINE` contiene y muestra todos los magazines con los siguientes atributos:
 
 **· ID MAGAZINE.** Identificador único. 
+
+**· FK · ID COLECCION.** Indica la colección a la que pertenece.
+
+**· NÚMERO MAGAZINE.** Número del Magazine dentro de la colección..  
 
 **· PÁGINAS TOTALES.** Representa el número total de páginas del magazine. Regla de Cálculo: Este valor es la suma de las páginas de todos los elementos que componen el `MAGAZINE`.
 
@@ -250,13 +283,15 @@ La Entidad `MAGAZINE` contiene y muestra todos los magazines con los siguientes 
 
 **· FECHA DE CAPTURA.** Fecha en que se captura el magazine en la base de datos. Se compone del día/mes/año.
 
-**· CÓDIGO.** Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. Formato de Generación: Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para `MAGAZINE`**:** Prefijo `"MGZ-"` \+ `id_magazine` (Ej. `MGZ-456`)
+**· CÓDIGO.** Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. Formato de Generación: Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para `MAGAZINE`**:** Prefijo `"MGZ-"` \+ `ID_MAGAZINE` (Ej. `MGZ-456`)
 
 | Entidad Principal MAGAZINE · Tabla Maestra |  |  |  |  |  |  |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Nombre del Campo | Tipo de  Dato | Clave Key | Nulidad | Descripción o Función | Relaciones FK | Notas |
 | **id\_magazine** | INT | PK | NO | Id único y primario del registro. | \- | Autoincremental. |
-| **paginas\_magazine** | INT | \- | NO | No. de páginas totales. | \- | Campo calculado: suma de páginas de componentes. Se actualiza automáticamente mediante TRIGGERS cuando se insertan, actualizan o eliminan componentes del magazine.  |
+| **id\_coleccion** | INT | FK | SI | ID de la Colección a la que pertenece. | COLECCION\_MAGAZINE.id\_coleccion | NULL para magazines independientes. |
+| **numero\_magazine** | INT | \- | SI | Número dentro de la colección. | \- | NULL si no es parte de una colección. |
+| **paginas\_magazine** | INT | \- | NO | No. de páginas totales. | \- | Campo calculado: suma de páginas de componentes. Se actualiza automáticamente mediante TRIGGERS cuando se insertan, actualizan o eliminan componentes del magazine. |
 | **fecha\_publicacion\_magazine** | DATE | \- | SÍ | Fecha de publicación. | \- | Día, Mes y Año. |
 | **sinopsis\_magazine** | TEXT | \- | SÍ | Resumen corto. | \- | \- |
 | **id\_pais** | INT | FK | NO | Id de País que estamos vinculando. | Referencia a PAIS.id\_pais | Regla: Es obligatorio registrar el país. |
@@ -267,12 +302,86 @@ La Entidad `MAGAZINE` contiene y muestra todos los magazines con los siguientes 
 | **rating\_magazine** | FLOAT | \- | SÍ | Calificación. | \- | \- |
 | **comentarios\_magazine** | TEXT | \- | SÍ | Comentarios. | \- | \- |
 | **anotaciones\_magazine** | TEXT | \- | SÍ | Notas Personales. | \- | \- |
-| **clasificacion\_magazine** | BOOLEAN | \- | NO | \+18 o no | \- | TRUE \= Contiene contenido \+18\. FALSE \=Todo el contenido es apto para todo público. |
-| **pixelizacion\_magazine** | BOOLEAN | \- | NO | Censurado o no | \- | TRUE \= Contiene al menos un contenido censurado. FALSE \= Todo el contenido está sin censura. |
+| **clasificacion\_magazine** | BOOLEAN | \- | NO | \+18 o no | \- | **TRUE** \= Contiene contenido **\+18. FALSE** \=Todo el contenido es apto para todo público. |
+| **pixelizacion\_magazine** | BOOLEAN | \- | NO | Censurado o no | \- | **TRUE** \= Contiene al menos un contenido censurado. **FALSE** \= Todo el contenido está sin censura. |
 | **id\_edicion** | INT | FK | SI | Id de la expo que estamos vinculando. | Referencia a edicion\_EXPO.id\_edicion | \- |
 | **leido\_magazine** | BOOLEAN | \- | NO | Si ya fue o no leído el magazine. | \- | \- |
 | **fecha\_captura\_magazine** | DATE | \- | NO | Fecha de captura en la Base de Datos. | \- | Día, Mes y Año. |
 | **codigo\_magazine** | TEXT | \- | NO | Código para su Identificación. | \- | Se usa el prefijo MGZ- |
+
+*N: 1 – Muchos a Uno –* 
+
+**VERSIÓN MAGAZINE**  
+La Entidad `VERSION_MAGAZINE` contiene y maneja las múltiples versiones que puede tener un único `MAGAZINE` y posee los siguientes atributos:
+
+**· ID VERSION.** Identificador único de cada versión específica del Magazine.  
+**· FK \- ID\_MAGAZINE.** Enlaza esta versión con el Magazine principal en la entidad `MAGAZINE`.  
+**· FK \- ID IDIOMA.** El idioma en el que se encuentra esta versión específica  
+**· TÍTULO.** Nombre del Magazine en el idioma de esta versión. (Depende del Idioma)   
+**· SOPORTE.** Indica el medio de esta versión. Valores Posibles: **`Físico`, `Digital`.**  
+**· FK \- ID FORMATO.** El formato específico de esta versión. Valores Posibles: (Depende del Soporte)   
+**· ANCHO DE LAS IMAGEN.** Tamaño del ancho de las imágenes en píxeles de esta versión.  
+**· ALTO DE LAS IMAGEN.** Tamaño del alto de las imágenes en píxeles de esta versión.  
+**· RESOLUCIÓN.** Calidad de la imagen en DPI.  
+**· PESO. I**ndicar el peso del archivo convertido a Bytes siempre.  
+**· FK \- ID TRADUCTOR.** Indica el traductor de esta versión.
+
+| Entidad VERSION\_MAGAZINE |  |  |  |  |  |  |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Nombre del Campo | Tipo de  Dato | Clave Key | Nulidad | Descripción o Función | Relaciones FK | Notas |
+| **id\_version** | INT | PK | NO | Id único del archivo. | \- | Autoincremental. |
+| **id\_magazine** | INT | FK | NO | Id del Magazine que estamos vinculando. | Referencia a MAGAZINE.id\_magazine | \- |
+| **id\_idioma** | INT | FK | NO | Id del Idioma que estamos vinculando. | Referencia a IDIOMA.id\_idioma | Regla: Es obligatorio registrar un idioma. |
+| **titulo\_version** | TEXT | \- | NO | Título del magazine. | \- | \- |
+| **soporte\_version** | TEXT | \- | NO | Soporte del magazine. Físico o Digital | \- | Regla: Es obligatorio registrar el soporte. |
+| **id\_tipo\_formato** | INT | FK | NO | Id del Tipo de Formato que estamos vinculando. | Referencia a TIPO\_FORMATO.id\_tipo\_formato | Regla: Es obligatorio registrar el tipo de formato. |
+| **ancho\_version** | INT | \- | SÍ | Ancho de las Imágenes. | \- | Datos en Pixeles. |
+| **alto\_version** | INT | \- | SÍ | Alto de las Imágenes. | \- | Datos en Pixeles. |
+| **resolucion\_version** | INT | \- | SÍ | Resolución. | \- | Datos en DPI. |
+| **peso\_version** | BIGINT | \- | SÍ | Peso. | \- | Datos en Bytes. |
+| **id\_traductor** | INT | FK | SI | Id del Ttraductor que estamos vinculando. | Referencia a TRADUCTOR.id\_traductor | \- |
+
+*1:N  \- Uno a Muchos \-*
+
+**ÍNDICE VERSIÓN**
+
+La Entidad `INDICE_VERSION` almacena el índice o listado de las rutas de archivos que componen una versión digital específica. Esto permite que cada versión en la tabla `VERSION_MAGAZINE` tenga su propio listado ordenado de páginas/archivos y gráficos que componen.
+
+**· ID\_INDICE**. Identificador único del registro de la página o contenido.  
+**· FK\_ID\_VERSIO**N**.** Enlaza esta ruta con la versión digital correspondiente en la tabla `VERSION_MAGAZINE`.  
+**· NUMERO\_PAGINA.** La página exacta del Magazine donde se encuentra este contenido. Crucial para la ordenación.  
+**· FK \- ID TIPO DE PÁGINA.** Define el tipo de contenido en esta página. `Portada, Índice, Artículo, Ads, Extra, Sección Especial, Contraportada, Gráfico, Gráfico Nuevo.`  
+**`Gráfico Nuevo`**: Cuando se registra un Magazine, se selecciona la opción de `Gráfico Nuevo` en el `TIPO_PAGINA` de la entidad `INDICE VERSION`, la interfaz gráfica detecta el registro como `TIPO_PAGINA` \= `Gráfico Nuevo` por lo que el sistema muestra la opción de capturar la información de este nuevo cómic (botón Capturar Gráfico) en una ventana emergente (popup) con todos los atributos definidos para la entidad `GRAFICO`.
+
+Una vez que el cómic se guarda en la tabla `GRAFICO` y obtiene su `ID_GRAFICO`, el sistema realiza una **actualización automática** en la tabla `INDICE VERSION`:   
+· Cambiando  `TIPO_PAGINA` de `Nuevo_grafico` a `Gráfico`.   
+· Asignando el nuevo `ID_GRÁFICO` al campo `FK_ID_GRAFICO` y   
+· Actualizando `PAGINAS_CONTENIDO` con el valor registrado en el del cómic.
+
+**· FK\_ID\_GRAFICO.** Opcional. Se usa sólo si T`IPO_PAGINA` es `GRAFICO`. Almacena la ID\_GRAFICO del cómic capturado.  
+**· PAGINAS\_CONTENIDO.** El número de páginas que ocupa este archivo depende del T`IPO_PAGINA`, si es `GRAFICO` se tomará el total de páginas que almacena PAGINAS\_GRAFICO del ID\_GRAFICO**,** si no es `GRAFICO` el número de páginas será 1 por defecto   
+**· RUTA\_ARCHIVO.** Opcional. Se usa sólo si T`IPO_PAGINA` no es `GRAFICO` (ej. para la portada, índice). Almacena la ruta del archivo.
+
+| Entidad INDICE\_MAGAZINE |  |  |  |  |  |  |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Nombre del Campo | Tipo de  Dato | Clave Key | Nulidad | Descripción o Función | Relaciones FK | Notas |
+| **id\_indice** | INT | PK | NO | Id único del archivo. | \- | Autoincremental. |
+| **id\_version** | INT | FK | NO | Id de la versión que estamos vinculando. | Referencia a VERSION\_MAGAZINE.id\_version | Restricción: Solo para soporte\_version \= 'Digital' |
+| **numero\_pagina** | INT | \- | NO | Número de página del archivo. | \- | Regla: Es obligatorio registrar el número de página. Valor \>= 1 |
+| **id\_tipo\_pagina** | INT | FK | NO | Id del tipo de página que estamos vinculando | Referencia a TIPO\_PAGINA.id\_tipo\_pagina | \- |
+| **id\_grafico** | INT | FK | NO | Id del Gráfico que estamos vinculando. | Referencia a GRAFICO.id\_grafico | Solo si id\_tipo\_contenido \= 'Gráfico' o 'Gráfico Nuevo' |
+| **paginas\_contenido** | INT | \- | NO | Total de páginas que ocupa. | \- | Si id\_tipo\_contenido='Gráfico': obtener de GRAFICOS.paginas\_grafico. Si no: valor \= 1 por defecto |
+| **ruta\_archivo** | TEXT | \- | \- | Ruta del archivo. | \- | Es opcional y depende del tipo\_contenido |
+
+**Restricciones y Reglas de Negocio:**
+
+* Esta tabla solo aplica para versiones con `soporte_version = 'Digital'`  
+* El `numero_pagina` debe mantenerse secuencial dentro de una misma `id_version`  
+* Si `id_tipo_contenido = 'Gráfico'`: `id_grafico` es REQUERIDO y `ruta_archivo` debe ser NULL  
+* Si `id_tipo_contenido ≠ 'Gráfico'`: `id_grafico` debe ser NULL y `ruta_archivo` es REQUERIDO  
+* La ruta\_archivo debe ser relativa al directorio base de almacenamiento
+
+*Tablas Intermedias*
 
 *Tablas Catálogos Globales*
 
@@ -281,7 +390,7 @@ La Entidad `MAGAZINE` contiene y muestra todos los magazines con los siguientes 
 **TIPO\_FORMATO**  
 Catálogo global que contiene los formatos disponibles para publicaciones impresas o digitales. Se utiliza en `GRAFICOS`, `MAGAZINE` y otras entidades que manejen contenido publicado.  
 **Valores Posibles** (Depende del soporte, sólo uno a la vez)  
-**`Formato Físico = Tapa Dura, Tapa Blanda / Formato Digital = Jpg, Png, WebP, Pdf, Cbr.`**
+`Formato Físico = Tapa Dura, Tapa Blanda / Formato Digital = Jpg, Png, WebP, Pdf, Cbr.`
 
 **· ID TIPO FORMATO.** Identificador único de cada versión específica de la publicación.  
 **· NOMBRE FORMATO.** El formato específico de esta versión.
@@ -327,8 +436,12 @@ La Entidad `TIPO_PAGINA` contiene e indica el tipo que tiene página que compone
 | 1 | Portada |
 | 2 | Índice |
 | 3 | Contenido |
-| 4 | Contraportada |
+| 3 | Artículo |
+| 4 | Ads (Publicidad) |
 | 5 | Extra |
+| 6 | Contraportada |
+| 7 | Gráfico |
+| 8 | Gráfico Nuevo (Estado Temporal) |
 
 *1: N \- Uno a Muchos \-*
 
@@ -375,6 +488,18 @@ La Entidad `GENEROS` contiene todos los géneros que clasifican los `GRAFICOS`, 
 | Nombre del Campo | Tipo de  Dato | Clave Key | Nulidad | Descripción o Función | Relaciones FK | Notas |
 | **id\_genero** | INT | PK | NO | Id único del registro. | \- | Autoincremental. |
 | **nombre\_genero** | TEXT | \- | NO | El nombre del género. | \- | \- |
+
+**Valores Posibles**
+
+| Id | Nombre |
+| :---: | :---- |
+| 1 | Escolares |
+| 2 | Fantasía |
+| 3 | NTR |
+| 4 | Harem |
+| 5 | Cosplay |
+| 6 | Chica Ángel |
+| 7 | Vanilla |
 
 *1:N  \- Uno a Muchos \-*
 
@@ -459,7 +584,7 @@ La Entidad `EXPO` contiene un listado de las exposiciones o convenciones en que 
 *1: N \- Uno a Muchos \-*
 
 **EDICIÓN EXPO**  
-La Entidad `EDCION_EXPO` indica los detalles de una exposición o convención.  
+La Entidad `EDICION_EXPO` indica los detalles de una exposición o convención.  
 **Funcionalidad:** Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo valor.
 
 **· ID EXPO.** Identificador único  
@@ -599,10 +724,49 @@ ads, contraportada, etc.).
 
 **Fórmula de cálculo:**
 
-```sql
 paginas\_magazine \= SUM(paginas\_componente)   
 FROM COMPONENTES\_MAGAZINE   
 WHERE id\_magazine \= \[id\_magazine\_actual\]
-```
 
 \*\*Nota:\*\* Este campo no debe ser editado manualmente por el usuario.
+
+\*  \*  \*
+
+**GRÁFICO NUEVO**  
+Tabla afectada: `MAGAZINE`  
+Captura de un nuevo gráfico que compone un Magazine..
+
+### Flujo completo:
+
+1\. Estado inicial en INDICE\_VERSION:
+
+id\_tipo\_contenido: 9 (Gráfico Nuevo)  
+id\_grafico: NULL  
+numero\_pagina: 50  
+paginas\_contenido: 0 (temporal)
+
+2\. Usuario presiona "Capturar Gráfico":
+
+* Se abre popup con formulario completo de GRAFICOS  
+* Usuario llena todos los atributos del nuevo gráfico  
+* Se guarda en tabla GRAFICOS → obtiene `id_grafico = 789` con `paginas_grafico = 20`
+
+3\. Actualización automática atómica:
+
+`UPDATE` INDICE\_VERSION   
+`SET`   
+  id\_tipo\_contenido \= `8`, \-- Cambia a "Gráfico"  
+  id\_grafico \= `789`,      \-- Asigna el nuevo id  
+  paginas\_contenido \= (`SELECT` paginas\_grafico `FROM` GRAFICOS `WHERE` id\_grafico \= `789`), \-- Obtiene las 20 páginas  
+  ruta\_archivo \= `NULL`    \-- Se asegura que sea NULL  
+`WHERE` id\_indice \= \[id\_actual\]  
+\`\`\`
+
+4\. Resultado final:  
+\`\`\`  
+id\_tipo\_contenido: `8` (Gráfico)  
+id\_grafico: `789`  
+numero\_pagina: `50`  
+paginas\_contenido: `20`  
+ruta\_archivo: `NULL`
+
