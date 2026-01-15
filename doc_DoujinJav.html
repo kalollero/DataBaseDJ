@@ -1,0 +1,2472 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/doc_style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="indice"><a href="#Portada">Portada</a>
+        <div><a href="#Grafico">Gráfico</a>
+          <div class="listaIndice"><a href="#versionGrafico">Versión Gráfico</a><br><a href="#indiceVersionGrafico">Índice Versión</a><br><a href="#tipoGrafico">Tipo de Gráfico</a></div>
+        </div><a href="#Coleccion">Colección</a>
+        <div><a href="#Magazine">Magazine</a>
+          <div class="listaIndice"><a href="#versionMagazine">Versión Magazine</a><br><a href="#indiceVersionMagazine">Índice Versión</a></div>
+        </div>
+        <div><a href="#TablasGlobales">Tablas Catálogos<br>Globales</a>
+          <div class="listaIndice"><a href="#tipo_de_formato">Tipo de Formato</a><br><a href="#tipo_de_pagina">Tipo de Pagina</a><br><a href="#editorial">Editorial</a><br><a href="#distribuidora">Distribuidora</a><br><a href="#generos">Géneros</a><br><a href="#tinta">Tinta</a><br><a href="#autor">Autor</a><br><a href="#aka">Aka</a><br><a href="#expo">Expo </a><br><a href="#edicion_expo">Edición Expo</a><br><a href="#pais">País</a><br><a href="idioma">Idioma</a><br><a href="#traductor">Traductor</a><br><a href="#avisos">Avisos</a></div>
+        </div><a href="#Trigger">Trigger</a>
+      </div>
+      <div class="info">
+        <div class="portada" id="Portada">
+          <p>Estructura de la Base de Datos</p>
+          <h1>DataBase</h1>
+          <div class="descripcion">
+            <p>Se desea crear una base de datos.</p>
+            <p>Las entidades principales que componen la Base de datos son: </p>
+            <p class="h6 nombreAtributo">GRÁFICOS, MAGAZINES, EPISODIOS, SERIES, FILMES, SAGAS Y EXTRAS.</p>
+          </div>
+          <div class="notas">
+            <p>**Notas Técnicas sobre Tipos de Datos:**</p>
+            <p>**BOOLEAN:** SQLite no tiene tipo BOOLEAN nativo.</p>
+            <p>Los campos booleanos se almacenan como INTEGER con valores 0 (FALSE) o 1 (TRUE).</p>
+            <p>En la documentación se especifica como BOOLEAN por claridad conceptual.</p>
+          </div>
+        </div>
+        <div class="grafico" id="Grafico">
+          <div class="entidadMaestra">
+            <div class="titulo">
+              <h2>GRÁFICO</h2>
+              <p class="definicion">La Entidad <span class="resaltado">GRAFICO </span>contiene y muestra todos los cómics con los siguientes atributos:                    </p>
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID GRÁFICO. </span>Identificador único.                            </div>
+              <div class="atributo"> <span class="nombreAtributo">· FK - ID TIPO GRÁFICO. </span>Clave Foránea que enlaza con la entidad <span class="resaltado">TIPO_GRAFICO.</span></div>
+              <div class="atributo"> <span class="nombreAtributo">· PÁGINAS. </span>Número de Páginas que tiene el cómic.</div>
+              <div class="atributo"> <span class="nombreAtributo">· FECHA DE PUBLICACIÓN O ESTRENO DEL CÓMIC. </span>Representa la fecha en que el elemento fue publicado o estrenado.<br><span class="subrayado">Almacenamiento en BD: </span>Tipo <span class="italica">DATE </span> formato  YYYY-MM-DD <span class="italica">(ej: 2025-09-25).</span><br><span class="subrayado">Formato de Visualización:</span> Se debe mostrar al usuario como  DD · MMM · YYYY, el día, después el mes y luego el año, separados por un punto medio<span class="italica"> (ejemplo: 25 · Sep · 2025). La conversión se realiza en la capa de aplicación. </span><br><span class="subrayado">Funcionalidad:</span> Actúa como vínculo a un sitio que muestre todos los gráficos que compartan la misma <span class="bold"> fecha completa, </span>o el mismo<span class="bold"> mes, </span>o el mismo<span class="bold"> año.</span> Esto implica que el sistema debe poder consultar por diferentes niveles de granularidad de la fecha.</div>
+              <div class="atributo"> <span class="nombreAtributo">· SINOPSIS. </span>Resumen corto de la historia del cómic.</div>
+              <div class="atributo"> <span class="nombreAtributo">· FK · ID PAÍS. </span>Indica el país de origen del Gráfico.</div>
+              <div class="atributo"> <span class="nombreAtributo">· FK · ID EDITORIAL. </span>Indica la editorial del Gráfico.</div>
+              <div class="atributo"> <span class="nombreAtributo">· FK · ID TINTA. </span>Indica el tipo de tinta que tiene el Gráfico.</div>
+              <div class="atributo"> <span class="nombreAtributo">· FK · ID DISTRIBUIDORA. </span>Indica la distribuidora que tiene el Gráfico.</div>
+              <div class="atributo"> <span class="nombreAtributo">· CÓDIGO DISTRIBUIDORA. </span>Indica el código que le asigna la distribuidora al cómic.</div>
+              <div class="atributo"> <span class="nombreAtributo">· RATING. </span>Calificación del Cómic de 1 a 5.</div>
+              <div class="atributo"> <span class="nombreAtributo">· COMENTARIOS. </span>Puntos de vista personales acerca del cómic y su contenido.</div>
+              <div class="atributo"> <span class="nombreAtributo">· ANOTACIONES. </span>Notas o anotaciones personales.</div>
+              <div class="atributo"> <span class="nombreAtributo">· CLASIFICACIÓN. </span>Indica si el gráfico es para mayores de 18 años o para todo público.</div>
+              <div class="atributo"> <span class="nombreAtributo">· PIXELIZACIÓN. </span>Indica si el gráfico contiene censura o no.</div>
+              <div class="atributo"> <span class="nombreAtributo">· FK · ID EDICIÓN. </span>Indica la Expo en donde se presentó el Gráfico.</div>
+              <div class="atributo"> <span class="nombreAtributo">· LEÍDO. </span>Indica si el cómic ya fue leído o no.</div>
+              <div class="atributo"><span class="nombreAtributo">· FECHA DE CAPTURA. </span>Fecha en que se captura el cómic en la base de datos. Se compone del día/mes/año.</div>
+              <div class="atributo"><span class="nombreAtributo">· CÓDIGO. </span>Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. Formato de Generación: Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para <span class="resaltado">GRAFICO: </span>Prefijo "GR-" + <span class="resaltado">ID_GRAFICO </span>(Ej. GR-123).   </div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad Principal  <span class="heavy">GRAFICO  </span>· Tabla Maestra</th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_grafico</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único y primario del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_tipo_grafico</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id de <span class="resaltado">TIPO_GRAFICO</span>que estamos vinculando.</td>
+                  <td>Referencia a <span class="resaltado">TIPO_GRAFICO.id_tipo_grafico</span></td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>paginas_grafico</td>
+                  <td>INT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>No. de páginas.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>fecha_publicacion_grafico</td>
+                  <td>DATE</td>
+                  <td>-</td>
+                  <td>SÍ</td>
+                  <td>Fecha de publicación.</td>
+                  <td>-</td>
+                  <td>Día, Mes y Año.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>sinopsis_grafico</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>SÍ</td>
+                  <td>Resumen corto.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_pais</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id de País que estamos vinculando.</td>
+                  <td>Referencia a <span class="resaltado">PAIS.id_pais</span></td>
+                  <td>Regla: Es obligatorio registrar el país.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_editorial</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>SI</td>
+                  <td>Id de la Editorial que estamos vinculando.</td>
+                  <td>Referencia a <span class="resaltado">EDITORIAL.id_editorial</span></td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_tinta</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id de la Tinta que estamos vinculando.</td>
+                  <td>Referencia a <span class="resaltado">TINTA.id_tinta</span></td>
+                  <td>Regla: Es obligatorio registrar la tinta.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_distribuidora</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>SI</td>
+                  <td>Id de la Distribuidora que estamos vinculando.</td>
+                  <td>Referencia a <span class="resaltado">DISTRIBUIDORA.id_distribuidora</span></td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>codigo_distribuidora</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>SI</td>
+                  <td>Código de la Distribuidora.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>rating_grafico</td>
+                  <td>FLOAT</td>
+                  <td>-</td>
+                  <td>SÍ</td>
+                  <td>Calificación.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>comentarios_grafico</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>SÍ</td>
+                  <td>Comentarios.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>anotaciones_grafico</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>SÍ</td>
+                  <td>Notas Personales.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>clasificacion_grafico</td>
+                  <td>BOOLEAN</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>+18 o no.</td>
+                  <td>-</td>
+                  <td>TRUE = +18 FALSE = Todo público</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>pixelizacion_grafico</td>
+                  <td>BOOLEAN</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Censurado o no.</td>
+                  <td>-</td>
+                  <td>TRUE = Censurado FALSE = Sin censura</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_edicion</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>SI</td>
+                  <td>Id de la expo que estamos vinculando.</td>
+                  <td>Referencia a <span class="resaltado">edicion_EXPO.id_edicion</span></td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>leido_grafico</td>
+                  <td>BOOLEAN</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Si fue o no leído ya el cómic.</td>
+                  <td>-</td>
+                  <td>TRUE = SÍ FALSE = No</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>fecha_captura_grafico</td>
+                  <td>DATE</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Fecha de captura en la Base de Datos.</td>
+                  <td>-</td>
+                  <td>Día, Mes y Año.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>codigo_grafico</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Código para su Identificación.</td>
+                  <td>-</td>
+                  <td>Se usa el prefijo GR-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="entidadLocal" id="versionGrafico">
+            <div class="titulo">
+              <p class="relacion">Relación · N: 1 – Muchos a Uno – </p>
+              <p class="h3">VERSIÓN GRÁFICO</p>
+              <div class="definicion">La Entidad<span class="resaltado"> VERSION_GRAFICO </span>contiene y maneja las múltiples versiones que puede tener un único <span class="resaltado">GRAFICO</span> y posee los siguientes atributos:</div>
+            </div>
+            <div class="atributos">
+              <div class="atributo"> <span class="nombreAtributo">· ID VERSION. </span>Identificador único de cada versión específica del Gráfico.</div>
+              <div class="atributo"> <span class="nombreAtributo">· FK - ID GRÁFICO. </span>Enlaza esta versión con el cómic principal en la entidad <span class="resaltado">GRAFICO.</span></div>
+              <div class="atributo"> <span class="nombreAtributo">· FK - ID IDIOMA. </span>El idioma en el que se encuentra esta versión específica.</div>
+              <div class="atributo"> <span class="nombreAtributo">· TÍTULO. </span>Nombre del gráfico en el idioma de esta versión. (Depende del Idioma) </div>
+              <div class="atributo"> <span class="nombreAtributo">· SOPORTE. </span>Indica el medio de esta versión. Valores Posibles: <span class="resaltado">Físico, Digital.</span></div>
+              <div class="atributo"> <span class="nombreAtributo">· FK - ID TIPO FORMATO. </span>El formato específico de esta versión. (Dependerá del Soporte)</div>
+              <div class="atributo"> <span class="nombreAtributo">· ANCHO DE LAS IMAGEN. </span>Tamaño del ancho de las imágenes en píxeles de esta versión.</div>
+              <div class="atributo"> <span class="nombreAtributo">· ALTO DE LAS IMAGEN. </span>Tamaño del alto de las imágenes en píxeles de esta versión.</div>
+              <div class="atributo"> <span class="nombreAtributo">· RESOLUCIÓN. </span>Calidad de la imagen en DPI.</div>
+              <div class="atributo"> <span class="nombreAtributo">· PESO. </span>Indicar el peso del archivo convertido a Bytes siempre.</div>
+              <div class="atributo"> <span class="nombreAtributo">· FK - ID TRADUCTOR. </span>Indica el traductor de esta versión.</div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad  <span class="heavy">VERSION_GRAFICO  </span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_version</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_grafico</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id del Gráfico que estamos vinculando.</td>
+                  <td>Referencia a <span class="resaltado">GRAFICO.id_grafico</span></td>
+                  <td>Regla: Es obligatorio registrar un gráfico.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_idioma</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id del Idioma que estamos vinculando.</td>
+                  <td>Referencia a <span class="resaltado">IDIOMA.id_idioma</span></td>
+                  <td>Regla: Es obligatorio registrar un idioma.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>titulo_version</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Título del cómic.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>soporte_version</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Soporte del cómic. Físico o Digital</td>
+                  <td>-</td>
+                  <td>Regla: Es obligatorio registrar el soporte.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_tipo_formato</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id del Tipo de Formato que estamos vinculando.</td>
+                  <td>Referencia a <span class="resaltado">TIPO_FORMATO.id_tipo_formato</span></td>
+                  <td>Regla: Es obligatorio registrar el tipo de formato.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>ancho_version</td>
+                  <td>INT</td>
+                  <td>-</td>
+                  <td>SÍ</td>
+                  <td>Ancho de las Imágenes.</td>
+                  <td>-</td>
+                  <td>Datos en Pixeles.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>alto_version</td>
+                  <td>INT</td>
+                  <td>-</td>
+                  <td>SÍ</td>
+                  <td>Alto de las Imágenes.</td>
+                  <td>-</td>
+                  <td>Datos en Pixeles.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>resolucion_version</td>
+                  <td>INT</td>
+                  <td>-</td>
+                  <td>SÍ</td>
+                  <td>Resolución.</td>
+                  <td>-</td>
+                  <td>Datos en DPI.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>peso_version</td>
+                  <td>BIGINT</td>
+                  <td>-</td>
+                  <td>SÍ</td>
+                  <td>Peso.</td>
+                  <td>-</td>
+                  <td>Datos en Bytes.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_traductor</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>SI</td>
+                  <td>Id del Ttraductor que estamos vinculando.</td>
+                  <td>Referencia a <span class="resaltado">TRADUCTOR.id_traductor</span></td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="entidadLocal" id="indiceVersionGrafico">
+            <div class="titulo">
+              <p class="relacion">Relación · 1:N - Uno a Muchos -</p>
+              <p class="h3">ÍNDICE VERSIÓN</p>
+              <div class="definicion">La Entidad  <span class="resaltado">INDICE_VERSION  </span>almacena el índice o listado de las rutas de archivos que componen una versión digital específica. Esto permite que cada versión en la tabla  <span class="resaltado">VERSION_GRAFICO </span>tenga su propio listado ordenado de páginas/archivos.</div>
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID ÍNDICE.  </span>Identificador único para el registro de cada archivo/página.</div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID VERSION.  </span>Enlaza esta ruta con la versión digital correspondiente en la tabla  <span class="resaltado">VERSION_GRAFICO.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· NÚMERO DE PÁGINA.  </span>El número de página (o índice) que representa este archivo, es crucial para mantener el orden de lectura.</div>
+              <div class="atributo"><span class="nombreAtributo">· RUTA DEL ARCHIVO.  </span>La ruta absoluta o relativa donde se encuentra el archivo de la página en el sistema de almacenamiento.</div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID TIPO DE PÁGINA. </span>El tipo de contenido que es la página del cómic.</div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad  <span class="heavy">INDICE_VERSION</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_indice</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_version</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id de la versión que estamos vinculando.</td>
+                  <td>Referencia a  <span class="resaltado">VERSION_GRAFICO.id_version</span></td>
+                  <td>Restricción: Solo aplica para soporte_version = 'Digital'.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>numero_pagina</td>
+                  <td>INT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Número de página del archivo.</td>
+                  <td>-</td>
+                  <td>Valor &gt;= 0 (0 = portada)</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>ruta_archivo</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Ruta del archivo.</td>
+                  <td>-</td>
+                  <td>Ruta relativa al directorio base.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_tipo_pagina</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id del tipo de página que estamos vinculando</td>
+                  <td>Referencia a  <span class="resaltado">TIPO_PAGINA.id_tipo_pagina</span></td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="notas">
+              <p>*Restricciones y Reglas de Negocio: </p><br>
+              <p>- Esta tabla solo aplica para versiones con soporte_version = 'Digital'.</p>
+              <p>- El numero_pagina debe ser único por id_version.</p>
+              <p>- numero_pagina = 0 indica portada.</p>
+              <p>- La ruta_archivo debe ser relativa al directorio base de almacenamiento.</p>
+            </div>
+          </div>
+          <div class="entidadLocal" id="tipoGrafico">
+            <div class="titulo">
+              <p class="relacion">Relación · 1:N – Uno a Muchos –</p>
+              <p class="h3">TIPO DE GRÁFICO</p>
+              <div class="definicion">La Entidad  <span class="resaltado">TIPO_GRAFICO  </span>contiene e indica la clasificación específica de un gráfico.<span class="subrayado">Valores Posibles </span>(sólo uno a la vez):<span class="resaltado"> Cómic, Manga, Doujinshi, Manhua, Manhwa, Webtoon </span>e <span class="resaltado">Historieta.</span><span class="subrayado">Funcionalidad:</span> Este elemento funcionará como un vínculo a un sitio donde se muestran todos los que comparten ese mismo tipo.</div>
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID TIPO GRÁFICO.  </span>Identificador único.</div>
+              <div class="atributo"><span class="nombreAtributo">· NOMBRE DEL TIPO.  </span>Nombre de los valores posibles que puede tener la entidad  <span class="resaltado">GRAFICO.</span></div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad  <span class="heavy">TIPO_GRAFICO</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_tipo_grafico</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>nombre_tipo</td>
+                  <td>VARCHAR (50)</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>El nombre del tipo de cómic.</td>
+                  <td>-</td>
+                  <td>Regla: Es obligatorio registrar el tipo.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="titulosSeparadores">Tablas Intermedias Gráfico</div>
+          <div class="entidadIntermedia" id="graficoGeneros">
+            <div class="titulo">
+              <p class="relacion">Relación · N: M - Muchos a Muchos -</p>
+              <p class="h3">GRÁFICO GÉNEROS</p>
+              <div class="definicion">La Entidad</div>
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· FK - ID GRÁFICO.  </span>Enlaza esta ruta con la tabla  <span class="resaltado">GRAFICO.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID GÉNERO.  </span>Enlaza esta ruta con la tabla  <span class="resaltado">GENEROS.</span></div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad  <span class="heavy">GRAFICO_GENEROS</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_grafico</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id del Gráfico que estamos vinculando.</td>
+                  <td>Referencia a <span class="resaltado">GRAFICO.id_grafico</span></td>
+                  <td>Regla: Es obligatorio registrar un gráfico.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_genero</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id del Género que estamos vinculando.</td>
+                  <td>Referencia a <span class="resaltado">GENEROS.id_genero</span></td>
+                  <td>Regla: Es obligatorio registrar un género.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="entidadIntermedia" id="graficoAutor">
+            <div class="titulo">
+              <p class="relacion">Relación · N: M - Muchos a Muchos -</p>
+              <p class="h3">GRÁFICO AUTOR</p>
+              <div class="definicion">La Entidad </div>
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· FK - ID GRÁFICO.  </span>Enlaza esta ruta con la tabla  <span class="resaltado">GRAFICO.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID AUTOR.  </span>Enlaza esta ruta con la tabla  <span class="resaltado">AUTOR.</span></div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad  <span class="heavy">GRAFICO_AUTOR</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_grafico</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id del Gráfico que estamos vinculando.</td>
+                  <td>Referencia a<span class="resaltado">GRAFICO.id_grafico</span></td>
+                  <td>Regla: Es obligatorio registrar un gráfico.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_autor</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id del Autor que estamos vinculando.</td>
+                  <td>Referencia a<span class="resaltado">AUTOR.id_autor</span></td>
+                  <td>Regla: Es obligatorio registrar un autor.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="entidadIntermedia" id="graficoAutor">
+            <div class="titulo">
+              <p class="relacion">Relación · N: M - Muchos a Muchos -</p>
+              <p class="h3">GRÁFICO AVISOS</p>
+              <div class="definicion">La Entidad</div>
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· FK - ID GRÁFICO.  </span>Enlaza esta ruta con la tabla  <span class="resaltado">GRAFICO.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID AVISO.  </span>Enlaza esta ruta con la tabla  <span class="resaltado">AVISOS.</span></div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad  <span class="heavy">GRAFICO_AVISOS</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_grafico</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id del Gráfico que estamos vinculando.</td>
+                  <td>Referencia a <span class="resaltado">GRAFICO.id_grafico</span></td>
+                  <td>Regla: Es obligatorio registrar un gráfico.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_aviso</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id del Aviso que estamos vinculando.</td>
+                  <td>Referencia a <span class="resaltado">AVISOS.id_aviso</span></td>
+                  <td>Regla: Es obligatorio registrar un aviso.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="coleccion" id="Coleccion">
+          <div class="entidadMaestra">
+            <div class="titulo">
+              <h2>COLECCIÓN</h2>
+              <p class="definicion">La Entidad <span class="resaltado">COLECCION  </span>se componen de varios números de magazines con los siguientes atributos:</p>
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID COLECCIÓN. </span>Identificador único. </div>
+              <div class="atributo"><span class="nombreAtributo">· NOMBRE COLECCIÓN. </span>Nombre general de la colección de Magazines.</div>
+              <div class="atributo"><span class="nombreAtributo">· TIPO DE PUBLICACIÓN. </span>Frecuencia de publicación del magazine:  <span class="resaltado">Semanal, Mensual, Bimestral, Anual </span>o por  <span class="resaltado">Evento. </span></div>
+              <div class="atributo"><span class="nombreAtributo">· ESTADO DE LA PUBLICACIÓN. </span>Muestra si el Magazine se sigue publicando o no.</div>
+              <div class="atributo"><span class="nombreAtributo">· FECHA INICIO. </span>Indica la fecha de la primera publicación.</div>
+              <div class="atributo"><span class="nombreAtributo">· FECHA FINAL. </span>Indica la fecha de la última publicación.</div>
+              <div class="atributo"><span class="nombreAtributo">· DESCRIPCIÓN. </span>Descripción general de la colección de Magazines.</div>
+              <div class="atributo"><span class="nombreAtributo">· CÓDIGO. </span>Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. Formato de Generación: Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para  <span class="resaltado">COLECCION:  </span>Prefijo "CN-" +  <span class="resaltado">ID_COLECCION </span>(Ej. CN-123).                                                   </div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad Principal  <span class="heavy">COLECCION  </span>· Tabla Maestra</th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_coleccion</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único y primario del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>nombre_coleccion</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Nombre de la Colección.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>tipo_publicacion</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>SI</td>
+                  <td>Frecuencia de publicación.</td>
+                  <td>-</td>
+                  <td>Semanal, Mensual, Bimestral, Anual o por Evento.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>estado_publicacion</td>
+                  <td>BOOLEAN</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Estado de la publicación</td>
+                  <td>-</td>
+                  <td>TRUE =  En Emisión. FALSE = Finalizado</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>fecha_inicio</td>
+                  <td>DATE</td>
+                  <td>-</td>
+                  <td>SI</td>
+                  <td>Fecha de la primera publicación.</td>
+                  <td>-</td>
+                  <td>Día, Mes y Año.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>fecha_fin</td>
+                  <td>DATE</td>
+                  <td>-</td>
+                  <td>SI</td>
+                  <td>Fecha de la última publicación.</td>
+                  <td>-</td>
+                  <td>Día, Mes y Año. NULL si aún continúa.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>descripcion_coleccion</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>SI</td>
+                  <td>Descripción</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>codigo_coleccion</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Código para su Identificación.</td>
+                  <td>-</td>
+                  <td>Se usa el prefijo CN-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="magazine" id="Magazine">
+          <div class="entidadMaestra">
+            <div class="titulo">
+              <h2>MAGAZINE</h2>
+              <div class="definicion">Un Magazine puede componerse de elementos únicos, cómo su portada, índice, contraportada, artículos, ads y Gráficos de diferentes autores. Estos últimos pueden encontrarse ya capturados o capturarse al momento mismo de la captura del Magazine. La Entidad  <span class="resaltado">MAGAZINE  </span>contiene y muestra todos los magazines con los siguientes atributos:</div>
+            </div>
+            <div class="atributos">
+              <div class="atributo">   <span class="nombreAtributo">· ID MAGAZINE.  </span>Identificador único. </div>
+              <div class="atributo"><span class="nombreAtributo">· FK · ID COLECCION.  </span>Indica la colección a la que pertenece.</div>
+              <div class="atributo"><span class="nombreAtributo">· NÚMERO MAGAZINE.  </span>Número del Magazine dentro de la colección..  </div>
+              <div class="atributo"><span class="nombreAtributo">· PÁGINAS TOTALES.  </span>Representa el número total de páginas del magazine.  <span class="subrayado">Regla de Cálculo:  </span>Este valor es la suma de las páginas de todos los elementos que componen el  <span class="resaltado">MAGAZINE.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· FECHA DE PUBLICACIÓN O ESTRENO DEL MAGAZINE.  </span>Representa la fecha en que el elemento fue publicado o estrenado. <br><span class="subrayado">Almacenamiento en BD:  </span>Tipo  <span class="italica">DATE </span>formato YYYY-MM-DD (ej: 2025-09-25). <br><span class="subrayado">Formato de Visualización: </span>Se debe mostrar al usuario como DD · MMM · YYYY , el día, después el mes y luego el año, separados por un punto medio (ejemplo: 25 · Sep · 2025). La conversión se realiza en la capa de aplicación.<br><span class="subrayado">Funcionalidad:  </span>Actúa como vínculo a un sitio que muestre todos los  <span class="bold">MAGAZINES  </span>que compartan la misma  <span class="bold">fecha completa, </span>o el mismo  <span class="bold">mes, </span>o el mismo  <span class="bold">año. </span>Esto implica que el sistema debe poder consultar por diferentes niveles de granularidad de la fecha.</div>
+              <div class="atributo"><span class="nombreAtributo">· SINOPSIS.  </span>Resumen corto de la historia del cómic.</div>
+              <div class="atributo"><span class="nombreAtributo">· FK · ID PAÍS.  </span>Indica el país de origen del Gráfico.</div>
+              <div class="atributo"><span class="nombreAtributo">· FK · ID EDITORIAL.  </span>Indica la editorial del Gráfico.</div>
+              <div class="atributo"><span class="nombreAtributo">· FK · ID TINTA.  </span>Indica el tipo de tinta que tiene el Magazine. </div>
+              <div class="atributo"><span class="nombreAtributo">· FK · ID DISTRIBUIDORA.  </span>Indica la distribuidora que tiene el Magazine. </div>
+              <div class="atributo"><span class="nombreAtributo">· CÓDIGO DISTRIBUIDORA.  </span>Indica el código que le asigna la distribuidora al Magazine.</div>
+              <div class="atributo"><span class="nombreAtributo">· RATING.  </span>Calificación del magazine.</div>
+              <div class="atributo"><span class="nombreAtributo">· COMENTARIOS.  </span>Puntos de vista personales acerca del magazine y su contenido.</div>
+              <div class="atributo"><span class="nombreAtributo">· ANOTACIONES.  </span>Notas o anotaciones personales.</div>
+              <div class="atributo"><span class="nombreAtributo">· CLASIFICACIÓN.  </span>Indica si el gráfico es para mayores de 18 años o para todo público. </div>
+              <div class="atributo"><span class="nombreAtributo">· PIXELIZACIÓN.  </span>Indica si el gráfico contiene censura o no.</div>
+              <div class="atributo"><span class="nombreAtributo">· FK · ID EDICIÓN.  </span>Indica la Expo en donde se presentó el Magazine.</div>
+              <div class="atributo"><span class="nombreAtributo">· LEÍDO.  </span>Indicar si el magazine ya fue leído o no.</div>
+              <div class="atributo"><span class="nombreAtributo">· FECHA DE CAPTURA.  </span>Fecha en que se captura el magazine en la base de datos. Se compone del día/mes/año.</div>
+              <div class="atributo"><span class="nombreAtributo">· CÓDIGO.  </span>Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. <span class="subrayado">Formato de Generación:  </span>Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para  <span class="resaltado">MAGAZINE:  </span>Prefijo "MGZ-" +  <span class="resaltado">ID_MAGAZINE  </span>(Ej. MGZ-456)</div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad Principal  <span class="heavy">MAGAZINE  </span>· Tabla Maestra</th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_magazine</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único y primario del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_coleccion</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>SI</td>
+                  <td>ID de la Colección a la que pertenece.</td>
+                  <td>Referencia a  <span class="resaltado">COLECCION_MAGAZINE.id_coleccion</span></td>
+                  <td>NULL para magazines independientes.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>numero_magazine</td>
+                  <td>INT</td>
+                  <td>-</td>
+                  <td>SI</td>
+                  <td>Número dentro de la colección.</td>
+                  <td>-</td>
+                  <td>NULL si no es parte de una colección.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>paginas_magazine</td>
+                  <td>INT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>No. de páginas totales.</td>
+                  <td>-</td>
+                  <td>Campo calculado: suma de páginas de componentes. Se actualiza automáticamente mediante <span class="resaltado">TRIGGERS  </span>cuando se insertan, actualizan o eliminan componentes del magazine.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>fecha_publicacion_magazine</td>
+                  <td>DATE</td>
+                  <td>-</td>
+                  <td>SÍ</td>
+                  <td>Fecha de publicación.</td>
+                  <td>-</td>
+                  <td>Día, Mes y Año.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>sinopsis_magazine</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>SÍ</td>
+                  <td>Resumen corto.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_pais</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id de País que estamos vinculando.</td>
+                  <td>Referencia a  <span class="resaltado">PAIS.id_pais</span></td>
+                  <td>Regla: Es obligatorio registrar el país.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_editorial</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>SI</td>
+                  <td>Id de la Editorial que estamos vinculando.</td>
+                  <td>Referencia a  <span class="resaltado">EDITORIAL.id_editorial</span></td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_tinta</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id de la Tinta que estamos vinculando.</td>
+                  <td>Referencia a  <span class="resaltado">TINTA.id_tinta</span></td>
+                  <td>Regla: Es obligatorio registrar la tinta.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_distribuidora</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>SI</td>
+                  <td>Id de la Distribuidora que estamos vinculando.</td>
+                  <td>Referencia a  <span class="resaltado"> DISTRIBUIDORA.id_distribuidora</span></td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>codigo_distribuidora</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>SI</td>
+                  <td>Código de la Distribuidora.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>rating_magazine</td>
+                  <td>FLOAT</td>
+                  <td>-</td>
+                  <td>SÍ</td>
+                  <td>Calificación.</td>
+                  <td>-</td>
+                  <td>Rango 1-5</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>comentarios_magazine</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>SÍ</td>
+                  <td>Comentarios.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>anotaciones_magazine</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>SÍ</td>
+                  <td>Notas Personales.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>clasificacion_magazine</td>
+                  <td>BOOLEAN</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>+18 o no</td>
+                  <td>-</td>
+                  <td>TRUE = Contiene contenido +18.<br>FALSE = Todo el contenido es apto para todo público.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>pixelizacion_magazine</td>
+                  <td>BOOLEAN</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Censurado o no</td>
+                  <td>-</td>
+                  <td>TRUE = Contiene al menos un contenido censurado.<br>FALSE = Todo el contenido está sin censura.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_edicion</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>SI</td>
+                  <td>Id de la expo que estamos vinculando.</td>
+                  <td>Referencia a  <span class="resaltado"> edicion_EXPO.id_edicion</span></td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>leido_magazine</td>
+                  <td>BOOLEAN</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Si ya fue o no leído el magazine.</td>
+                  <td>-</td>
+                  <td>TRUE = SÍ.<br>FALSE = No.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>fecha_captura_magazine</td>
+                  <td>DATE</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Fecha de captura en la Base de Datos.</td>
+                  <td>-</td>
+                  <td>Día, Mes y Año.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>codigo_magazine</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Código para su Identificación.</td>
+                  <td>-</td>
+                  <td>Se usa el prefijo MGZ-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="entidadLocal" id="versionMagazine">
+            <div class="titulo">
+              <p class="relacion">Relación · N: 1 – Muchos a Uno –</p>
+              <p class="h3">VERSIÓN MAGAZINE</p>
+              <div class="definicion">La Entidad  <span class="resaltado">VERSION_MAGAZINE  </span>contiene y maneja las múltiples versiones que puede tener un único  <span class="resaltado">MAGAZINE  </span>y posee los siguientes atributos:</div>
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID VERSION.  </span>Identificador único de cada versión específica del Magazine.</div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID_MAGAZINE.  </span>Enlaza esta versión con el Magazine principal en la entidad  <span class="resaltado">MAGAZINE.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID IDIOMA.  </span>El idioma en el que se encuentra esta versión específica</div>
+              <div class="atributo"><span class="nombreAtributo">· TÍTULO.  </span>Nombre del Magazine en el idioma de esta versión. (Depende del Idioma) </div>
+              <div class="atributo"><span class="nombreAtributo">· SOPORTE.  </span>Indica el medio de esta versión. Valores Posibles:  <span class="resaltado">Físico, Digital.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID TIPO FORMATO.  </span>El formato específico de esta versión. Valores Posibles: (Depende del Soporte) </div>
+              <div class="atributo"><span class="nombreAtributo">· ANCHO DE LAS IMAGEN.  </span>Tamaño del ancho de las imágenes en píxeles de esta versión.</div>
+              <div class="atributo"><span class="nombreAtributo">· ALTO DE LAS IMAGEN.  </span>Tamaño del alto de las imágenes en píxeles de esta versión.</div>
+              <div class="atributo"><span class="nombreAtributo">· RESOLUCIÓN.  </span>Calidad de la imagen en DPI.</div>
+              <div class="atributo"><span class="nombreAtributo">· PESO.  </span>Indicar el peso del archivo convertido a Bytes siempre.</div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID TRADUCTOR.  </span>Indica el traductor de esta versión.</div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad  <span class="heavy">VERSION_MAGAZINE</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo"> 
+                  <td>id_version</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único del archivo.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>id_magazine</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id del Magazine que estamos vinculando.</td>
+                  <td>Referencia a MAGAZINE.id_magazine</td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>id_idioma</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id del Idioma que estamos vinculando.</td>
+                  <td>Referencia a IDIOMA.id_idioma</td>
+                  <td>Regla: Es obligatorio registrar un idioma.</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>titulo_version</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Título del magazine.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>soporte_version</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Soporte del magazine. Físico o Digital</td>
+                  <td>-</td>
+                  <td>Regla: Es obligatorio registrar el soporte.</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>id_tipo_formato</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id del Tipo de Formato que estamos vinculando.</td>
+                  <td>Referencia a TIPO_FORMATO.id_tipo_formato</td>
+                  <td>Regla: Es obligatorio registrar el tipo de formato.</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>ancho_version</td>
+                  <td>INT</td>
+                  <td>-</td>
+                  <td>SÍ</td>
+                  <td>Ancho de las Imágenes.</td>
+                  <td>-</td>
+                  <td>Datos en Pixeles.</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>alto_version</td>
+                  <td>INT</td>
+                  <td>-</td>
+                  <td>SÍ</td>
+                  <td>Alto de las Imágenes.</td>
+                  <td>-</td>
+                  <td>Datos en Pixeles.</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>resolucion_version</td>
+                  <td>INT</td>
+                  <td>-</td>
+                  <td>SÍ</td>
+                  <td>Resolución.</td>
+                  <td>-</td>
+                  <td>Datos en DPI.</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>peso_version</td>
+                  <td>BIGINT</td>
+                  <td>-</td>
+                  <td>SÍ</td>
+                  <td>Peso.</td>
+                  <td>-</td>
+                  <td>Datos en Bytes.</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>id_traductor</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>SI</td>
+                  <td>Id del Ttraductor que estamos vinculando.</td>
+                  <td>Referencia a TRADUCTOR.id_traductor</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="entidadLocal" id="indiceVersionMagazine">
+            <div class="titulo">
+              <p class="relacion">Relación · 1:N  - Uno a Muchos -</p>
+              <p class="h3">ÍNDICE VERSIÓN</p>
+              <div class="definicion">La Entidad  <span class="resaltado">INDICE_VERSION  </span>almacena el índice o listado de las rutas de archivos que componen una versión digital específica. Esto permite que cada versión en la tabla  <span class="resaltado">VERSION_MAGAZINE  </span>tenga su propio listado ordenado de páginas/archivos y gráficos que componen.</div>
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID_INDICE. </span>Identificador único del registro de la página o contenido.</div>
+              <div class="atributo"><span class="nombreAtributo">· FK_ID_VERSION. </span>Enlaza esta ruta con la versión digital correspondiente en la tabla VERSION_MAGAZINE.</div>
+              <div class="atributo"><span class="nombreAtributo">· NUMERO_PAGINA. </span>La página exacta del Magazine donde se encuentra este contenido. Crucial para la ordenación.</div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID TIPO DE PÁGINA. </span>Define el tipo de contenido en esta página. 
+                Valores Posibles:  <span class="resaltado">Portada, Índice, Artículo, Ads, Extra, Sección Especial, Contraportada, Gráfico, Gráfico Nuevo.</span><br><span class="bold">Gráfico Nuevo: </span>Cuando se registra un Magazine, se selecciona la opción de Gráfico Nuevo en el  <span class="resaltado">ID_TIPO_PAGINA  </span>de la entidad  <span class="resaltado">INDICE_VERSION</span>, la interfaz gráfica detecta el registro como  <span class="resaltado">ID_TIPO_PAGINA =  </span><span class="bold">Gráfico Nuevo  </span>por lo que el sistema muestra la opción de capturar la información de este nuevo cómic (botón Capturar Gráfico) en una ventana emergente (popup) con todos los atributos definidos para la entidad  <span class="resaltado">GRAFICO.</span><br>Una vez que el cómic se guarda en la tabla  <span class="resaltado">GRAFICO  </span>y obtiene su  <span class="resaltado">ID_GRAFICO</span>, el sistema realiza una actualización automática en la tabla  <span class="resaltado">INDICE_VERSION: </span>
+                <ul class="listaDesordenada">
+                  <li>Cambiando  <span class="resaltado">ID_TIPO_PAGINA  </span>de  <span class="bold">Gráfico Nuevo  </span>a  <span class="bold">Gráfico. </span></li>
+                  <li>Asignando el nuevo  <span class="resaltado">ID_GRÁFICO  </span>al campo  <span class="resaltado">FK_ID_GRAFICO y</span></li>
+                  <li>Actualizando  <span class="resaltado">PAGINAS_CONTENIDO  </span>con el valor registrado en el del cómic.</li>
+                </ul>
+              </div>
+              <div class="atributo"><span class="nombreAtributo">· FK_ID_GRAFICO. </span>Opcional. Se usa sólo si  <span class="resaltado">ID_TIPO_PAGINA  </span>es  <span class="resaltado">GRAFICO.  </span>Almacena la  <span class="resaltado">ID_GRAFICO  </span>del cómic capturado.</div>
+              <div class="atributo"><span class="nombreAtributo">· PAGINAS_CONTENIDO. </span>El número de páginas que ocupa este archivo depende del  <span class="resaltado">ID_TIPO_PAGINA:</span>
+                <ul class="listaDesordenada">
+                  <li>Si es  <span class="resaltado">GRAFICO: </span>se tomará el total de páginas que almacena <span class="resaltado">GRAFICO.paginas_grafico </span></li>
+                  <li>Si no es  <span class="resaltado">GRAFICO: </span>el número de páginas será 1 por defecto (1 imagen = 1 página)</li>
+                </ul>
+              </div>
+              <div class="atributo"><span class="nombreAtributo">· RUTA_ARCHIVO. </span>Opcional. Se usa sólo si  <span class="resaltado">ID_TIPO_PAGINA </span>no es  <span class="resaltado">GRAFICO </span>(ej. para la portada, índice, ads). Almacena la ruta del archivo de imagen.</div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad  <span class="heavy">INDICE_VERSION</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo"> 
+                  <td>id_indice</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único del archivo.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>id_version</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id de la versión que estamos vinculando.</td>
+                  <td>Referencia a VERSION_MAGAZINE.id_version</td>
+                  <td>Restricción: Solo para soporte_version = 'Digital'</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>numero_pagina</td>
+                  <td>INT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Número de página del archivo.</td>
+                  <td>-</td>
+                  <td>Regla: Es obligatorio registrar el número de página. Valor >= 1</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>id_tipo_pagina</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id del tipo de página que estamos vinculando</td>
+                  <td>Referencia a TIPO_PAGINA.id_tipo_pagina</td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>id_grafico</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>SI</td>
+                  <td>Id del Gráfico que estamos vinculando.</td>
+                  <td>Referencia a GRAFICO.id_grafico</td>
+                  <td>Solo si id_tipo_contenido = 'Gráfico' o 'Gráfico Nuevo'</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>paginas_contenido</td>
+                  <td>INT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Total de páginas que ocupa este documento.</td>
+                  <td>-</td>
+                  <td>Si id_tipo_contenido='Gráfico': obtener de GRAFICOS.paginas_grafico. Si no: valor = 1 por defecto</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>ruta_archivo</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>SI</td>
+                  <td>Ruta del archivo de imagen.</td>
+                  <td>-</td>
+                  <td>Solo si tipo_pagina ≠ 'Gráfico'. Ruta relativa al directorio base.</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="notas">
+              <p>*Restricciones y Reglas de Negocio:</p><br>
+              <p>Esta tabla solo aplica para versiones con soporte_version = 'Digital'</p>
+              <p>El numero_pagina debe mantenerse secuencial dentro de una misma id_version</p>
+              <p>Si id_tipo_contenido = 'Gráfico': id_grafico es REQUERIDO y ruta_archivo debe ser NULL</p>
+              <p>Si id_tipo_contenido ≠ 'Gráfico': id_grafico debe ser NULL y ruta_archivo es REQUERIDO</p>
+              <p>La ruta_archivo debe ser relativa al directorio base de almacenamiento</p>
+            </div>
+          </div>
+        </div>
+        <div class="tablasGlobales" id="TablasGlobales"> 
+          <div class="titulosSeparadores">Tablas Catálogos Globales</div>
+          <div class="entidadGlobal" id="tipo_de_formato">
+            <div class="titulo">
+              <p class="relacion">Relación · 1: N - Uno a Muchos -</p>
+              <p class="h3">TIPO DE FORMATO</p>
+              <div class="definicion">Catálogo global que contiene los formatos disponibles para publicaciones impresas o digitales. Se utiliza en GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.<br>Valores Posibles (Depende del soporte, sólo uno a la vez).<br>Formato Físico = Tapa Dura, Tapa Blanda / Formato Digital = Jpg, Png, WebP, Pdf, Cbr.</div>
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID TIPO FORMATO.  </span>Identificador único de cada versión específica de la publicación.</div>
+              <div class="atributo"><span class="nombreAtributo">· NOMBRE FORMATO. </span>El formato específico de esta versión.</div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad  <span class="heavy">TIPO_FORMATO</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_tipo_formato</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>nombre_formato</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Formato del cómic.</td>
+                  <td>-</td>
+                  <td>Regla: Es obligatorio registrar el formato.</td>
+                </tr>
+                <tr class="filaAtributo">   
+                  <td>tipo_soporte</td>
+                  <td>VARCHAR(50)</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>Soporte del cómic.</td>
+                  <td>-</td>
+                  <td>Físico o Digital. Regla: Es obligatorio registrar el soporte.</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="tablaValores">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="3"> <span class="heavy">Valores Posibles</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Id</td>
+                  <td>Formato</td>
+                  <td>Soporte</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>1</td>
+                  <td>Pasta Dura</td>
+                  <td>Físico</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>2</td>
+                  <td>Pasta Blanda</td>
+                  <td>Físico</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>3</td>
+                  <td>JPG</td>
+                  <td>Digital</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>4</td>
+                  <td>PNG</td>
+                  <td>Digital</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>5</td>
+                  <td>WEBP</td>
+                  <td>Digital</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>6</td>
+                  <td>PDF</td>
+                  <td>Digital</td>
+                </tr>
+                <tr class="filaAtributo"> 
+                  <td>7</td>
+                  <td>CBR</td>
+                  <td>Digital</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="entidadGlobal" id="tipo_de_pagina">
+            <div class="titulo">
+              <p class="relacion">Relación · 1: N - Uno a Muchos -</p>
+              <p class="h3">TIPO DE PÁGINA</p>
+              <div class="definicion">La Entidad TIPO_PAGINA contiene e indica el tipo que tiene página que componen un GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.</div><br>Valores Posibles (sólo uno a la vez): Portada, Índice, Artículo, Ads, Extra, Sección Especial, Contraportada, Gráfico, Gráfico Nuevo.
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID TIPO PÁGINA. </span>Identificador único.</div>
+              <div class="atributo"><span class="nombreAtributo">· NOMBRE DEL TIPO. </span>Nombre de los valores posibles que puede tener la entidad <span class="resaltado">TIPO_PAGINA.</span></div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad  <span class="heavy">TIPO_PAGINA</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_tipo_pagina</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>nombre_tipo</td>
+                  <td>VARCHAR (50)</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>El nombre del tipo.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="tablaValores">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="2"> <span class="heavy">Valores Posibles</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Id</td>
+                  <td>Nombre</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>1</td>
+                  <td>Portada</td>
+                </tr>
+                <tr class="filaAtributo">   
+                  <td>2</td>
+                  <td>Índice</td>
+                </tr>
+                <tr class="filaAtributo">   
+                  <td>3</td>
+                  <td>Artículo</td>
+                </tr>
+                <tr class="filaAtributo">   
+                  <td>4</td>
+                  <td>Ads (Publicidad)</td>
+                </tr>
+                <tr class="filaAtributo">   
+                  <td>5</td>
+                  <td>Extra</td>
+                </tr>
+                <tr class="filaAtributo">   
+                  <td>6</td>
+                  <td>Sección Especial</td>
+                </tr>
+                <tr class="filaAtributo">   
+                  <td>7</td>
+                  <td>Contraportada</td>
+                </tr>
+                <tr class="filaAtributo">   
+                  <td>8</td>
+                  <td>Gráfico</td>
+                </tr>
+                <tr class="filaAtributo">   
+                  <td>9</td>
+                  <td>Gráfico Nuevo (Estado Temporal)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="entidadGlobal" id="editorial">
+            <div class="titulo">
+              <p class="relacion">Relación · 1: N - Uno a Muchos -</p>
+              <p class="h3">EDITORIAL</p>
+              <div class="definicion">La Entidad EDITORIAL contiene las compañías editoriales relacionadas con GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.</div>Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten la misma editorial.
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID EDITORIAL.  </span>Identificador único.</div>
+              <div class="atributo"><span class="nombreAtributo">· NOMBRE EDITORIAL. </span>Nombre de la compañía editorial.</div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad<span class="heavy">EDITORIAL</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_editorial</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>nombre_editorial</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>El nombre de la editorial.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="entidadGlobal" id="distribuidora">
+            <div class="titulo">
+              <p class="relacion">Relación · 1: N - Uno a Muchos -</p>
+              <p class="h3">DISTRIBUIDORA</p>
+              <div class="definicion">La Entidad DISTRIBUIDORA contiene las distribuidoras relacionadas con los GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.</div>Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten la misma distribuidora.
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID DISTRIBUIDORA. </span>Identificador único.</div>
+              <div class="atributo"><span class="nombreAtributo">· NOMBRE DISTRIBUIDORA. </span>Nombre de la Distribuidora.</div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad<span class="heavy">DISTRIBUIDORA</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_distribuidora</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>nombre_distribuidora</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>El nombre de la distribuidora.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="entidadGlobal" id="generos">
+            <div class="titulo">
+              <p class="relacion">Relación · N: M - Muchos a Muchos -</p>
+              <p class="h3">GÉNEROS</p>
+              <div class="definicion">La Entidad GENEROS contiene todos los géneros que clasifican los GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.</div><br>Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten el mismo género
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID GÉNERO.  </span>Identificador único.</div>
+              <div class="atributo"><span class="nombreAtributo">· NOMBRE GÉNERO.  </span>Nombre del Género.</div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad<span class="heavy">GÉNEROS</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_genero</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>nombre_genero</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>El nombre del género.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="tablaValores">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="3"> <span class="heavy">Valores Posibles</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Id</td>
+                  <td>Nombre</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>1</td>
+                  <td>Escolares</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>2</td>
+                  <td>Fantasía</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>3</td>
+                  <td>NTR</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>4</td>
+                  <td>Harem</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>5</td>
+                  <td>Cosplay</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>6</td>
+                  <td>Chica Ángel</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>7</td>
+                  <td>Vanilla   </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="entidadGlobal" id="tinta">
+            <div class="titulo">
+              <p class="relacion">Relación · 1:N  - Uno a Muchos -</p>
+              <p class="h3">TINTA</p>
+              <div class="definicion">La Entidad TINTA contiene los tipos de tintas que están relacionados con GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.<br>Valores Posibles (sólo uno a la vez): Color, Blanco & Negro, Sepia y Mixto.<br>Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten el mismo tipo de tinta.</div>
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID TINTA.  </span>Identificador único.</div>
+              <div class="atributo"><span class="nombreAtributo">· NOMBRE TINTA.  </span>Nombre del color de la Tinta.</div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad  <span class="heavy">TINTA</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_tinta</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>nombre_tinta</td>
+                  <td>VARCHAR (50)</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>El nombre de la tinta.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="tablaValores">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="3"> <span class="heavy">Valores Posibles</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Id</td>
+                  <td>Nombre</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>1</td>
+                  <td>Color</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>2</td>
+                  <td>Blanco & Negro</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>3</td>
+                  <td>Sepia</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>4</td>
+                  <td>Mixto</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="entidadGlobal" id="autor">
+            <div class="titulo">
+              <p class="relacion">Relación · N: M - Muchos a Muchos -</p>
+              <p class="h3">AUTOR</p>
+              <div class="definicion">
+                La Entidad AUTOR contiene a los autores relacionados con GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que compartan el mismo autor.</div>
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID AUTOR.  </span>Identificador único.</div>
+              <div class="atributo"><span class="nombreAtributo">· NOMBRE AUTOR.  </span>Nombre del Autor.</div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad  <span class="heavy">AUTOR</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_autor</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>nombre_autor</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>El nombre del autor.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="entidadGlobal" id="aka">
+            <div class="titulo">
+              <p class="relacion">Relación · N: 1 - Muchos a Uno -</p>
+              <p class="h3">AKA</p>
+              <div class="definicion">
+                La Entidad AKA contiene e indica los alias o seudónimos que puede tener un mismo autor.Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten el mismo aka.</div>
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID AKA. Identificador único.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· FK ID AUTOR. Enlaza esta ruta con el autor correspondiente en la tabla  <span class="resaltado">AUTOR.</span></span></div>
+              <div class="atributo"><span class="nombreAtributo">· AKA. Nombre de los valores posibles que puede tener la entidad    <span class="resaltado">AKA.               </span></span></div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad  <span class="heavy">AKA</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_aka</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_autor</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id del Autor que estamos vinculando.</td>
+                  <td>Referencia a AUTOR.id_autor</td>
+                  <td>Regla: Es obligatorio registrar un autor.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>aka</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>El Seudónimo.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="entidadGlobal" id="expo">
+            <div class="titulo">
+              <p class="relacion">Relación · 1: N - Uno a Muchos -</p>
+              <p class="h3">EXPO</p>
+              <div class="definicion">
+                La Entidad EXPO contiene un listado de las exposiciones o convenciones.Valores Posibles: Comic Market, Anime Japan.
+                Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo valor.
+              </div>
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID EXPOSICIÓN. </span>Identificador único.</div>
+              <div class="atributo"><span class="nombreAtributo">· NOMBRE EXPOSICIÓN. </span>Nombre de los valores posibles que puede tener la entidad <span class="resaltado">EXPO.</span></div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad  <span class="heavy">EXPO</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_expo</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>nombre_expo</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>El Nombre de la convención.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="tablaValores">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="3"> <span class="heavy">Valores Posibles</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Id</td>
+                  <td>Nombre</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>1</td>
+                  <td>Comic Market</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>2</td>
+                  <td>Anime Japan</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="entidadIntermedia" id="edicion_expo">
+            <div class="titulo">
+              <p class="relacion">Relación · 1: N - Uno a Muchos -</p>
+              <p class="h3">EDICIÓN EXPO</p>
+              <div class="definicion">
+                La Entidad EDICION_EXPO indica los detalles de una exposición o convención.Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo valor.</div>
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID EXPO. Identificador único.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID EXPO. Enlaza la edición con su Expo correspondiente en la entidad </span><span class="resaltado">EXPO.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· NOMBRE EDICIÓN. Nombre completo de la edición.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· FECHA EDICIÓN. Fecha de la edición.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· NÚMERO EDICIÓN. Número de la edición.</span></div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad  <span class="heavy">EDICION_EXPO</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_edicion</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_expo</td>
+                  <td>INT</td>
+                  <td>FK</td>
+                  <td>NO</td>
+                  <td>Id de la Expo que estamos vinculando.</td>
+                  <td>Referencia a EXPO.id_expo</td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>nombre_edicion</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>SI</td>
+                  <td>Nombre completo de la edición.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>fecha_edicion</td>
+                  <td>DATE</td>
+                  <td>-</td>
+                  <td>SI</td>
+                  <td>Fecha de edición del evento.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>numero_edicion</td>
+                  <td>INT</td>
+                  <td>-</td>
+                  <td>SI</td>
+                  <td>Número de la edición.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="tablaValores">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="2"> <span class="heavy">Valores de Referencia</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Elemento</td>
+                  <td>Dato</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_edicion</td>
+                  <td>106</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>id_expo</td>
+                  <td>1</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>nombre_edicion</td>
+                  <td>Summer Comiket</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>fecha_edicion</td>
+                  <td>Agosto 2025</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>numero_edicion</td>
+                  <td>106</td>
+                </tr>
+              </tbody>
+              <Valores>de Referencia</Valores>
+            </table>
+          </div>
+          <div class="entidadGlobal" id="pais">
+            <div class="titulo">
+              <p class="relacion">Relación · 1: N - Uno a Muchos -</p>
+              <p class="h3">PAÍS</p>
+              <div class="definicion">
+                La Entidad PAIS contiene e indica el país de origen.Valores Posibles (sólo uno a la vez): Japón, Corea del Sur, EEUU, México.
+                Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo país.
+              </div>
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID PAÍS. Identificador único.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· NOMBRE DEL PAÏS. </span>Nombre de los valores posibles que puede tener la entidad <span class="resaltado">PAIS.</span></div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad  <span class="heavy">PAIS</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_pais</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>nombre_pais</td>
+                  <td>VARCHAR (50)</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>El nombre del país.</td>
+                  <td>-</td>
+                  <td>-        </td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="tablaValores">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="2"> <span class="heavy">Valores Posibles</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Id</td>
+                  <td>Nombre</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>1</td>
+                  <td>Japón</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>2</td>
+                  <td>Corea del Sur</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>3</td>
+                  <td>EEUU</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>4</td>
+                  <td>México</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="entidadGlobal" id="idioma">
+            <div class="titulo">
+              <p class="relacion">Relación · 1: N - Uno a Muchos -</p>
+              <p class="h3">IDIOMA</p>
+              <div class="definicion">
+                La Entidad IDIOMA contiene e indica el idioma.Valores Posibles (sólo uno a la vez): Japonés, Coreano, Inglés, Español.
+                Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo idioma.
+              </div>
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID IDIOMA. Identificador único.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· NOMBRE DEL IDIOMA. Nombre de los valores posibles que puede tener la entidad </span><span class="resaltado">IDIOMA.</span></div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad  <span class="heavy">IDIOMA</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_idioma</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>nombre_idioma</td>
+                  <td>VARCHAR (50)</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>El nombre del idioma.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="tablaValores">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="2"> <span class="heavy">Valores Posibles</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Id</td>
+                  <td>Nombre</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>1</td>
+                  <td>Japonés</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>2</td>
+                  <td>Coreano</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>3</td>
+                  <td>Inglés</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>4</td>
+                  <td>Español                </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="entidadGlobal" id="traductor">
+            <div class="titulo">
+              <p class="relacion">Relación · 1: N - Uno a Muchos -</p>
+              <p class="h3">TRADUCTOR</p>
+              <div class="definicion">
+                La Entidad TRADUCTOR contiene los traductores.Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo traductor.</div>
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID TRADUCTOR. Identificador único.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· NOMBRE DEL TRADUCTOR. Nombre de los traductores posibles que puede tener la entidad </span><span class="resaltado">TRADUCTOR.</span></div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad  <span class="heavy">TRADUCTOR</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_traductor</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>nombre_traductor</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>El nombre del traductor.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="entidadGlobal" id="avisos">
+            <div class="titulo">
+              <p class="relacion">Relación · N: M - Mucho a Muchos -</p>
+              <p class="h3">AVISOS</p>
+              <div class="definicion">
+                La Entidad AVISOS contiene los diferentes valores que muestran el tipo de contenido que tienen los elementos.Valores Posibles:
+                Sangre/Gore, Desnudez, Lenguaje Ofensivo, Tabaquismo, Violencia, Contenido Sexual, | Diálogos Sugerentes.
+                Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo valor.
+              </div>
+            </div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">· ID AVISO. Identificador único.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· VALOR DEL AVISO. Nombre de los valores posibles que puede tener la entidad </span><span class="resaltado">AVISOS.</span></div>
+            </div>
+            <table class="tabla">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="7">Entidad  <span class="heavy">AVISOS</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Nombre del Campo</td>
+                  <td>Tipo de  Dato</td>
+                  <td>Clave Key</td>
+                  <td>Nulidad</td>
+                  <td>Descripción o Función</td>
+                  <td>Relaciones FK</td>
+                  <td>Notas</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>id_aviso</td>
+                  <td>INT</td>
+                  <td>PK</td>
+                  <td>NO</td>
+                  <td>Id único del registro.</td>
+                  <td>-</td>
+                  <td>Autoincremental.</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>nombre_aviso</td>
+                  <td>TEXT</td>
+                  <td>-</td>
+                  <td>NO</td>
+                  <td>El valor del aviso.</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="tablaValores">
+              <thead>
+                <tr class="nombreTabla">
+                  <th colspan="2"> <span class="heavy">Valores Posibles</span></th>
+                </tr>
+                <tr class="cabeceraAtributo">
+                  <td>Id</td>
+                  <td>Nombre</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="filaAtributo">
+                  <td>1</td>
+                  <td>Sangre/Gore</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>2</td>
+                  <td>Desnudez</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>3</td>
+                  <td>Lenguaje Ofensivo</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>4</td>
+                  <td>Tabaquismo</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>5</td>
+                  <td>Violencia</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>6</td>
+                  <td>Contenido Sexual</td>
+                </tr>
+                <tr class="filaAtributo">
+                  <td>7</td>
+                  <td>Diálogos Sugerentes</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="triggers" id="Trigger">
+          <div class="titulosSeparadores">**Triggers y Reglas de Negocio**</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<!--
+TRIGGER: Actualización de páginas_magazine.
+Tabla afectada: MAGAZINE
+Campo calculado: paginas_magazine
+
+Descripción: 
+Este trigger actualiza automáticamente el número total de páginas de un magazine 
+sumando las páginas de todos sus componentes (portada, índice, artículos, gráficos, 
+ads, contraportada, etc.).
+
+Eventos que disparan el trigger:
+INSERT en tabla INDICE_VERSION (cuando id_version pertenece a un MAGAZINE)
+UPDATE en tabla INDICE_VERSION (cuando cambia el número de páginas)
+DELETE en tabla INDICE_VERSION
+
+Fórmula de cálculo:
+
+paginas_magazine = SUM(paginas_contenido)
+FROM INDICE_VERSION iv
+JOIN VERSION_MAGAZINE vm ON iv.id_version = vm.id_version
+WHERE vm.id_magazine = [id_magazine_actual]
+
+**Nota:** Este campo no debe ser editado manualmente por el usuario.
+
+
+
+PROCESO: Captura de Gráfico Nuevo
+Tabla afectada: INDICE_VERSION (MAGAZINE)
+Descripción:
+Proceso para capturar un nuevo gráfico que forma parte de un magazine directamente desde el índice del magazine.
+
+
+
+
+Flujo completo:
+1. Estado inicial en INDICE_VERSION:
+id_tipo_contenido: 9 (Gráfico Nuevo)
+id_grafico: NULL
+numero_pagina: 50
+paginas_contenido: 0 (temporal)
+ruta_archivo: NULL
+
+
+2. Usuario presiona "Capturar Gráfico":
+Se abre popup con formulario completo de GRAFICO
+Usuario llena todos los atributos del nuevo gráfico
+Se guarda en tabla GRAFICOS → obtiene id_grafico = “789” con paginas_grafico = “20”
+
+3. Actualización automática atómica:
+
+UPDATE INDICE_VERSION 
+SET 
+id_tipo_contenido = 8,		--- Cambia a "Gráfico"
+id_grafico = 789,			--- Asigna el nuevo id
+paginas_contenido = (
+SELECT paginas_grafico
+FROM GRAFICOS
+WHERE id_grafico = 789
+),					--- Obtiene las 20 páginas
+ruta_archivo = NULL			--- Se asegura que sea NULL
+WHERE id_indice = [id_actual]
+
+
+4. Resultado final:
+```
+id_tipo_contenido: 8 (Gráfico)
+id_grafico: 789
+numero_pagina: 50
+paginas_contenido: 20
+ruta_archivo: NULL
+
+
+
+Diagrama de Relaciones
+COLECCION_MAGAZINE (1) ──→ (N) MAGAZINE (1) ──→ (N) VERSION_MAGAZINE (1) ──→ (N) INDICE_VERSION
+                                    ↓                                                      ↓
+                            MAGAZINE_GENEROS                                         TIPO_PAGINA
+                            MAGAZINE_AUTOR                                               ↓
+                            MAGAZINE_AVISOS                                          GRAFICO (opcional)
+
+GRAFICO (1) ──→ (N) VERSION_GRAFICO (1) ──→ (N) INDICE_VERSION
+    ↓
+GRAFICO_GENEROS
+GRAFICO_AUTOR
+GRAFICO_AVISOS
+
+
+
+-->
+<!--
+div.Base
+    div.entidadMaestra
+        div.titulo
+            p.relacion
+            p.h3
+            div.definicion
+        div.atributos
+            span.nombreAtributo
+            span.resaltado
+        table.tabla
+            thead
+                tr.nombreTabla
+                    th(colspan='7') Entidad Principal  
+                        span.heavy
+                tr.cabeceraAtributo
+                    td Nombre del Campo
+                    td Tipo de  Dato
+                    td Clave Key
+                    td Nulidad
+                    td Descripción o Función
+                    td Relaciones FK
+                    td Notas
+            tbody
+                tr.filaAtributo
+                    td
+div.entidadIntermedia
+    div.titulo
+        p.relacion
+        p.h3
+        div.definicion
+    div.atributos
+        div.atributo
+            span.nombreAtributo
+        div.atributo
+            span.nombreAtributo
+        div.atributo
+            span.nombreAtributo
+            span.resaltado
+    table.tabla
+        thead
+            tr.nombreTabla
+                th(colspan='7') Entidad  
+                    span.heavy GRAFICO_AVISOS
+            tr.cabeceraAtributo
+                td Nombre del Campo
+                td Tipo de  Dato
+                td Clave Key
+                td Nulidad
+                td Descripción o Función
+                td Relaciones FK
+                td Notas
+        tbody
+            tr.filaAtributo
+                td
+
+    table.tablaValores
+        thead
+            tr.nombreTabla
+                th(colspan='3')  
+                    span.heavy Valores Posibles
+            tr.cabeceraAtributo
+                td 
+                td 
+        tbody
+            tr.filaAtributo
+                td
+-->

@@ -1,0 +1,2630 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        link(rel="preconnect", href="https://fonts.googleapis.com")
+        link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+        link(link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet")
+        link(rel="stylesheet", href="css/doc_style.css")
+    body
+        div.container
+            div.indice
+                a(href="#Portada") Portada
+                
+                div
+                    a(href="#Grafico") Gráfico
+                    div.listaIndice
+                        a(href="#versionGrafico") Versión Gráfico
+                        br
+                        a(href="#indiceVersionGrafico") Índice Versión
+                        br
+                        a(href="#tipoGrafico") Tipo de Gráfico
+             
+                a(href="#Coleccion") Colección
+                
+                div
+                    a(href="#Magazine") Magazine
+                    div.listaIndice
+                        a(href="#versionMagazine") Versión Magazine
+                        br
+                        a(href="#indiceVersionMagazine") Índice Versión
+                
+                div
+                    a(href="#TablasGlobales") Tablas Catálogos
+                        br 
+                        | Globales
+                    div.listaIndice
+                        a(href="#tipo_de_formato") Tipo de Formato
+                        br
+                        a(href="#tipo_de_pagina") Tipo de Pagina
+                        br
+                        a(href="#editorial") Editorial
+                        br
+                        a(href="#distribuidora") Distribuidora
+                        br
+                        a(href="#generos") Géneros
+                        br
+                        a(href="#tinta") Tinta
+                        br
+                        a(href="#autor") Autor
+                        br
+                        a(href="#aka") Aka
+                        br
+                        a(href="#expo") Expo 
+                        br
+                        a(href="#edicion_expo") Edición Expo
+                        br
+                        a(href="#pais") País
+                        br
+                        a(href="idioma") Idioma
+                        br
+                        a(href="#traductor") Traductor
+                        br
+                        a(href="#avisos") Avisos
+                
+                a(href="#Trigger") Trigger
+
+            div.info
+                div#Portada.portada
+                    p Estructura de la Base de Datos
+                    h1 DataBase
+                    div.descripcion
+                        p Se desea crear una base de datos.
+                        p Las entidades principales que componen la Base de datos son: 
+                        p.h6.nombreAtributo GRÁFICOS, MAGAZINES, EPISODIOS, SERIES, FILMES, SAGAS Y EXTRAS.
+                    div.notas
+                        p **Notas Técnicas sobre Tipos de Datos:**
+                        p **BOOLEAN:** SQLite no tiene tipo BOOLEAN nativo.
+                        p Los campos booleanos se almacenan como INTEGER con valores 0 (FALSE) o 1 (TRUE).
+                        p En la documentación se especifica como BOOLEAN por claridad conceptual.
+                
+                div#Grafico.grafico
+                    div.entidadMaestra
+                        div.titulo
+                            h2 GRÁFICO
+                            p.definicion La Entidad 
+                                span.resaltado GRAFICO 
+                                | contiene y muestra todos los cómics con los siguientes atributos:                    
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID GRÁFICO. 
+                                | Identificador único.                            
+                            div.atributo 
+                                span.nombreAtributo · FK - ID TIPO GRÁFICO. 
+                                | Clave Foránea que enlaza con la entidad 
+                                span.resaltado TIPO_GRAFICO.
+                            div.atributo 
+                                span.nombreAtributo · PÁGINAS. 
+                                | Número de Páginas que tiene el cómic.
+                            div.atributo 
+                                span.nombreAtributo · FECHA DE PUBLICACIÓN O ESTRENO DEL CÓMIC. 
+                                | Representa la fecha en que el elemento fue publicado o estrenado.
+                                br
+                                span.subrayado Almacenamiento en BD: 
+                                | Tipo 
+                                span.italica DATE 
+                                |  formato  YYYY-MM-DD 
+                                span.italica (ej: 2025-09-25).
+                                br
+                                span.subrayado Formato de Visualización:
+                                |  Se debe mostrar al usuario como  DD · MMM · YYYY, el día, después el mes y luego el año, separados por un punto medio
+                                span.italica  (ejemplo: 25 · Sep · 2025). La conversión se realiza en la capa de aplicación. 
+                                br
+                                span.subrayado Funcionalidad:
+                                |  Actúa como vínculo a un sitio que muestre todos los gráficos que compartan la misma 
+                                span.bold  fecha completa, 
+                                | o el mismo
+                                span.bold  mes, 
+                                | o el mismo
+                                span.bold  año.
+                                |  Esto implica que el sistema debe poder consultar por diferentes niveles de granularidad de la fecha.
+                            div.atributo 
+                                span.nombreAtributo · SINOPSIS. 
+                                | Resumen corto de la historia del cómic.
+                            div.atributo 
+                                span.nombreAtributo · FK · ID PAÍS. 
+                                | Indica el país de origen del Gráfico.
+                            div.atributo 
+                                span.nombreAtributo · FK · ID EDITORIAL. 
+                                | Indica la editorial del Gráfico.
+                            div.atributo 
+                                span.nombreAtributo · FK · ID TINTA. 
+                                | Indica el tipo de tinta que tiene el Gráfico.
+                            div.atributo 
+                                span.nombreAtributo · FK · ID DISTRIBUIDORA. 
+                                | Indica la distribuidora que tiene el Gráfico.
+
+                            div.atributo 
+                                span.nombreAtributo · CÓDIGO DISTRIBUIDORA. 
+                                | Indica el código que le asigna la distribuidora al cómic.
+
+                            div.atributo 
+                                span.nombreAtributo · RATING. 
+                                | Calificación del Cómic de 1 a 5.
+
+                            div.atributo 
+                                span.nombreAtributo · COMENTARIOS. 
+                                | Puntos de vista personales acerca del cómic y su contenido.
+
+                            div.atributo 
+                                span.nombreAtributo · ANOTACIONES. 
+                                | Notas o anotaciones personales.
+
+                            div.atributo 
+                                span.nombreAtributo · CLASIFICACIÓN. 
+                                | Indica si el gráfico es para mayores de 18 años o para todo público.
+
+                            div.atributo 
+                                span.nombreAtributo · PIXELIZACIÓN. 
+                                | Indica si el gráfico contiene censura o no.
+
+                            div.atributo 
+                                span.nombreAtributo · FK · ID EDICIÓN. 
+                                | Indica la Expo en donde se presentó el Gráfico.
+
+                            div.atributo 
+                                span.nombreAtributo · LEÍDO. 
+                                | Indica si el cómic ya fue leído o no.
+
+                            div.atributo
+                                span.nombreAtributo · FECHA DE CAPTURA. 
+                                | Fecha en que se captura el cómic en la base de datos. Se compone del día/mes/año.
+
+                            div.atributo
+                                span.nombreAtributo · CÓDIGO. 
+                                | Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. Formato de Generación: Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para 
+                                span.resaltado GRAFICO: 
+                                | Prefijo "GR-" + 
+                                span.resaltado ID_GRAFICO 
+                                | (Ej. GR-123).   
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad Principal  
+                                        span.heavy GRAFICO  
+                                        | · Tabla Maestra
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_grafico
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único y primario del registro.
+                                    td -
+                                    td Autoincremental.
+
+                                tr.filaAtributo
+                                    td id_tipo_grafico
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id de 
+                                        span.resaltado TIPO_GRAFICO
+                                        | que estamos vinculando.
+                                    td Referencia a 
+                                        span.resaltado TIPO_GRAFICO.id_tipo_grafico
+                                    td -
+                        
+                                tr.filaAtributo
+                                    td paginas_grafico
+                                    td INT
+                                    td -
+                                    td NO
+                                    td No. de páginas.
+                                    td -
+                                    td -
+
+                                tr.filaAtributo
+                                    td fecha_publicacion_grafico
+                                    td DATE
+                                    td -
+                                    td SÍ
+                                    td Fecha de publicación.
+                                    td -
+                                    td Día, Mes y Año.
+
+                                tr.filaAtributo
+                                    td sinopsis_grafico
+                                    td TEXT
+                                    td -
+                                    td SÍ
+                                    td Resumen corto.
+                                    td -
+                                    td -
+
+                                tr.filaAtributo
+                                    td id_pais
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id de País que estamos vinculando.
+                                    td Referencia a 
+                                        span.resaltado PAIS.id_pais
+                                    td Regla: Es obligatorio registrar el país.
+
+                                tr.filaAtributo
+                                    td id_editorial
+                                    td INT
+                                    td FK
+                                    td SI
+                                    td Id de la Editorial que estamos vinculando.
+                                    td Referencia a 
+                                        span.resaltado EDITORIAL.id_editorial
+                                    td -
+
+                                tr.filaAtributo
+                                    td id_tinta
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id de la Tinta que estamos vinculando.
+                                    td Referencia a 
+                                        span.resaltado TINTA.id_tinta
+                                    td Regla: Es obligatorio registrar la tinta.
+
+                                tr.filaAtributo
+                                    td id_distribuidora
+                                    td INT
+                                    td FK
+                                    td SI
+                                    td Id de la Distribuidora que estamos vinculando.
+                                    td Referencia a 
+                                        span.resaltado DISTRIBUIDORA.id_distribuidora
+                                    td -
+
+                                tr.filaAtributo
+                                    td codigo_distribuidora
+                                    td TEXT
+                                    td -
+                                    td SI
+                                    td Código de la Distribuidora.
+                                    td -
+                                    td -
+
+                                tr.filaAtributo
+                                    td rating_grafico
+                                    td FLOAT
+                                    td -
+                                    td SÍ
+                                    td Calificación.
+                                    td -
+                                    td -
+
+                                tr.filaAtributo
+                                    td comentarios_grafico
+                                    td TEXT
+                                    td -
+                                    td SÍ
+                                    td Comentarios.
+                                    td -
+                                    td -
+
+                                tr.filaAtributo
+                                    td anotaciones_grafico
+                                    td TEXT
+                                    td -
+                                    td SÍ
+                                    td Notas Personales.
+                                    td -
+                                    td -
+
+                                tr.filaAtributo
+                                    td clasificacion_grafico
+                                    td BOOLEAN
+                                    td -
+                                    td NO
+                                    td +18 o no.
+                                    td -
+                                    td TRUE = +18 FALSE = Todo público
+
+                                tr.filaAtributo
+                                    td pixelizacion_grafico
+                                    td BOOLEAN
+                                    td -
+                                    td NO
+                                    td Censurado o no.
+                                    td -
+                                    td TRUE = Censurado FALSE = Sin censura
+
+                                tr.filaAtributo
+                                    td id_edicion
+                                    td INT
+                                    td FK
+                                    td SI
+                                    td Id de la expo que estamos vinculando.
+                                    td Referencia a 
+                                        span.resaltado edicion_EXPO.id_edicion
+                                    td -
+
+                                tr.filaAtributo
+                                    td leido_grafico
+                                    td BOOLEAN
+                                    td -
+                                    td NO
+                                    td Si fue o no leído ya el cómic.
+                                    td -
+                                    td TRUE = SÍ FALSE = No
+    
+                                tr.filaAtributo
+                                    td fecha_captura_grafico
+                                    td DATE
+                                    td -
+                                    td NO
+                                    td Fecha de captura en la Base de Datos.
+                                    td -
+                                    td Día, Mes y Año.
+
+                                tr.filaAtributo
+                                    td codigo_grafico
+                                    td TEXT
+                                    td -
+                                    td NO
+                                    td Código para su Identificación.
+                                    td -
+                                    td Se usa el prefijo GR-
+
+                    div.entidadLocal#versionGrafico
+                        div.titulo
+                            p.relacion Relación · N: 1 – Muchos a Uno – 
+                            p.h3 VERSIÓN GRÁFICO
+                            div.definicion La Entidad
+                                span.resaltado  VERSION_GRAFICO 
+                                | contiene y maneja las múltiples versiones que puede tener un único 
+                                span.resaltado GRAFICO
+                                |  y posee los siguientes atributos:
+                        div.atributos
+                            div.atributo 
+                                span.nombreAtributo · ID VERSION. 
+                                | Identificador único de cada versión específica del Gráfico.
+                            div.atributo 
+                                span.nombreAtributo · FK - ID GRÁFICO. 
+                                | Enlaza esta versión con el cómic principal en la entidad 
+                                span.resaltado GRAFICO.
+                            div.atributo 
+                                span.nombreAtributo · FK - ID IDIOMA. 
+                                | El idioma en el que se encuentra esta versión específica.
+                            div.atributo 
+                                span.nombreAtributo · TÍTULO. 
+                                | Nombre del gráfico en el idioma de esta versión. (Depende del Idioma) 
+                            div.atributo 
+                                span.nombreAtributo · SOPORTE. 
+                                | Indica el medio de esta versión. Valores Posibles: 
+                                span.resaltado Físico, Digital.
+                            div.atributo 
+                                span.nombreAtributo · FK - ID TIPO FORMATO. 
+                                | El formato específico de esta versión. (Dependerá del Soporte)
+                            div.atributo 
+                                span.nombreAtributo · ANCHO DE LAS IMAGEN. 
+                                | Tamaño del ancho de las imágenes en píxeles de esta versión.
+                            div.atributo 
+                                span.nombreAtributo · ALTO DE LAS IMAGEN. 
+                                | Tamaño del alto de las imágenes en píxeles de esta versión.
+                            div.atributo 
+                                span.nombreAtributo · RESOLUCIÓN. 
+                                | Calidad de la imagen en DPI.
+                            div.atributo 
+                                span.nombreAtributo · PESO. 
+                                | Indicar el peso del archivo convertido a Bytes siempre.
+                            div.atributo 
+                                span.nombreAtributo · FK - ID TRADUCTOR. 
+                                | Indica el traductor de esta versión.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy VERSION_GRAFICO  
+
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_version
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único del registro.
+                                    td -
+                                    td Autoincremental.
+
+                                tr.filaAtributo
+                                    td id_grafico
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id del Gráfico que estamos vinculando.
+                                    td Referencia a 
+                                        span.resaltado GRAFICO.id_grafico
+                                    td Regla: Es obligatorio registrar un gráfico.
+                            
+                                tr.filaAtributo
+                                    td id_idioma
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id del Idioma que estamos vinculando.
+                                    td Referencia a 
+                                        span.resaltado IDIOMA.id_idioma
+                                    td Regla: Es obligatorio registrar un idioma.
+
+                                tr.filaAtributo
+                                    td titulo_version
+                                    td TEXT
+                                    td -
+                                    td NO
+                                    td Título del cómic.
+                                    td -
+                                    td -
+
+                                tr.filaAtributo
+                                    td soporte_version
+                                    td TEXT
+                                    td -
+                                    td NO
+                                    td Soporte del cómic. Físico o Digital
+                                    td -
+                                    td Regla: Es obligatorio registrar el soporte.
+                            
+                                tr.filaAtributo
+                                    td id_tipo_formato
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id del Tipo de Formato que estamos vinculando.
+                                    td Referencia a 
+                                        span.resaltado TIPO_FORMATO.id_tipo_formato
+                                    td Regla: Es obligatorio registrar el tipo de formato.
+
+                                tr.filaAtributo
+                                    td ancho_version
+                                    td INT
+                                    td -
+                                    td SÍ
+                                    td Ancho de las Imágenes.
+                                    td -
+                                    td Datos en Pixeles.
+
+                                tr.filaAtributo
+                                    td alto_version
+                                    td INT
+                                    td -
+                                    td SÍ
+                                    td Alto de las Imágenes.
+                                    td -
+                                    td Datos en Pixeles.
+
+                                tr.filaAtributo
+                                    td resolucion_version
+                                    td INT
+                                    td -
+                                    td SÍ
+                                    td Resolución.
+                                    td -
+                                    td Datos en DPI.
+
+                                tr.filaAtributo
+                                    td peso_version
+                                    td BIGINT
+                                    td -
+                                    td SÍ
+                                    td Peso.
+                                    td -
+                                    td Datos en Bytes.
+
+                                tr.filaAtributo
+                                    td id_traductor
+                                    td INT
+                                    td FK
+                                    td SI
+                                    td Id del Ttraductor que estamos vinculando.
+                                    td Referencia a 
+                                        span.resaltado TRADUCTOR.id_traductor
+                                    td -
+                    div.entidadLocal#indiceVersionGrafico
+                        div.titulo
+                            p.relacion Relación · 1:N - Uno a Muchos -
+                            p.h3 ÍNDICE VERSIÓN
+                            div.definicion La Entidad  
+                                span.resaltado INDICE_VERSION  
+                                | almacena el índice o listado de las rutas de archivos que componen una versión digital específica. Esto permite que cada versión en la tabla  
+                                span.resaltado VERSION_GRAFICO 
+                                | tenga su propio listado ordenado de páginas/archivos.
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID ÍNDICE.  
+                                | Identificador único para el registro de cada archivo/página.
+                            div.atributo
+                                span.nombreAtributo · FK - ID VERSION.  
+                                | Enlaza esta ruta con la versión digital correspondiente en la tabla  
+                                span.resaltado VERSION_GRAFICO.
+                            div.atributo
+                                span.nombreAtributo · NÚMERO DE PÁGINA.  
+                                | El número de página (o índice) que representa este archivo, es crucial para mantener el orden de lectura.
+                            div.atributo
+                                span.nombreAtributo · RUTA DEL ARCHIVO.  
+                                | La ruta absoluta o relativa donde se encuentra el archivo de la página en el sistema de almacenamiento.
+                            div.atributo
+                                span.nombreAtributo · FK - ID TIPO DE PÁGINA. 
+                                | El tipo de contenido que es la página del cómic.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy INDICE_VERSION
+
+
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_indice
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único del registro.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo
+                                    td id_version
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id de la versión que estamos vinculando.
+                                    td Referencia a  
+                                        span.resaltado VERSION_GRAFICO.id_version
+                                    td Restricción: Solo aplica para soporte_version = 'Digital'.
+                                tr.filaAtributo
+                                    td numero_pagina
+                                    td INT
+                                    td -
+                                    td NO
+                                    td Número de página del archivo.
+                                    td -
+                                    td Valor &gt;= 0 (0 = portada)
+                                tr.filaAtributo
+                                    td ruta_archivo
+                                    td TEXT
+                                    td -
+                                    td NO
+                                    td Ruta del archivo.
+                                    td -
+                                    td Ruta relativa al directorio base.
+                                tr.filaAtributo
+                                    td id_tipo_pagina
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id del tipo de página que estamos vinculando
+                                    td Referencia a  
+                                        span.resaltado TIPO_PAGINA.id_tipo_pagina
+                                    td -
+                        div.notas
+                            p *Restricciones y Reglas de Negocio: 
+                            br
+                            p - Esta tabla solo aplica para versiones con soporte_version = 'Digital'.
+                            p - El numero_pagina debe ser único por id_version.
+                            p - numero_pagina = 0 indica portada.
+                            p - La ruta_archivo debe ser relativa al directorio base de almacenamiento.
+                    div.entidadLocal#tipoGrafico
+                        div.titulo
+                            p.relacion Relación · 1:N – Uno a Muchos –
+                            p.h3 TIPO DE GRÁFICO
+                            div.definicion La Entidad  
+                                span.resaltado TIPO_GRAFICO  
+                                | contiene e indica la clasificación específica de un gráfico.
+                                span.subrayado Valores Posibles 
+                                | (sólo uno a la vez):
+                                span.resaltado  Cómic, Manga, Doujinshi, Manhua, Manhwa, Webtoon 
+                                | e 
+                                span.resaltado Historieta.
+                                span.subrayado Funcionalidad:
+                                |  Este elemento funcionará como un vínculo a un sitio donde se muestran todos los que comparten ese mismo tipo.
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID TIPO GRÁFICO.  
+                                | Identificador único.
+                            div.atributo
+                                span.nombreAtributo · NOMBRE DEL TIPO.  
+                                | Nombre de los valores posibles que puede tener la entidad  
+                                span.resaltado GRAFICO.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy TIPO_GRAFICO
+
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_tipo_grafico
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único del registro.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo
+                                    td nombre_tipo
+                                    td VARCHAR (50)
+                                    td -
+                                    td NO
+                                    td El nombre del tipo de cómic.
+                                    td -
+                                    td Regla: Es obligatorio registrar el tipo.
+
+                    div.titulosSeparadores Tablas Intermedias Gráfico
+                    div.entidadIntermedia#graficoGeneros
+                        div.titulo
+                            p.relacion Relación · N: M - Muchos a Muchos -
+                            p.h3 GRÁFICO GÉNEROS
+                            div.definicion La Entidad
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · FK - ID GRÁFICO.  
+                                | Enlaza esta ruta con la tabla  
+                                span.resaltado GRAFICO.
+                            div.atributo
+                                span.nombreAtributo · FK - ID GÉNERO.  
+                                | Enlaza esta ruta con la tabla  
+                                span.resaltado GENEROS.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy GRAFICO_GENEROS
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_grafico
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id del Gráfico que estamos vinculando.
+                                    td Referencia a 
+                                        span.resaltado GRAFICO.id_grafico
+                                    td Regla: Es obligatorio registrar un gráfico.
+                                tr.filaAtributo
+                                    td id_genero
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id del Género que estamos vinculando.
+                                    td Referencia a 
+                                        span.resaltado GENEROS.id_genero
+                                    td Regla: Es obligatorio registrar un género.
+                    div.entidadIntermedia#graficoAutor
+                        div.titulo
+                            p.relacion Relación · N: M - Muchos a Muchos -
+                            p.h3 GRÁFICO AUTOR
+                            div.definicion La Entidad 
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · FK - ID GRÁFICO.  
+                                | Enlaza esta ruta con la tabla  
+                                span.resaltado GRAFICO.
+                            div.atributo
+                                span.nombreAtributo · FK - ID AUTOR.  
+                                | Enlaza esta ruta con la tabla  
+                                span.resaltado AUTOR.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy GRAFICO_AUTOR
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_grafico
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id del Gráfico que estamos vinculando.
+                                    td Referencia a
+                                        span.resaltado GRAFICO.id_grafico
+                                    td Regla: Es obligatorio registrar un gráfico.
+                                tr.filaAtributo
+                                    td id_autor
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id del Autor que estamos vinculando.
+                                    td Referencia a
+                                        span.resaltado AUTOR.id_autor
+                                    td Regla: Es obligatorio registrar un autor.
+                    div.entidadIntermedia#graficoAutor
+                        div.titulo
+                            p.relacion Relación · N: M - Muchos a Muchos -
+                            p.h3 GRÁFICO AVISOS
+                            div.definicion La Entidad
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · FK - ID GRÁFICO.  
+                                | Enlaza esta ruta con la tabla  
+                                span.resaltado GRAFICO.
+                            div.atributo
+                                span.nombreAtributo · FK - ID AVISO.  
+                                | Enlaza esta ruta con la tabla  
+                                span.resaltado AVISOS.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy GRAFICO_AVISOS
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_grafico
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id del Gráfico que estamos vinculando.
+                                    td Referencia a 
+                                        span.resaltado GRAFICO.id_grafico
+                                    td Regla: Es obligatorio registrar un gráfico.
+                                tr.filaAtributo
+                                    td id_aviso
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id del Aviso que estamos vinculando.
+                                    td Referencia a 
+                                        span.resaltado AVISOS.id_aviso
+                                    td Regla: Es obligatorio registrar un aviso.
+
+                div#Coleccion.coleccion
+                    div.entidadMaestra
+                        div.titulo
+                            h2 COLECCIÓN
+                            p.definicion La Entidad 
+                                span.resaltado COLECCION  
+                                | se componen de varios números de magazines con los siguientes atributos:
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID COLECCIÓN. 
+                                | Identificador único. 
+                            div.atributo
+                                span.nombreAtributo · NOMBRE COLECCIÓN. 
+                                | Nombre general de la colección de Magazines.
+                            div.atributo
+                                span.nombreAtributo · TIPO DE PUBLICACIÓN. 
+                                | Frecuencia de publicación del magazine:  
+                                span.resaltado Semanal, Mensual, Bimestral, Anual 
+                                | o por  
+                                span.resaltado Evento. 
+                            div.atributo
+                                span.nombreAtributo · ESTADO DE LA PUBLICACIÓN. 
+                                | Muestra si el Magazine se sigue publicando o no.
+                            div.atributo
+                                span.nombreAtributo · FECHA INICIO. 
+                                | Indica la fecha de la primera publicación.
+                            div.atributo
+                                span.nombreAtributo · FECHA FINAL. 
+                                | Indica la fecha de la última publicación.
+                            div.atributo
+                                span.nombreAtributo · DESCRIPCIÓN. 
+                                | Descripción general de la colección de Magazines.
+                            div.atributo
+                                span.nombreAtributo · CÓDIGO. 
+                                | Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. Formato de Generación: Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para  
+                                span.resaltado COLECCION:  
+                                | Prefijo "CN-" +  
+                                span.resaltado ID_COLECCION 
+                                | (Ej. CN-123).                                                   
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad Principal  
+                                        span.heavy COLECCION  
+                                        | · Tabla Maestra
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_coleccion
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único y primario del registro.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo
+                                    td nombre_coleccion
+                                    td TEXT
+                                    td -
+                                    td NO
+                                    td Nombre de la Colección.
+                                    td -
+                                    td -
+                                tr.filaAtributo
+                                    td tipo_publicacion
+                                    td TEXT
+                                    td -
+                                    td SI
+                                    td Frecuencia de publicación.
+                                    td -
+                                    td Semanal, Mensual, Bimestral, Anual o por Evento.
+                                tr.filaAtributo
+                                    td estado_publicacion
+                                    td BOOLEAN
+                                    td -
+                                    td NO
+                                    td Estado de la publicación
+                                    td -
+                                    td TRUE =  En Emisión. FALSE = Finalizado
+                                tr.filaAtributo
+                                    td fecha_inicio
+                                    td DATE
+                                    td -
+                                    td SI
+                                    td Fecha de la primera publicación.
+                                    td -
+                                    td Día, Mes y Año.
+                                tr.filaAtributo
+                                    td fecha_fin
+                                    td DATE
+                                    td -
+                                    td SI
+                                    td Fecha de la última publicación.
+                                    td -
+                                    td Día, Mes y Año. NULL si aún continúa.
+                                tr.filaAtributo
+                                    td descripcion_coleccion
+                                    td TEXT
+                                    td -
+                                    td SI
+                                    td Descripción
+                                    td -
+                                    td -
+                                tr.filaAtributo
+                                    td codigo_coleccion
+                                    td TEXT
+                                    td -
+                                    td NO
+                                    td Código para su Identificación.
+                                    td -
+                                    td Se usa el prefijo CN-
+
+                div#Magazine.magazine
+                    div.entidadMaestra
+                        div.titulo
+                            h2 MAGAZINE
+                            div.definicion Un Magazine puede componerse de elementos únicos, cómo su portada, índice, contraportada, artículos, ads y Gráficos de diferentes autores. Estos últimos pueden encontrarse ya capturados o capturarse al momento mismo de la captura del Magazine. La Entidad  
+                                span.resaltado MAGAZINE  
+                                | contiene y muestra todos los magazines con los siguientes atributos:
+
+                        div.atributos
+                            div.atributo    
+                                span.nombreAtributo · ID MAGAZINE.  
+                                | Identificador único. 
+                            div.atributo
+                                span.nombreAtributo · FK · ID COLECCION.  
+                                | Indica la colección a la que pertenece.
+                            div.atributo
+                                span.nombreAtributo · NÚMERO MAGAZINE.  
+                                | Número del Magazine dentro de la colección..  
+                            div.atributo
+                                span.nombreAtributo · PÁGINAS TOTALES.  
+                                | Representa el número total de páginas del magazine.  
+                                span.subrayado Regla de Cálculo:  
+                                | Este valor es la suma de las páginas de todos los elementos que componen el  
+                                span.resaltado MAGAZINE.
+                            div.atributo
+                                span.nombreAtributo · FECHA DE PUBLICACIÓN O ESTRENO DEL MAGAZINE.  
+                                | Representa la fecha en que el elemento fue publicado o estrenado. 
+                                br
+                                span.subrayado Almacenamiento en BD:  
+                                | Tipo  
+                                span.italica DATE 
+                                | formato YYYY-MM-DD (ej: 2025-09-25). 
+                                br 
+                                span.subrayado Formato de Visualización: 
+                                | Se debe mostrar al usuario como DD · MMM · YYYY , el día, después el mes y luego el año, separados por un punto medio (ejemplo: 25 · Sep · 2025). La conversión se realiza en la capa de aplicación.
+                                br
+                                span.subrayado Funcionalidad:  
+                                | Actúa como vínculo a un sitio que muestre todos los  
+                                span.bold MAGAZINES  
+                                | que compartan la misma  
+                                span.bold fecha completa, 
+                                | o el mismo  
+                                span.bold mes, 
+                                | o el mismo  
+                                span.bold año. 
+                                | Esto implica que el sistema debe poder consultar por diferentes niveles de granularidad de la fecha.
+                            div.atributo
+                                span.nombreAtributo · SINOPSIS.  
+                                | Resumen corto de la historia del cómic.
+                            div.atributo
+                                span.nombreAtributo · FK · ID PAÍS.  
+                                | Indica el país de origen del Gráfico.
+                            div.atributo
+                                span.nombreAtributo · FK · ID EDITORIAL.  
+                                | Indica la editorial del Gráfico.
+                            div.atributo
+                                span.nombreAtributo · FK · ID TINTA.  
+                                | Indica el tipo de tinta que tiene el Magazine. 
+                            div.atributo
+                                span.nombreAtributo · FK · ID DISTRIBUIDORA.  
+                                | Indica la distribuidora que tiene el Magazine. 
+                            div.atributo
+                                span.nombreAtributo · CÓDIGO DISTRIBUIDORA.  
+                                | Indica el código que le asigna la distribuidora al Magazine.
+                            div.atributo
+                                span.nombreAtributo · RATING.  
+                                | Calificación del magazine.
+                            div.atributo
+                                span.nombreAtributo · COMENTARIOS.  
+                                | Puntos de vista personales acerca del magazine y su contenido.
+                            div.atributo
+                                span.nombreAtributo · ANOTACIONES.  
+                                | Notas o anotaciones personales.
+                            div.atributo
+                                span.nombreAtributo · CLASIFICACIÓN.  
+                                | Indica si el gráfico es para mayores de 18 años o para todo público. 
+                            div.atributo
+                                span.nombreAtributo · PIXELIZACIÓN.  
+                                | Indica si el gráfico contiene censura o no.
+                            div.atributo
+                                span.nombreAtributo · FK · ID EDICIÓN.  
+                                | Indica la Expo en donde se presentó el Magazine.
+                            div.atributo
+                                span.nombreAtributo · LEÍDO.  
+                                | Indicar si el magazine ya fue leído o no.
+                            div.atributo
+                                span.nombreAtributo · FECHA DE CAPTURA.  
+                                | Fecha en que se captura el magazine en la base de datos. Se compone del día/mes/año.
+                            div.atributo
+                                span.nombreAtributo · CÓDIGO.  
+                                | Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. 
+                                span.subrayado Formato de Generación:  
+                                | Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para  
+                                span.resaltado MAGAZINE:  
+                                | Prefijo "MGZ-" +  
+                                span.resaltado ID_MAGAZINE  
+                                | (Ej. MGZ-456)
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad Principal  
+                                        span.heavy MAGAZINE  
+                                        |· Tabla Maestra
+                         
+                                tr.cabeceraAtributo
+                                        td Nombre del Campo
+                                        td Tipo de  Dato
+                                        td Clave Key
+                                        td Nulidad
+                                        td Descripción o Función
+                                        td Relaciones FK
+                                        td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_magazine
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único y primario del registro.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo
+                                    td id_coleccion
+                                    td INT
+                                    td FK
+                                    td SI
+                                    td ID de la Colección a la que pertenece.
+                                    td Referencia a  
+                                        span.resaltado COLECCION_MAGAZINE.id_coleccion
+                                    td NULL para magazines independientes.
+                                tr.filaAtributo
+                                    td numero_magazine
+                                    td INT
+                                    td -
+                                    td SI
+                                    td Número dentro de la colección.
+                                    td -
+                                    td NULL si no es parte de una colección.
+                                tr.filaAtributo
+                                    td paginas_magazine
+                                    td INT
+                                    td -
+                                    td NO
+                                    td No. de páginas totales.
+                                    td -
+                                    td Campo calculado: suma de páginas de componentes. Se actualiza automáticamente mediante 
+                                        span.resaltado TRIGGERS  
+                                        | cuando se insertan, actualizan o eliminan componentes del magazine.
+                                tr.filaAtributo
+                                    td fecha_publicacion_magazine
+                                    td DATE
+                                    td -
+                                    td SÍ
+                                    td Fecha de publicación.
+                                    td -
+                                    td Día, Mes y Año.
+                                tr.filaAtributo
+                                    td sinopsis_magazine
+                                    td TEXT
+                                    td -
+                                    td SÍ
+                                    td Resumen corto.
+                                    td -
+                                    td -
+                                tr.filaAtributo
+                                    td id_pais
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id de País que estamos vinculando.
+                                    td Referencia a  
+                                        span.resaltado PAIS.id_pais
+                                    td Regla: Es obligatorio registrar el país.
+                                tr.filaAtributo
+                                    td id_editorial
+                                    td INT
+                                    td FK
+                                    td SI
+                                    td Id de la Editorial que estamos vinculando.
+                                    td Referencia a  
+                                        span.resaltado EDITORIAL.id_editorial
+                                    td -
+                                tr.filaAtributo
+                                    td id_tinta
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id de la Tinta que estamos vinculando.
+                                    td Referencia a  
+                                        span.resaltado TINTA.id_tinta
+                                    td Regla: Es obligatorio registrar la tinta.
+                                tr.filaAtributo
+                                    td id_distribuidora
+                                    td INT
+                                    td FK
+                                    td SI
+                                    td Id de la Distribuidora que estamos vinculando.
+                                    td Referencia a  
+                                        span.resaltado  DISTRIBUIDORA.id_distribuidora
+                                    td -
+                                tr.filaAtributo
+                                    td codigo_distribuidora
+                                    td TEXT
+                                    td -
+                                    td SI
+                                    td Código de la Distribuidora.
+                                    td -
+                                    td -
+                                tr.filaAtributo
+                                    td rating_magazine
+                                    td FLOAT
+                                    td -
+                                    td SÍ
+                                    td Calificación.
+                                    td -
+                                    td Rango 1-5
+                                tr.filaAtributo
+                                    td comentarios_magazine
+                                    td TEXT
+                                    td -
+                                    td SÍ
+                                    td Comentarios.
+                                    td -
+                                    td -
+                                tr.filaAtributo
+                                    td anotaciones_magazine
+                                    td TEXT
+                                    td -
+                                    td SÍ
+                                    td Notas Personales.
+                                    td -
+                                    td -
+                                tr.filaAtributo
+                                    td clasificacion_magazine
+                                    td BOOLEAN
+                                    td -
+                                    td NO
+                                    td +18 o no
+                                    td -
+                                    td TRUE = Contiene contenido +18.
+                                        br
+                                        | FALSE = Todo el contenido es apto para todo público.
+                                tr.filaAtributo
+                                    td pixelizacion_magazine
+                                    td BOOLEAN
+                                    td -
+                                    td NO
+                                    td Censurado o no
+                                    td -
+                                    td TRUE = Contiene al menos un contenido censurado.
+                                        br
+                                        | FALSE = Todo el contenido está sin censura.
+                                tr.filaAtributo
+                                    td id_edicion
+                                    td INT
+                                    td FK
+                                    td SI
+                                    td Id de la expo que estamos vinculando.
+                                    td Referencia a  
+                                        span.resaltado  edicion_EXPO.id_edicion
+                                    td -
+                                tr.filaAtributo
+                                    td leido_magazine
+                                    td BOOLEAN
+                                    td -
+                                    td NO
+                                    td Si ya fue o no leído el magazine.
+                                    td -
+                                    td TRUE = SÍ.
+                                        br
+                                        | FALSE = No.
+                                tr.filaAtributo
+                                    td fecha_captura_magazine
+                                    td DATE
+                                    td -
+                                    td NO
+                                    td Fecha de captura en la Base de Datos.
+                                    td -
+                                    td Día, Mes y Año.
+                                tr.filaAtributo
+                                    td codigo_magazine
+                                    td TEXT
+                                    td -
+                                    td NO
+                                    td Código para su Identificación.
+                                    td -
+                                    td Se usa el prefijo MGZ-
+
+                    div.entidadLocal#versionMagazine
+                        div.titulo
+                            p.relacion Relación · N: 1 – Muchos a Uno –
+                            p.h3 VERSIÓN MAGAZINE
+                            div.definicion La Entidad  
+                                span.resaltado VERSION_MAGAZINE  
+                                | contiene y maneja las múltiples versiones que puede tener un único  
+                                span.resaltado MAGAZINE  
+                                | y posee los siguientes atributos:
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID VERSION.  
+                                | Identificador único de cada versión específica del Magazine.
+                            div.atributo
+                                span.nombreAtributo · FK - ID_MAGAZINE.  
+                                | Enlaza esta versión con el Magazine principal en la entidad  
+                                span.resaltado MAGAZINE.
+                            div.atributo
+                                span.nombreAtributo · FK - ID IDIOMA.  
+                                | El idioma en el que se encuentra esta versión específica
+                            div.atributo
+                                span.nombreAtributo · TÍTULO.  
+                                | Nombre del Magazine en el idioma de esta versión. (Depende del Idioma) 
+                            div.atributo
+                                span.nombreAtributo · SOPORTE.  
+                                | Indica el medio de esta versión. Valores Posibles:  
+                                span.resaltado Físico, Digital.
+                            div.atributo
+                                span.nombreAtributo · FK - ID TIPO FORMATO.  
+                                | El formato específico de esta versión. Valores Posibles: (Depende del Soporte) 
+                            div.atributo
+                                span.nombreAtributo · ANCHO DE LAS IMAGEN.  
+                                | Tamaño del ancho de las imágenes en píxeles de esta versión.
+                            div.atributo
+                                span.nombreAtributo · ALTO DE LAS IMAGEN.  
+                                | Tamaño del alto de las imágenes en píxeles de esta versión.
+                            div.atributo
+                                span.nombreAtributo · RESOLUCIÓN.  
+                                | Calidad de la imagen en DPI.
+                            div.atributo
+                                span.nombreAtributo · PESO.  
+                                | Indicar el peso del archivo convertido a Bytes siempre.
+                            div.atributo
+                                span.nombreAtributo · FK - ID TRADUCTOR.  
+                                | Indica el traductor de esta versión.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy VERSION_MAGAZINE
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo 
+                                    td id_version
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único del archivo.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo 
+                                    td id_magazine
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id del Magazine que estamos vinculando.
+                                    td Referencia a MAGAZINE.id_magazine
+                                    td -
+                                tr.filaAtributo 
+                                    td id_idioma
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id del Idioma que estamos vinculando.
+                                    td Referencia a IDIOMA.id_idioma
+                                    td Regla: Es obligatorio registrar un idioma.
+                                tr.filaAtributo 
+                                    td titulo_version
+                                    td TEXT
+                                    td -
+                                    td NO
+                                    td Título del magazine.
+                                    td -
+                                    td -
+                                tr.filaAtributo 
+                                    td soporte_version
+                                    td TEXT
+                                    td -
+                                    td NO
+                                    td Soporte del magazine. Físico o Digital
+                                    td -
+                                    td Regla: Es obligatorio registrar el soporte.
+                                tr.filaAtributo 
+                                    td id_tipo_formato
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id del Tipo de Formato que estamos vinculando.
+                                    td Referencia a TIPO_FORMATO.id_tipo_formato
+                                    td Regla: Es obligatorio registrar el tipo de formato.
+                                tr.filaAtributo 
+                                    td ancho_version
+                                    td INT
+                                    td -
+                                    td SÍ
+                                    td Ancho de las Imágenes.
+                                    td -
+                                    td Datos en Pixeles.
+                                tr.filaAtributo 
+                                    td alto_version
+                                    td INT
+                                    td -
+                                    td SÍ
+                                    td Alto de las Imágenes.
+                                    td -
+                                    td Datos en Pixeles.
+                                tr.filaAtributo 
+                                    td resolucion_version
+                                    td INT
+                                    td -
+                                    td SÍ
+                                    td Resolución.
+                                    td -
+                                    td Datos en DPI.
+                                tr.filaAtributo 
+                                    td peso_version
+                                    td BIGINT
+                                    td -
+                                    td SÍ
+                                    td Peso.
+                                    td -
+                                    td Datos en Bytes.
+                                tr.filaAtributo 
+                                    td id_traductor
+                                    td INT
+                                    td FK
+                                    td SI
+                                    td Id del Ttraductor que estamos vinculando.
+                                    td Referencia a TRADUCTOR.id_traductor
+                                    td -
+
+                    div.entidadLocal#indiceVersionMagazine
+                        div.titulo
+                            p.relacion Relación · 1:N  - Uno a Muchos -
+                            p.h3 ÍNDICE VERSIÓN
+                            div.definicion La Entidad  
+                                span.resaltado INDICE_VERSION  
+                                | almacena el índice o listado de las rutas de archivos que componen una versión digital específica. Esto permite que cada versión en la tabla  
+                                span.resaltado VERSION_MAGAZINE  
+                                | tenga su propio listado ordenado de páginas/archivos y gráficos que componen.
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID_INDICE. 
+                                | Identificador único del registro de la página o contenido.
+
+                            div.atributo
+                                span.nombreAtributo · FK_ID_VERSION. 
+                                | Enlaza esta ruta con la versión digital correspondiente en la tabla VERSION_MAGAZINE.
+
+                            div.atributo
+                                span.nombreAtributo · NUMERO_PAGINA. 
+                                | La página exacta del Magazine donde se encuentra este contenido. Crucial para la ordenación.
+
+                            div.atributo
+                                span.nombreAtributo · FK - ID TIPO DE PÁGINA. 
+                                | Define el tipo de contenido en esta página. 
+                                | Valores Posibles:  
+                                span.resaltado Portada, Índice, Artículo, Ads, Extra, Sección Especial, Contraportada, Gráfico, Gráfico Nuevo.
+                                br
+                                span.bold Gráfico Nuevo: 
+                                | Cuando se registra un Magazine, se selecciona la opción de Gráfico Nuevo en el  
+                                span.resaltado ID_TIPO_PAGINA  
+                                | de la entidad  
+                                span.resaltado INDICE_VERSION
+                                |, la interfaz gráfica detecta el registro como  
+                                span.resaltado ID_TIPO_PAGINA =  
+                                span.bold Gráfico Nuevo  
+                                | por lo que el sistema muestra la opción de capturar la información de este nuevo cómic (botón Capturar Gráfico) en una ventana emergente (popup) con todos los atributos definidos para la entidad  
+                                span.resaltado GRAFICO.
+                                br
+                                | Una vez que el cómic se guarda en la tabla  
+                                span.resaltado GRAFICO  
+                                | y obtiene su  
+                                span.resaltado ID_GRAFICO
+                                |, el sistema realiza una actualización automática en la tabla  
+                                span.resaltado INDICE_VERSION: 
+                                ul.listaDesordenada
+                                    li Cambiando  
+                                        span.resaltado ID_TIPO_PAGINA  
+                                        | de  
+                                        span.bold Gráfico Nuevo  
+                                        | a  
+                                        span.bold Gráfico. 
+                                    li Asignando el nuevo  
+                                        span.resaltado ID_GRÁFICO  
+                                        | al campo  
+                                        span.resaltado FK_ID_GRAFICO y
+                                    li Actualizando  
+                                        span.resaltado PAGINAS_CONTENIDO  
+                                        | con el valor registrado en el del cómic.
+
+                            div.atributo
+                                span.nombreAtributo · FK_ID_GRAFICO. 
+                                | Opcional. Se usa sólo si  
+                                span.resaltado ID_TIPO_PAGINA  
+                                | es  
+                                span.resaltado GRAFICO.  
+                                | Almacena la  
+                                span.resaltado ID_GRAFICO  
+                                | del cómic capturado.
+
+                            div.atributo
+                                span.nombreAtributo · PAGINAS_CONTENIDO. 
+                                | El número de páginas que ocupa este archivo depende del  
+                                span.resaltado ID_TIPO_PAGINA:
+                                ul.listaDesordenada
+                                    li Si es  
+                                        span.resaltado GRAFICO: 
+                                        | se tomará el total de páginas que almacena 
+                                        span.resaltado GRAFICO.paginas_grafico 
+                                    li Si no es  
+                                        span.resaltado GRAFICO: 
+                                        | el número de páginas será 1 por defecto (1 imagen = 1 página)
+
+                            div.atributo
+                                span.nombreAtributo · RUTA_ARCHIVO. 
+                                | Opcional. Se usa sólo si  
+                                span.resaltado ID_TIPO_PAGINA 
+                                | no es  
+                                span.resaltado GRAFICO 
+                                | (ej. para la portada, índice, ads). Almacena la ruta del archivo de imagen.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy INDICE_VERSION
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo 
+                                    td id_indice
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único del archivo.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo 
+                                    td id_version
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id de la versión que estamos vinculando.
+                                    td Referencia a VERSION_MAGAZINE.id_version
+                                    td Restricción: Solo para soporte_version = 'Digital'
+                                tr.filaAtributo 
+                                    td numero_pagina
+                                    td INT
+                                    td -
+                                    td NO
+                                    td Número de página del archivo.
+                                    td -
+                                    td Regla: Es obligatorio registrar el número de página. Valor >= 1
+                                tr.filaAtributo 
+                                    td id_tipo_pagina
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id del tipo de página que estamos vinculando
+                                    td Referencia a TIPO_PAGINA.id_tipo_pagina
+                                    td -
+                                tr.filaAtributo 
+                                    td id_grafico
+                                    td INT
+                                    td FK
+                                    td SI
+                                    td Id del Gráfico que estamos vinculando.
+                                    td Referencia a GRAFICO.id_grafico
+                                    td Solo si id_tipo_contenido = 'Gráfico' o 'Gráfico Nuevo'
+                                tr.filaAtributo 
+                                    td paginas_contenido
+                                    td INT
+                                    td -
+                                    td NO
+                                    td Total de páginas que ocupa este documento.
+                                    td -
+                                    td Si id_tipo_contenido='Gráfico': obtener de GRAFICOS.paginas_grafico. Si no: valor = 1 por defecto
+                                tr.filaAtributo 
+                                    td ruta_archivo
+                                    td TEXT
+                                    td -
+                                    td SI
+                                    td Ruta del archivo de imagen.
+                                    td -
+                                    td Solo si tipo_pagina ≠ 'Gráfico'. Ruta relativa al directorio base.
+                        div.notas
+                            p *Restricciones y Reglas de Negocio:
+                            br
+                            p Esta tabla solo aplica para versiones con soporte_version = 'Digital'
+                            p El numero_pagina debe mantenerse secuencial dentro de una misma id_version
+                            p Si id_tipo_contenido = 'Gráfico': id_grafico es REQUERIDO y ruta_archivo debe ser NULL
+                            p Si id_tipo_contenido ≠ 'Gráfico': id_grafico debe ser NULL y ruta_archivo es REQUERIDO
+                            p La ruta_archivo debe ser relativa al directorio base de almacenamiento
+
+                div#TablasGlobales.tablasGlobales 
+                    div.titulosSeparadores Tablas Catálogos Globales
+
+                    div.entidadGlobal#tipo_de_formato
+                        div.titulo
+                            p.relacion Relación · 1: N - Uno a Muchos -
+                            p.h3 TIPO DE FORMATO
+                            div.definicion Catálogo global que contiene los formatos disponibles para publicaciones impresas o digitales. Se utiliza en GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.
+                                br
+                                | Valores Posibles (Depende del soporte, sólo uno a la vez).
+                                br
+                                | Formato Físico = Tapa Dura, Tapa Blanda / Formato Digital = Jpg, Png, WebP, Pdf, Cbr.
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID TIPO FORMATO.  
+                                | Identificador único de cada versión específica de la publicación.
+                            div.atributo
+                                span.nombreAtributo · NOMBRE FORMATO. 
+                                | El formato específico de esta versión.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy TIPO_FORMATO
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_tipo_formato
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único del registro.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo 
+                                    td nombre_formato
+                                    td TEXT
+                                    td -
+                                    td NO
+                                    td Formato del cómic.
+                                    td -
+                                    td Regla: Es obligatorio registrar el formato.
+                                tr.filaAtributo    
+                                    td tipo_soporte
+                                    td VARCHAR(50)
+                                    td -
+                                    td NO
+                                    td Soporte del cómic.
+                                    td -
+                                    td Físico o Digital. Regla: Es obligatorio registrar el soporte.
+                        table.tablaValores
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='3')  
+                                        span.heavy Valores Posibles
+                                tr.cabeceraAtributo
+                                    td Id
+                                    td Formato
+                                    td Soporte
+                            tbody
+                                tr.filaAtributo
+                                    td 1
+                                    td Pasta Dura
+                                    td Físico
+                                tr.filaAtributo 
+                                    td 2
+                                    td Pasta Blanda
+                                    td Físico
+                                tr.filaAtributo 
+                                    td 3
+                                    td JPG
+                                    td Digital
+                                tr.filaAtributo 
+                                    td 4
+                                    td PNG
+                                    td Digital
+                                tr.filaAtributo 
+                                    td 5
+                                    td WEBP
+                                    td Digital
+                                tr.filaAtributo 
+                                    td 6
+                                    td PDF
+                                    td Digital
+                                tr.filaAtributo 
+                                    td 7
+                                    td CBR
+                                    td Digital
+      
+                    div.entidadGlobal#tipo_de_pagina
+                        div.titulo
+                            p.relacion Relación · 1: N - Uno a Muchos -
+                            p.h3 TIPO DE PÁGINA
+                            div.definicion La Entidad TIPO_PAGINA contiene e indica el tipo que tiene página que componen un GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.
+                            br
+                            | Valores Posibles (sólo uno a la vez): Portada, Índice, Artículo, Ads, Extra, Sección Especial, Contraportada, Gráfico, Gráfico Nuevo.
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID TIPO PÁGINA. 
+                                | Identificador único.
+                            div.atributo
+                                span.nombreAtributo · NOMBRE DEL TIPO. 
+                                | Nombre de los valores posibles que puede tener la entidad 
+                                span.resaltado TIPO_PAGINA.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy TIPO_PAGINA
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_tipo_pagina
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único del registro.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo
+                                    td nombre_tipo
+                                    td VARCHAR (50)
+                                    td -
+                                    td NO
+                                    td El nombre del tipo.
+                                    td -
+                                    td -
+
+                        table.tablaValores
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='2')  
+                                        span.heavy Valores Posibles
+                                tr.cabeceraAtributo
+                                    td Id
+                                    td Nombre
+                            tbody
+                                tr.filaAtributo
+                                    td 1
+                                    td Portada
+                                tr.filaAtributo    
+                                    td 2
+                                    td Índice
+                                tr.filaAtributo    
+                                    td 3
+                                    td Artículo
+                                tr.filaAtributo    
+                                    td 4
+                                    td Ads (Publicidad)
+                                tr.filaAtributo    
+                                    td 5
+                                    td Extra
+                                tr.filaAtributo    
+                                    td 6
+                                    td Sección Especial
+                                tr.filaAtributo    
+                                    td 7
+                                    td Contraportada
+                                tr.filaAtributo    
+                                    td 8
+                                    td Gráfico
+                                tr.filaAtributo    
+                                    td 9
+                                    td Gráfico Nuevo (Estado Temporal)
+
+                    div.entidadGlobal#editorial
+                        div.titulo
+                            p.relacion Relación · 1: N - Uno a Muchos -
+                            p.h3 EDITORIAL
+                            div.definicion La Entidad EDITORIAL contiene las compañías editoriales relacionadas con GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.
+                            | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten la misma editorial.
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID EDITORIAL.  
+                                | Identificador único.
+                            div.atributo
+                                span.nombreAtributo · NOMBRE EDITORIAL. 
+                                | Nombre de la compañía editorial.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad
+                                        span.heavy EDITORIAL
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_editorial
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único del registro.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo
+                                    td nombre_editorial
+                                    td TEXT
+                                    td -
+                                    td NO
+                                    td El nombre de la editorial.
+                                    td -
+                                    td -
+
+                    div.entidadGlobal#distribuidora
+                        div.titulo
+                            p.relacion Relación · 1: N - Uno a Muchos -
+                            p.h3 DISTRIBUIDORA
+                            div.definicion La Entidad DISTRIBUIDORA contiene las distribuidoras relacionadas con los GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.
+                            | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten la misma distribuidora.
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID DISTRIBUIDORA. 
+                                | Identificador único.
+                            div.atributo
+                                span.nombreAtributo · NOMBRE DISTRIBUIDORA. 
+                                | Nombre de la Distribuidora.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad
+                                        span.heavy DISTRIBUIDORA
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_distribuidora
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único del registro.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo
+                                    td nombre_distribuidora
+                                    td TEXT
+                                    td -
+                                    td NO
+                                    td El nombre de la distribuidora.
+                                    td -
+                                    td -
+
+                    div.entidadGlobal#generos
+                        div.titulo
+                            p.relacion Relación · N: M - Muchos a Muchos -
+                            p.h3 GÉNEROS
+                            div.definicion La Entidad GENEROS contiene todos los géneros que clasifican los GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.
+                            br
+                            | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten el mismo género
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID GÉNERO.  
+                                | Identificador único.
+                            div.atributo
+                                span.nombreAtributo · NOMBRE GÉNERO.  
+                                | Nombre del Género.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad
+                                        span.heavy GÉNEROS
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_genero
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único del registro.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo
+                                    td nombre_genero
+                                    td TEXT
+                                    td -
+                                    td NO
+                                    td El nombre del género.
+                                    td -
+                                    td -
+                        
+                        
+                        table.tablaValores
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='3')  
+                                        span.heavy Valores Posibles
+                                tr.cabeceraAtributo
+                                    td Id
+                                    td Nombre
+                            tbody
+                                tr.filaAtributo
+                                    td 1
+                                    td Escolares
+                                tr.filaAtributo
+                                    td 2
+                                    td Fantasía
+                                tr.filaAtributo
+                                    td 3
+                                    td NTR
+                                tr.filaAtributo
+                                    td 4
+                                    td Harem
+                                tr.filaAtributo
+                                    td 5
+                                    td Cosplay
+                                tr.filaAtributo
+                                    td 6
+                                    td Chica Ángel
+                                tr.filaAtributo
+                                    td 7
+                                    td Vanilla   
+
+                    div.entidadGlobal#tinta
+                        div.titulo
+                            p.relacion Relación · 1:N  - Uno a Muchos -
+                            p.h3 TINTA
+                            div.definicion La Entidad TINTA contiene los tipos de tintas que están relacionados con GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.
+                                br
+                                | Valores Posibles (sólo uno a la vez): Color, Blanco & Negro, Sepia y Mixto.
+                                br
+                                | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten el mismo tipo de tinta.
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID TINTA.  
+                                | Identificador único.
+                            div.atributo
+                                span.nombreAtributo · NOMBRE TINTA.  
+                                | Nombre del color de la Tinta.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy TINTA
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_tinta
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único del registro.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo
+                                    td nombre_tinta
+                                    td VARCHAR (50)
+                                    td -
+                                    td NO
+                                    td El nombre de la tinta.
+                                    td -
+                                    td -
+                        table.tablaValores
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='3')  
+                                        span.heavy Valores Posibles
+                                tr.cabeceraAtributo
+                                    td Id
+                                    td Nombre
+                            tbody
+                                tr.filaAtributo
+                                    td 1
+                                    td Color
+                                tr.filaAtributo
+                                    td 2
+                                    td Blanco & Negro
+                                tr.filaAtributo
+                                    td 3
+                                    td Sepia
+                                tr.filaAtributo
+                                    td 4
+                                    td Mixto
+
+                    div.entidadGlobal#autor
+                        div.titulo
+                            p.relacion Relación · N: M - Muchos a Muchos -
+                            p.h3 AUTOR
+                            div.definicion La Entidad AUTOR contiene a los autores relacionados con GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.
+                                | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que compartan el mismo autor.
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID AUTOR.  
+                                | Identificador único.
+                            div.atributo
+                                span.nombreAtributo · NOMBRE AUTOR.  
+                                | Nombre del Autor.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy AUTOR
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_autor
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único del registro.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo
+                                    td nombre_autor
+                                    td TEXT
+                                    td -
+                                    td NO
+                                    td El nombre del autor.
+                                    td -
+                                    td -
+
+                    div.entidadGlobal#aka
+                        div.titulo
+                            p.relacion Relación · N: 1 - Muchos a Uno -
+                            p.h3 AKA
+                            div.definicion La Entidad AKA contiene e indica los alias o seudónimos que puede tener un mismo autor.
+                                | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten el mismo aka.
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID AKA. Identificador único.
+                            div.atributo
+                                span.nombreAtributo · FK ID AUTOR. Enlaza esta ruta con el autor correspondiente en la tabla  
+                                    span.resaltado AUTOR.
+                            div.atributo
+                                span.nombreAtributo · AKA. Nombre de los valores posibles que puede tener la entidad    
+                                    span.resaltado AKA.               
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy AKA
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_aka
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único del registro.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo
+                                    td id_autor
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id del Autor que estamos vinculando.
+                                    td Referencia a AUTOR.id_autor
+                                    td Regla: Es obligatorio registrar un autor.
+                                tr.filaAtributo
+                                    td aka
+                                    td TEXT
+                                    td -
+                                    td NO
+                                    td El Seudónimo.
+                                    td -
+                                    td -
+
+                    div.entidadGlobal#expo
+                        div.titulo
+                            p.relacion Relación · 1: N - Uno a Muchos -
+                            p.h3 EXPO
+                            div.definicion La Entidad EXPO contiene un listado de las exposiciones o convenciones.
+                                | Valores Posibles: Comic Market, Anime Japan.
+                                | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo valor.
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID EXPOSICIÓN. 
+                                | Identificador único.
+                            div.atributo
+                                span.nombreAtributo · NOMBRE EXPOSICIÓN. 
+                                | Nombre de los valores posibles que puede tener la entidad 
+                                span.resaltado EXPO.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy EXPO
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_expo
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único del registro.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo
+                                    td nombre_expo
+                                    td TEXT
+                                    td -
+                                    td NO
+                                    td El Nombre de la convención.
+                                    td -
+                                    td -
+                        table.tablaValores
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='3')  
+                                        span.heavy Valores Posibles
+                                tr.cabeceraAtributo
+                                    td Id
+                                    td Nombre
+                            tbody
+                                tr.filaAtributo
+                                    td 1
+                                    td Comic Market
+                                tr.filaAtributo
+                                    td 2
+                                    td Anime Japan
+                                                    
+                    div.entidadIntermedia#edicion_expo
+                        div.titulo
+                            p.relacion Relación · 1: N - Uno a Muchos -
+                            p.h3 EDICIÓN EXPO
+                            div.definicion La Entidad EDICION_EXPO indica los detalles de una exposición o convención.
+                                | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo valor.
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID EXPO. Identificador único.
+                            div.atributo
+                                span.nombreAtributo · FK - ID EXPO. Enlaza la edición con su Expo correspondiente en la entidad 
+                                span.resaltado EXPO.
+                            div.atributo
+                                span.nombreAtributo · NOMBRE EDICIÓN. Nombre completo de la edición.
+                            div.atributo
+                                span.nombreAtributo · FECHA EDICIÓN. Fecha de la edición.
+                            div.atributo
+                                span.nombreAtributo · NÚMERO EDICIÓN. Número de la edición.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy EDICION_EXPO
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_edicion
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único del registro.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo
+                                    td id_expo
+                                    td INT
+                                    td FK
+                                    td NO
+                                    td Id de la Expo que estamos vinculando.
+                                    td Referencia a EXPO.id_expo
+                                    td -
+                                tr.filaAtributo
+                                    td nombre_edicion
+                                    td TEXT
+                                    td -
+                                    td SI
+                                    td Nombre completo de la edición.
+                                    td -
+                                    td -
+                                tr.filaAtributo
+                                    td fecha_edicion
+                                    td DATE
+                                    td -
+                                    td SI
+                                    td Fecha de edición del evento.
+                                    td -
+                                    td -
+                                tr.filaAtributo
+                                    td numero_edicion
+                                    td INT
+                                    td -
+                                    td SI
+                                    td Número de la edición.
+                                    td -
+                                    td -
+                        table.tablaValores
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='2')  
+                                        span.heavy Valores de Referencia
+                                tr.cabeceraAtributo
+                                    td Elemento
+                                    td Dato
+                            tbody
+                                tr.filaAtributo
+                                    td id_edicion
+                                    td 106
+                                tr.filaAtributo
+                                    td id_expo
+                                    td 1
+                                tr.filaAtributo
+                                    td nombre_edicion
+                                    td Summer Comiket
+                                tr.filaAtributo
+                                    td fecha_edicion
+                                    td Agosto 2025
+                                tr.filaAtributo
+                                    td numero_edicion
+                                    td 106
+
+                            
+
+
+                            Valores de Referencia
+
+                    div.entidadGlobal#pais
+                        div.titulo
+                            p.relacion Relación · 1: N - Uno a Muchos -
+                            p.h3 PAÍS
+                            div.definicion La Entidad PAIS contiene e indica el país de origen.
+                                | Valores Posibles (sólo uno a la vez): Japón, Corea del Sur, EEUU, México.
+                                | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo país.
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID PAÍS. Identificador único.
+                            div.atributo
+                                span.nombreAtributo · NOMBRE DEL PAÏS. 
+                                | Nombre de los valores posibles que puede tener la entidad 
+                                span.resaltado PAIS.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy PAIS
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_pais
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único del registro.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo
+                                    td nombre_pais
+                                    td VARCHAR (50)
+                                    td -
+                                    td NO
+                                    td El nombre del país.
+                                    td -
+                                    td -        
+                        table.tablaValores
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='2')  
+                                        span.heavy Valores Posibles
+                                tr.cabeceraAtributo
+                                    td Id
+                                    td Nombre
+                            tbody
+                                tr.filaAtributo
+                                    td 1
+                                    td Japón
+                                tr.filaAtributo
+                                    td 2
+                                    td Corea del Sur
+                                tr.filaAtributo
+                                    td 3
+                                    td EEUU
+                                tr.filaAtributo
+                                    td 4
+                                    td México
+
+                    div.entidadGlobal#idioma
+                        div.titulo
+                            p.relacion Relación · 1: N - Uno a Muchos -
+                            p.h3 IDIOMA
+                            div.definicion La Entidad IDIOMA contiene e indica el idioma.
+                                | Valores Posibles (sólo uno a la vez): Japonés, Coreano, Inglés, Español.
+                                | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo idioma.
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID IDIOMA. Identificador único.
+                            div.atributo
+                                span.nombreAtributo · NOMBRE DEL IDIOMA. Nombre de los valores posibles que puede tener la entidad 
+                                span.resaltado IDIOMA.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy IDIOMA
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_idioma
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único del registro.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo
+                                    td nombre_idioma
+                                    td VARCHAR (50)
+                                    td -
+                                    td NO
+                                    td El nombre del idioma.
+                                    td -
+                                    td -
+                        table.tablaValores
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='2')  
+                                        span.heavy Valores Posibles
+                                tr.cabeceraAtributo
+                                    td Id
+                                    td Nombre
+                            tbody
+                                tr.filaAtributo
+                                    td 1
+                                    td Japonés
+                                tr.filaAtributo
+                                    td 2
+                                    td Coreano
+                                tr.filaAtributo
+                                    td 3
+                                    td Inglés
+                                tr.filaAtributo
+                                    td 4
+                                    td Español                
+
+                    div.entidadGlobal#traductor
+                        div.titulo
+                            p.relacion Relación · 1: N - Uno a Muchos -
+                            p.h3 TRADUCTOR
+                            div.definicion La Entidad TRADUCTOR contiene los traductores.
+                                | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo traductor.
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID TRADUCTOR. Identificador único.
+                            div.atributo
+                                span.nombreAtributo · NOMBRE DEL TRADUCTOR. Nombre de los traductores posibles que puede tener la entidad 
+                                span.resaltado TRADUCTOR.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy TRADUCTOR
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_traductor
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único del registro.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo
+                                    td nombre_traductor
+                                    td TEXT
+                                    td -
+                                    td NO
+                                    td El nombre del traductor.
+                                    td -
+                                    td -
+
+                    div.entidadGlobal#avisos
+                        div.titulo
+                            p.relacion Relación · N: M - Mucho a Muchos -
+                            p.h3 AVISOS
+                            div.definicion La Entidad AVISOS contiene los diferentes valores que muestran el tipo de contenido que tienen los elementos.
+                                | Valores Posibles:
+                                | Sangre/Gore, Desnudez, Lenguaje Ofensivo, Tabaquismo, Violencia, Contenido Sexual, | Diálogos Sugerentes.
+                                | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo valor.
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo · ID AVISO. Identificador único.
+                            div.atributo
+                                span.nombreAtributo · VALOR DEL AVISO. Nombre de los valores posibles que puede tener la entidad 
+                                span.resaltado AVISOS.
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy AVISOS
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td id_aviso
+                                    td INT
+                                    td PK
+                                    td NO
+                                    td Id único del registro.
+                                    td -
+                                    td Autoincremental.
+                                tr.filaAtributo
+                                    td nombre_aviso
+                                    td TEXT
+                                    td -
+                                    td NO
+                                    td El valor del aviso.
+                                    td -
+                                    td -
+                        table.tablaValores
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='2')  
+                                        span.heavy Valores Posibles
+                                tr.cabeceraAtributo
+                                    td Id
+                                    td Nombre
+                            tbody
+                                tr.filaAtributo
+                                    td 1
+                                    td Sangre/Gore
+                                tr.filaAtributo
+                                    td 2
+                                    td Desnudez
+                                tr.filaAtributo
+                                    td 3
+                                    td Lenguaje Ofensivo
+                                tr.filaAtributo
+                                    td 4
+                                    td Tabaquismo
+                                tr.filaAtributo
+                                    td 5
+                                    td Violencia
+                                tr.filaAtributo
+                                    td 6
+                                    td Contenido Sexual
+                                tr.filaAtributo
+                                    td 7
+                                    td Diálogos Sugerentes
+
+                div#Trigger.triggers
+                    div.titulosSeparadores **Triggers y Reglas de Negocio**
+
+//
+                    TRIGGER: Actualización de páginas_magazine.
+                    Tabla afectada: MAGAZINE
+                    Campo calculado: paginas_magazine
+
+                    Descripción: 
+                    Este trigger actualiza automáticamente el número total de páginas de un magazine 
+                    sumando las páginas de todos sus componentes (portada, índice, artículos, gráficos, 
+                    ads, contraportada, etc.).
+
+                    Eventos que disparan el trigger:
+                    INSERT en tabla INDICE_VERSION (cuando id_version pertenece a un MAGAZINE)
+                    UPDATE en tabla INDICE_VERSION (cuando cambia el número de páginas)
+                    DELETE en tabla INDICE_VERSION
+
+                    Fórmula de cálculo:
+
+                    paginas_magazine = SUM(paginas_contenido)
+                    FROM INDICE_VERSION iv
+                    JOIN VERSION_MAGAZINE vm ON iv.id_version = vm.id_version
+                    WHERE vm.id_magazine = [id_magazine_actual]
+
+                    **Nota:** Este campo no debe ser editado manualmente por el usuario.
+
+
+
+                    PROCESO: Captura de Gráfico Nuevo
+                    Tabla afectada: INDICE_VERSION (MAGAZINE)
+                    Descripción:
+                    Proceso para capturar un nuevo gráfico que forma parte de un magazine directamente desde el índice del magazine.
+
+
+
+
+                    Flujo completo:
+                    1. Estado inicial en INDICE_VERSION:
+                    id_tipo_contenido: 9 (Gráfico Nuevo)
+                    id_grafico: NULL
+                    numero_pagina: 50
+                    paginas_contenido: 0 (temporal)
+                    ruta_archivo: NULL
+
+
+                    2. Usuario presiona "Capturar Gráfico":
+                    Se abre popup con formulario completo de GRAFICO
+                    Usuario llena todos los atributos del nuevo gráfico
+                    Se guarda en tabla GRAFICOS → obtiene id_grafico = “789” con paginas_grafico = “20”
+
+                    3. Actualización automática atómica:
+
+                    UPDATE INDICE_VERSION 
+                    SET 
+                    id_tipo_contenido = 8,		--- Cambia a "Gráfico"
+                    id_grafico = 789,			--- Asigna el nuevo id
+                    paginas_contenido = (
+                    SELECT paginas_grafico
+                    FROM GRAFICOS
+                    WHERE id_grafico = 789
+                    ),					--- Obtiene las 20 páginas
+                    ruta_archivo = NULL			--- Se asegura que sea NULL
+                    WHERE id_indice = [id_actual]
+
+
+                    4. Resultado final:
+                    ```
+                    id_tipo_contenido: 8 (Gráfico)
+                    id_grafico: 789
+                    numero_pagina: 50
+                    paginas_contenido: 20
+                    ruta_archivo: NULL
+
+
+
+                    Diagrama de Relaciones
+                    COLECCION_MAGAZINE (1) ──→ (N) MAGAZINE (1) ──→ (N) VERSION_MAGAZINE (1) ──→ (N) INDICE_VERSION
+                                                        ↓                                                      ↓
+                                                MAGAZINE_GENEROS                                         TIPO_PAGINA
+                                                MAGAZINE_AUTOR                                               ↓
+                                                MAGAZINE_AVISOS                                          GRAFICO (opcional)
+
+                    GRAFICO (1) ──→ (N) VERSION_GRAFICO (1) ──→ (N) INDICE_VERSION
+                        ↓
+                    GRAFICO_GENEROS
+                    GRAFICO_AUTOR
+                    GRAFICO_AVISOS
+
+
+
+//
+                    div.Base
+                        div.entidadMaestra
+                            div.titulo
+                                p.relacion
+                                p.h3
+                                div.definicion
+                            div.atributos
+                                span.nombreAtributo
+                                span.resaltado
+                            table.tabla
+                                thead
+                                    tr.nombreTabla
+                                        th(colspan='7') Entidad Principal  
+                                            span.heavy
+                                    tr.cabeceraAtributo
+                                        td Nombre del Campo
+                                        td Tipo de  Dato
+                                        td Clave Key
+                                        td Nulidad
+                                        td Descripción o Función
+                                        td Relaciones FK
+                                        td Notas
+                                tbody
+                                    tr.filaAtributo
+                                        td
+                    div.entidadIntermedia
+                        div.titulo
+                            p.relacion
+                            p.h3
+                            div.definicion
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo
+                            div.atributo
+                                span.nombreAtributo
+                            div.atributo
+                                span.nombreAtributo
+                                span.resaltado
+                        table.tabla
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='7') Entidad  
+                                        span.heavy GRAFICO_AVISOS
+                                tr.cabeceraAtributo
+                                    td Nombre del Campo
+                                    td Tipo de  Dato
+                                    td Clave Key
+                                    td Nulidad
+                                    td Descripción o Función
+                                    td Relaciones FK
+                                    td Notas
+                            tbody
+                                tr.filaAtributo
+                                    td
+
+                        table.tablaValores
+                            thead
+                                tr.nombreTabla
+                                    th(colspan='3')  
+                                        span.heavy Valores Posibles
+                                tr.cabeceraAtributo
+                                    td 
+                                    td 
+                            tbody
+                                tr.filaAtributo
+                                    td
+                    
+
+                
