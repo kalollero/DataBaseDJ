@@ -8,69 +8,99 @@ html(lang="en")
         link(rel="preconnect", href="https://fonts.googleapis.com")
         link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
         link(link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet")
+        link(link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet")
+        link(rel="stylesheet", href="css/style_reboot.css")
+        link(rel="stylesheet", href="css/estilos_generales.css")
         link(rel="stylesheet", href="css/doc_style.css")
     body
         div.container
             div.indice
-                a(href="#Portada") Portada
-                
+                //- Portada
                 div
-                    a(href="#Grafico") Gráfico
-                    div.listaIndice
-                        a(href="#versionGrafico") Versión Gráfico
-                        br
-                        a(href="#indiceVersionGrafico") Índice Versión
-                        br
-                        a(href="#tipoGrafico") Tipo de Gráfico
-             
-                a(href="#Coleccion") Colección
+                    a.linkIndice(href="#Portada") Portada
                 
+                //- Gráfico
                 div
-                    a(href="#Magazine") Magazine
-                    div.listaIndice
-                        a(href="#versionMagazine") Versión Magazine
-                        br
-                        a(href="#indiceVersionMagazine") Índice Versión
+                    a.linkIndice(href="#Grafico") Gráfico
+                    ul.listaIndice
+                        li
+                            a.linkIndice(href="#versionGrafico") Versión Gráfico
+                        li    
+                            a.linkIndice(href="#indiceVersionGrafico") Índice Versión
+                        li    
+                            a.linkIndice(href="#tipoGrafico") Tipo de Gráfico
+
+                //- Colección
+                div
+                    a.linkIndice(href="#Coleccion") Colección
                 
+                //- Magazinne
                 div
-                    a(href="#TablasGlobales") Tablas Catálogos
+                    a.linkIndice(href="#Magazine") Magazine
+                    ul.listaIndice
+                        li 
+                            a.linkIndice(href="#versionMagazine") Versión Magazine
+                        li 
+                            a.linkIndice(href="#indiceVersionMagazine") Índice Versión
+                        li  
+                            a.linkIndice(href="#viewMagazine") Views Magazine
+                
+                //- Tablas Globales
+                div
+                    a.linkIndice(href="#TablasGlobales") Tablas Catálogos
                         br 
                         | Globales
-                    div.listaIndice
-                        a(href="#tipo_de_formato") Tipo de Formato
-                        br
-                        a(href="#tipo_de_pagina") Tipo de Pagina
-                        br
-                        a(href="#editorial") Editorial
-                        br
-                        a(href="#distribuidora") Distribuidora
-                        br
-                        a(href="#generos") Géneros
-                        br
-                        a(href="#tinta") Tinta
-                        br
-                        a(href="#autor") Autor
-                        br
-                        a(href="#aka") Aka
-                        br
-                        a(href="#expo") Expo 
-                        br
-                        a(href="#edicion_expo") Edición Expo
-                        br
-                        a(href="#pais") País
-                        br
-                        a(href="idioma") Idioma
-                        br
-                        a(href="#traductor") Traductor
-                        br
-                        a(href="#avisos") Avisos
+                    ul.listaIndice
+                        li 
+                            a.linkIndice(href="#tipo_de_formato") Tipo de Formato
+                        li 
+                            a.linkIndice(href="#tipo_de_pagina") Tipo de Pagina
+                        li 
+                            a.linkIndice(href="#editorial") Editorial
+                        li 
+                            a.linkIndice(href="#distribuidora") Distribuidora
+                        li 
+                            a.linkIndice(href="#generos") Géneros
+                        li 
+                            a.linkIndice(href="#tinta") Tinta
+                        li 
+                            a.linkIndice(href="#autor") Autor
+                        li 
+                            a.linkIndice(href="#aka") Aka
+                        li 
+                            a.linkIndice(href="#expo") Expo 
+                        li 
+                            a.linkIndice(href="#edicion_expo") Edición Expo
+                        li 
+                            a.linkIndice(href="#pais") País
+                        li 
+                            a.linkIndice(href="#idioma") Idioma
+                        li 
+                            a.linkIndice(href="#traductor") Traductor
+                        li
+                            a.linkIndice(href="#avisos") Avisos
                 
-                a(href="#Trigger") Trigger
+                //- Trigger
+                div
+                    a.linkIndice(href="#Trigger") Trigger
+                        ul.listaIndice
+                            li 
+                                a.linkIndice(href="#paginas_magazine") paginas_magazine
+                            li
+                                a.linkIndice(href="#clasificacion_magazine") clasificacion_magazine
+                            li  
+                                a.linkIndice(href="#pixelizacion_magazine") pixelizacion_magazine
+                
+                //- Diagrama
+                div
+                    a.linkIndice(href="#Diagrama") Diagrama
 
-            div.info
+
+
+            div.contenido
                 div#Portada.portada
                     p Estructura de la Base de Datos
-                    h1 DataBase
+                    h1.display-1 DataBase
                     div.descripcion
                         p Se desea crear una base de datos.
                         p Las entidades principales que componen la Base de datos son: 
@@ -95,7 +125,8 @@ html(lang="en")
                             div.atributo 
                                 span.nombreAtributo · FK - ID TIPO GRÁFICO. 
                                 | Clave Foránea que enlaza con la entidad 
-                                span.resaltado TIPO_GRAFICO.
+                                span.resaltado TIPO_GRAFICO
+                                |.
                             div.atributo 
                                 span.nombreAtributo · PÁGINAS. 
                                 | Número de Páginas que tiene el cómic.
@@ -176,8 +207,8 @@ html(lang="en")
                             div.atributo
                                 span.nombreAtributo · CÓDIGO. 
                                 | Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. Formato de Generación: Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para 
-                                span.resaltado GRAFICO: 
-                                | Prefijo "GR-" + 
+                                span.resaltado GRAFICO
+                                |: Prefijo "GR-" + 
                                 span.resaltado ID_GRAFICO 
                                 | (Ej. GR-123).   
                         table.tabla
@@ -210,7 +241,7 @@ html(lang="en")
                                     td FK
                                     td NO
                                     td Id de 
-                                        span.resaltado TIPO_GRAFICO
+                                        span.resaltado TIPO_GRAFICO 
                                         | que estamos vinculando.
                                     td Referencia a 
                                         span.resaltado TIPO_GRAFICO.id_tipo_grafico
@@ -326,7 +357,9 @@ html(lang="en")
                                     td NO
                                     td +18 o no.
                                     td -
-                                    td TRUE = +18 FALSE = Todo público
+                                    td TRUE = +18 
+                                        br
+                                        | FALSE = Todo público
 
                                 tr.filaAtributo
                                     td pixelizacion_grafico
@@ -335,7 +368,9 @@ html(lang="en")
                                     td NO
                                     td Censurado o no.
                                     td -
-                                    td TRUE = Censurado FALSE = Sin censura
+                                    td TRUE = Censurado 
+                                        br
+                                        | FALSE = Sin censura
 
                                 tr.filaAtributo
                                     td id_edicion
@@ -354,7 +389,9 @@ html(lang="en")
                                     td NO
                                     td Si fue o no leído ya el cómic.
                                     td -
-                                    td TRUE = SÍ FALSE = No
+                                    td TRUE = SÍ 
+                                        br
+                                        | FALSE = No
     
                                 tr.filaAtributo
                                     td fecha_captura_grafico
@@ -390,7 +427,8 @@ html(lang="en")
                             div.atributo 
                                 span.nombreAtributo · FK - ID GRÁFICO. 
                                 | Enlaza esta versión con el cómic principal en la entidad 
-                                span.resaltado GRAFICO.
+                                span.resaltado GRAFICO
+                                |.
                             div.atributo 
                                 span.nombreAtributo · FK - ID IDIOMA. 
                                 | El idioma en el que se encuentra esta versión específica.
@@ -400,7 +438,10 @@ html(lang="en")
                             div.atributo 
                                 span.nombreAtributo · SOPORTE. 
                                 | Indica el medio de esta versión. Valores Posibles: 
-                                span.resaltado Físico, Digital.
+                                span.resaltado Físico
+                                |, 
+                                span.resaltado Digital
+                                |.
                             div.atributo 
                                 span.nombreAtributo · FK - ID TIPO FORMATO. 
                                 | El formato específico de esta versión. (Dependerá del Soporte)
@@ -477,7 +518,7 @@ html(lang="en")
                                     td TEXT
                                     td -
                                     td NO
-                                    td Soporte del cómic. Físico o Digital
+                                    td Soporte del cómic. Físico o Digital.
                                     td -
                                     td Regla: Es obligatorio registrar el soporte.
                             
@@ -552,7 +593,8 @@ html(lang="en")
                             div.atributo
                                 span.nombreAtributo · FK - ID VERSION.  
                                 | Enlaza esta ruta con la versión digital correspondiente en la tabla  
-                                span.resaltado VERSION_GRAFICO.
+                                span.resaltado VERSION_GRAFICO
+                                |.
                             div.atributo
                                 span.nombreAtributo · NÚMERO DE PÁGINA.  
                                 | El número de página (o índice) que representa este archivo, es crucial para mantener el orden de lectura.
@@ -567,8 +609,6 @@ html(lang="en")
                                 tr.nombreTabla
                                     th(colspan='7') Entidad  
                                         span.heavy INDICE_VERSION
-
-
                                 tr.cabeceraAtributo
                                     td Nombre del Campo
                                     td Tipo de  Dato
@@ -621,8 +661,7 @@ html(lang="en")
                                         span.resaltado TIPO_PAGINA.id_tipo_pagina
                                     td -
                         div.notas
-                            p *Restricciones y Reglas de Negocio: 
-                            br
+                            p.bold Restricciones y Reglas de Negocio: 
                             p - Esta tabla solo aplica para versiones con soporte_version = 'Digital'.
                             p - El numero_pagina debe ser único por id_version.
                             p - numero_pagina = 0 indica portada.
@@ -630,15 +669,26 @@ html(lang="en")
                     div.entidadLocal#tipoGrafico
                         div.titulo
                             p.relacion Relación · 1:N – Uno a Muchos –
-                            p.h3 TIPO DE GRÁFICO
+                            p.display-9 TIPO DE GRÁFICO
                             div.definicion La Entidad  
                                 span.resaltado TIPO_GRAFICO  
                                 | contiene e indica la clasificación específica de un gráfico.
                                 span.subrayado Valores Posibles 
                                 | (sólo uno a la vez):
-                                span.resaltado  Cómic, Manga, Doujinshi, Manhua, Manhwa, Webtoon 
+                                span.resaltado  Cómic
+                                |,  
+                                span.resaltado Manga
+                                |,  
+                                span.resaltado Doujinshi
+                                |,  
+                                span.resaltado Manhua
+                                |,  
+                                span.resaltado Manhwa
+                                |,  
+                                span.resaltado Webtoon 
                                 | e 
-                                span.resaltado Historieta.
+                                span.resaltado Historieta
+                                |. 
                                 span.subrayado Funcionalidad:
                                 |  Este elemento funcionará como un vínculo a un sitio donde se muestran todos los que comparten ese mismo tipo.
                         div.atributos
@@ -648,7 +698,8 @@ html(lang="en")
                             div.atributo
                                 span.nombreAtributo · NOMBRE DEL TIPO.  
                                 | Nombre de los valores posibles que puede tener la entidad  
-                                span.resaltado GRAFICO.
+                                span.resaltado GRAFICO
+                                |.
                         table.tabla
                             thead
                                 tr.nombreTabla
@@ -685,17 +736,19 @@ html(lang="en")
                     div.entidadIntermedia#graficoGeneros
                         div.titulo
                             p.relacion Relación · N: M - Muchos a Muchos -
-                            p.h3 GRÁFICO GÉNEROS
+                            p.display-9 GRÁFICO GÉNEROS
                             div.definicion La Entidad
                         div.atributos
                             div.atributo
                                 span.nombreAtributo · FK - ID GRÁFICO.  
                                 | Enlaza esta ruta con la tabla  
-                                span.resaltado GRAFICO.
+                                span.resaltado GRAFICO
+                                |.
                             div.atributo
                                 span.nombreAtributo · FK - ID GÉNERO.  
                                 | Enlaza esta ruta con la tabla  
-                                span.resaltado GENEROS.
+                                span.resaltado GENEROS
+                                |.
                         table.tabla
                             thead
                                 tr.nombreTabla
@@ -731,17 +784,19 @@ html(lang="en")
                     div.entidadIntermedia#graficoAutor
                         div.titulo
                             p.relacion Relación · N: M - Muchos a Muchos -
-                            p.h3 GRÁFICO AUTOR
+                            p.display-9 GRÁFICO AUTOR
                             div.definicion La Entidad 
                         div.atributos
                             div.atributo
                                 span.nombreAtributo · FK - ID GRÁFICO.  
                                 | Enlaza esta ruta con la tabla  
-                                span.resaltado GRAFICO.
+                                span.resaltado GRAFICO
+                                |.
                             div.atributo
                                 span.nombreAtributo · FK - ID AUTOR.  
                                 | Enlaza esta ruta con la tabla  
-                                span.resaltado AUTOR.
+                                span.resaltado AUTOR
+                                |.
                         table.tabla
                             thead
                                 tr.nombreTabla
@@ -762,7 +817,7 @@ html(lang="en")
                                     td FK
                                     td NO
                                     td Id del Gráfico que estamos vinculando.
-                                    td Referencia a
+                                    td Referencia a 
                                         span.resaltado GRAFICO.id_grafico
                                     td Regla: Es obligatorio registrar un gráfico.
                                 tr.filaAtributo
@@ -771,23 +826,25 @@ html(lang="en")
                                     td FK
                                     td NO
                                     td Id del Autor que estamos vinculando.
-                                    td Referencia a
+                                    td Referencia a 
                                         span.resaltado AUTOR.id_autor
                                     td Regla: Es obligatorio registrar un autor.
-                    div.entidadIntermedia#graficoAutor
+                    div.entidadIntermedia#graficoAvisos
                         div.titulo
                             p.relacion Relación · N: M - Muchos a Muchos -
-                            p.h3 GRÁFICO AVISOS
+                            p.display-9 GRÁFICO AVISOS
                             div.definicion La Entidad
                         div.atributos
                             div.atributo
                                 span.nombreAtributo · FK - ID GRÁFICO.  
                                 | Enlaza esta ruta con la tabla  
-                                span.resaltado GRAFICO.
+                                span.resaltado GRAFICO
+                                |.
                             div.atributo
                                 span.nombreAtributo · FK - ID AVISO.  
                                 | Enlaza esta ruta con la tabla  
-                                span.resaltado AVISOS.
+                                span.resaltado AVISOS
+                                |.
                         table.tabla
                             thead
                                 tr.nombreTabla
@@ -838,9 +895,16 @@ html(lang="en")
                             div.atributo
                                 span.nombreAtributo · TIPO DE PUBLICACIÓN. 
                                 | Frecuencia de publicación del magazine:  
-                                span.resaltado Semanal, Mensual, Bimestral, Anual 
+                                span.resaltado Semanal
+                                |,  
+                                span.resaltado Mensual
+                                |,  
+                                span.resaltado Bimestral
+                                |,  
+                                span.resaltado Anual 
                                 | o por  
-                                span.resaltado Evento. 
+                                span.resaltado Evento
+                                |. 
                             div.atributo
                                 span.nombreAtributo · ESTADO DE LA PUBLICACIÓN. 
                                 | Muestra si el Magazine se sigue publicando o no.
@@ -856,8 +920,8 @@ html(lang="en")
                             div.atributo
                                 span.nombreAtributo · CÓDIGO. 
                                 | Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. Formato de Generación: Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para  
-                                span.resaltado COLECCION:  
-                                | Prefijo "CN-" +  
+                                span.resaltado COLECCION
+                                |: Prefijo "CN-" +  
                                 span.resaltado ID_COLECCION 
                                 | (Ej. CN-123).                                                   
                         table.tabla
@@ -906,7 +970,9 @@ html(lang="en")
                                     td NO
                                     td Estado de la publicación
                                     td -
-                                    td TRUE =  En Emisión. FALSE = Finalizado
+                                    td TRUE =  En Emisión. 
+                                        br
+                                        |FALSE = Finalizado
                                 tr.filaAtributo
                                     td fecha_inicio
                                     td DATE
@@ -922,7 +988,9 @@ html(lang="en")
                                     td SI
                                     td Fecha de la última publicación.
                                     td -
-                                    td Día, Mes y Año. NULL si aún continúa.
+                                    td Día, Mes y Año. 
+                                        br
+                                        |NULL si aún continúa.
                                 tr.filaAtributo
                                     td descripcion_coleccion
                                     td TEXT
@@ -947,7 +1015,6 @@ html(lang="en")
                             div.definicion Un Magazine puede componerse de elementos únicos, cómo su portada, índice, contraportada, artículos, ads y Gráficos de diferentes autores. Estos últimos pueden encontrarse ya capturados o capturarse al momento mismo de la captura del Magazine. La Entidad  
                                 span.resaltado MAGAZINE  
                                 | contiene y muestra todos los magazines con los siguientes atributos:
-
                         div.atributos
                             div.atributo    
                                 span.nombreAtributo · ID MAGAZINE.  
@@ -963,7 +1030,8 @@ html(lang="en")
                                 | Representa el número total de páginas del magazine.  
                                 span.subrayado Regla de Cálculo:  
                                 | Este valor es la suma de las páginas de todos los elementos que componen el  
-                                span.resaltado MAGAZINE.
+                                span.resaltado MAGAZINE
+                                |.
                             div.atributo
                                 span.nombreAtributo · FECHA DE PUBLICACIÓN O ESTRENO DEL MAGAZINE.  
                                 | Representa la fecha en que el elemento fue publicado o estrenado. 
@@ -1033,8 +1101,8 @@ html(lang="en")
                                 | Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. 
                                 span.subrayado Formato de Generación:  
                                 | Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para  
-                                span.resaltado MAGAZINE:  
-                                | Prefijo "MGZ-" +  
+                                span.resaltado MAGAZINE
+                                |: Prefijo "MGZ-" +  
                                 span.resaltado ID_MAGAZINE  
                                 | (Ej. MGZ-456)
                         table.tabla
@@ -1244,20 +1312,26 @@ html(lang="en")
                             div.atributo
                                 span.nombreAtributo · FK - ID_MAGAZINE.  
                                 | Enlaza esta versión con el Magazine principal en la entidad  
-                                span.resaltado MAGAZINE.
+                                span.resaltado MAGAZINE
+                                |.
                             div.atributo
                                 span.nombreAtributo · FK - ID IDIOMA.  
                                 | El idioma en el que se encuentra esta versión específica
                             div.atributo
                                 span.nombreAtributo · TÍTULO.  
-                                | Nombre del Magazine en el idioma de esta versión. (Depende del Idioma) 
+                                | Nombre del Magazine en el idioma de esta versión. 
+                                span.sub (Depende del Idioma) 
                             div.atributo
                                 span.nombreAtributo · SOPORTE.  
                                 | Indica el medio de esta versión. Valores Posibles:  
-                                span.resaltado Físico, Digital.
+                                span.resaltado Físico
+                                |, 
+                                span.resaltado Digital
+                                |.
                             div.atributo
                                 span.nombreAtributo · FK - ID TIPO FORMATO.  
-                                | El formato específico de esta versión. Valores Posibles: (Depende del Soporte) 
+                                | El formato específico de esta versión. Valores Posibles: 
+                                span.sub (Depende del Soporte) 
                             div.atributo
                                 span.nombreAtributo · ANCHO DE LAS IMAGEN.  
                                 | Tamaño del ancho de las imágenes en píxeles de esta versión.
@@ -1301,7 +1375,8 @@ html(lang="en")
                                     td FK
                                     td NO
                                     td Id del Magazine que estamos vinculando.
-                                    td Referencia a MAGAZINE.id_magazine
+                                    td Referencia a 
+                                        span.resaltado MAGAZINE.id_magazine
                                     td -
                                 tr.filaAtributo 
                                     td id_idioma
@@ -1309,7 +1384,8 @@ html(lang="en")
                                     td FK
                                     td NO
                                     td Id del Idioma que estamos vinculando.
-                                    td Referencia a IDIOMA.id_idioma
+                                    td Referencia a 
+                                        span.resaltado IDIOMA.id_idioma
                                     td Regla: Es obligatorio registrar un idioma.
                                 tr.filaAtributo 
                                     td titulo_version
@@ -1324,7 +1400,7 @@ html(lang="en")
                                     td TEXT
                                     td -
                                     td NO
-                                    td Soporte del magazine. Físico o Digital
+                                    td Soporte del magazine. Físico o Digital.
                                     td -
                                     td Regla: Es obligatorio registrar el soporte.
                                 tr.filaAtributo 
@@ -1333,7 +1409,8 @@ html(lang="en")
                                     td FK
                                     td NO
                                     td Id del Tipo de Formato que estamos vinculando.
-                                    td Referencia a TIPO_FORMATO.id_tipo_formato
+                                    td Referencia a 
+                                        span.resaltado TIPO_FORMATO.id_tipo_formato
                                     td Regla: Es obligatorio registrar el tipo de formato.
                                 tr.filaAtributo 
                                     td ancho_version
@@ -1373,7 +1450,8 @@ html(lang="en")
                                     td FK
                                     td SI
                                     td Id del Ttraductor que estamos vinculando.
-                                    td Referencia a TRADUCTOR.id_traductor
+                                    td Referencia a 
+                                        span.resaltado TRADUCTOR.id_traductor
                                     td -
 
                     div.entidadLocal#indiceVersionMagazine
@@ -1402,7 +1480,24 @@ html(lang="en")
                                 span.nombreAtributo · FK - ID TIPO DE PÁGINA. 
                                 | Define el tipo de contenido en esta página. 
                                 | Valores Posibles:  
-                                span.resaltado Portada, Índice, Artículo, Ads, Extra, Sección Especial, Contraportada, Gráfico, Gráfico Nuevo.
+                                span.resaltado Portada
+                                |, 
+                                span.resaltado  Índice
+                                |, 
+                                span.resaltado  Artículo
+                                |, 
+                                span.resaltado  Ads
+                                |, 
+                                span.resaltado  Extra
+                                |, 
+                                span.resaltado  Sección Especial
+                                |, 
+                                span.resaltado  Contraportada
+                                |, 
+                                span.resaltado  Gráfico
+                                |, 
+                                span.resaltado  Gráfico Nuevo
+                                |.
                                 br
                                 span.bold Gráfico Nuevo: 
                                 | Cuando se registra un Magazine, se selecciona la opción de Gráfico Nuevo en el  
@@ -1410,29 +1505,32 @@ html(lang="en")
                                 | de la entidad  
                                 span.resaltado INDICE_VERSION
                                 |, la interfaz gráfica detecta el registro como  
-                                span.resaltado ID_TIPO_PAGINA =  
-                                span.bold Gráfico Nuevo  
+                                span.resaltado ID_TIPO_PAGINA 
+                                span.bold = Gráfico Nuevo  
                                 | por lo que el sistema muestra la opción de capturar la información de este nuevo cómic (botón Capturar Gráfico) en una ventana emergente (popup) con todos los atributos definidos para la entidad  
-                                span.resaltado GRAFICO.
+                                span.resaltado GRAFICO
+                                |.
                                 br
                                 | Una vez que el cómic se guarda en la tabla  
                                 span.resaltado GRAFICO  
                                 | y obtiene su  
                                 span.resaltado ID_GRAFICO
                                 |, el sistema realiza una actualización automática en la tabla  
-                                span.resaltado INDICE_VERSION: 
+                                span.resaltado INDICE_VERSION
+                                |: 
                                 ul.listaDesordenada
-                                    li Cambiando  
+                                    li · Cambiando  
                                         span.resaltado ID_TIPO_PAGINA  
                                         | de  
                                         span.bold Gráfico Nuevo  
                                         | a  
                                         span.bold Gráfico. 
-                                    li Asignando el nuevo  
+                                    li · Asignando el nuevo  
                                         span.resaltado ID_GRÁFICO  
                                         | al campo  
-                                        span.resaltado FK_ID_GRAFICO y
-                                    li Actualizando  
+                                        span.resaltado FK_ID_GRAFICO  
+                                        |y
+                                    li · Actualizando  
                                         span.resaltado PAGINAS_CONTENIDO  
                                         | con el valor registrado en el del cómic.
 
@@ -1451,13 +1549,13 @@ html(lang="en")
                                 | El número de páginas que ocupa este archivo depende del  
                                 span.resaltado ID_TIPO_PAGINA:
                                 ul.listaDesordenada
-                                    li Si es  
-                                        span.resaltado GRAFICO: 
-                                        | se tomará el total de páginas que almacena 
+                                    li · Si es  
+                                        span.resaltado GRAFICO
+                                        |: se tomará el total de páginas que almacena 
                                         span.resaltado GRAFICO.paginas_grafico 
-                                    li Si no es  
-                                        span.resaltado GRAFICO: 
-                                        | el número de páginas será 1 por defecto (1 imagen = 1 página)
+                                    li · Si no es  
+                                        span.resaltado GRAFICO
+                                        |: el número de páginas será 1 por defecto (1 imagen = 1 página).
 
                             div.atributo
                                 span.nombreAtributo · RUTA_ARCHIVO. 
@@ -1494,8 +1592,9 @@ html(lang="en")
                                     td FK
                                     td NO
                                     td Id de la versión que estamos vinculando.
-                                    td Referencia a VERSION_MAGAZINE.id_version
-                                    td Restricción: Solo para soporte_version = 'Digital'
+                                    td Referencia a 
+                                        span.resaltado VERSION_MAGAZINE.id_version
+                                    td Restricción: Solo para soporte_version = 'Digital'.
                                 tr.filaAtributo 
                                     td numero_pagina
                                     td INT
@@ -1503,14 +1602,17 @@ html(lang="en")
                                     td NO
                                     td Número de página del archivo.
                                     td -
-                                    td Regla: Es obligatorio registrar el número de página. Valor >= 1
+                                    td Regla: Es obligatorio registrar el número de página. 
+                                        br
+                                        | Valor >= 1
                                 tr.filaAtributo 
                                     td id_tipo_pagina
                                     td INT
                                     td FK
                                     td NO
                                     td Id del tipo de página que estamos vinculando
-                                    td Referencia a TIPO_PAGINA.id_tipo_pagina
+                                    td Referencia a 
+                                        span.resaltado TIPO_PAGINA.id_tipo_pagina
                                     td -
                                 tr.filaAtributo 
                                     td id_grafico
@@ -1518,8 +1620,9 @@ html(lang="en")
                                     td FK
                                     td SI
                                     td Id del Gráfico que estamos vinculando.
-                                    td Referencia a GRAFICO.id_grafico
-                                    td Solo si id_tipo_contenido = 'Gráfico' o 'Gráfico Nuevo'
+                                    td Referencia a 
+                                        span.resaltado GRAFICO.id_grafico
+                                    td Solo si id_tipo_contenido = 'Gráfico' o 'Gráfico Nuevo'.
                                 tr.filaAtributo 
                                     td paginas_contenido
                                     td INT
@@ -1527,7 +1630,10 @@ html(lang="en")
                                     td NO
                                     td Total de páginas que ocupa este documento.
                                     td -
-                                    td Si id_tipo_contenido='Gráfico': obtener de GRAFICOS.paginas_grafico. Si no: valor = 1 por defecto
+                                    td Si id_tipo_contenido='Gráfico': obtener de 
+                                        span.resaltado GRAFICOS.paginas_grafico
+                                        br 
+                                        | Si no: valor = 1 por defecto.
                                 tr.filaAtributo 
                                     td ruta_archivo
                                     td TEXT
@@ -1535,15 +1641,389 @@ html(lang="en")
                                     td SI
                                     td Ruta del archivo de imagen.
                                     td -
-                                    td Solo si tipo_pagina ≠ 'Gráfico'. Ruta relativa al directorio base.
+                                    td Solo si  
+                                        span.resaltado tipo_pagina 
+                                        | ≠ 'Gráfico'. 
+                                        br
+                                        |Ruta relativa al directorio base.
                         div.notas
-                            p *Restricciones y Reglas de Negocio:
-                            br
-                            p Esta tabla solo aplica para versiones con soporte_version = 'Digital'
+                            p.bold Restricciones y Reglas de Negocio:
+                            p Esta tabla solo aplica para versiones con soporte_version = 'Digital'.
                             p El numero_pagina debe mantenerse secuencial dentro de una misma id_version
-                            p Si id_tipo_contenido = 'Gráfico': id_grafico es REQUERIDO y ruta_archivo debe ser NULL
-                            p Si id_tipo_contenido ≠ 'Gráfico': id_grafico debe ser NULL y ruta_archivo es REQUERIDO
-                            p La ruta_archivo debe ser relativa al directorio base de almacenamiento
+                            p Si id_tipo_contenido = 'Gráfico': id_grafico es REQUERIDO y ruta_archivo debe ser NULL.
+                            p Si id_tipo_contenido ≠ 'Gráfico': id_grafico debe ser NULL y ruta_archivo es REQUERIDO.
+                            p La ruta_archivo debe ser relativa al directorio base de almacenamiento.
+
+                    div#viewMagazine.titulosSeparadores Views Magazine
+
+                    div.entidadView
+                        div.titulo
+                            h3.display-9 Vistas Derivadas para 
+                                span.bold MAGAZINE
+                            div.definicion Las siguientes vistas permiten consultar los géneros, autores y avisos de un magazine de forma agregada, obteniendo la información directamente de los gráficos que lo componen.
+                        
+                        // Géneros
+                        div.view    
+                            div.tituloView
+                                p.display-10 VISTA: 
+                                    span.bold MAGAZINE_GENEROS_VIEW 
+                            div.descripcionView
+                                p Obtiene todos los géneros únicos de los gráficos contenidos en cada magazine.
+                            div.atributos
+                                div.atributo 
+                                    span.nombreAtributo Proposito
+                                    p Permite consultar rápidamente todos los géneros presentes en un magazine sin necesidad de realizar joins complejos.
+                                div.atributo 
+                                        span.nombreAtributo Definición SQL:
+                            code 
+                                    p.comment ```sql
+                                    p
+                                        span.keyword CREATE VIEW 
+                                        | MAGAZINE_GENEROS_VIEW 
+                                        span.keyword AS
+                                    p.keyword SELECT DISTINCT 
+                                    p.identado m.id_magazine,
+                                    p.identado m.codigo_magazine,
+                                    p.identado g.id_genero,
+                                    p.identado g.nombre_genero
+                                    p 
+                                        span.keyword FROM 
+                                        | MAGAZINE m
+                                    p 
+                                        span.keyword JOIN  
+                                        | VERSION_MAGAZINE vm  
+                                        span.keyword ON  
+                                        | m.id_magazine 
+                                        span.operator = 
+                                        | vm.id_magazine
+                                    p 
+                                        span.keyword JOIN  
+                                        | INDICE_VERSION iv  
+                                        span.keyword ON  
+                                        | vm.id_version 
+                                        span.operator = 
+                                        | iv.id_version
+                                    p 
+                                        span.keyword JOIN  
+                                        | GRAFICO gr  
+                                        span.keyword ON  
+                                        | iv.id_grafico 
+                                        span.operator = 
+                                        | gr.id_grafico
+                                    p 
+                                        span.keyword JOIN  
+                                        | GRAFICO_GENEROS gg  
+                                        span.keyword ON  
+                                        | gr.id_grafico 
+                                        span.operator = 
+                                        | gg.id_grafico
+                                    p 
+                                        span.keyword JOIN  
+                                        | GENEROS g  
+                                        span.keyword ON  
+                                        | gg.id_genero 
+                                        span.operator = 
+                                        | g.id_genero
+                                    p 
+                                        span.keyword WHERE 
+                                        | iv.id_tipo_pagina 
+                                        span.operator = 
+                                        span.number 8
+                                        |; 
+                                        span.comment -- Solo 'Gráfico'
+                                    p.comment ```
+                            
+                            div.atributo 
+                                    span.nombreAtributo Uso:
+                            code
+                                    p.comment ```sql
+                                    p.comment -- Obtener todos los géneros del magazine MGZ-101
+                                    p 
+                                        span.keyword SELECT 
+                                        | nombre_genero 
+                                    p 
+                                        span.keyword FROM 
+                                        | MAGAZINE_GENEROS_VIEW 
+                                    p 
+                                        span.keyword WHERE 
+                                        | id_magazine 
+                                        span.operator = 
+                                        span.number 101
+                                        |;
+                                    p 
+                                        span.keyword ORDER BY  
+                                        | nombre_genero;
+                                    
+                                    p.comment -- Contar cuántos géneros diferentes tiene un magazine
+                                    p 
+                                        span.keyword SELECT 
+                                        | id_magazine, COUNT(DISTINCT id_genero) as total_generos
+                                    p 
+                                        span.keyword FROM 
+                                        | MAGAZINE_GENEROS_VIEW
+                                    p 
+                                        span.keyword GROUP 
+                                        | BY id_magazine;
+                                    p.comment ```
+                        
+                        // Autor
+                        div.view    
+                            div.tituloView
+                                p.display-10 VISTA: 
+                                    span.bold MAGAZINE_AUTORES_VIEW 
+                            div.descripcionView    
+                                p Obtiene todos los autores únicos de los gráficos contenidos en cada magazine.
+                            div.atributos   
+                                div.atributo 
+                                    span.nombreAtributo Proposito: 
+                                    | Facilita la consulta de todos los autores que participaron en un magazine determinado.
+                                div.atributo 
+                                    span.nombreAtributo Definición SQL:
+                            code 
+                                    p.comment ```sql
+                                    p
+                                        span.keyword CREATE VIEW  
+                                        | MAGAZINE_AUTORES_VIEW 
+                                        span.keyword AS
+                                    p 
+                                        span.keyword SELECT DISTINCT 
+                                    p.identado m.id_magazine,
+                                    p.identado m.codigo_magazine,
+                                    p.identado a.id_autor,
+                                    p.identado a.nombre_autor
+                                    p 
+                                        span.keyword FROM  
+                                        | MAGAZINE m
+                                    p 
+                                        span.keyword JOIN  
+                                        | VERSION_MAGAZINE vm  
+                                        span.keyword ON  
+                                        | m.id_magazine 
+                                        span.operator = 
+                                        | vm.id_magazine
+                                    p 
+                                        span.keyword JOIN  
+                                        | INDICE_VERSION iv  
+                                        span.keyword ON  
+                                        | vm.id_version 
+                                        span.operator = 
+                                        | iv.id_version
+                                    p 
+                                        span.keyword JOIN  
+                                        | GRAFICO gr  
+                                        span.keyword ON  
+                                        | iv.id_grafico 
+                                        span.operator =  
+                                        | gr.id_grafico
+                                    p 
+                                        span.keyword JOIN  
+                                        | GRAFICO_AUTOR ga  
+                                        span.keyword ON  
+                                        | gr.id_grafico 
+                                        span.operator =  
+                                        | ga.id_grafico
+                                    p 
+                                        span.keyword JOIN  
+                                        | AUTOR a  
+                                        span.keyword ON  
+                                        | ga.id_autor 
+                                        span.operator =  
+                                        | a.id_autor
+                                    p 
+                                        span.keyword WHERE  
+                                        | iv.id_tipo_pagina 
+                                        span.operator = 
+                                        span.number 8
+                                        |;
+                                    p.comment ```
+                            div.atributo 
+                                span.nombreAtributo Uso:
+                            code
+                                    p.comment ```sql
+                                    p.comment -- Obtener todos los autores del magazine con ID 101
+                                    p 
+                                        span.keyword SELECT 
+                                        | nombre_autor 
+                                    p 
+                                        span.keyword FROM 
+                                        | MAGAZINE_AUTORES_VIEW 
+                                    p 
+                                        span.keyword WHERE 
+                                        | id_magazine = 
+                                        span.number 101
+                                    p
+                                        span.keyword ORDER BY 
+                                        | nombre_autor;
+
+
+                                    p.comment -- Encontrar magazines donde participó un autor específico
+                                    p
+                                        span.keyword SELECT  
+                                        | m.codigo_magazine, m.fecha_publicacion_magazine
+                                    p
+                                        span.keyword FROM  
+                                        | MAGAZINE_AUTORES_VIEW mav
+                                    p
+                                        span.keyword JOIN  
+                                        | MAGAZINE m 
+                                        span.keyword ON  
+                                        | mav.id_magazine 
+                                        span.operator = 
+                                        | m.id_magazine
+                                    p
+                                        span.keyword WHERE  
+                                        | mav.id_autor 
+                                        span.operator = 
+                                        span.number 15
+                                    p
+                                        span.keyword ORDER BY  
+                                        | m.fecha_publicacion_magazine  
+                                        span.keyword DESC
+                                        |;
+
+                                    p.comment -- Encontrar magazines donde participó un autor específico
+                                    p
+                                        span.keyword SELECT 
+                                        | m.codigo_magazine, m.fecha_publicacion_magazine
+                                    p
+                                        span.keyword FROM 
+                                        | MAGAZINE_AUTORES_VIEW mav
+                                    p
+                                        span.keyword JOIN 
+                                        | MAGAZINE m ON mav.id_magazine  
+                                        span.operator =  
+                                        | m.id_magazine
+                                    p
+                                        span.keyword WHERE 
+                                        | mav.id_autor  
+                                        span.operator =  
+                                        span.number 15
+                                    p
+                                        span.keyword ORDER BY 
+                                        | m.fecha_publicacion_magazine 
+                                        span.keyword DESC
+                                        |;
+                                    p.comment ```
+                        
+                        // Avisos
+                        div.view
+                            div.tituloView
+                                p.display-10 VISTA: 
+                                    span.bold MAGAZINE_AVISOS_VIEW
+                            div.descripcionView
+                                p Obtiene todos los avisos de contenido únicos de los gráficos contenidos en cada magazine.
+                            div.atributos   
+                                div.atributo 
+                                    span.nombreAtributo Propósito:
+                                    | Permite identificar rápidamente todos los tipos de contenido sensible presentes en un magazine.
+                                div.atributo 
+                                    span.nombreAtributo Definición SQL:
+                            code
+                                p.comment ```sql
+                                    p
+                                        span.keyword CREATE VIEW  
+                                        | MAGAZINE_AVISOS_VIEW  
+                                        span.keyword AS
+                                    p 
+                                        span.keyword SELECT DISTINCT 
+                                    p.identado m.id_magazine,
+                                    p.identado m.codigo_magazine,
+                                    p.identado av.id_aviso,
+                                    p.identado av.nombre_aviso
+                                    p 
+                                        span.keyword FROM 
+                                        | MAGAZINE m
+                                    p 
+                                        span.keyword JOIN 
+                                        | VERSION_MAGAZINE vm 
+                                        span.keyword ON  
+                                        | m.id_magazine 
+                                        span.operator = 
+                                        | vm.id_magazine
+                                    p 
+                                        span.keyword JOIN 
+                                        | INDICE_VERSION iv 
+                                        span.keyword ON  
+                                        | vm.id_version 
+                                        span.operator = 
+                                        | iv.id_version
+                                    p 
+                                        span.keyword JOIN 
+                                        | GRAFICO gr 
+                                        span.keyword ON  
+                                        | iv.id_grafico 
+                                        span.operator = 
+                                        | gr.id_grafico
+                                    p 
+                                        span.keyword JOIN 
+                                        | GRAFICO_AVISOS ga 
+                                        span.keyword ON  
+                                        | gr.id_grafico 
+                                        span.operator = 
+                                        | ga.id_grafico
+                                    p 
+                                        span.keyword JOIN 
+                                        | AVISOS av 
+                                        span.keyword ON  
+                                        | ga.id_aviso 
+                                        span.operator = 
+                                        | av.id_aviso
+                                    p 
+                                        span.keyword WHERE 
+                                        | iv.id_tipo_pagina 
+                                        span.operator = 
+                                        span.number 8
+                                        |; 
+                                        span.comment -- Solo páginas de tipo 'Gráfico'
+                                    p.comment ```
+                            div.atributo 
+                                span.nombreAtributo Uso:
+                            code
+                                p.comment ```sql
+                                p.comment -- Obtener todos los avisos del magazine MGZ-101
+                                p
+                                    span.keyword SELECT 
+                                    | nombre_aviso 
+                                p
+                                    span.keyword FROM
+                                    | MAGAZINE_AVISOS_VIEW 
+                                p
+                                    span.keyword WHERE 
+                                    | id_magazine 
+                                    span.operator = 
+                                    span.number 101
+                                p
+                                    span.keyword ORDER BY 
+                                    | nombre_aviso;
+                                
+                                p.comment -- Encontrar magazines con contenido de violencia
+                                p
+                                    span.keyword SELECT  
+                                    | DISTINCT m.codigo_magazine, m.sinopsis_magazine
+                                p
+                                    span.keyword FROM  
+                                    | MAGAZINE_AVISOS_VIEW mav
+                                p
+                                    span.keyword JOIN  
+                                    | MAGAZINE m ON mav.id_magazine = m.id_magazine
+                                p
+                                    span.keyword WHERE  
+                                    | mav.nombre_aviso 
+                                    span.operator = 
+                                    span.text 'Violencia'
+                                p
+                                    span.keyword ORDER BY  
+                                    | m.fecha_publicacion_magazine  
+                                    span.keyword DESC;
+                                p.comment ```
+
+                        div.notas 
+                            p.bold Notas importantes:
+                            p - **Actualización automática:** Estas vistas reflejan siempre el estado actual de los datos. No requieren mantenimiento manual.
+                            p - **Solo lectura:** No se pueden realizar operaciones INSERT, UPDATE o DELETE directamente sobre las vistas.
+                            p - **Filtro de tipo:** El filtro `WHERE iv.id_tipo_pagina = 8` asegura que solo se consideren páginas de tipo "Gráfico", excluyendo portadas, índices, artículos, etc.
+                            p - **Performance:** Para colecciones muy grandes, considera crear índices en las tablas base para optimizar las consultas.
+                            p *Relación: Vistas derivadas (solo lectura)*
 
                 div#TablasGlobales.tablasGlobales 
                     div.titulosSeparadores Tablas Catálogos Globales
@@ -1640,7 +2120,7 @@ html(lang="en")
                                     td 7
                                     td CBR
                                     td Digital
-      
+
                     div.entidadGlobal#tipo_de_pagina
                         div.titulo
                             p.relacion Relación · 1: N - Uno a Muchos -
@@ -2009,13 +2489,16 @@ html(lang="en")
                                 | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten el mismo aka.
                         div.atributos
                             div.atributo
-                                span.nombreAtributo · ID AKA. Identificador único.
+                                span.nombreAtributo · ID AKA.  
+                                | Identificador único.
                             div.atributo
-                                span.nombreAtributo · FK ID AUTOR. Enlaza esta ruta con el autor correspondiente en la tabla  
-                                    span.resaltado AUTOR.
+                                span.nombreAtributo · FK ID AUTOR.  
+                                | Enlaza esta ruta con el autor correspondiente en la tabla  
+                                span.resaltado AUTOR.
                             div.atributo
-                                span.nombreAtributo · AKA. Nombre de los valores posibles que puede tener la entidad    
-                                    span.resaltado AKA.               
+                                span.nombreAtributo · AKA.  
+                                | Nombre de los valores posibles que puede tener la entidad    
+                                span.resaltado AKA.               
                         table.tabla
                             thead
                                 tr.nombreTabla
@@ -2124,16 +2607,21 @@ html(lang="en")
                                 | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo valor.
                         div.atributos
                             div.atributo
-                                span.nombreAtributo · ID EXPO. Identificador único.
+                                span.nombreAtributo · ID EXPO.  
+                                | Identificador único.
                             div.atributo
-                                span.nombreAtributo · FK - ID EXPO. Enlaza la edición con su Expo correspondiente en la entidad 
+                                span.nombreAtributo · FK - ID EXPO.  
+                                | Enlaza la edición con su Expo correspondiente en la entidad 
                                 span.resaltado EXPO.
                             div.atributo
-                                span.nombreAtributo · NOMBRE EDICIÓN. Nombre completo de la edición.
+                                span.nombreAtributo · NOMBRE EDICIÓN.  
+                                | Nombre completo de la edición.
                             div.atributo
-                                span.nombreAtributo · FECHA EDICIÓN. Fecha de la edición.
+                                span.nombreAtributo · FECHA EDICIÓN.  
+                                | Fecha de la edición.
                             div.atributo
-                                span.nombreAtributo · NÚMERO EDICIÓN. Número de la edición.
+                                span.nombreAtributo · NÚMERO EDICIÓN.  
+                                | Número de la edición.
                         table.tabla
                             thead
                                 tr.nombreTabla
@@ -2213,11 +2701,6 @@ html(lang="en")
                                     td numero_edicion
                                     td 106
 
-                            
-
-
-                            Valores de Referencia
-
                     div.entidadGlobal#pais
                         div.titulo
                             p.relacion Relación · 1: N - Uno a Muchos -
@@ -2227,9 +2710,10 @@ html(lang="en")
                                 | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo país.
                         div.atributos
                             div.atributo
-                                span.nombreAtributo · ID PAÍS. Identificador único.
+                                span.nombreAtributo · ID PAÍS.  
+                                | Identificador único.
                             div.atributo
-                                span.nombreAtributo · NOMBRE DEL PAÏS. 
+                                span.nombreAtributo · NOMBRE DEL PAÍS. 
                                 | Nombre de los valores posibles que puede tener la entidad 
                                 span.resaltado PAIS.
                         table.tabla
@@ -2293,9 +2777,11 @@ html(lang="en")
                                 | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo idioma.
                         div.atributos
                             div.atributo
-                                span.nombreAtributo · ID IDIOMA. Identificador único.
+                                span.nombreAtributo · ID IDIOMA.  
+                                | Identificador único.
                             div.atributo
-                                span.nombreAtributo · NOMBRE DEL IDIOMA. Nombre de los valores posibles que puede tener la entidad 
+                                span.nombreAtributo · NOMBRE DEL IDIOMA.  
+                                | Nombre de los valores posibles que puede tener la entidad 
                                 span.resaltado IDIOMA.
                         table.tabla
                             thead
@@ -2357,9 +2843,11 @@ html(lang="en")
                                 | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo traductor.
                         div.atributos
                             div.atributo
-                                span.nombreAtributo · ID TRADUCTOR. Identificador único.
+                                span.nombreAtributo · ID TRADUCTOR. 
+                                | Identificador único.
                             div.atributo
-                                span.nombreAtributo · NOMBRE DEL TRADUCTOR. Nombre de los traductores posibles que puede tener la entidad 
+                                span.nombreAtributo · NOMBRE DEL TRADUCTOR. 
+                                | Nombre de los traductores posibles que puede tener la entidad 
                                 span.resaltado TRADUCTOR.
                         table.tabla
                             thead
@@ -2402,9 +2890,11 @@ html(lang="en")
                                 | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo valor.
                         div.atributos
                             div.atributo
-                                span.nombreAtributo · ID AVISO. Identificador único.
+                                span.nombreAtributo · ID AVISO. 
+                                | Identificador único.
                             div.atributo
-                                span.nombreAtributo · VALOR DEL AVISO. Nombre de los valores posibles que puede tener la entidad 
+                                span.nombreAtributo · VALOR DEL AVISO. 
+                                | Nombre de los valores posibles que puede tener la entidad 
                                 span.resaltado AVISOS.
                         table.tabla
                             thead
@@ -2468,163 +2958,834 @@ html(lang="en")
                                     td Diálogos Sugerentes
 
                 div#Trigger.triggers
-                    div.titulosSeparadores **Triggers y Reglas de Negocio**
+                    div.titulosSeparadores Triggers y Reglas de Negocio
+                                       
+                    div.trigger#paginas_magazine
+                        div.tituloTrigger
+                            p
+                                span.h3 TRIGGER: 
+                                | Actualización de páginas_magazine.
+                        div.descripcionTrigger
+                            p Este trigger actualiza automáticamente el número total de páginas de un magazine sumando las páginas de todos sus componentes (portada, índice, artículos, gráficos, ads, contraportada, etc.).
+                        div.atributos
+                            div.atributo 
+                                span.nombreAtributo Tabla afectada: 
+                                    span.resaltado MAGAZINE
 
-//
-                    TRIGGER: Actualización de páginas_magazine.
-                    Tabla afectada: MAGAZINE
-                    Campo calculado: paginas_magazine
+                            div.atributo 
+                                span.nombreAtributo Campo calculado: 
+                                    span.resaltado paginas_magazine
 
-                    Descripción: 
-                    Este trigger actualiza automáticamente el número total de páginas de un magazine 
-                    sumando las páginas de todos sus componentes (portada, índice, artículos, gráficos, 
-                    ads, contraportada, etc.).
+                            div.atributo
+                                span.nombreAtributo Eventos que disparan el trigger:
+                                ul.listaDesordenada
+                                    li -  
+                                        span.bold  INSERT  
+                                        | en tabla  
+                                        span.bold  INDICE_VERSION  
+                                        span.sub (cuando id_version pertenece a un MAGAZINE)
+                                    li -  
+                                        span.bold  UPDATE  
+                                        | en tabla  
+                                        span.bold  INDICE_VERSION  
+                                        span.sub (cuando cambia el número de páginas)
+                                    li -  
+                                        span.bold  DELETE  
+                                        | en tabla  
+                                        span.bold  INDICE_VERSION
+                                    br
+                            div.atributo
+                                span.nombreAtributo Fórmula de cálculo:
+                        code 
+                            p.comment ```sql
+                            p paginas_magazine 
+                                span.operator = SUM
+                                | (paginas_contenido)
+                            p
+                                span.keyword FROM 
+                                | INDICE_VERSION iv
+                            p    
+                                span.keyword JOIN 
+                                | VERSION_MAGAZINE vm 
+                                span.keyword ON  
+                                | iv.id_version  
+                                span.operator = 
+                                | vm.id_version
+                            p
+                                span.keyword WHERE  
+                                | vm.id_magazine  
+                                span.operator = 
+                                | [id_magazine_actual]
+                                span.operator
+                            p.comment ```
+                            p.notas.comment Nota: Este campo no debe ser editado manualmente por el usuario.
 
-                    Eventos que disparan el trigger:
-                    INSERT en tabla INDICE_VERSION (cuando id_version pertenece a un MAGAZINE)
-                    UPDATE en tabla INDICE_VERSION (cuando cambia el número de páginas)
-                    DELETE en tabla INDICE_VERSION
-
-                    Fórmula de cálculo:
-
-                    paginas_magazine = SUM(paginas_contenido)
-                    FROM INDICE_VERSION iv
-                    JOIN VERSION_MAGAZINE vm ON iv.id_version = vm.id_version
-                    WHERE vm.id_magazine = [id_magazine_actual]
-
-                    **Nota:** Este campo no debe ser editado manualmente por el usuario.
-
-
-
-                    PROCESO: Captura de Gráfico Nuevo
-                    Tabla afectada: INDICE_VERSION (MAGAZINE)
-                    Descripción:
-                    Proceso para capturar un nuevo gráfico que forma parte de un magazine directamente desde el índice del magazine.
-
-
-
-
-                    Flujo completo:
-                    1. Estado inicial en INDICE_VERSION:
-                    id_tipo_contenido: 9 (Gráfico Nuevo)
-                    id_grafico: NULL
-                    numero_pagina: 50
-                    paginas_contenido: 0 (temporal)
-                    ruta_archivo: NULL
-
-
-                    2. Usuario presiona "Capturar Gráfico":
-                    Se abre popup con formulario completo de GRAFICO
-                    Usuario llena todos los atributos del nuevo gráfico
-                    Se guarda en tabla GRAFICOS → obtiene id_grafico = “789” con paginas_grafico = “20”
-
-                    3. Actualización automática atómica:
-
-                    UPDATE INDICE_VERSION 
-                    SET 
-                    id_tipo_contenido = 8,		--- Cambia a "Gráfico"
-                    id_grafico = 789,			--- Asigna el nuevo id
-                    paginas_contenido = (
-                    SELECT paginas_grafico
-                    FROM GRAFICOS
-                    WHERE id_grafico = 789
-                    ),					--- Obtiene las 20 páginas
-                    ruta_archivo = NULL			--- Se asegura que sea NULL
-                    WHERE id_indice = [id_actual]
-
-
-                    4. Resultado final:
-                    ```
-                    id_tipo_contenido: 8 (Gráfico)
-                    id_grafico: 789
-                    numero_pagina: 50
-                    paginas_contenido: 20
-                    ruta_archivo: NULL
-
-
-
-                    Diagrama de Relaciones
-                    COLECCION_MAGAZINE (1) ──→ (N) MAGAZINE (1) ──→ (N) VERSION_MAGAZINE (1) ──→ (N) INDICE_VERSION
-                                                        ↓                                                      ↓
-                                                MAGAZINE_GENEROS                                         TIPO_PAGINA
-                                                MAGAZINE_AUTOR                                               ↓
-                                                MAGAZINE_AVISOS                                          GRAFICO (opcional)
-
-                    GRAFICO (1) ──→ (N) VERSION_GRAFICO (1) ──→ (N) INDICE_VERSION
-                        ↓
-                    GRAFICO_GENEROS
-                    GRAFICO_AUTOR
-                    GRAFICO_AVISOS
-
-
-
-//
-                    div.Base
-                        div.entidadMaestra
-                            div.titulo
-                                p.relacion
-                                p.h3
-                                div.definicion
-                            div.atributos
-                                span.nombreAtributo
-                                span.resaltado
-                            table.tabla
-                                thead
-                                    tr.nombreTabla
-                                        th(colspan='7') Entidad Principal  
-                                            span.heavy
-                                    tr.cabeceraAtributo
-                                        td Nombre del Campo
-                                        td Tipo de  Dato
-                                        td Clave Key
-                                        td Nulidad
-                                        td Descripción o Función
-                                        td Relaciones FK
-                                        td Notas
-                                tbody
-                                    tr.filaAtributo
-                                        td
-                    div.entidadIntermedia
-                        div.titulo
-                            p.relacion
-                            p.h3
-                            div.definicion
+                    div.trigger#clasificacion_magazine
+                        div.tituloTrigger
+                            p
+                                span.h3 TRIGGER: 
+                                | Actualización de clasificacion_magazine
+                        div.descripcionTrigger Este trigger actualiza automáticamente el campo `clasificacion_magazine` del MAGAZINE. Si al menos UN gráfico contenido es +18, el magazine completo se marca como +18. Este es un cálculo lógico OR: basta con que un solo gráfico sea +18 para que todo el magazine lo sea.
                         div.atributos
                             div.atributo
-                                span.nombreAtributo
+                                span.nombreAtributo Tabla afectada: 
+                                    span.resaltado MAGAZINE
                             div.atributo
-                                span.nombreAtributo
+                                span.nombreAtributo Campo calculado: 
+                                span.resaltado clasificacion_magazine
+
                             div.atributo
-                                span.nombreAtributo
-                                span.resaltado
-                        table.tabla
-                            thead
-                                tr.nombreTabla
-                                    th(colspan='7') Entidad  
-                                        span.heavy GRAFICO_AVISOS
-                                tr.cabeceraAtributo
-                                    td Nombre del Campo
-                                    td Tipo de  Dato
-                                    td Clave Key
-                                    td Nulidad
-                                    td Descripción o Función
-                                    td Relaciones FK
-                                    td Notas
-                            tbody
-                                tr.filaAtributo
-                                    td
+                                span.nombreAtributo Eventos que disparan el trigger:
+                                ul.listaDesordenada
+                                    li  - 
+                                        span.bold  INSERT  
+                                        | en tabla  
+                                        span.bold  INDICE_VERSION  
+                                        span.sub (cuando se agrega un gráfico)
+                                    li  - 
+                                        span.bold  UPDATE  
+                                        | en tabla  
+                                        span.bold  INDICE_VERSION  
+                                        span.sub (cuando cambia el id_grafico)
+                                    li  - 
+                                        span.bold  DELETE  
+                                        | en tabla  
+                                        span.bold  INDICE_VERSION  
+                                        span.sub (cuando se elimina un gráfico)
+                            div.atributo
+                                span.nombreAtributo Lógica:
+                        code
+                            p.comment ```sql
+                            p clasificacion_magazine  
+                                span.operator = MAX
+                                |(clasificacion_grafico de todos los gráficos del magazine)
+                            p.comment -- Si al menos un gráfico tiene clasificacion_grafico = TRUE (1)
+                            p.comment -- entonces clasificacion_magazine = TRUE (1)
+                            p.comment ```
+                            p.notas.comment Nota: Este campo no debe ser editado manualmente por el usuario.
+                        div.atributo
+                                span.nombreAtributo Implementación:
+                        code
+                            p.coment ```sql
+                            p.coment -- Trigger para INSERT
+                            p
+                                span.keyword CREATE TRIGGER 
+                                | update_clasificacion_magazine_insert
+                            p
+                                span.keyword AFTER INSERT 
+                                | ON INDICE_VERSION
+                            p
+                                span.keyword WHEN 
+                                | NEW.id_tipo_pagina 
+                                span.operator =  
+                                span.number 8 
+                                span.comment -- Solo para páginas de tipo 'Gráfico'
+                            p
+                                span.keyword.identado BEGIN   
+                            p.identado
+                                span.keyword UPDATE 
+                                | MAGAZINE
+                            p.identado
+                                span.keyword SET 
+                                | clasificacion_magazine 
+                                span.operator = 
+                                | (
+                            p.identadoDoble
+                                span.keyword SELECT CASE
+                            p.identadoTriple
+                                span.keyword WHEN 
+                                span.operator MAX
+                                |(gr.clasificacion_grafico) 
+                                span.operator = 
+                                span.number 1 
+                                span.keyword THEN 
+                                span.number 1    
+                            p.identadoTriple
+                                span.keyword ELSE 
+                                span.number 0
+                            p.identadoDoble
+                                span.keyword END
+                            p.identadoDoble
+                                span.keyword FROM 
+                                | VERSION_MAGAZINE vm
+                            p.identadoDoble
+                                span.keyword JOIN 
+                                | INDICE_VERSION iv  
+                                span.keyword ON  
+                                | vm.id_version  
+                                span.operator =  
+                                | iv.id_version
+                            p.identadoDoble
+                                span.keyword JOIN 
+                                | GRAFICO gr  
+                                span.keyword ON  
+                                | iv.id_grafico  
+                                span.operator =  
+                                | gr.id_grafico
+                            p.identadoDoble
+                                span.keyword WHERE
+                                |  vm.id_magazine 
+                                span.operator =  
+                                | (                                       
+                            p.identadoTriple
+                                span.keyword SELECT  
+                                | id_magazine 
+                            p.identadoTriple
+                                span.keyword FROM  
+                                | VERSION_MAGAZINE 
+                            p.identadoTriple
+                                span.keyword WHERE  
+                                | id_version  
+                                span.operator =  
+                                | NEW.id_version
+                            p.identadoDoble )
+                            p.identadoDoble 
+                                span.operator AND  
+                                | iv.id_tipo_pagina 
+                                span.operator =  
+                                span.number 8
+                            p.identado )
+                            p.identado
+                                span.keyword WHERE 
+                                | id_magazine 
+                                span.operator =  
+                                | (                               
+                            p.identadoDoble
+                                span.keyword SELECT 
+                                | id_magazine 
+                            p.identadoDoble
+                                span.keyword FROM 
+                                | VERSION_MAGAZINE 
+                            p.identadoDoble
+                                span.keyword WHERE 
+                                | id_version 
+                                span.operator = 
+                                | NEW.id_version                           
+                            p.identado );
+                            p
+                                span.keyword END
+                                |;
 
-                        table.tablaValores
-                            thead
-                                tr.nombreTabla
-                                    th(colspan='3')  
-                                        span.heavy Valores Posibles
-                                tr.cabeceraAtributo
-                                    td 
-                                    td 
-                            tbody
-                                tr.filaAtributo
-                                    td
-                    
+                            br
+                            br
 
-                
+                            p.comment -- Trigger para UPDATE
+                            p
+                                span.keyword CREATE TRIGGER 
+                                | update_clasificacion_magazine_update
+                            p
+                                span.keyword AFTER UPDATE ON 
+                                | INDICE_VERSION
+                            p
+                                span.keyword WHEN 
+                                | NEW.id_tipo_pagina 
+                                span.operator = 
+                                span.number 8
+                            p
+                                span.keyword BEGIN
+                            p.identado
+                                span.keyword UPDATE 
+                                | MAGAZINE
+                            p.identado
+                                span.keyword SET 
+                                | clasificacion_magazine 
+                                span.operator = 
+                                | (
+                            p.identadoDoble
+                                span.keyword SELECT CASE 
+                            p.identadoTriple
+                                span.keyword WHEN  
+                                span.operator MAX
+                                |(gr.clasificacion_grafico) 
+                                span.operator = 
+                                span.number 1 
+                                | THEN 
+                                span.number 1
+                            p.identadoTriple
+                                span.keyword ELSE  
+                                span.number 0
+                            p.identadoDoble
+                                span.keyword END
+                            p.identadoDoble
+                                span.keyword FROM 
+                                | VERSION_MAGAZINE vm
+                            p.identadoDoble
+                                span.keyword JOIN 
+                                | INDICE_VERSION iv 
+                                span.keyword ON 
+                                | vm.id_version 
+                                span.operator =  
+                                | iv.id_version
+                            p.identadoDoble
+                                span.keyword JOIN 
+                                | GRAFICO gr 
+                                span.keyword ON 
+                                | iv.id_grafico 
+                                span.operator =  
+                                | gr.id_grafico
+                            p.identadoDoble
+                                span.keyword WHERE 
+                                | vm.id_magazine 
+                                span.operator =  
+                                | (
+                            p.identadoTriple
+                                span.keyword SELECT 
+                                | id_magazine 
+                            p.identadoTriple
+                                span.keyword FROM 
+                                | VERSION_MAGAZINE 
+                            p.identadoTriple
+                                span.keyword WHERE 
+                                | id_version 
+                                span.operator =  
+                                | NEW.id_version
+                            p.identadoDoble
+                                span.keyword )
+                            p.identadoDoble
+                                span.operator AND 
+                                | iv.id_tipo_pagina 
+                                span.operator = 
+                                span.number 8
+                            p.identado
+                                span.keyword )                                
+                            p.identado
+                                span.keyword WHERE 
+                                | id_magazine 
+                                span.operator = 
+                                | (                                                                      
+                            p.identadoDoble
+                                span.keyword SELECT 
+                                | id_magazine 
+                            p.identadoDoble
+                                span.keyword FROM 
+                                | VERSION_MAGAZINE 
+                            p.identadoDoble
+                                span.keyword WHERE 
+                                | id_version 
+                                span.operator = 
+                                | NEW.id_version              
+                            p.identado );                           
+                            p
+                                span.keyword END
+                                |;
+
+                            br
+                            br
+
+                            p.comment -- Trigger para DELETE
+                            p
+                                span.keyword CREATE TRIGGER 
+                                | update_clasificacion_magazine_delete
+                            p
+                                span.keyword AFTER DELETE ON 
+                                | INDICE_VERSION
+                            p
+                                span.keyword WHEN 
+                                | OLD.id_tipo_pagina 
+                                span.operator = 
+                                span.number 8
+                            p
+                                span.keyword BEGIN
+                            p.identado
+                                span.keyword UPDATE 
+                                | MAGAZINE
+                            p.identado
+                                span.keyword SET 
+                                | clasificacion_magazine 
+                                span.operator = 
+                                | (
+                            p.identadoDoble
+                                span.keyword SELECT COALESCE
+                                |(
+                            p.identadoTriple
+                                span.keyword CASE                                                          
+                            p.identadoCuadruple
+                                span.keyword WHEN 
+                                span.operator MAX
+                                |(gr.clasificacion_grafico) 
+                                span.operator =  
+                                span.number 1 
+                                | THEN  
+                                span.number 1
+                            p.identadoCuadruple
+                                span.keyword ELSE 
+                                span.number 0                 
+                            p.identadoTriple
+                                span.keyword END
+                                |,
+                            p.identadoTriple
+                                span.number 0
+                            p.identadoDoble )                            
+                            p.identadoDoble 
+                                span.keyword FROM  
+                                | VERSION_MAGAZINE vm
+                            p.identadoDoble 
+                                span.keyword JOIN  
+                                | INDICE_VERSION iv 
+                                span.keyword ON  
+                                | vm.id_version  
+                                span.operator =  
+                                | iv.id_version
+                            p.identadoDoble 
+                                span.keyword JOIN  
+                                | GRAFICO gr 
+                                span.keyword ON  
+                                | iv.id_grafico  
+                                span.operator =  
+                                | gr.id_grafico
+                            p.identadoDoble 
+                                span.keyword WHERE  
+                                | vm.id_magazine 
+                                span.operator = 
+                                | (                                     
+                            p.identadoTriple
+                                span.keyword SELECT  
+                                | id_magazine 
+                            p.identadoTriple
+                                span.keyword FROM  
+                                | VERSION_MAGAZINE 
+                            p.identadoTriple
+                                span.keyword WHERE  
+                                | id_version 
+                                span.operator = 
+                                | OLD.id_version                            
+                            p.identadoDoble )
+                            p.identadoDoble 
+                                span.operator AND 
+                                | iv.id_tipo_pagina  
+                                span.operator = 
+                                span.number 8
+                            p.identado )
+                            p.identado 
+                                span.keyword WHERE 
+                                | id_magazine 
+                                span.operator = 
+                                | (
+                            p.identadoDoble 
+                                span.keyword SELECT 
+                                | id_magazine 
+                            p.identadoDoble 
+                                span.keyword FROM 
+                                | VERSION_MAGAZINE 
+                            p.identadoDoble 
+                                span.keyword WHERE 
+                                | id_version 
+                                span.operator =  
+                                | OLD.id_version
+                            p.identado );
+                            p
+                                span.keyword END
+                                |;
+                            p.comment ```
+                            p.notas.comment Nota: Este campo no debe ser editado manualmente por el usuario.
+
+                    div.trigger#pixelizacion_magazine
+                        div.tituloTrigger
+                            p
+                                span.h3 TRIGGER: 
+                                | Actualización de pixelizacion_magazine
+                        div.descripcionTrigger Este trigger actualiza automáticamente el campo `pixelizacion_magazine` del MAGAZINE. Si al menos UN gráfico contenido tiene censura/pixelización, el magazine completo se marca como censurado. Similar al anterior, es un cálculo lógico OR.
+                        div.atributos
+                            div.atributo
+                                span.nombreAtributo Tabla afectada: 
+                                span.resaltado MAGAZINE
+                            div.atributo
+                                span.nombreAtributo Campo calculado: 
+                                span.resaltado pixelizacion_magazine
+                            div.atributo
+                                span.nombreAtributo Eventos que disparan el trigger:
+                                ul.listaDesordenada
+                                    li -  
+                                        span.bold INSERT  
+                                        | en tabla  
+                                        span.bold  INDICE_VERSION  
+                                        span.sub  (cuando se agrega un gráfico)
+                                    li -  
+                                        span.bold UPDATE  
+                                        | en tabla  
+                                        span.bold  INDICE_VERSION  
+                                        span.sub  (cuando cambia el id_grafico)
+                                    li -  
+                                        span.bold DELETE  
+                                        | en tabla  
+                                        span.bold  INDICE_VERSION  
+                                        span.sub  (cuando se elimina un gráfico)
+                            div.atributo
+                                span.nombreAtributo Lógica:
+                        code
+                            p.comment ```sql
+                            p pixelizacion_magazine 
+                                span.operator = MAX
+                                |(pixelizacion_grafico de todos los gráficos del magazine)
+                            p.comment -- Si al menos un gráfico tiene pixelizacion_grafico = TRUE (1)
+                            p.comment -- entonces pixelizacion_magazine = TRUE (1)
+                            p.comment ```
+                            p.notas.comment Nota: Este campo no debe ser editado manualmente por el usuario.
+                        div.atributo
+                            span.nombreAtributo Implementación:
+                        code 
+                            p.comment ```sql
+                            p.comment -- Trigger para INSERT
+                            p  
+                                span.keyword CREATE TRIGGER 
+                                | update_pixelizacion_magazine_insert
+                            p  
+                                span.keyword AFTER INSERT ON 
+                                | INDICE_VERSION
+                            p  
+                                span.keyword WHEN 
+                                | NEW.id_tipo_pagina 
+                                span.operator = 
+                                span.number 8 
+                                span.comment -- Solo para páginas de tipo 'Gráfico'
+                            p  
+                                span.keyword BEGIN
+                            p.identado  
+                                span.keyword UPDATE 
+                                | MAGAZINE
+                            p.identado  
+                                span.keyword SET 
+                                | pixelizacion_magazine 
+                                span.operator = 
+                                | (
+                            p.identadoDoble  
+                                span.keyword SELECT 
+                                | CASE 
+                            p.idemtadoTriple  
+                                span.keyword WHEN 
+                                | MAX(gr.pixelizacion_grafico) 
+                                span.operator = 
+                                span.number 1  
+                                | THEN 
+                                span.number 1
+                            p.idemtadoTriple  
+                                span.keyword ELSE 
+                                span.number 0 
+                            p.identadoDoble  
+                                span.keyword END
+                            p.identadoDoble  
+                                span.keyword FROM 
+                                | VERSION_MAGAZINE vm
+                            p.identadoDoble  
+                                span.keyword JOIN 
+                                | INDICE_VERSION iv 
+                                span.keyword ON  
+                                | vm.id_version 
+                                span.operator =  
+                                | iv.id_version
+                            p.identadoDoble  
+                                span.keyword JOIN 
+                                | GRAFICO gr  
+                                span.operator ON  
+                                | iv.id_grafico 
+                                span.operator =  
+                                | gr.id_grafico
+                            p.identadoDoble  
+                                span.keyword WHERE 
+                                | vm.id_magazine 
+                                span.operator =  
+                                | (
+                            p.identadoTriple  
+                                span.keyword SELECT 
+                                | id_magazine 
+                            p.identadoTriple  
+                                span.keyword FROM 
+                                | VERSION_MAGAZINE 
+                            p.identadoTriple  
+                                span.keyword WHERE 
+                                | id_version 
+                                span.operator =  
+                                | NEW.id_version
+                            p.identadoDoble )
+                            p.identadoDoble  
+                                span.operator AND 
+                                | iv.id_tipo_pagina  
+                                span.operator =  
+                                span.number 8    
+                            p.identado )                    
+                            p.identado  
+                                span.keyword WHERE 
+                                | id_magazine 
+                                span.operator =  
+                                | (
+                            p.identadoDoble  
+                                span.keyword SELECT 
+                                | id_magazine 
+                            p.identadoDoble  
+                                span.keyword FROM 
+                                | VERSION_MAGAZINE 
+                            p.identadoDoble  
+                                span.keyword WHERE 
+                                | id_version 
+                                span.operator =  
+                                | NEW.id_version
+                            p.identado );
+                            p
+                                span.keyword END
+                                |;
+                            
+                            br
+                            br
+                            
+                            p.comment -- Trigger para UPDATE
+                            p 
+                                span.keyword CREATE 
+                                | TRIGGER update_pixelizacion_magazine_update
+                            p 
+                                span.keyword AFTER UPDATE ON 
+                                | INDICE_VERSION
+                            p 
+                                span.keyword WHEN 
+                                | NEW.id_tipo_pagina 
+                                span.operator = 
+                                span.number 8
+                            p 
+                                span.keyword BEGIN
+                            p.identado 
+                                span.keyword UPDATE 
+                                | MAGAZINE
+                            p.identado 
+                                span.keyword SET 
+                                | pixelizacion_magazine  
+                                span.operator =  
+                                | (
+                            p.identadoDoble 
+                                span.keyword SELECT CASE 
+                            p.identadoTriple 
+                                span.keyword WHEN 
+                                span.operator MAX
+                                |(gr.pixelizacion_grafico)  
+                                span.operator = 
+                                span.number 1 
+                                | THEN 
+                                span.number 1
+                            p.identadoTriple 
+                                span.keyword ELSE 
+                                span.number 0                            
+                            p.identadoDoble 
+                                span.keyword END
+                            p.identadoDoble 
+                                span.keyword FROM  
+                                | VERSION_MAGAZINE vm
+                            p.identadoDoble 
+                                span.keyword JOIN  
+                                | INDICE_VERSION iv  
+                                span.keyword ON  
+                                | vm.id_version  
+                                span.operator =  
+                                | iv.id_version
+                            p.identadoDoble 
+                                span.keyword JOIN  
+                                | GRAFICO gr  
+                                span.keyword ON  
+                                | iv.id_grafico  
+                                span.operator =  
+                                | gr.id_grafico
+                            p.identadoDoble 
+                                span.keyword WHERE  
+                                | vm.id_magazine  
+                                span.operator =  
+                                | (
+                            p.identadoTriple 
+                                span.keyword SELECT  
+                                | id_magazine 
+                            p.identadoTriple 
+                                span.keyword FROM  
+                                | VERSION_MAGAZINE 
+                            p.identadoTriple 
+                                span.keyword WHERE  
+                                | id_version 
+                                span.operator =  
+                                | NEW.id_version
+                            p.identadoDoble )
+                            p.identadoDoble 
+                                span.operator AND  
+                                | iv.id_tipo_pagina 
+                                span.operator = 
+                                span.number 8
+                            p.identado )
+                            p.identado 
+                                span.keyword WHERE 
+                                | id_magazine 
+                                span.operator = 
+                                | (
+                            p.identadoDoble 
+                                span.keyword SELECT  
+                                | id_magazine 
+                            p.identadoDoble 
+                                span.keyword FROM  
+                                | VERSION_MAGAZINE 
+                            p.identadoDoble 
+                                span.keyword WHERE  
+                                | id_version 
+                                span.operator =  
+                                | NEW.id_version
+                            p.identado );
+                            p 
+                                span.keyword END
+                                |;
+                            
+                            br
+                            br
+
+                            p.comment -- Trigger para DELETE
+                            p 
+                                span.keyword CREATE TRIGGER 
+                                | update_pixelizacion_magazine_delete
+                            p 
+                                span.keyword AFTER DELETE ON 
+                                | INDICE_VERSION
+                            p 
+                                span.keyword WHEN 
+                                | OLD.id_tipo_pagina 
+                                span.operator = 
+                                span.number 8
+                            p 
+                                span.keyword BEGIN
+                            p.identado 
+                                span.keyword UPDATE MAGAZINE
+                            p.identado 
+                                span.keyword SET pixelizacion_magazine 
+                                span.operator = 
+                                | (
+                            p.identadoDoble 
+                                span.keyword SELECT COALESCE(
+                            p.identadoTriple 
+                                span.keyword CASE 
+                            p.identadoCuadruple 
+                                span.keyword WHEN  
+                                span.operator MAX
+                                |(gr.pixelizacion_grafico)  
+                                span.operator  
+                                span.operator =  
+                                span.number 1  
+                                | THEN  
+                                span.number 1
+                            p.identadoCuadruple 
+                                span.keyword ELSE 
+                                span.number 0
+                            p.identadoTriple 
+                                span.keyword END,
+                            p.identadoTriple 
+                                span.number 0
+                            p.identadoDoble )
+                            p.identadoDoble 
+                                span.keyword FROM 
+                                | VERSION_MAGAZINE vm
+                            p.identadoDoble 
+                                span.keyword JOIN 
+                                | INDICE_VERSION iv 
+                                span.keyword ON 
+                                | vm.id_version  
+                                span.operator =  
+                                | iv.id_version
+                            p.identadoDoble 
+                                span.keyword JOIN GRAFICO 
+                                | gr ON iv.id_grafico  
+                                span.operator =  
+                                | gr.id_grafico
+                            p.identadoDoble 
+                                span.keyword WHERE 
+                                | vm.id_magazine  
+                                span.operator =  
+                                | (
+                            p.identadoTriple 
+                                span.keyword SELECT 
+                                | id_magazine 
+                            p.identadoTriple 
+                                span.keyword FROM 
+                                | VERSION_MAGAZINE 
+                            p.identadoTriple 
+                                span.keyword WHERE 
+                                | id_version  
+                                span.operator = 
+                                | OLD.id_version
+                            p.identadoDoble )
+                            p.identadoDoble 
+                                span.operator AND 
+                                | iv.id_tipo_pagina  
+                                span.operator = 
+                                span.number 8
+                            p.identado )
+                            p.identado 
+                                span.keyword WHERE 
+                                | id_magazine  
+                                span.operator = 
+                                | (
+                            p.identadoDoble 
+                                span.keyword SELECT 
+                                | id_magazine 
+                            p.identadoDoble 
+                                span.keyword FROM 
+                                | VERSION_MAGAZINE 
+                            p.identadoDoble 
+                                span.keyword WHERE 
+                                | id_version 
+                                span.operator =  
+                                | OLD.id_version
+                            p.identado );
+                            p 
+                                span.keyword END
+                                |;
+                            p.comment ```
+                            p.notas.comment Nota: Este campo no debe ser editado manualmente por el usuario.
+                        div.atributo
+                            span.nombreAtributo Nota: Estos campos se calculan automáticamente y no deben ser editados manualmente por el usuario
+
+                div#Diagrama.diagrama
+                    div.titulosSeparadores Diagrama de Relaciones
+
+                    code.diagramas 
+                        p.comment **Diagrama de Relaciones**
+                        div.diagramaMagazine
+                            p COLECCION_MAGAZINE (1) 
+                            p ──→ 
+                            p (N) MAGAZINE (1) 
+                            p ──→ (N) 
+                            p VERSION_MAGAZINE (1) 
+                            p ──→  
+                            p (N) INDICE_VERSION
+                            p ↓
+                            p TIPO_PAGINA
+                            p ↓
+                            p GRAFICO 
+                                br
+                                span.sub (opcional)
+                        
+                        div.diagramaGrafico
+                            p GRAFICO (1) 
+                            p ──→ 
+                            p (N) VERSION_GRAFICO (1) 
+                            p ──→ 
+                            p (N) INDICE_VERSION
+                            p ↓
+                            p GRAFICO_GENEROS (N:M)
+                            p GRAFICO_AUTOR (N:M)
+                            p GRAFICO_AVISOS (N:M)
+
+                        //- p.comment  --- VISTAS DERIVADAS (Solo lectura) ---
+                        div.vistasMagazine
+                            pre.
+                                MAGAZINE ════╗
+                                                ║ 	(a través de INDICE_VERSION y GRAFICO)
+                                                ║
+                                                ╠══> MAGAZINE_GENEROS_VIEW
+                                                ║
+                                                ╠══> MAGAZINE_AUTORES_VIEW
+                                                ║
+                                                ╚══> MAGAZINE_AVISOS_VIEW
+
+                        //- p.comment  --- TRIGGERS AUTOMÁTICOS ---
+                        div.triggersAutomaticos
+                            pre.
+                                INDICE_VERSION (INSERT/UPDATE/DELETE)   ──TRIGGER──> MAGAZINE.paginas_magazine
+                                                                        ──TRIGGER──> MAGAZINE.clasificacion_magazine
+                                                                        ──TRIGGER──> MAGAZINE.pixelizacion_magazine
+                        
+
+                    div.notas
+                        p Notas del Diagrama:
+                        p - Las **líneas sólidas (──→)** representan relaciones directas mediante claves foráneas
+                        p - Las **líneas dobles (══>)** representan vistas derivadas que agregan información automáticamente
+                        p - Los **TRIGGERS** actualizan campos calculados en tiempo real
+                        p - Las vistas **MAGAZINE_*_VIEW** no almacenan datos, sino que consultan dinámicamente de las tablas relacionadas

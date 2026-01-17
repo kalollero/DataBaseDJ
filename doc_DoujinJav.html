@@ -8,25 +8,60 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+    <link link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style_reboot.css">
+    <link rel="stylesheet" href="css/estilos_generales.css">
     <link rel="stylesheet" href="css/doc_style.css">
   </head>
   <body>
     <div class="container">
-      <div class="indice"><a href="#Portada">Portada</a>
-        <div><a href="#Grafico">Gráfico</a>
-          <div class="listaIndice"><a href="#versionGrafico">Versión Gráfico</a><br><a href="#indiceVersionGrafico">Índice Versión</a><br><a href="#tipoGrafico">Tipo de Gráfico</a></div>
-        </div><a href="#Coleccion">Colección</a>
-        <div><a href="#Magazine">Magazine</a>
-          <div class="listaIndice"><a href="#versionMagazine">Versión Magazine</a><br><a href="#indiceVersionMagazine">Índice Versión</a></div>
+      <div class="indice">
+        <div><a class="linkIndice" href="#Portada">Portada</a></div>
+        <div><a class="linkIndice" href="#Grafico">Gráfico</a>
+          <ul class="listaIndice">
+            <li><a class="linkIndice" href="#versionGrafico">Versión Gráfico</a></li>
+            <li>   <a class="linkIndice" href="#indiceVersionGrafico">Índice Versión</a></li>
+            <li>   <a class="linkIndice" href="#tipoGrafico">Tipo de Gráfico</a></li>
+          </ul>
         </div>
-        <div><a href="#TablasGlobales">Tablas Catálogos<br>Globales</a>
-          <div class="listaIndice"><a href="#tipo_de_formato">Tipo de Formato</a><br><a href="#tipo_de_pagina">Tipo de Pagina</a><br><a href="#editorial">Editorial</a><br><a href="#distribuidora">Distribuidora</a><br><a href="#generos">Géneros</a><br><a href="#tinta">Tinta</a><br><a href="#autor">Autor</a><br><a href="#aka">Aka</a><br><a href="#expo">Expo </a><br><a href="#edicion_expo">Edición Expo</a><br><a href="#pais">País</a><br><a href="idioma">Idioma</a><br><a href="#traductor">Traductor</a><br><a href="#avisos">Avisos</a></div>
-        </div><a href="#Trigger">Trigger</a>
+        <div><a class="linkIndice" href="#Coleccion">Colección</a></div>
+        <div><a class="linkIndice" href="#Magazine">Magazine</a>
+          <ul class="listaIndice">
+            <li> <a class="linkIndice" href="#versionMagazine">Versión Magazine</a></li>
+            <li> <a class="linkIndice" href="#indiceVersionMagazine">Índice Versión</a></li>
+            <li> <a class="linkIndice" href="#viewMagazine">Views Magazine</a></li>
+          </ul>
+        </div>
+        <div><a class="linkIndice" href="#TablasGlobales">Tablas Catálogos<br>Globales</a>
+          <ul class="listaIndice">
+            <li> <a class="linkIndice" href="#tipo_de_formato">Tipo de Formato</a></li>
+            <li> <a class="linkIndice" href="#tipo_de_pagina">Tipo de Pagina</a></li>
+            <li> <a class="linkIndice" href="#editorial">Editorial</a></li>
+            <li> <a class="linkIndice" href="#distribuidora">Distribuidora</a></li>
+            <li> <a class="linkIndice" href="#generos">Géneros</a></li>
+            <li> <a class="linkIndice" href="#tinta">Tinta</a></li>
+            <li> <a class="linkIndice" href="#autor">Autor</a></li>
+            <li> <a class="linkIndice" href="#aka">Aka</a></li>
+            <li> <a class="linkIndice" href="#expo">Expo </a></li>
+            <li> <a class="linkIndice" href="#edicion_expo">Edición Expo</a></li>
+            <li> <a class="linkIndice" href="#pais">País</a></li>
+            <li> <a class="linkIndice" href="#idioma">Idioma</a></li>
+            <li> <a class="linkIndice" href="#traductor">Traductor</a></li>
+            <li><a class="linkIndice" href="#avisos">Avisos</a></li>
+          </ul>
+        </div>
+        <div><a class="linkIndice" href="#Trigger">Trigger
+            <ul class="listaIndice">
+              <li> <a class="linkIndice" href="#paginas_magazine">paginas_magazine</a></li>
+              <li><a class="linkIndice" href="#clasificacion_magazine">clasificacion_magazine</a></li>
+              <li> <a class="linkIndice" href="#pixelizacion_magazine">pixelizacion_magazine</a></li>
+            </ul></a></div>
+        <div><a class="linkIndice" href="#Diagrama">Diagrama</a></div>
       </div>
-      <div class="info">
+      <div class="contenido">
         <div class="portada" id="Portada">
           <p>Estructura de la Base de Datos</p>
-          <h1>DataBase</h1>
+          <h1 class="display-1">DataBase</h1>
           <div class="descripcion">
             <p>Se desea crear una base de datos.</p>
             <p>Las entidades principales que componen la Base de datos son: </p>
@@ -47,7 +82,7 @@
             </div>
             <div class="atributos">
               <div class="atributo"><span class="nombreAtributo">· ID GRÁFICO. </span>Identificador único.                            </div>
-              <div class="atributo"> <span class="nombreAtributo">· FK - ID TIPO GRÁFICO. </span>Clave Foránea que enlaza con la entidad <span class="resaltado">TIPO_GRAFICO.</span></div>
+              <div class="atributo"> <span class="nombreAtributo">· FK - ID TIPO GRÁFICO. </span>Clave Foránea que enlaza con la entidad <span class="resaltado">TIPO_GRAFICO</span>.</div>
               <div class="atributo"> <span class="nombreAtributo">· PÁGINAS. </span>Número de Páginas que tiene el cómic.</div>
               <div class="atributo"> <span class="nombreAtributo">· FECHA DE PUBLICACIÓN O ESTRENO DEL CÓMIC. </span>Representa la fecha en que el elemento fue publicado o estrenado.<br><span class="subrayado">Almacenamiento en BD: </span>Tipo <span class="italica">DATE </span> formato  YYYY-MM-DD <span class="italica">(ej: 2025-09-25).</span><br><span class="subrayado">Formato de Visualización:</span> Se debe mostrar al usuario como  DD · MMM · YYYY, el día, después el mes y luego el año, separados por un punto medio<span class="italica"> (ejemplo: 25 · Sep · 2025). La conversión se realiza en la capa de aplicación. </span><br><span class="subrayado">Funcionalidad:</span> Actúa como vínculo a un sitio que muestre todos los gráficos que compartan la misma <span class="bold"> fecha completa, </span>o el mismo<span class="bold"> mes, </span>o el mismo<span class="bold"> año.</span> Esto implica que el sistema debe poder consultar por diferentes niveles de granularidad de la fecha.</div>
               <div class="atributo"> <span class="nombreAtributo">· SINOPSIS. </span>Resumen corto de la historia del cómic.</div>
@@ -64,7 +99,7 @@
               <div class="atributo"> <span class="nombreAtributo">· FK · ID EDICIÓN. </span>Indica la Expo en donde se presentó el Gráfico.</div>
               <div class="atributo"> <span class="nombreAtributo">· LEÍDO. </span>Indica si el cómic ya fue leído o no.</div>
               <div class="atributo"><span class="nombreAtributo">· FECHA DE CAPTURA. </span>Fecha en que se captura el cómic en la base de datos. Se compone del día/mes/año.</div>
-              <div class="atributo"><span class="nombreAtributo">· CÓDIGO. </span>Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. Formato de Generación: Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para <span class="resaltado">GRAFICO: </span>Prefijo "GR-" + <span class="resaltado">ID_GRAFICO </span>(Ej. GR-123).   </div>
+              <div class="atributo"><span class="nombreAtributo">· CÓDIGO. </span>Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. Formato de Generación: Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para <span class="resaltado">GRAFICO</span>: Prefijo "GR-" + <span class="resaltado">ID_GRAFICO </span>(Ej. GR-123).   </div>
             </div>
             <table class="tabla">
               <thead>
@@ -96,7 +131,7 @@
                   <td>INT</td>
                   <td>FK</td>
                   <td>NO</td>
-                  <td>Id de <span class="resaltado">TIPO_GRAFICO</span>que estamos vinculando.</td>
+                  <td>Id de <span class="resaltado">TIPO_GRAFICO </span>que estamos vinculando.</td>
                   <td>Referencia a <span class="resaltado">TIPO_GRAFICO.id_tipo_grafico</span></td>
                   <td>-</td>
                 </tr>
@@ -206,7 +241,7 @@
                   <td>NO</td>
                   <td>+18 o no.</td>
                   <td>-</td>
-                  <td>TRUE = +18 FALSE = Todo público</td>
+                  <td>TRUE = +18 <br>FALSE = Todo público</td>
                 </tr>
                 <tr class="filaAtributo">
                   <td>pixelizacion_grafico</td>
@@ -215,7 +250,7 @@
                   <td>NO</td>
                   <td>Censurado o no.</td>
                   <td>-</td>
-                  <td>TRUE = Censurado FALSE = Sin censura</td>
+                  <td>TRUE = Censurado <br>FALSE = Sin censura</td>
                 </tr>
                 <tr class="filaAtributo">
                   <td>id_edicion</td>
@@ -233,7 +268,7 @@
                   <td>NO</td>
                   <td>Si fue o no leído ya el cómic.</td>
                   <td>-</td>
-                  <td>TRUE = SÍ FALSE = No</td>
+                  <td>TRUE = SÍ <br>FALSE = No</td>
                 </tr>
                 <tr class="filaAtributo">
                   <td>fecha_captura_grafico</td>
@@ -264,10 +299,10 @@
             </div>
             <div class="atributos">
               <div class="atributo"> <span class="nombreAtributo">· ID VERSION. </span>Identificador único de cada versión específica del Gráfico.</div>
-              <div class="atributo"> <span class="nombreAtributo">· FK - ID GRÁFICO. </span>Enlaza esta versión con el cómic principal en la entidad <span class="resaltado">GRAFICO.</span></div>
+              <div class="atributo"> <span class="nombreAtributo">· FK - ID GRÁFICO. </span>Enlaza esta versión con el cómic principal en la entidad <span class="resaltado">GRAFICO</span>.</div>
               <div class="atributo"> <span class="nombreAtributo">· FK - ID IDIOMA. </span>El idioma en el que se encuentra esta versión específica.</div>
               <div class="atributo"> <span class="nombreAtributo">· TÍTULO. </span>Nombre del gráfico en el idioma de esta versión. (Depende del Idioma) </div>
-              <div class="atributo"> <span class="nombreAtributo">· SOPORTE. </span>Indica el medio de esta versión. Valores Posibles: <span class="resaltado">Físico, Digital.</span></div>
+              <div class="atributo"> <span class="nombreAtributo">· SOPORTE. </span>Indica el medio de esta versión. Valores Posibles: <span class="resaltado">Físico</span>, <span class="resaltado">Digital</span>.</div>
               <div class="atributo"> <span class="nombreAtributo">· FK - ID TIPO FORMATO. </span>El formato específico de esta versión. (Dependerá del Soporte)</div>
               <div class="atributo"> <span class="nombreAtributo">· ANCHO DE LAS IMAGEN. </span>Tamaño del ancho de las imágenes en píxeles de esta versión.</div>
               <div class="atributo"> <span class="nombreAtributo">· ALTO DE LAS IMAGEN. </span>Tamaño del alto de las imágenes en píxeles de esta versión.</div>
@@ -332,7 +367,7 @@
                   <td>TEXT</td>
                   <td>-</td>
                   <td>NO</td>
-                  <td>Soporte del cómic. Físico o Digital</td>
+                  <td>Soporte del cómic. Físico o Digital.</td>
                   <td>-</td>
                   <td>Regla: Es obligatorio registrar el soporte.</td>
                 </tr>
@@ -401,7 +436,7 @@
             </div>
             <div class="atributos">
               <div class="atributo"><span class="nombreAtributo">· ID ÍNDICE.  </span>Identificador único para el registro de cada archivo/página.</div>
-              <div class="atributo"><span class="nombreAtributo">· FK - ID VERSION.  </span>Enlaza esta ruta con la versión digital correspondiente en la tabla  <span class="resaltado">VERSION_GRAFICO.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID VERSION.  </span>Enlaza esta ruta con la versión digital correspondiente en la tabla  <span class="resaltado">VERSION_GRAFICO</span>.</div>
               <div class="atributo"><span class="nombreAtributo">· NÚMERO DE PÁGINA.  </span>El número de página (o índice) que representa este archivo, es crucial para mantener el orden de lectura.</div>
               <div class="atributo"><span class="nombreAtributo">· RUTA DEL ARCHIVO.  </span>La ruta absoluta o relativa donde se encuentra el archivo de la página en el sistema de almacenamiento.</div>
               <div class="atributo"><span class="nombreAtributo">· FK - ID TIPO DE PÁGINA. </span>El tipo de contenido que es la página del cómic.</div>
@@ -470,7 +505,7 @@
               </tbody>
             </table>
             <div class="notas">
-              <p>*Restricciones y Reglas de Negocio: </p><br>
+              <p class="bold">Restricciones y Reglas de Negocio: </p>
               <p>- Esta tabla solo aplica para versiones con soporte_version = 'Digital'.</p>
               <p>- El numero_pagina debe ser único por id_version.</p>
               <p>- numero_pagina = 0 indica portada.</p>
@@ -480,12 +515,12 @@
           <div class="entidadLocal" id="tipoGrafico">
             <div class="titulo">
               <p class="relacion">Relación · 1:N – Uno a Muchos –</p>
-              <p class="h3">TIPO DE GRÁFICO</p>
-              <div class="definicion">La Entidad  <span class="resaltado">TIPO_GRAFICO  </span>contiene e indica la clasificación específica de un gráfico.<span class="subrayado">Valores Posibles </span>(sólo uno a la vez):<span class="resaltado"> Cómic, Manga, Doujinshi, Manhua, Manhwa, Webtoon </span>e <span class="resaltado">Historieta.</span><span class="subrayado">Funcionalidad:</span> Este elemento funcionará como un vínculo a un sitio donde se muestran todos los que comparten ese mismo tipo.</div>
+              <p class="display-9">TIPO DE GRÁFICO</p>
+              <div class="definicion">La Entidad  <span class="resaltado">TIPO_GRAFICO  </span>contiene e indica la clasificación específica de un gráfico.<span class="subrayado">Valores Posibles </span>(sólo uno a la vez):<span class="resaltado"> Cómic</span>,  <span class="resaltado">Manga</span>,  <span class="resaltado">Doujinshi</span>,  <span class="resaltado">Manhua</span>,  <span class="resaltado">Manhwa</span>,  <span class="resaltado">Webtoon </span>e <span class="resaltado">Historieta</span>. <span class="subrayado">Funcionalidad:</span> Este elemento funcionará como un vínculo a un sitio donde se muestran todos los que comparten ese mismo tipo.</div>
             </div>
             <div class="atributos">
               <div class="atributo"><span class="nombreAtributo">· ID TIPO GRÁFICO.  </span>Identificador único.</div>
-              <div class="atributo"><span class="nombreAtributo">· NOMBRE DEL TIPO.  </span>Nombre de los valores posibles que puede tener la entidad  <span class="resaltado">GRAFICO.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· NOMBRE DEL TIPO.  </span>Nombre de los valores posibles que puede tener la entidad  <span class="resaltado">GRAFICO</span>.</div>
             </div>
             <table class="tabla">
               <thead>
@@ -528,12 +563,12 @@
           <div class="entidadIntermedia" id="graficoGeneros">
             <div class="titulo">
               <p class="relacion">Relación · N: M - Muchos a Muchos -</p>
-              <p class="h3">GRÁFICO GÉNEROS</p>
+              <p class="display-9">GRÁFICO GÉNEROS</p>
               <div class="definicion">La Entidad</div>
             </div>
             <div class="atributos">
-              <div class="atributo"><span class="nombreAtributo">· FK - ID GRÁFICO.  </span>Enlaza esta ruta con la tabla  <span class="resaltado">GRAFICO.</span></div>
-              <div class="atributo"><span class="nombreAtributo">· FK - ID GÉNERO.  </span>Enlaza esta ruta con la tabla  <span class="resaltado">GENEROS.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID GRÁFICO.  </span>Enlaza esta ruta con la tabla  <span class="resaltado">GRAFICO</span>.</div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID GÉNERO.  </span>Enlaza esta ruta con la tabla  <span class="resaltado">GENEROS</span>.</div>
             </div>
             <table class="tabla">
               <thead>
@@ -575,12 +610,12 @@
           <div class="entidadIntermedia" id="graficoAutor">
             <div class="titulo">
               <p class="relacion">Relación · N: M - Muchos a Muchos -</p>
-              <p class="h3">GRÁFICO AUTOR</p>
+              <p class="display-9">GRÁFICO AUTOR</p>
               <div class="definicion">La Entidad </div>
             </div>
             <div class="atributos">
-              <div class="atributo"><span class="nombreAtributo">· FK - ID GRÁFICO.  </span>Enlaza esta ruta con la tabla  <span class="resaltado">GRAFICO.</span></div>
-              <div class="atributo"><span class="nombreAtributo">· FK - ID AUTOR.  </span>Enlaza esta ruta con la tabla  <span class="resaltado">AUTOR.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID GRÁFICO.  </span>Enlaza esta ruta con la tabla  <span class="resaltado">GRAFICO</span>.</div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID AUTOR.  </span>Enlaza esta ruta con la tabla  <span class="resaltado">AUTOR</span>.</div>
             </div>
             <table class="tabla">
               <thead>
@@ -604,7 +639,7 @@
                   <td>FK</td>
                   <td>NO</td>
                   <td>Id del Gráfico que estamos vinculando.</td>
-                  <td>Referencia a<span class="resaltado">GRAFICO.id_grafico</span></td>
+                  <td>Referencia a <span class="resaltado">GRAFICO.id_grafico</span></td>
                   <td>Regla: Es obligatorio registrar un gráfico.</td>
                 </tr>
                 <tr class="filaAtributo">
@@ -613,21 +648,21 @@
                   <td>FK</td>
                   <td>NO</td>
                   <td>Id del Autor que estamos vinculando.</td>
-                  <td>Referencia a<span class="resaltado">AUTOR.id_autor</span></td>
+                  <td>Referencia a <span class="resaltado">AUTOR.id_autor</span></td>
                   <td>Regla: Es obligatorio registrar un autor.</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class="entidadIntermedia" id="graficoAutor">
+          <div class="entidadIntermedia" id="graficoAvisos">
             <div class="titulo">
               <p class="relacion">Relación · N: M - Muchos a Muchos -</p>
-              <p class="h3">GRÁFICO AVISOS</p>
+              <p class="display-9">GRÁFICO AVISOS</p>
               <div class="definicion">La Entidad</div>
             </div>
             <div class="atributos">
-              <div class="atributo"><span class="nombreAtributo">· FK - ID GRÁFICO.  </span>Enlaza esta ruta con la tabla  <span class="resaltado">GRAFICO.</span></div>
-              <div class="atributo"><span class="nombreAtributo">· FK - ID AVISO.  </span>Enlaza esta ruta con la tabla  <span class="resaltado">AVISOS.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID GRÁFICO.  </span>Enlaza esta ruta con la tabla  <span class="resaltado">GRAFICO</span>.</div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID AVISO.  </span>Enlaza esta ruta con la tabla  <span class="resaltado">AVISOS</span>.</div>
             </div>
             <table class="tabla">
               <thead>
@@ -676,12 +711,12 @@
             <div class="atributos">
               <div class="atributo"><span class="nombreAtributo">· ID COLECCIÓN. </span>Identificador único. </div>
               <div class="atributo"><span class="nombreAtributo">· NOMBRE COLECCIÓN. </span>Nombre general de la colección de Magazines.</div>
-              <div class="atributo"><span class="nombreAtributo">· TIPO DE PUBLICACIÓN. </span>Frecuencia de publicación del magazine:  <span class="resaltado">Semanal, Mensual, Bimestral, Anual </span>o por  <span class="resaltado">Evento. </span></div>
+              <div class="atributo"><span class="nombreAtributo">· TIPO DE PUBLICACIÓN. </span>Frecuencia de publicación del magazine:  <span class="resaltado">Semanal</span>,  <span class="resaltado">Mensual</span>,  <span class="resaltado">Bimestral</span>,  <span class="resaltado">Anual </span>o por  <span class="resaltado">Evento</span>. </div>
               <div class="atributo"><span class="nombreAtributo">· ESTADO DE LA PUBLICACIÓN. </span>Muestra si el Magazine se sigue publicando o no.</div>
               <div class="atributo"><span class="nombreAtributo">· FECHA INICIO. </span>Indica la fecha de la primera publicación.</div>
               <div class="atributo"><span class="nombreAtributo">· FECHA FINAL. </span>Indica la fecha de la última publicación.</div>
               <div class="atributo"><span class="nombreAtributo">· DESCRIPCIÓN. </span>Descripción general de la colección de Magazines.</div>
-              <div class="atributo"><span class="nombreAtributo">· CÓDIGO. </span>Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. Formato de Generación: Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para  <span class="resaltado">COLECCION:  </span>Prefijo "CN-" +  <span class="resaltado">ID_COLECCION </span>(Ej. CN-123).                                                   </div>
+              <div class="atributo"><span class="nombreAtributo">· CÓDIGO. </span>Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. Formato de Generación: Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para  <span class="resaltado">COLECCION</span>: Prefijo "CN-" +  <span class="resaltado">ID_COLECCION </span>(Ej. CN-123).                                                   </div>
             </div>
             <table class="tabla">
               <thead>
@@ -733,7 +768,7 @@
                   <td>NO</td>
                   <td>Estado de la publicación</td>
                   <td>-</td>
-                  <td>TRUE =  En Emisión. FALSE = Finalizado</td>
+                  <td>TRUE =  En Emisión. <br>FALSE = Finalizado</td>
                 </tr>
                 <tr class="filaAtributo">
                   <td>fecha_inicio</td>
@@ -751,7 +786,7 @@
                   <td>SI</td>
                   <td>Fecha de la última publicación.</td>
                   <td>-</td>
-                  <td>Día, Mes y Año. NULL si aún continúa.</td>
+                  <td>Día, Mes y Año. <br>NULL si aún continúa.</td>
                 </tr>
                 <tr class="filaAtributo">
                   <td>descripcion_coleccion</td>
@@ -785,7 +820,7 @@
               <div class="atributo">   <span class="nombreAtributo">· ID MAGAZINE.  </span>Identificador único. </div>
               <div class="atributo"><span class="nombreAtributo">· FK · ID COLECCION.  </span>Indica la colección a la que pertenece.</div>
               <div class="atributo"><span class="nombreAtributo">· NÚMERO MAGAZINE.  </span>Número del Magazine dentro de la colección..  </div>
-              <div class="atributo"><span class="nombreAtributo">· PÁGINAS TOTALES.  </span>Representa el número total de páginas del magazine.  <span class="subrayado">Regla de Cálculo:  </span>Este valor es la suma de las páginas de todos los elementos que componen el  <span class="resaltado">MAGAZINE.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· PÁGINAS TOTALES.  </span>Representa el número total de páginas del magazine.  <span class="subrayado">Regla de Cálculo:  </span>Este valor es la suma de las páginas de todos los elementos que componen el  <span class="resaltado">MAGAZINE</span>.</div>
               <div class="atributo"><span class="nombreAtributo">· FECHA DE PUBLICACIÓN O ESTRENO DEL MAGAZINE.  </span>Representa la fecha en que el elemento fue publicado o estrenado. <br><span class="subrayado">Almacenamiento en BD:  </span>Tipo  <span class="italica">DATE </span>formato YYYY-MM-DD (ej: 2025-09-25). <br><span class="subrayado">Formato de Visualización: </span>Se debe mostrar al usuario como DD · MMM · YYYY , el día, después el mes y luego el año, separados por un punto medio (ejemplo: 25 · Sep · 2025). La conversión se realiza en la capa de aplicación.<br><span class="subrayado">Funcionalidad:  </span>Actúa como vínculo a un sitio que muestre todos los  <span class="bold">MAGAZINES  </span>que compartan la misma  <span class="bold">fecha completa, </span>o el mismo  <span class="bold">mes, </span>o el mismo  <span class="bold">año. </span>Esto implica que el sistema debe poder consultar por diferentes niveles de granularidad de la fecha.</div>
               <div class="atributo"><span class="nombreAtributo">· SINOPSIS.  </span>Resumen corto de la historia del cómic.</div>
               <div class="atributo"><span class="nombreAtributo">· FK · ID PAÍS.  </span>Indica el país de origen del Gráfico.</div>
@@ -801,7 +836,7 @@
               <div class="atributo"><span class="nombreAtributo">· FK · ID EDICIÓN.  </span>Indica la Expo en donde se presentó el Magazine.</div>
               <div class="atributo"><span class="nombreAtributo">· LEÍDO.  </span>Indicar si el magazine ya fue leído o no.</div>
               <div class="atributo"><span class="nombreAtributo">· FECHA DE CAPTURA.  </span>Fecha en que se captura el magazine en la base de datos. Se compone del día/mes/año.</div>
-              <div class="atributo"><span class="nombreAtributo">· CÓDIGO.  </span>Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. <span class="subrayado">Formato de Generación:  </span>Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para  <span class="resaltado">MAGAZINE:  </span>Prefijo "MGZ-" +  <span class="resaltado">ID_MAGAZINE  </span>(Ej. MGZ-456)</div>
+              <div class="atributo"><span class="nombreAtributo">· CÓDIGO.  </span>Es un código alfanumérico que se utiliza para identificar el elemento de manera única en la interfaz. <span class="subrayado">Formato de Generación:  </span>Se genera anteponiendo un prefijo específico de la categoría al ID único de la entidad, para  <span class="resaltado">MAGAZINE</span>: Prefijo "MGZ-" +  <span class="resaltado">ID_MAGAZINE  </span>(Ej. MGZ-456)</div>
             </div>
             <table class="tabla">
               <thead>
@@ -1010,11 +1045,11 @@
             </div>
             <div class="atributos">
               <div class="atributo"><span class="nombreAtributo">· ID VERSION.  </span>Identificador único de cada versión específica del Magazine.</div>
-              <div class="atributo"><span class="nombreAtributo">· FK - ID_MAGAZINE.  </span>Enlaza esta versión con el Magazine principal en la entidad  <span class="resaltado">MAGAZINE.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID_MAGAZINE.  </span>Enlaza esta versión con el Magazine principal en la entidad  <span class="resaltado">MAGAZINE</span>.</div>
               <div class="atributo"><span class="nombreAtributo">· FK - ID IDIOMA.  </span>El idioma en el que se encuentra esta versión específica</div>
-              <div class="atributo"><span class="nombreAtributo">· TÍTULO.  </span>Nombre del Magazine en el idioma de esta versión. (Depende del Idioma) </div>
-              <div class="atributo"><span class="nombreAtributo">· SOPORTE.  </span>Indica el medio de esta versión. Valores Posibles:  <span class="resaltado">Físico, Digital.</span></div>
-              <div class="atributo"><span class="nombreAtributo">· FK - ID TIPO FORMATO.  </span>El formato específico de esta versión. Valores Posibles: (Depende del Soporte) </div>
+              <div class="atributo"><span class="nombreAtributo">· TÍTULO.  </span>Nombre del Magazine en el idioma de esta versión. <span class="sub">(Depende del Idioma) </span></div>
+              <div class="atributo"><span class="nombreAtributo">· SOPORTE.  </span>Indica el medio de esta versión. Valores Posibles:  <span class="resaltado">Físico</span>, <span class="resaltado">Digital</span>.</div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID TIPO FORMATO.  </span>El formato específico de esta versión. Valores Posibles: <span class="sub">(Depende del Soporte) </span></div>
               <div class="atributo"><span class="nombreAtributo">· ANCHO DE LAS IMAGEN.  </span>Tamaño del ancho de las imágenes en píxeles de esta versión.</div>
               <div class="atributo"><span class="nombreAtributo">· ALTO DE LAS IMAGEN.  </span>Tamaño del alto de las imágenes en píxeles de esta versión.</div>
               <div class="atributo"><span class="nombreAtributo">· RESOLUCIÓN.  </span>Calidad de la imagen en DPI.</div>
@@ -1052,7 +1087,7 @@
                   <td>FK</td>
                   <td>NO</td>
                   <td>Id del Magazine que estamos vinculando.</td>
-                  <td>Referencia a MAGAZINE.id_magazine</td>
+                  <td>Referencia a <span class="resaltado">MAGAZINE.id_magazine</span></td>
                   <td>-</td>
                 </tr>
                 <tr class="filaAtributo"> 
@@ -1061,7 +1096,7 @@
                   <td>FK</td>
                   <td>NO</td>
                   <td>Id del Idioma que estamos vinculando.</td>
-                  <td>Referencia a IDIOMA.id_idioma</td>
+                  <td>Referencia a <span class="resaltado">IDIOMA.id_idioma</span></td>
                   <td>Regla: Es obligatorio registrar un idioma.</td>
                 </tr>
                 <tr class="filaAtributo"> 
@@ -1078,7 +1113,7 @@
                   <td>TEXT</td>
                   <td>-</td>
                   <td>NO</td>
-                  <td>Soporte del magazine. Físico o Digital</td>
+                  <td>Soporte del magazine. Físico o Digital.</td>
                   <td>-</td>
                   <td>Regla: Es obligatorio registrar el soporte.</td>
                 </tr>
@@ -1088,7 +1123,7 @@
                   <td>FK</td>
                   <td>NO</td>
                   <td>Id del Tipo de Formato que estamos vinculando.</td>
-                  <td>Referencia a TIPO_FORMATO.id_tipo_formato</td>
+                  <td>Referencia a <span class="resaltado">TIPO_FORMATO.id_tipo_formato</span></td>
                   <td>Regla: Es obligatorio registrar el tipo de formato.</td>
                 </tr>
                 <tr class="filaAtributo"> 
@@ -1133,7 +1168,7 @@
                   <td>FK</td>
                   <td>SI</td>
                   <td>Id del Ttraductor que estamos vinculando.</td>
-                  <td>Referencia a TRADUCTOR.id_traductor</td>
+                  <td>Referencia a <span class="resaltado">TRADUCTOR.id_traductor</span></td>
                   <td>-</td>
                 </tr>
               </tbody>
@@ -1150,18 +1185,18 @@
               <div class="atributo"><span class="nombreAtributo">· FK_ID_VERSION. </span>Enlaza esta ruta con la versión digital correspondiente en la tabla VERSION_MAGAZINE.</div>
               <div class="atributo"><span class="nombreAtributo">· NUMERO_PAGINA. </span>La página exacta del Magazine donde se encuentra este contenido. Crucial para la ordenación.</div>
               <div class="atributo"><span class="nombreAtributo">· FK - ID TIPO DE PÁGINA. </span>Define el tipo de contenido en esta página. 
-                Valores Posibles:  <span class="resaltado">Portada, Índice, Artículo, Ads, Extra, Sección Especial, Contraportada, Gráfico, Gráfico Nuevo.</span><br><span class="bold">Gráfico Nuevo: </span>Cuando se registra un Magazine, se selecciona la opción de Gráfico Nuevo en el  <span class="resaltado">ID_TIPO_PAGINA  </span>de la entidad  <span class="resaltado">INDICE_VERSION</span>, la interfaz gráfica detecta el registro como  <span class="resaltado">ID_TIPO_PAGINA =  </span><span class="bold">Gráfico Nuevo  </span>por lo que el sistema muestra la opción de capturar la información de este nuevo cómic (botón Capturar Gráfico) en una ventana emergente (popup) con todos los atributos definidos para la entidad  <span class="resaltado">GRAFICO.</span><br>Una vez que el cómic se guarda en la tabla  <span class="resaltado">GRAFICO  </span>y obtiene su  <span class="resaltado">ID_GRAFICO</span>, el sistema realiza una actualización automática en la tabla  <span class="resaltado">INDICE_VERSION: </span>
+                Valores Posibles:  <span class="resaltado">Portada</span>, <span class="resaltado"> Índice</span>, <span class="resaltado"> Artículo</span>, <span class="resaltado"> Ads</span>, <span class="resaltado"> Extra</span>, <span class="resaltado"> Sección Especial</span>, <span class="resaltado"> Contraportada</span>, <span class="resaltado"> Gráfico</span>, <span class="resaltado"> Gráfico Nuevo</span>.<br><span class="bold">Gráfico Nuevo: </span>Cuando se registra un Magazine, se selecciona la opción de Gráfico Nuevo en el  <span class="resaltado">ID_TIPO_PAGINA  </span>de la entidad  <span class="resaltado">INDICE_VERSION</span>, la interfaz gráfica detecta el registro como  <span class="resaltado">ID_TIPO_PAGINA </span><span class="bold">= Gráfico Nuevo  </span>por lo que el sistema muestra la opción de capturar la información de este nuevo cómic (botón Capturar Gráfico) en una ventana emergente (popup) con todos los atributos definidos para la entidad  <span class="resaltado">GRAFICO</span>.<br>Una vez que el cómic se guarda en la tabla  <span class="resaltado">GRAFICO  </span>y obtiene su  <span class="resaltado">ID_GRAFICO</span>, el sistema realiza una actualización automática en la tabla  <span class="resaltado">INDICE_VERSION</span>: 
                 <ul class="listaDesordenada">
-                  <li>Cambiando  <span class="resaltado">ID_TIPO_PAGINA  </span>de  <span class="bold">Gráfico Nuevo  </span>a  <span class="bold">Gráfico. </span></li>
-                  <li>Asignando el nuevo  <span class="resaltado">ID_GRÁFICO  </span>al campo  <span class="resaltado">FK_ID_GRAFICO y</span></li>
-                  <li>Actualizando  <span class="resaltado">PAGINAS_CONTENIDO  </span>con el valor registrado en el del cómic.</li>
+                  <li>· Cambiando  <span class="resaltado">ID_TIPO_PAGINA  </span>de  <span class="bold">Gráfico Nuevo  </span>a  <span class="bold">Gráfico. </span></li>
+                  <li>· Asignando el nuevo  <span class="resaltado">ID_GRÁFICO  </span>al campo  <span class="resaltado">FK_ID_GRAFICO  </span>y</li>
+                  <li>· Actualizando  <span class="resaltado">PAGINAS_CONTENIDO  </span>con el valor registrado en el del cómic.</li>
                 </ul>
               </div>
               <div class="atributo"><span class="nombreAtributo">· FK_ID_GRAFICO. </span>Opcional. Se usa sólo si  <span class="resaltado">ID_TIPO_PAGINA  </span>es  <span class="resaltado">GRAFICO.  </span>Almacena la  <span class="resaltado">ID_GRAFICO  </span>del cómic capturado.</div>
               <div class="atributo"><span class="nombreAtributo">· PAGINAS_CONTENIDO. </span>El número de páginas que ocupa este archivo depende del  <span class="resaltado">ID_TIPO_PAGINA:</span>
                 <ul class="listaDesordenada">
-                  <li>Si es  <span class="resaltado">GRAFICO: </span>se tomará el total de páginas que almacena <span class="resaltado">GRAFICO.paginas_grafico </span></li>
-                  <li>Si no es  <span class="resaltado">GRAFICO: </span>el número de páginas será 1 por defecto (1 imagen = 1 página)</li>
+                  <li>· Si es  <span class="resaltado">GRAFICO</span>: se tomará el total de páginas que almacena <span class="resaltado">GRAFICO.paginas_grafico </span></li>
+                  <li>· Si no es  <span class="resaltado">GRAFICO</span>: el número de páginas será 1 por defecto (1 imagen = 1 página).</li>
                 </ul>
               </div>
               <div class="atributo"><span class="nombreAtributo">· RUTA_ARCHIVO. </span>Opcional. Se usa sólo si  <span class="resaltado">ID_TIPO_PAGINA </span>no es  <span class="resaltado">GRAFICO </span>(ej. para la portada, índice, ads). Almacena la ruta del archivo de imagen.</div>
@@ -1197,8 +1232,8 @@
                   <td>FK</td>
                   <td>NO</td>
                   <td>Id de la versión que estamos vinculando.</td>
-                  <td>Referencia a VERSION_MAGAZINE.id_version</td>
-                  <td>Restricción: Solo para soporte_version = 'Digital'</td>
+                  <td>Referencia a <span class="resaltado">VERSION_MAGAZINE.id_version</span></td>
+                  <td>Restricción: Solo para soporte_version = 'Digital'.</td>
                 </tr>
                 <tr class="filaAtributo"> 
                   <td>numero_pagina</td>
@@ -1207,7 +1242,7 @@
                   <td>NO</td>
                   <td>Número de página del archivo.</td>
                   <td>-</td>
-                  <td>Regla: Es obligatorio registrar el número de página. Valor >= 1</td>
+                  <td>Regla: Es obligatorio registrar el número de página. <br>Valor >= 1</td>
                 </tr>
                 <tr class="filaAtributo"> 
                   <td>id_tipo_pagina</td>
@@ -1215,7 +1250,7 @@
                   <td>FK</td>
                   <td>NO</td>
                   <td>Id del tipo de página que estamos vinculando</td>
-                  <td>Referencia a TIPO_PAGINA.id_tipo_pagina</td>
+                  <td>Referencia a <span class="resaltado">TIPO_PAGINA.id_tipo_pagina</span></td>
                   <td>-</td>
                 </tr>
                 <tr class="filaAtributo"> 
@@ -1224,8 +1259,8 @@
                   <td>FK</td>
                   <td>SI</td>
                   <td>Id del Gráfico que estamos vinculando.</td>
-                  <td>Referencia a GRAFICO.id_grafico</td>
-                  <td>Solo si id_tipo_contenido = 'Gráfico' o 'Gráfico Nuevo'</td>
+                  <td>Referencia a <span class="resaltado">GRAFICO.id_grafico</span></td>
+                  <td>Solo si id_tipo_contenido = 'Gráfico' o 'Gráfico Nuevo'.</td>
                 </tr>
                 <tr class="filaAtributo"> 
                   <td>paginas_contenido</td>
@@ -1234,7 +1269,7 @@
                   <td>NO</td>
                   <td>Total de páginas que ocupa este documento.</td>
                   <td>-</td>
-                  <td>Si id_tipo_contenido='Gráfico': obtener de GRAFICOS.paginas_grafico. Si no: valor = 1 por defecto</td>
+                  <td>Si id_tipo_contenido='Gráfico': obtener de <span class="resaltado">GRAFICOS.paginas_grafico</span><br>Si no: valor = 1 por defecto.</td>
                 </tr>
                 <tr class="filaAtributo"> 
                   <td>ruta_archivo</td>
@@ -1243,17 +1278,165 @@
                   <td>SI</td>
                   <td>Ruta del archivo de imagen.</td>
                   <td>-</td>
-                  <td>Solo si tipo_pagina ≠ 'Gráfico'. Ruta relativa al directorio base.</td>
+                  <td>Solo si  <span class="resaltado">tipo_pagina </span>≠ 'Gráfico'. <br>Ruta relativa al directorio base.</td>
                 </tr>
               </tbody>
             </table>
             <div class="notas">
-              <p>*Restricciones y Reglas de Negocio:</p><br>
-              <p>Esta tabla solo aplica para versiones con soporte_version = 'Digital'</p>
+              <p class="bold">Restricciones y Reglas de Negocio:</p>
+              <p>Esta tabla solo aplica para versiones con soporte_version = 'Digital'.</p>
               <p>El numero_pagina debe mantenerse secuencial dentro de una misma id_version</p>
-              <p>Si id_tipo_contenido = 'Gráfico': id_grafico es REQUERIDO y ruta_archivo debe ser NULL</p>
-              <p>Si id_tipo_contenido ≠ 'Gráfico': id_grafico debe ser NULL y ruta_archivo es REQUERIDO</p>
-              <p>La ruta_archivo debe ser relativa al directorio base de almacenamiento</p>
+              <p>Si id_tipo_contenido = 'Gráfico': id_grafico es REQUERIDO y ruta_archivo debe ser NULL.</p>
+              <p>Si id_tipo_contenido ≠ 'Gráfico': id_grafico debe ser NULL y ruta_archivo es REQUERIDO.</p>
+              <p>La ruta_archivo debe ser relativa al directorio base de almacenamiento.</p>
+            </div>
+          </div>
+          <div class="titulosSeparadores" id="viewMagazine">Views Magazine</div>
+          <div class="entidadView">
+            <div class="titulo">
+              <h3 class="display-9">Vistas Derivadas para <span class="bold">MAGAZINE</span></h3>
+              <div class="definicion">Las siguientes vistas permiten consultar los géneros, autores y avisos de un magazine de forma agregada, obteniendo la información directamente de los gráficos que lo componen.</div>
+            </div>
+            <!-- Géneros-->
+            <div class="view">   
+              <div class="tituloView">
+                <p class="display-10">VISTA: <span class="bold">MAGAZINE_GENEROS_VIEW </span></p>
+              </div>
+              <div class="descripcionView">
+                <p>Obtiene todos los géneros únicos de los gráficos contenidos en cada magazine.</p>
+              </div>
+              <div class="atributos">
+                <div class="atributo"> <span class="nombreAtributo">Proposito</span>
+                  <p>Permite consultar rápidamente todos los géneros presentes en un magazine sin necesidad de realizar joins complejos.</p>
+                </div>
+                <div class="atributo"> <span class="nombreAtributo">Definición SQL:</span></div>
+              </div><code> 
+                <p class="comment">```sql</p>
+                <p><span class="keyword">CREATE VIEW </span>MAGAZINE_GENEROS_VIEW <span class="keyword">AS</span></p>
+                <p class="keyword">SELECT DISTINCT </p>
+                <p class="identado">m.id_magazine,</p>
+                <p class="identado">m.codigo_magazine,</p>
+                <p class="identado">g.id_genero,</p>
+                <p class="identado">g.nombre_genero</p>
+                <p> <span class="keyword">FROM </span>MAGAZINE m</p>
+                <p> <span class="keyword">JOIN  </span>VERSION_MAGAZINE vm  <span class="keyword">ON  </span>m.id_magazine <span class="operator">= </span>vm.id_magazine</p>
+                <p> <span class="keyword">JOIN  </span>INDICE_VERSION iv  <span class="keyword">ON  </span>vm.id_version <span class="operator">= </span>iv.id_version</p>
+                <p> <span class="keyword">JOIN  </span>GRAFICO gr  <span class="keyword">ON  </span>iv.id_grafico <span class="operator">= </span>gr.id_grafico</p>
+                <p> <span class="keyword">JOIN  </span>GRAFICO_GENEROS gg  <span class="keyword">ON  </span>gr.id_grafico <span class="operator">= </span>gg.id_grafico</p>
+                <p> <span class="keyword">JOIN  </span>GENEROS g  <span class="keyword">ON  </span>gg.id_genero <span class="operator">= </span>g.id_genero</p>
+                <p> <span class="keyword">WHERE </span>iv.id_tipo_pagina <span class="operator">= </span><span class="number">8</span>; <span class="comment">-- Solo 'Gráfico'</span></p>
+                <p class="comment">```</p></code>
+              <div class="atributo"> <span class="nombreAtributo">Uso:</span></div><code>
+                <p class="comment">```sql</p>
+                <p class="comment">-- Obtener todos los géneros del magazine MGZ-101</p>
+                <p> <span class="keyword">SELECT </span>nombre_genero </p>
+                <p> <span class="keyword">FROM </span>MAGAZINE_GENEROS_VIEW </p>
+                <p> <span class="keyword">WHERE </span>id_magazine <span class="operator">= </span><span class="number">101</span>;</p>
+                <p> <span class="keyword">ORDER BY  </span>nombre_genero;</p>
+                <p class="comment">-- Contar cuántos géneros diferentes tiene un magazine</p>
+                <p> <span class="keyword">SELECT </span>id_magazine, COUNT(DISTINCT id_genero) as total_generos</p>
+                <p> <span class="keyword">FROM </span>MAGAZINE_GENEROS_VIEW</p>
+                <p> <span class="keyword">GROUP </span>BY id_magazine;</p>
+                <p class="comment">```</p></code>
+            </div>
+            <!-- Autor-->
+            <div class="view">   
+              <div class="tituloView">
+                <p class="display-10">VISTA: <span class="bold">MAGAZINE_AUTORES_VIEW </span></p>
+              </div>
+              <div class="descripcionView">   
+                <p>Obtiene todos los autores únicos de los gráficos contenidos en cada magazine.</p>
+              </div>
+              <div class="atributos">  
+                <div class="atributo"> <span class="nombreAtributo">Proposito: </span>Facilita la consulta de todos los autores que participaron en un magazine determinado.</div>
+                <div class="atributo"> <span class="nombreAtributo">Definición SQL:</span></div>
+              </div><code> 
+                <p class="comment">```sql</p>
+                <p><span class="keyword">CREATE VIEW  </span>MAGAZINE_AUTORES_VIEW <span class="keyword">AS</span></p>
+                <p> <span class="keyword">SELECT DISTINCT </span></p>
+                <p class="identado">m.id_magazine,</p>
+                <p class="identado">m.codigo_magazine,</p>
+                <p class="identado">a.id_autor,</p>
+                <p class="identado">a.nombre_autor</p>
+                <p> <span class="keyword">FROM  </span>MAGAZINE m</p>
+                <p> <span class="keyword">JOIN  </span>VERSION_MAGAZINE vm  <span class="keyword">ON  </span>m.id_magazine <span class="operator">= </span>vm.id_magazine</p>
+                <p> <span class="keyword">JOIN  </span>INDICE_VERSION iv  <span class="keyword">ON  </span>vm.id_version <span class="operator">= </span>iv.id_version</p>
+                <p> <span class="keyword">JOIN  </span>GRAFICO gr  <span class="keyword">ON  </span>iv.id_grafico <span class="operator">=  </span>gr.id_grafico</p>
+                <p> <span class="keyword">JOIN  </span>GRAFICO_AUTOR ga  <span class="keyword">ON  </span>gr.id_grafico <span class="operator">=  </span>ga.id_grafico</p>
+                <p> <span class="keyword">JOIN  </span>AUTOR a  <span class="keyword">ON  </span>ga.id_autor <span class="operator">=  </span>a.id_autor</p>
+                <p> <span class="keyword">WHERE  </span>iv.id_tipo_pagina <span class="operator">= </span><span class="number">8</span>;</p>
+                <p class="comment">```</p></code>
+              <div class="atributo"> <span class="nombreAtributo">Uso:</span></div><code>
+                <p class="comment">```sql</p>
+                <p class="comment">-- Obtener todos los autores del magazine con ID 101</p>
+                <p> <span class="keyword">SELECT </span>nombre_autor </p>
+                <p> <span class="keyword">FROM </span>MAGAZINE_AUTORES_VIEW </p>
+                <p> <span class="keyword">WHERE </span>id_magazine = <span class="number">101</span></p>
+                <p><span class="keyword">ORDER BY </span>nombre_autor;</p>
+                <p class="comment">-- Encontrar magazines donde participó un autor específico</p>
+                <p><span class="keyword">SELECT  </span>m.codigo_magazine, m.fecha_publicacion_magazine</p>
+                <p><span class="keyword">FROM  </span>MAGAZINE_AUTORES_VIEW mav</p>
+                <p><span class="keyword">JOIN  </span>MAGAZINE m <span class="keyword">ON  </span>mav.id_magazine <span class="operator">= </span>m.id_magazine</p>
+                <p><span class="keyword">WHERE  </span>mav.id_autor <span class="operator">= </span><span class="number">15</span></p>
+                <p><span class="keyword">ORDER BY  </span>m.fecha_publicacion_magazine  <span class="keyword">DESC</span>;</p>
+                <p class="comment">-- Encontrar magazines donde participó un autor específico</p>
+                <p><span class="keyword">SELECT </span>m.codigo_magazine, m.fecha_publicacion_magazine</p>
+                <p><span class="keyword">FROM </span>MAGAZINE_AUTORES_VIEW mav</p>
+                <p><span class="keyword">JOIN </span>MAGAZINE m ON mav.id_magazine  <span class="operator">=  </span>m.id_magazine</p>
+                <p><span class="keyword">WHERE </span>mav.id_autor  <span class="operator">=  </span><span class="number">15</span></p>
+                <p><span class="keyword">ORDER BY </span>m.fecha_publicacion_magazine <span class="keyword">DESC</span>;</p>
+                <p class="comment">```</p></code>
+            </div>
+            <!-- Avisos-->
+            <div class="view">
+              <div class="tituloView">
+                <p class="display-10">VISTA: <span class="bold">MAGAZINE_AVISOS_VIEW</span></p>
+              </div>
+              <div class="descripcionView">
+                <p>Obtiene todos los avisos de contenido únicos de los gráficos contenidos en cada magazine.</p>
+              </div>
+              <div class="atributos">  
+                <div class="atributo"> <span class="nombreAtributo">Propósito:</span>Permite identificar rápidamente todos los tipos de contenido sensible presentes en un magazine.</div>
+                <div class="atributo"> <span class="nombreAtributo">Definición SQL:</span></div>
+              </div><code>
+                <p class="comment">```sql
+                  <p><span class="keyword">CREATE VIEW  </span>MAGAZINE_AVISOS_VIEW  <span class="keyword">AS</span></p>
+                  <p> <span class="keyword">SELECT DISTINCT </span></p>
+                  <p class="identado">m.id_magazine,</p>
+                  <p class="identado">m.codigo_magazine,</p>
+                  <p class="identado">av.id_aviso,</p>
+                  <p class="identado">av.nombre_aviso</p>
+                  <p> <span class="keyword">FROM </span>MAGAZINE m</p>
+                  <p> <span class="keyword">JOIN </span>VERSION_MAGAZINE vm <span class="keyword">ON  </span>m.id_magazine <span class="operator">= </span>vm.id_magazine</p>
+                  <p> <span class="keyword">JOIN </span>INDICE_VERSION iv <span class="keyword">ON  </span>vm.id_version <span class="operator">= </span>iv.id_version</p>
+                  <p> <span class="keyword">JOIN </span>GRAFICO gr <span class="keyword">ON  </span>iv.id_grafico <span class="operator">= </span>gr.id_grafico</p>
+                  <p> <span class="keyword">JOIN </span>GRAFICO_AVISOS ga <span class="keyword">ON  </span>gr.id_grafico <span class="operator">= </span>ga.id_grafico</p>
+                  <p> <span class="keyword">JOIN </span>AVISOS av <span class="keyword">ON  </span>ga.id_aviso <span class="operator">= </span>av.id_aviso</p>
+                  <p> <span class="keyword">WHERE </span>iv.id_tipo_pagina <span class="operator">= </span><span class="number">8</span>; <span class="comment">-- Solo páginas de tipo 'Gráfico'</span></p>
+                  <p class="comment">```</p>
+                </p></code>
+              <div class="atributo"> <span class="nombreAtributo">Uso:</span></div><code>
+                <p class="comment">```sql</p>
+                <p class="comment">-- Obtener todos los avisos del magazine MGZ-101</p>
+                <p><span class="keyword">SELECT </span>nombre_aviso </p>
+                <p><span class="keyword">FROM</span>MAGAZINE_AVISOS_VIEW </p>
+                <p><span class="keyword">WHERE </span>id_magazine <span class="operator">= </span><span class="number">101</span></p>
+                <p><span class="keyword">ORDER BY </span>nombre_aviso;</p>
+                <p class="comment">-- Encontrar magazines con contenido de violencia</p>
+                <p><span class="keyword">SELECT  </span>DISTINCT m.codigo_magazine, m.sinopsis_magazine</p>
+                <p><span class="keyword">FROM  </span>MAGAZINE_AVISOS_VIEW mav</p>
+                <p><span class="keyword">JOIN  </span>MAGAZINE m ON mav.id_magazine = m.id_magazine</p>
+                <p><span class="keyword">WHERE  </span>mav.nombre_aviso <span class="operator">= </span><span class="text">'Violencia'</span></p>
+                <p><span class="keyword">ORDER BY  </span>m.fecha_publicacion_magazine  <span class="keyword">DESC;</span></p>
+                <p class="comment">```</p></code>
+            </div>
+            <div class="notas"> 
+              <p class="bold">Notas importantes:</p>
+              <p>- **Actualización automática:** Estas vistas reflejan siempre el estado actual de los datos. No requieren mantenimiento manual.</p>
+              <p>- **Solo lectura:** No se pueden realizar operaciones INSERT, UPDATE o DELETE directamente sobre las vistas.</p>
+              <p>- **Filtro de tipo:** El filtro `WHERE iv.id_tipo_pagina = 8` asegura que solo se consideren páginas de tipo "Gráfico", excluyendo portadas, índices, artículos, etc.</p>
+              <p>- **Performance:** Para colecciones muy grandes, considera crear índices en las tablas base para optimizar las consultas.</p>
+              <p>*Relación: Vistas derivadas (solo lectura)*</p>
             </div>
           </div>
         </div>
@@ -1774,9 +1957,9 @@
                 La Entidad AKA contiene e indica los alias o seudónimos que puede tener un mismo autor.Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten el mismo aka.</div>
             </div>
             <div class="atributos">
-              <div class="atributo"><span class="nombreAtributo">· ID AKA. Identificador único.</span></div>
-              <div class="atributo"><span class="nombreAtributo">· FK ID AUTOR. Enlaza esta ruta con el autor correspondiente en la tabla  <span class="resaltado">AUTOR.</span></span></div>
-              <div class="atributo"><span class="nombreAtributo">· AKA. Nombre de los valores posibles que puede tener la entidad    <span class="resaltado">AKA.               </span></span></div>
+              <div class="atributo"><span class="nombreAtributo">· ID AKA.  </span>Identificador único.</div>
+              <div class="atributo"><span class="nombreAtributo">· FK ID AUTOR.  </span>Enlaza esta ruta con el autor correspondiente en la tabla  <span class="resaltado">AUTOR.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· AKA.  </span>Nombre de los valores posibles que puede tener la entidad    <span class="resaltado">AKA.               </span></div>
             </div>
             <table class="tabla">
               <thead>
@@ -1903,11 +2086,11 @@
                 La Entidad EDICION_EXPO indica los detalles de una exposición o convención.Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo valor.</div>
             </div>
             <div class="atributos">
-              <div class="atributo"><span class="nombreAtributo">· ID EXPO. Identificador único.</span></div>
-              <div class="atributo"><span class="nombreAtributo">· FK - ID EXPO. Enlaza la edición con su Expo correspondiente en la entidad </span><span class="resaltado">EXPO.</span></div>
-              <div class="atributo"><span class="nombreAtributo">· NOMBRE EDICIÓN. Nombre completo de la edición.</span></div>
-              <div class="atributo"><span class="nombreAtributo">· FECHA EDICIÓN. Fecha de la edición.</span></div>
-              <div class="atributo"><span class="nombreAtributo">· NÚMERO EDICIÓN. Número de la edición.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· ID EXPO.  </span>Identificador único.</div>
+              <div class="atributo"><span class="nombreAtributo">· FK - ID EXPO.  </span>Enlaza la edición con su Expo correspondiente en la entidad <span class="resaltado">EXPO.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· NOMBRE EDICIÓN.  </span>Nombre completo de la edición.</div>
+              <div class="atributo"><span class="nombreAtributo">· FECHA EDICIÓN.  </span>Fecha de la edición.</div>
+              <div class="atributo"><span class="nombreAtributo">· NÚMERO EDICIÓN.  </span>Número de la edición.</div>
             </div>
             <table class="tabla">
               <thead>
@@ -2004,7 +2187,6 @@
                   <td>106</td>
                 </tr>
               </tbody>
-              <Valores>de Referencia</Valores>
             </table>
           </div>
           <div class="entidadGlobal" id="pais">
@@ -2017,8 +2199,8 @@
               </div>
             </div>
             <div class="atributos">
-              <div class="atributo"><span class="nombreAtributo">· ID PAÍS. Identificador único.</span></div>
-              <div class="atributo"><span class="nombreAtributo">· NOMBRE DEL PAÏS. </span>Nombre de los valores posibles que puede tener la entidad <span class="resaltado">PAIS.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· ID PAÍS.  </span>Identificador único.</div>
+              <div class="atributo"><span class="nombreAtributo">· NOMBRE DEL PAÍS. </span>Nombre de los valores posibles que puede tener la entidad <span class="resaltado">PAIS.</span></div>
             </div>
             <table class="tabla">
               <thead>
@@ -2096,8 +2278,8 @@
               </div>
             </div>
             <div class="atributos">
-              <div class="atributo"><span class="nombreAtributo">· ID IDIOMA. Identificador único.</span></div>
-              <div class="atributo"><span class="nombreAtributo">· NOMBRE DEL IDIOMA. Nombre de los valores posibles que puede tener la entidad </span><span class="resaltado">IDIOMA.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· ID IDIOMA.  </span>Identificador único.</div>
+              <div class="atributo"><span class="nombreAtributo">· NOMBRE DEL IDIOMA.  </span>Nombre de los valores posibles que puede tener la entidad <span class="resaltado">IDIOMA.</span></div>
             </div>
             <table class="tabla">
               <thead>
@@ -2173,8 +2355,8 @@
                 La Entidad TRADUCTOR contiene los traductores.Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo traductor.</div>
             </div>
             <div class="atributos">
-              <div class="atributo"><span class="nombreAtributo">· ID TRADUCTOR. Identificador único.</span></div>
-              <div class="atributo"><span class="nombreAtributo">· NOMBRE DEL TRADUCTOR. Nombre de los traductores posibles que puede tener la entidad </span><span class="resaltado">TRADUCTOR.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· ID TRADUCTOR. </span>Identificador único.</div>
+              <div class="atributo"><span class="nombreAtributo">· NOMBRE DEL TRADUCTOR. </span>Nombre de los traductores posibles que puede tener la entidad <span class="resaltado">TRADUCTOR.</span></div>
             </div>
             <table class="tabla">
               <thead>
@@ -2224,8 +2406,8 @@
               </div>
             </div>
             <div class="atributos">
-              <div class="atributo"><span class="nombreAtributo">· ID AVISO. Identificador único.</span></div>
-              <div class="atributo"><span class="nombreAtributo">· VALOR DEL AVISO. Nombre de los valores posibles que puede tener la entidad </span><span class="resaltado">AVISOS.</span></div>
+              <div class="atributo"><span class="nombreAtributo">· ID AVISO. </span>Identificador único.</div>
+              <div class="atributo"><span class="nombreAtributo">· VALOR DEL AVISO. </span>Nombre de los valores posibles que puede tener la entidad <span class="resaltado">AVISOS.</span></div>
             </div>
             <table class="tabla">
               <thead>
@@ -2307,166 +2489,314 @@
           </div>
         </div>
         <div class="triggers" id="Trigger">
-          <div class="titulosSeparadores">**Triggers y Reglas de Negocio**</div>
+          <div class="titulosSeparadores">Triggers y Reglas de Negocio</div>
+          <div class="trigger" id="paginas_magazine">
+            <div class="tituloTrigger">
+              <p><span class="h3">TRIGGER: </span>Actualización de páginas_magazine.</p>
+            </div>
+            <div class="descripcionTrigger">
+              <p>Este trigger actualiza automáticamente el número total de páginas de un magazine sumando las páginas de todos sus componentes (portada, índice, artículos, gráficos, ads, contraportada, etc.).</p>
+            </div>
+            <div class="atributos">
+              <div class="atributo"> <span class="nombreAtributo">Tabla afectada: <span class="resaltado">MAGAZINE</span></span></div>
+              <div class="atributo"> <span class="nombreAtributo">Campo calculado: <span class="resaltado">paginas_magazine</span></span></div>
+              <div class="atributo"><span class="nombreAtributo">Eventos que disparan el trigger:</span>
+                <ul class="listaDesordenada">
+                  <li>-  <span class="bold"> INSERT  </span>en tabla  <span class="bold"> INDICE_VERSION  </span><span class="sub">(cuando id_version pertenece a un MAGAZINE)</span></li>
+                  <li>-  <span class="bold"> UPDATE  </span>en tabla  <span class="bold"> INDICE_VERSION  </span><span class="sub">(cuando cambia el número de páginas)</span></li>
+                  <li>-  <span class="bold"> DELETE  </span>en tabla  <span class="bold"> INDICE_VERSION</span></li><br>
+                </ul>
+              </div>
+              <div class="atributo"><span class="nombreAtributo">Fórmula de cálculo:</span></div>
+            </div><code> 
+              <p class="comment">```sql</p>
+              <p>paginas_magazine <span class="operator">= SUM</span>(paginas_contenido)</p>
+              <p><span class="keyword">FROM </span>INDICE_VERSION iv</p>
+              <p>   <span class="keyword">JOIN </span>VERSION_MAGAZINE vm <span class="keyword">ON  </span>iv.id_version  <span class="operator">= </span>vm.id_version</p>
+              <p><span class="keyword">WHERE  </span>vm.id_magazine  <span class="operator">= </span>[id_magazine_actual]<span class="operator"></span></p>
+              <p class="comment">```</p>
+              <p class="notas comment">Nota: Este campo no debe ser editado manualmente por el usuario.</p></code>
+          </div>
+          <div class="trigger" id="clasificacion_magazine">
+            <div class="tituloTrigger">
+              <p><span class="h3">TRIGGER: </span>Actualización de clasificacion_magazine</p>
+            </div>
+            <div class="descripcionTrigger">Este trigger actualiza automáticamente el campo `clasificacion_magazine` del MAGAZINE. Si al menos UN gráfico contenido es +18, el magazine completo se marca como +18. Este es un cálculo lógico OR: basta con que un solo gráfico sea +18 para que todo el magazine lo sea.</div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">Tabla afectada: <span class="resaltado">MAGAZINE</span></span></div>
+              <div class="atributo"><span class="nombreAtributo">Campo calculado: </span><span class="resaltado">clasificacion_magazine</span></div>
+              <div class="atributo"><span class="nombreAtributo">Eventos que disparan el trigger:</span>
+                <ul class="listaDesordenada">
+                  <li> - <span class="bold"> INSERT  </span>en tabla  <span class="bold"> INDICE_VERSION  </span><span class="sub">(cuando se agrega un gráfico)</span></li>
+                  <li> - <span class="bold"> UPDATE  </span>en tabla  <span class="bold"> INDICE_VERSION  </span><span class="sub">(cuando cambia el id_grafico)</span></li>
+                  <li> - <span class="bold"> DELETE  </span>en tabla  <span class="bold"> INDICE_VERSION  </span><span class="sub">(cuando se elimina un gráfico)</span></li>
+                </ul>
+              </div>
+              <div class="atributo"><span class="nombreAtributo">Lógica:</span></div>
+            </div><code>
+              <p class="comment">```sql</p>
+              <p>clasificacion_magazine  <span class="operator">= MAX</span>(clasificacion_grafico de todos los gráficos del magazine)</p>
+              <p class="comment">-- Si al menos un gráfico tiene clasificacion_grafico = TRUE (1)</p>
+              <p class="comment">-- entonces clasificacion_magazine = TRUE (1)</p>
+              <p class="comment">```</p>
+              <p class="notas comment">Nota: Este campo no debe ser editado manualmente por el usuario.</p></code>
+            <div class="atributo"><span class="nombreAtributo">Implementación:</span></div><code>
+              <p class="coment">```sql</p>
+              <p class="coment">-- Trigger para INSERT</p>
+              <p><span class="keyword">CREATE TRIGGER </span>update_clasificacion_magazine_insert</p>
+              <p><span class="keyword">AFTER INSERT </span>ON INDICE_VERSION</p>
+              <p><span class="keyword">WHEN </span>NEW.id_tipo_pagina <span class="operator">=  </span><span class="number">8 </span><span class="comment">-- Solo para páginas de tipo 'Gráfico'</span></p>
+              <p><span class="keyword identado">BEGIN   </span></p>
+              <p class="identado"><span class="keyword">UPDATE </span>MAGAZINE</p>
+              <p class="identado"><span class="keyword">SET </span>clasificacion_magazine <span class="operator">= </span>(</p>
+              <p class="identadoDoble"><span class="keyword">SELECT CASE</span></p>
+              <p class="identadoTriple"><span class="keyword">WHEN </span><span class="operator">MAX</span>(gr.clasificacion_grafico) <span class="operator">= </span><span class="number">1 </span><span class="keyword">THEN </span><span class="number">1    </span></p>
+              <p class="identadoTriple"><span class="keyword">ELSE </span><span class="number">0</span></p>
+              <p class="identadoDoble"><span class="keyword">END</span></p>
+              <p class="identadoDoble"><span class="keyword">FROM </span>VERSION_MAGAZINE vm</p>
+              <p class="identadoDoble"><span class="keyword">JOIN </span>INDICE_VERSION iv  <span class="keyword">ON  </span>vm.id_version  <span class="operator">=  </span>iv.id_version</p>
+              <p class="identadoDoble"><span class="keyword">JOIN </span>GRAFICO gr  <span class="keyword">ON  </span>iv.id_grafico  <span class="operator">=  </span>gr.id_grafico</p>
+              <p class="identadoDoble"><span class="keyword">WHERE</span> vm.id_magazine <span class="operator">=  </span>(                                       </p>
+              <p class="identadoTriple"><span class="keyword">SELECT  </span>id_magazine </p>
+              <p class="identadoTriple"><span class="keyword">FROM  </span>VERSION_MAGAZINE </p>
+              <p class="identadoTriple"><span class="keyword">WHERE  </span>id_version  <span class="operator">=  </span>NEW.id_version</p>
+              <p class="identadoDoble">)</p>
+              <p class="identadoDoble"> <span class="operator">AND  </span>iv.id_tipo_pagina <span class="operator">=  </span><span class="number">8</span></p>
+              <p class="identado">)</p>
+              <p class="identado"><span class="keyword">WHERE </span>id_magazine <span class="operator">=  </span>(                               </p>
+              <p class="identadoDoble"><span class="keyword">SELECT </span>id_magazine </p>
+              <p class="identadoDoble"><span class="keyword">FROM </span>VERSION_MAGAZINE </p>
+              <p class="identadoDoble"><span class="keyword">WHERE </span>id_version <span class="operator">= </span>NEW.id_version                           </p>
+              <p class="identado">);</p>
+              <p><span class="keyword">END</span>;</p><br><br>
+              <p class="comment">-- Trigger para UPDATE</p>
+              <p><span class="keyword">CREATE TRIGGER </span>update_clasificacion_magazine_update</p>
+              <p><span class="keyword">AFTER UPDATE ON </span>INDICE_VERSION</p>
+              <p><span class="keyword">WHEN </span>NEW.id_tipo_pagina <span class="operator">= </span><span class="number">8</span></p>
+              <p><span class="keyword">BEGIN</span></p>
+              <p class="identado"><span class="keyword">UPDATE </span>MAGAZINE</p>
+              <p class="identado"><span class="keyword">SET </span>clasificacion_magazine <span class="operator">= </span>(</p>
+              <p class="identadoDoble"><span class="keyword">SELECT CASE </span></p>
+              <p class="identadoTriple"><span class="keyword">WHEN  </span><span class="operator">MAX</span>(gr.clasificacion_grafico) <span class="operator">= </span><span class="number">1 </span>THEN <span class="number">1</span></p>
+              <p class="identadoTriple"><span class="keyword">ELSE  </span><span class="number">0</span></p>
+              <p class="identadoDoble"><span class="keyword">END</span></p>
+              <p class="identadoDoble"><span class="keyword">FROM </span>VERSION_MAGAZINE vm</p>
+              <p class="identadoDoble"><span class="keyword">JOIN </span>INDICE_VERSION iv <span class="keyword">ON </span>vm.id_version <span class="operator">=  </span>iv.id_version</p>
+              <p class="identadoDoble"><span class="keyword">JOIN </span>GRAFICO gr <span class="keyword">ON </span>iv.id_grafico <span class="operator">=  </span>gr.id_grafico</p>
+              <p class="identadoDoble"><span class="keyword">WHERE </span>vm.id_magazine <span class="operator">=  </span>(</p>
+              <p class="identadoTriple"><span class="keyword">SELECT </span>id_magazine </p>
+              <p class="identadoTriple"><span class="keyword">FROM </span>VERSION_MAGAZINE </p>
+              <p class="identadoTriple"><span class="keyword">WHERE </span>id_version <span class="operator">=  </span>NEW.id_version</p>
+              <p class="identadoDoble"><span class="keyword">)</span></p>
+              <p class="identadoDoble"><span class="operator">AND </span>iv.id_tipo_pagina <span class="operator">= </span><span class="number">8</span></p>
+              <p class="identado"><span class="keyword">)                                </span></p>
+              <p class="identado"><span class="keyword">WHERE </span>id_magazine <span class="operator">= </span>(                                                                      </p>
+              <p class="identadoDoble"><span class="keyword">SELECT </span>id_magazine </p>
+              <p class="identadoDoble"><span class="keyword">FROM </span>VERSION_MAGAZINE </p>
+              <p class="identadoDoble"><span class="keyword">WHERE </span>id_version <span class="operator">= </span>NEW.id_version              </p>
+              <p class="identado">);                           </p>
+              <p><span class="keyword">END</span>;</p><br><br>
+              <p class="comment">-- Trigger para DELETE</p>
+              <p><span class="keyword">CREATE TRIGGER </span>update_clasificacion_magazine_delete</p>
+              <p><span class="keyword">AFTER DELETE ON </span>INDICE_VERSION</p>
+              <p><span class="keyword">WHEN </span>OLD.id_tipo_pagina <span class="operator">= </span><span class="number">8</span></p>
+              <p><span class="keyword">BEGIN</span></p>
+              <p class="identado"><span class="keyword">UPDATE </span>MAGAZINE</p>
+              <p class="identado"><span class="keyword">SET </span>clasificacion_magazine <span class="operator">= </span>(</p>
+              <p class="identadoDoble"><span class="keyword">SELECT COALESCE</span>(</p>
+              <p class="identadoTriple"><span class="keyword">CASE                                                          </span></p>
+              <p class="identadoCuadruple"><span class="keyword">WHEN </span><span class="operator">MAX</span>(gr.clasificacion_grafico) <span class="operator">=  </span><span class="number">1 </span>THEN  <span class="number">1</span></p>
+              <p class="identadoCuadruple"><span class="keyword">ELSE </span><span class="number">0                 </span></p>
+              <p class="identadoTriple"><span class="keyword">END</span>,</p>
+              <p class="identadoTriple"><span class="number">0</span></p>
+              <p class="identadoDoble">)                            </p>
+              <p class="identadoDoble"> <span class="keyword">FROM  </span>VERSION_MAGAZINE vm</p>
+              <p class="identadoDoble"> <span class="keyword">JOIN  </span>INDICE_VERSION iv <span class="keyword">ON  </span>vm.id_version  <span class="operator">=  </span>iv.id_version</p>
+              <p class="identadoDoble"> <span class="keyword">JOIN  </span>GRAFICO gr <span class="keyword">ON  </span>iv.id_grafico  <span class="operator">=  </span>gr.id_grafico</p>
+              <p class="identadoDoble"> <span class="keyword">WHERE  </span>vm.id_magazine <span class="operator">= </span>(                                     </p>
+              <p class="identadoTriple"><span class="keyword">SELECT  </span>id_magazine </p>
+              <p class="identadoTriple"><span class="keyword">FROM  </span>VERSION_MAGAZINE </p>
+              <p class="identadoTriple"><span class="keyword">WHERE  </span>id_version <span class="operator">= </span>OLD.id_version                            </p>
+              <p class="identadoDoble">)</p>
+              <p class="identadoDoble"> <span class="operator">AND </span>iv.id_tipo_pagina  <span class="operator">= </span><span class="number">8</span></p>
+              <p class="identado">)</p>
+              <p class="identado"> <span class="keyword">WHERE </span>id_magazine <span class="operator">= </span>(</p>
+              <p class="identadoDoble"> <span class="keyword">SELECT </span>id_magazine </p>
+              <p class="identadoDoble"> <span class="keyword">FROM </span>VERSION_MAGAZINE </p>
+              <p class="identadoDoble"> <span class="keyword">WHERE </span>id_version <span class="operator">=  </span>OLD.id_version</p>
+              <p class="identado">);</p>
+              <p><span class="keyword">END</span>;</p>
+              <p class="comment">```</p>
+              <p class="notas comment">Nota: Este campo no debe ser editado manualmente por el usuario.</p></code>
+          </div>
+          <div class="trigger" id="pixelizacion_magazine">
+            <div class="tituloTrigger">
+              <p><span class="h3">TRIGGER: </span>Actualización de pixelizacion_magazine</p>
+            </div>
+            <div class="descripcionTrigger">Este trigger actualiza automáticamente el campo `pixelizacion_magazine` del MAGAZINE. Si al menos UN gráfico contenido tiene censura/pixelización, el magazine completo se marca como censurado. Similar al anterior, es un cálculo lógico OR.</div>
+            <div class="atributos">
+              <div class="atributo"><span class="nombreAtributo">Tabla afectada: </span><span class="resaltado">MAGAZINE</span></div>
+              <div class="atributo"><span class="nombreAtributo">Campo calculado: </span><span class="resaltado">pixelizacion_magazine</span></div>
+              <div class="atributo"><span class="nombreAtributo">Eventos que disparan el trigger:</span>
+                <ul class="listaDesordenada">
+                  <li>-  <span class="bold">INSERT  </span>en tabla  <span class="bold"> INDICE_VERSION  </span><span class="sub"> (cuando se agrega un gráfico)</span></li>
+                  <li>-  <span class="bold">UPDATE  </span>en tabla  <span class="bold"> INDICE_VERSION  </span><span class="sub"> (cuando cambia el id_grafico)</span></li>
+                  <li>-  <span class="bold">DELETE  </span>en tabla  <span class="bold"> INDICE_VERSION  </span><span class="sub"> (cuando se elimina un gráfico)</span></li>
+                </ul>
+              </div>
+              <div class="atributo"><span class="nombreAtributo">Lógica:</span></div>
+            </div><code>
+              <p class="comment">```sql</p>
+              <p>pixelizacion_magazine <span class="operator">= MAX</span>(pixelizacion_grafico de todos los gráficos del magazine)</p>
+              <p class="comment">-- Si al menos un gráfico tiene pixelizacion_grafico = TRUE (1)</p>
+              <p class="comment">-- entonces pixelizacion_magazine = TRUE (1)</p>
+              <p class="comment">```</p>
+              <p class="notas comment">Nota: Este campo no debe ser editado manualmente por el usuario.</p></code>
+            <div class="atributo"><span class="nombreAtributo">Implementación:</span></div><code> 
+              <p class="comment">```sql</p>
+              <p class="comment">-- Trigger para INSERT</p>
+              <p> <span class="keyword">CREATE TRIGGER </span>update_pixelizacion_magazine_insert</p>
+              <p> <span class="keyword">AFTER INSERT ON </span>INDICE_VERSION</p>
+              <p> <span class="keyword">WHEN </span>NEW.id_tipo_pagina <span class="operator">= </span><span class="number">8 </span><span class="comment">-- Solo para páginas de tipo 'Gráfico'</span></p>
+              <p> <span class="keyword">BEGIN</span></p>
+              <p class="identado"> <span class="keyword">UPDATE </span>MAGAZINE</p>
+              <p class="identado"> <span class="keyword">SET </span>pixelizacion_magazine <span class="operator">= </span>(</p>
+              <p class="identadoDoble"> <span class="keyword">SELECT </span>CASE </p>
+              <p class="idemtadoTriple"> <span class="keyword">WHEN </span>MAX(gr.pixelizacion_grafico) <span class="operator">= </span><span class="number">1  </span>THEN <span class="number">1</span></p>
+              <p class="idemtadoTriple"> <span class="keyword">ELSE </span><span class="number">0 </span></p>
+              <p class="identadoDoble"> <span class="keyword">END</span></p>
+              <p class="identadoDoble"> <span class="keyword">FROM </span>VERSION_MAGAZINE vm</p>
+              <p class="identadoDoble"> <span class="keyword">JOIN </span>INDICE_VERSION iv <span class="keyword">ON  </span>vm.id_version <span class="operator">=  </span>iv.id_version</p>
+              <p class="identadoDoble"> <span class="keyword">JOIN </span>GRAFICO gr  <span class="operator">ON  </span>iv.id_grafico <span class="operator">=  </span>gr.id_grafico</p>
+              <p class="identadoDoble"> <span class="keyword">WHERE </span>vm.id_magazine <span class="operator">=  </span>(</p>
+              <p class="identadoTriple"> <span class="keyword">SELECT </span>id_magazine </p>
+              <p class="identadoTriple"> <span class="keyword">FROM </span>VERSION_MAGAZINE </p>
+              <p class="identadoTriple"> <span class="keyword">WHERE </span>id_version <span class="operator">=  </span>NEW.id_version</p>
+              <p class="identadoDoble">)</p>
+              <p class="identadoDoble"> <span class="operator">AND </span>iv.id_tipo_pagina  <span class="operator">=  </span><span class="number">8    </span></p>
+              <p class="identado">)                    </p>
+              <p class="identado"> <span class="keyword">WHERE </span>id_magazine <span class="operator">=  </span>(</p>
+              <p class="identadoDoble"> <span class="keyword">SELECT </span>id_magazine </p>
+              <p class="identadoDoble"> <span class="keyword">FROM </span>VERSION_MAGAZINE </p>
+              <p class="identadoDoble"> <span class="keyword">WHERE </span>id_version <span class="operator">=  </span>NEW.id_version</p>
+              <p class="identado">);</p>
+              <p><span class="keyword">END</span>;</p><br><br>
+              <p class="comment">-- Trigger para UPDATE</p>
+              <p> <span class="keyword">CREATE </span>TRIGGER update_pixelizacion_magazine_update</p>
+              <p> <span class="keyword">AFTER UPDATE ON </span>INDICE_VERSION</p>
+              <p> <span class="keyword">WHEN </span>NEW.id_tipo_pagina <span class="operator">= </span><span class="number">8</span></p>
+              <p> <span class="keyword">BEGIN</span></p>
+              <p class="identado"> <span class="keyword">UPDATE </span>MAGAZINE</p>
+              <p class="identado"> <span class="keyword">SET </span>pixelizacion_magazine  <span class="operator">=  </span>(</p>
+              <p class="identadoDoble"> <span class="keyword">SELECT CASE </span></p>
+              <p class="identadoTriple"> <span class="keyword">WHEN </span><span class="operator">MAX</span>(gr.pixelizacion_grafico)  <span class="operator">= </span><span class="number">1 </span>THEN <span class="number">1</span></p>
+              <p class="identadoTriple"> <span class="keyword">ELSE </span><span class="number">0                            </span></p>
+              <p class="identadoDoble"> <span class="keyword">END</span></p>
+              <p class="identadoDoble"> <span class="keyword">FROM  </span>VERSION_MAGAZINE vm</p>
+              <p class="identadoDoble"> <span class="keyword">JOIN  </span>INDICE_VERSION iv  <span class="keyword">ON  </span>vm.id_version  <span class="operator">=  </span>iv.id_version</p>
+              <p class="identadoDoble"> <span class="keyword">JOIN  </span>GRAFICO gr  <span class="keyword">ON  </span>iv.id_grafico  <span class="operator">=  </span>gr.id_grafico</p>
+              <p class="identadoDoble"> <span class="keyword">WHERE  </span>vm.id_magazine  <span class="operator">=  </span>(</p>
+              <p class="identadoTriple"> <span class="keyword">SELECT  </span>id_magazine </p>
+              <p class="identadoTriple"> <span class="keyword">FROM  </span>VERSION_MAGAZINE </p>
+              <p class="identadoTriple"> <span class="keyword">WHERE  </span>id_version <span class="operator">=  </span>NEW.id_version</p>
+              <p class="identadoDoble">)</p>
+              <p class="identadoDoble"> <span class="operator">AND  </span>iv.id_tipo_pagina <span class="operator">= </span><span class="number">8</span></p>
+              <p class="identado">)</p>
+              <p class="identado"> <span class="keyword">WHERE </span>id_magazine <span class="operator">= </span>(</p>
+              <p class="identadoDoble"> <span class="keyword">SELECT  </span>id_magazine </p>
+              <p class="identadoDoble"> <span class="keyword">FROM  </span>VERSION_MAGAZINE </p>
+              <p class="identadoDoble"> <span class="keyword">WHERE  </span>id_version <span class="operator">=  </span>NEW.id_version</p>
+              <p class="identado">);</p>
+              <p> <span class="keyword">END</span>;</p><br><br>
+              <p class="comment">-- Trigger para DELETE</p>
+              <p> <span class="keyword">CREATE TRIGGER </span>update_pixelizacion_magazine_delete</p>
+              <p> <span class="keyword">AFTER DELETE ON </span>INDICE_VERSION</p>
+              <p> <span class="keyword">WHEN </span>OLD.id_tipo_pagina <span class="operator">= </span><span class="number">8</span></p>
+              <p> <span class="keyword">BEGIN</span></p>
+              <p class="identado"> <span class="keyword">UPDATE MAGAZINE</span></p>
+              <p class="identado"> <span class="keyword">SET pixelizacion_magazine </span><span class="operator">= </span>(</p>
+              <p class="identadoDoble"> <span class="keyword">SELECT COALESCE(</span></p>
+              <p class="identadoTriple"> <span class="keyword">CASE </span></p>
+              <p class="identadoCuadruple"> <span class="keyword">WHEN  </span><span class="operator">MAX</span>(gr.pixelizacion_grafico)  <span class="operator"> </span><span class="operator">=  </span><span class="number">1  </span>THEN  <span class="number">1</span></p>
+              <p class="identadoCuadruple"> <span class="keyword">ELSE </span><span class="number">0</span></p>
+              <p class="identadoTriple"> <span class="keyword">END,</span></p>
+              <p class="identadoTriple"> <span class="number">0</span></p>
+              <p class="identadoDoble">)</p>
+              <p class="identadoDoble"> <span class="keyword">FROM </span>VERSION_MAGAZINE vm</p>
+              <p class="identadoDoble"> <span class="keyword">JOIN </span>INDICE_VERSION iv <span class="keyword">ON </span>vm.id_version  <span class="operator">=  </span>iv.id_version</p>
+              <p class="identadoDoble"> <span class="keyword">JOIN GRAFICO </span>gr ON iv.id_grafico  <span class="operator">=  </span>gr.id_grafico</p>
+              <p class="identadoDoble"> <span class="keyword">WHERE </span>vm.id_magazine  <span class="operator">=  </span>(</p>
+              <p class="identadoTriple"> <span class="keyword">SELECT </span>id_magazine </p>
+              <p class="identadoTriple"> <span class="keyword">FROM </span>VERSION_MAGAZINE </p>
+              <p class="identadoTriple"> <span class="keyword">WHERE </span>id_version  <span class="operator">= </span>OLD.id_version</p>
+              <p class="identadoDoble">)</p>
+              <p class="identadoDoble"> <span class="operator">AND </span>iv.id_tipo_pagina  <span class="operator">= </span><span class="number">8</span></p>
+              <p class="identado">)</p>
+              <p class="identado"> <span class="keyword">WHERE </span>id_magazine  <span class="operator">= </span>(</p>
+              <p class="identadoDoble"> <span class="keyword">SELECT </span>id_magazine </p>
+              <p class="identadoDoble"> <span class="keyword">FROM </span>VERSION_MAGAZINE </p>
+              <p class="identadoDoble"> <span class="keyword">WHERE </span>id_version <span class="operator">=  </span>OLD.id_version</p>
+              <p class="identado">);</p>
+              <p> <span class="keyword">END</span>;</p>
+              <p class="comment">```</p>
+              <p class="notas comment">Nota: Este campo no debe ser editado manualmente por el usuario.</p></code>
+            <div class="atributo"><span class="nombreAtributo">Nota: Estos campos se calculan automáticamente y no deben ser editados manualmente por el usuario</span></div>
+          </div>
+        </div>
+        <div class="diagrama" id="Diagrama">
+          <div class="titulosSeparadores">Diagrama de Relaciones</div><code class="diagramas"> 
+            <p class="comment">**Diagrama de Relaciones**</p>
+            <div class="diagramaMagazine">
+              <p>COLECCION_MAGAZINE (1) </p>
+              <p>──→ </p>
+              <p>(N) MAGAZINE (1) </p>
+              <p>──→ (N) </p>
+              <p>VERSION_MAGAZINE (1) </p>
+              <p>──→  </p>
+              <p>(N) INDICE_VERSION</p>
+              <p>↓</p>
+              <p>TIPO_PAGINA</p>
+              <p>↓</p>
+              <p>GRAFICO <br><span class="sub">(opcional)</span></p>
+            </div>
+            <div class="diagramaGrafico">
+              <p>GRAFICO (1) </p>
+              <p>──→ </p>
+              <p>(N) VERSION_GRAFICO (1) </p>
+              <p>──→ </p>
+              <p>(N) INDICE_VERSION</p>
+              <p>↓</p>
+              <p>GRAFICO_GENEROS (N:M)</p>
+              <p>GRAFICO_AUTOR (N:M)</p>
+              <p>GRAFICO_AVISOS (N:M)</p>
+            </div>
+            <div class="vistasMagazine">
+              <pre>MAGAZINE ════╗
+                ║ 	(a través de INDICE_VERSION y GRAFICO)
+                ║
+                ╠══> MAGAZINE_GENEROS_VIEW
+                ║
+                ╠══> MAGAZINE_AUTORES_VIEW
+                ║
+                ╚══> MAGAZINE_AVISOS_VIEW
+</pre>
+            </div>
+            <div class="triggersAutomaticos">
+              <pre>INDICE_VERSION (INSERT/UPDATE/DELETE)   ──TRIGGER──> MAGAZINE.paginas_magazine
+                                        ──TRIGGER──> MAGAZINE.clasificacion_magazine
+                                        ──TRIGGER──> MAGAZINE.pixelizacion_magazine
+
+</pre>
+            </div></code>
+          <div class="notas">
+            <p>Notas del Diagrama:</p>
+            <p>- Las **líneas sólidas (──→)** representan relaciones directas mediante claves foráneas</p>
+            <p>- Las **líneas dobles (══>)** representan vistas derivadas que agregan información automáticamente</p>
+            <p>- Los **TRIGGERS** actualizan campos calculados en tiempo real</p>
+            <p>- Las vistas **MAGAZINE_*_VIEW** no almacenan datos, sino que consultan dinámicamente de las tablas relacionadas</p>
+          </div>
         </div>
       </div>
     </div>
   </body>
 </html>
-<!--
-TRIGGER: Actualización de páginas_magazine.
-Tabla afectada: MAGAZINE
-Campo calculado: paginas_magazine
-
-Descripción: 
-Este trigger actualiza automáticamente el número total de páginas de un magazine 
-sumando las páginas de todos sus componentes (portada, índice, artículos, gráficos, 
-ads, contraportada, etc.).
-
-Eventos que disparan el trigger:
-INSERT en tabla INDICE_VERSION (cuando id_version pertenece a un MAGAZINE)
-UPDATE en tabla INDICE_VERSION (cuando cambia el número de páginas)
-DELETE en tabla INDICE_VERSION
-
-Fórmula de cálculo:
-
-paginas_magazine = SUM(paginas_contenido)
-FROM INDICE_VERSION iv
-JOIN VERSION_MAGAZINE vm ON iv.id_version = vm.id_version
-WHERE vm.id_magazine = [id_magazine_actual]
-
-**Nota:** Este campo no debe ser editado manualmente por el usuario.
-
-
-
-PROCESO: Captura de Gráfico Nuevo
-Tabla afectada: INDICE_VERSION (MAGAZINE)
-Descripción:
-Proceso para capturar un nuevo gráfico que forma parte de un magazine directamente desde el índice del magazine.
-
-
-
-
-Flujo completo:
-1. Estado inicial en INDICE_VERSION:
-id_tipo_contenido: 9 (Gráfico Nuevo)
-id_grafico: NULL
-numero_pagina: 50
-paginas_contenido: 0 (temporal)
-ruta_archivo: NULL
-
-
-2. Usuario presiona "Capturar Gráfico":
-Se abre popup con formulario completo de GRAFICO
-Usuario llena todos los atributos del nuevo gráfico
-Se guarda en tabla GRAFICOS → obtiene id_grafico = “789” con paginas_grafico = “20”
-
-3. Actualización automática atómica:
-
-UPDATE INDICE_VERSION 
-SET 
-id_tipo_contenido = 8,		--- Cambia a "Gráfico"
-id_grafico = 789,			--- Asigna el nuevo id
-paginas_contenido = (
-SELECT paginas_grafico
-FROM GRAFICOS
-WHERE id_grafico = 789
-),					--- Obtiene las 20 páginas
-ruta_archivo = NULL			--- Se asegura que sea NULL
-WHERE id_indice = [id_actual]
-
-
-4. Resultado final:
-```
-id_tipo_contenido: 8 (Gráfico)
-id_grafico: 789
-numero_pagina: 50
-paginas_contenido: 20
-ruta_archivo: NULL
-
-
-
-Diagrama de Relaciones
-COLECCION_MAGAZINE (1) ──→ (N) MAGAZINE (1) ──→ (N) VERSION_MAGAZINE (1) ──→ (N) INDICE_VERSION
-                                    ↓                                                      ↓
-                            MAGAZINE_GENEROS                                         TIPO_PAGINA
-                            MAGAZINE_AUTOR                                               ↓
-                            MAGAZINE_AVISOS                                          GRAFICO (opcional)
-
-GRAFICO (1) ──→ (N) VERSION_GRAFICO (1) ──→ (N) INDICE_VERSION
-    ↓
-GRAFICO_GENEROS
-GRAFICO_AUTOR
-GRAFICO_AVISOS
-
-
-
--->
-<!--
-div.Base
-    div.entidadMaestra
-        div.titulo
-            p.relacion
-            p.h3
-            div.definicion
-        div.atributos
-            span.nombreAtributo
-            span.resaltado
-        table.tabla
-            thead
-                tr.nombreTabla
-                    th(colspan='7') Entidad Principal  
-                        span.heavy
-                tr.cabeceraAtributo
-                    td Nombre del Campo
-                    td Tipo de  Dato
-                    td Clave Key
-                    td Nulidad
-                    td Descripción o Función
-                    td Relaciones FK
-                    td Notas
-            tbody
-                tr.filaAtributo
-                    td
-div.entidadIntermedia
-    div.titulo
-        p.relacion
-        p.h3
-        div.definicion
-    div.atributos
-        div.atributo
-            span.nombreAtributo
-        div.atributo
-            span.nombreAtributo
-        div.atributo
-            span.nombreAtributo
-            span.resaltado
-    table.tabla
-        thead
-            tr.nombreTabla
-                th(colspan='7') Entidad  
-                    span.heavy GRAFICO_AVISOS
-            tr.cabeceraAtributo
-                td Nombre del Campo
-                td Tipo de  Dato
-                td Clave Key
-                td Nulidad
-                td Descripción o Función
-                td Relaciones FK
-                td Notas
-        tbody
-            tr.filaAtributo
-                td
-
-    table.tablaValores
-        thead
-            tr.nombreTabla
-                th(colspan='3')  
-                    span.heavy Valores Posibles
-            tr.cabeceraAtributo
-                td 
-                td 
-        tbody
-            tr.filaAtributo
-                td
--->
