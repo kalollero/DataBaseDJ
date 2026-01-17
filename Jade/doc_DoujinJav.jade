@@ -2032,11 +2032,31 @@ html(lang="en")
                         div.titulo
                             p.relacion Relación · 1: N - Uno a Muchos -
                             p.h3 TIPO DE FORMATO
-                            div.definicion Catálogo global que contiene los formatos disponibles para publicaciones impresas o digitales. Se utiliza en GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.
-                                br
-                                | Valores Posibles (Depende del soporte, sólo uno a la vez).
-                                br
-                                | Formato Físico = Tapa Dura, Tapa Blanda / Formato Digital = Jpg, Png, WebP, Pdf, Cbr.
+                            div.definicion Catálogo global que contiene los formatos disponibles para publicaciones impresas o digitales. Se utiliza en 
+                                span.resaltado GRAFICOS
+                                |, 
+                                span.resaltado MAGAZINE  
+                                | y otras entidades que manejen contenido publicado.
+                                span.subrayado Valores Posibles 
+                                | (Depende del soporte, sólo uno a la vez). 
+                                span.bold Formato Físico  
+                                | = 
+                                span.resaltado Tapa Dura
+                                |,  
+                                span.resaltado Tapa Blanda 
+                                |/ 
+                                span.bold Formato Digital 
+                                | =  
+                                span.resaltado Jpg
+                                |, 
+                                span.resaltado Png
+                                |, 
+                                span.resaltado WebP
+                                |, 
+                                span.resaltado Pdf
+                                |, 
+                                span.resaltado Cbr
+                                |.
                         div.atributos
                             div.atributo
                                 span.nombreAtributo · ID TIPO FORMATO.  
@@ -2081,7 +2101,9 @@ html(lang="en")
                                     td NO
                                     td Soporte del cómic.
                                     td -
-                                    td Físico o Digital. Regla: Es obligatorio registrar el soporte.
+                                    td Físico o Digital. 
+                                        br
+                                        | Regla: Es obligatorio registrar el soporte.
                         table.tablaValores
                             thead
                                 tr.nombreTabla
@@ -2125,9 +2147,31 @@ html(lang="en")
                         div.titulo
                             p.relacion Relación · 1: N - Uno a Muchos -
                             p.h3 TIPO DE PÁGINA
-                            div.definicion La Entidad TIPO_PAGINA contiene e indica el tipo que tiene página que componen un GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.
-                            br
-                            | Valores Posibles (sólo uno a la vez): Portada, Índice, Artículo, Ads, Extra, Sección Especial, Contraportada, Gráfico, Gráfico Nuevo.
+                            div.definicion La Entidad TIPO_PAGINA contiene e indica el tipo que tiene página que componen un 
+                                span.resaltado GRAFICOS
+                                |, 
+                                span.resaltado MAGAZINE  
+                                | y otras entidades que manejen contenido publicado. 
+                                span.subrayado  Valores Posibles
+                                |  (sólo uno a la vez): 
+                                span.resaltado Portada
+                                |, 
+                                span.resaltado Índice
+                                |, 
+                                span.resaltado Artículo
+                                |, 
+                                span.resaltado Ads
+                                |, 
+                                span.resaltado Extra
+                                |, 
+                                span.resaltado Sección Especial
+                                |, 
+                                span.resaltado Contraportada
+                                |, 
+                                span.resaltado Gráfico
+                                |, 
+                                span.resaltado Gráfico Nuevo
+                                |.
                         div.atributos
                             div.atributo
                                 span.nombreAtributo · ID TIPO PÁGINA. 
@@ -2135,7 +2179,8 @@ html(lang="en")
                             div.atributo
                                 span.nombreAtributo · NOMBRE DEL TIPO. 
                                 | Nombre de los valores posibles que puede tener la entidad 
-                                span.resaltado TIPO_PAGINA.
+                                span.resaltado TIPO_PAGINA
+                                |.
                         table.tabla
                             thead
                                 tr.nombreTabla
@@ -2208,8 +2253,15 @@ html(lang="en")
                         div.titulo
                             p.relacion Relación · 1: N - Uno a Muchos -
                             p.h3 EDITORIAL
-                            div.definicion La Entidad EDITORIAL contiene las compañías editoriales relacionadas con GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.
-                            | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten la misma editorial.
+                            div.definicion La Entidad 
+                                span.resaltado EDITORIAL  
+                                | contiene las compañías editoriales relacionadas con  
+                                span.resaltado GRAFICOS
+                                |, 
+                                span.resaltado MAGAZINE  
+                                |y otras entidades que manejen contenido publicado.
+                                span.subrayado Funcionalidad:
+                                |  Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten la misma editorial.
                         div.atributos
                             div.atributo
                                 span.nombreAtributo · ID EDITORIAL.  
@@ -2252,8 +2304,15 @@ html(lang="en")
                         div.titulo
                             p.relacion Relación · 1: N - Uno a Muchos -
                             p.h3 DISTRIBUIDORA
-                            div.definicion La Entidad DISTRIBUIDORA contiene las distribuidoras relacionadas con los GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.
-                            | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten la misma distribuidora.
+                            div.definicion La Entidad 
+                                span.resaltado DISTRIBUIDORA  
+                                | contiene las distribuidoras relacionadas con los 
+                                span.resaltado GRAFICOS
+                                |, 
+                                span.resaltado MAGAZINE  
+                                | y otras entidades que manejen contenido publicado. 
+                                span.subrayado Funcionalidad:
+                                |  Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten la misma distribuidora.
                         div.atributos
                             div.atributo
                                 span.nombreAtributo · ID DISTRIBUIDORA. 
@@ -2296,9 +2355,15 @@ html(lang="en")
                         div.titulo
                             p.relacion Relación · N: M - Muchos a Muchos -
                             p.h3 GÉNEROS
-                            div.definicion La Entidad GENEROS contiene todos los géneros que clasifican los GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.
-                            br
-                            | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten el mismo género
+                            div.definicion La Entidad 
+                                span.resaltado GENEROS  
+                                |  contiene todos los géneros que clasifican los 
+                                span.resaltado GRAFICOS
+                                |, 
+                                span.resaltado MAGAZINE  
+                                |  y otras entidades que manejen contenido publicado. 
+                                span.subrayado Funcionalidad:
+                                |  Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten el mismo género
                         div.atributos
                             div.atributo
                                 span.nombreAtributo · ID GÉNERO.  
@@ -2373,11 +2438,24 @@ html(lang="en")
                         div.titulo
                             p.relacion Relación · 1:N  - Uno a Muchos -
                             p.h3 TINTA
-                            div.definicion La Entidad TINTA contiene los tipos de tintas que están relacionados con GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.
-                                br
-                                | Valores Posibles (sólo uno a la vez): Color, Blanco & Negro, Sepia y Mixto.
-                                br
-                                | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten el mismo tipo de tinta.
+                            div.definicion La Entidad 
+                                span.resaltado TINTA  
+                                | contiene los tipos de tintas que están relacionados con 
+                                span.resaltado GRAFICOS
+                                |, 
+                                span.resaltado MAGAZINE  
+                                | y otras entidades que manejen contenido publicado. 
+                                span.subrayado Valores Posibles
+                                |  (sólo uno a la vez):  
+                                span.resaltado Color
+                                |,  
+                                span.resaltado Blanco & Negro
+                                |,  
+                                span.resaltado Sepia  
+                                |y  
+                                span.resaltado Mixto.  
+                                span.subrayado Funcionalidad:
+                                |  Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten el mismo tipo de Tinta.
                         div.atributos
                             div.atributo
                                 span.nombreAtributo · ID TINTA.  
@@ -2441,8 +2519,15 @@ html(lang="en")
                         div.titulo
                             p.relacion Relación · N: M - Muchos a Muchos -
                             p.h3 AUTOR
-                            div.definicion La Entidad AUTOR contiene a los autores relacionados con GRAFICOS, MAGAZINE y otras entidades que manejen contenido publicado.
-                                | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que compartan el mismo autor.
+                            div.definicion La Entidad 
+                                span.resaltado AUTOR  
+                                | contiene a los autores relacionados con 
+                                span.resaltado GRAFICOS
+                                |, 
+                                span.resaltado MAGAZINE  
+                                | y otras entidades que manejen contenido publicado. 
+                                span.subrayado Funcionalidad:
+                                |  Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que compartan el mismo autor.
                         div.atributos
                             div.atributo
                                 span.nombreAtributo · ID AUTOR.  
@@ -2485,8 +2570,11 @@ html(lang="en")
                         div.titulo
                             p.relacion Relación · N: 1 - Muchos a Uno -
                             p.h3 AKA
-                            div.definicion La Entidad AKA contiene e indica los alias o seudónimos que puede tener un mismo autor.
-                                | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten el mismo aka.
+                            div.definicion La Entidad  
+                                span.resaltado AKA  
+                                | contiene e indica los alias o seudónimos que puede tener un mismo autor. 
+                                span.subrayado Funcionalidad:
+                                |  Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten el mismo aka.
                         div.atributos
                             div.atributo
                                 span.nombreAtributo · ID AKA.  
@@ -2527,7 +2615,8 @@ html(lang="en")
                                     td FK
                                     td NO
                                     td Id del Autor que estamos vinculando.
-                                    td Referencia a AUTOR.id_autor
+                                    td Referencia a 
+                                        span.resaltado AUTOR.id_autor
                                     td Regla: Es obligatorio registrar un autor.
                                 tr.filaAtributo
                                     td aka
@@ -2542,9 +2631,13 @@ html(lang="en")
                         div.titulo
                             p.relacion Relación · 1: N - Uno a Muchos -
                             p.h3 EXPO
-                            div.definicion La Entidad EXPO contiene un listado de las exposiciones o convenciones.
-                                | Valores Posibles: Comic Market, Anime Japan.
-                                | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo valor.
+                            div.definicion La Entidad  
+                                span.resaltado EXPO  
+                                |  contiene un listado de las exposiciones o convenciones.
+                                span.subrayado Valores Posibles:
+                                |  Comic Market, Anime Japan. 
+                                span.subrayado Funcionalidad:
+                                |  Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo valor.
                         div.atributos
                             div.atributo
                                 span.nombreAtributo · ID EXPOSICIÓN. 
@@ -2603,8 +2696,11 @@ html(lang="en")
                         div.titulo
                             p.relacion Relación · 1: N - Uno a Muchos -
                             p.h3 EDICIÓN EXPO
-                            div.definicion La Entidad EDICION_EXPO indica los detalles de una exposición o convención.
-                                | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo valor.
+                            div.definicion La Entidad  
+                                span.resaltado EDICION_EXPO  
+                                | indica los detalles de una exposición o convención. 
+                                span.subrayado Funcionalidad:
+                                |  Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo valor.
                         div.atributos
                             div.atributo
                                 span.nombreAtributo · ID EXPO.  
@@ -2772,9 +2868,20 @@ html(lang="en")
                         div.titulo
                             p.relacion Relación · 1: N - Uno a Muchos -
                             p.h3 IDIOMA
-                            div.definicion La Entidad IDIOMA contiene e indica el idioma.
-                                | Valores Posibles (sólo uno a la vez): Japonés, Coreano, Inglés, Español.
-                                | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo idioma.
+                            div.definicion La Entidad  
+                                span.resaltado IDIOMA  
+                                | contiene e indica el idioma. 
+                                span.subrayado Valores Posibles (sólo uno a la vez):
+                                span.resaltado  Japonés
+                                |, 
+                                span.resaltado Coreano
+                                |, 
+                                span.resaltado Inglés
+                                |, 
+                                span.resaltado Español
+                                |. 
+                                span.subrayado Funcionalidad:
+                                |  Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo idioma.
                         div.atributos
                             div.atributo
                                 span.nombreAtributo · ID IDIOMA.  
@@ -2839,8 +2946,11 @@ html(lang="en")
                         div.titulo
                             p.relacion Relación · 1: N - Uno a Muchos -
                             p.h3 TRADUCTOR
-                            div.definicion La Entidad TRADUCTOR contiene los traductores.
-                                | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo traductor.
+                            div.definicion La Entidad  
+                                span.resaltado TRADUCTOR  
+                                | contiene los traductores. 
+                                span.subrayado Funcionalidad:
+                                |  Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo traductor.
                         div.atributos
                             div.atributo
                                 span.nombreAtributo · ID TRADUCTOR. 
@@ -2884,10 +2994,26 @@ html(lang="en")
                         div.titulo
                             p.relacion Relación · N: M - Mucho a Muchos -
                             p.h3 AVISOS
-                            div.definicion La Entidad AVISOS contiene los diferentes valores que muestran el tipo de contenido que tienen los elementos.
-                                | Valores Posibles:
-                                | Sangre/Gore, Desnudez, Lenguaje Ofensivo, Tabaquismo, Violencia, Contenido Sexual, | Diálogos Sugerentes.
-                                | Funcionalidad: Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo valor.
+                            div.definicion La Entidad 
+                                span.resaltado AVISOS  
+                                | contiene los diferentes valores que muestran el tipo de contenido que tienen los elementos.
+                                span.subrayado Valores Posibles:
+                                span.resaltado  Sangre/Gore
+                                | , 
+                                span.resaltado Desnudez
+                                | , 
+                                span.resaltado Lenguaje Ofensivo
+                                | , 
+                                span.resaltado Tabaquismo
+                                | , 
+                                span.resaltado Violencia
+                                | , 
+                                span.resaltado Contenido Sexual
+                                | ,  
+                                span.resaltado Diálogos Sugerentes
+                                | . 
+                                span.subrayado Funcionalidad:
+                                |  Este elemento funcionará como un vínculo a un sitio donde se muestran todos los elementos que comparten ese mismo valor.
                         div.atributos
                             div.atributo
                                 span.nombreAtributo · ID AVISO. 
@@ -3025,7 +3151,9 @@ html(lang="en")
                             p
                                 span.h3 TRIGGER: 
                                 | Actualización de clasificacion_magazine
-                        div.descripcionTrigger Este trigger actualiza automáticamente el campo `clasificacion_magazine` del MAGAZINE. Si al menos UN gráfico contenido es +18, el magazine completo se marca como +18. Este es un cálculo lógico OR: basta con que un solo gráfico sea +18 para que todo el magazine lo sea.
+                        div.descripcionTrigger Este trigger actualiza automáticamente el campo 
+                            span.resaltado clasificacion_magazine  
+                            | del MAGAZINE. Si al menos UN gráfico contenido es +18, el magazine completo se marca como +18. Este es un cálculo lógico OR: basta con que un solo gráfico sea +18 para que todo el magazine lo sea.
                         div.atributos
                             div.atributo
                                 span.nombreAtributo Tabla afectada: 
@@ -3384,7 +3512,9 @@ html(lang="en")
                             p
                                 span.h3 TRIGGER: 
                                 | Actualización de pixelizacion_magazine
-                        div.descripcionTrigger Este trigger actualiza automáticamente el campo `pixelizacion_magazine` del MAGAZINE. Si al menos UN gráfico contenido tiene censura/pixelización, el magazine completo se marca como censurado. Similar al anterior, es un cálculo lógico OR.
+                        div.descripcionTrigger Este trigger actualiza automáticamente el campo 
+                            span.resaltado pixelizacion_magazine 
+                            | del MAGAZINE. Si al menos UN gráfico contenido tiene censura/pixelización, el magazine completo se marca como censurado. Similar al anterior, es un cálculo lógico OR.
                         div.atributos
                             div.atributo
                                 span.nombreAtributo Tabla afectada: 
@@ -3729,8 +3859,9 @@ html(lang="en")
                                 |;
                             p.comment ```
                             p.notas.comment Nota: Este campo no debe ser editado manualmente por el usuario.
-                        div.atributo
-                            span.nombreAtributo Nota: Estos campos se calculan automáticamente y no deben ser editados manualmente por el usuario
+                        div.nota
+                            span.bold Nota: 
+                            | Estos campos se calculan automáticamente y no deben ser editados manualmente por el usuario.
 
                 div#Diagrama.diagrama
                     div.titulosSeparadores Diagrama de Relaciones
@@ -3739,11 +3870,11 @@ html(lang="en")
                         p.comment **Diagrama de Relaciones**
                         div.diagramaMagazine
                             p COLECCION_MAGAZINE (1) 
-                            p ──→ 
+                            p ─→ 
                             p (N) MAGAZINE (1) 
-                            p ──→ (N) 
+                            p ─→ (N) 
                             p VERSION_MAGAZINE (1) 
-                            p ──→  
+                            p ─→  
                             p (N) INDICE_VERSION
                             p ↓
                             p TIPO_PAGINA
@@ -3754,16 +3885,16 @@ html(lang="en")
                         
                         div.diagramaGrafico
                             p GRAFICO (1) 
-                            p ──→ 
+                            p ─→ 
                             p (N) VERSION_GRAFICO (1) 
-                            p ──→ 
+                            p ─→ 
                             p (N) INDICE_VERSION
                             p ↓
                             p GRAFICO_GENEROS (N:M)
                             p GRAFICO_AUTOR (N:M)
                             p GRAFICO_AVISOS (N:M)
 
-                        //- p.comment  --- VISTAS DERIVADAS (Solo lectura) ---
+                        p.comment  --- VISTAS DERIVADAS (Solo lectura) ---
                         div.vistasMagazine
                             pre.
                                 MAGAZINE ════╗
@@ -3775,7 +3906,7 @@ html(lang="en")
                                                 ║
                                                 ╚══> MAGAZINE_AVISOS_VIEW
 
-                        //- p.comment  --- TRIGGERS AUTOMÁTICOS ---
+                        p.comment  --- TRIGGERS AUTOMÁTICOS ---
                         div.triggersAutomaticos
                             pre.
                                 INDICE_VERSION (INSERT/UPDATE/DELETE)   ──TRIGGER──> MAGAZINE.paginas_magazine
@@ -3784,7 +3915,7 @@ html(lang="en")
                         
 
                     div.notas
-                        p Notas del Diagrama:
+                        p.bold Notas del Diagrama:
                         p - Las **líneas sólidas (──→)** representan relaciones directas mediante claves foráneas
                         p - Las **líneas dobles (══>)** representan vistas derivadas que agregan información automáticamente
                         p - Los **TRIGGERS** actualizan campos calculados en tiempo real
