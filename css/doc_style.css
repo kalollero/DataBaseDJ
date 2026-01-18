@@ -99,10 +99,16 @@
 .diagramas {
     justify-content: left;
     margin: 4rem 0 2rem 0;
+    background-color: var(--color-code);
+    padding: 2rem;
 }
 
 .diagrama p.comment {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+    color: #808a92;
+    font-size: 1rem;
+    font-family: 'Victor Mono', 'Ubuntu Mono', monospace;
 }
 
 .diagramaMagazine,
@@ -113,7 +119,6 @@
 }
 
 .vistasMagazine {}
-
 
 .diagramaMagazine {
     display: grid;
@@ -237,7 +242,7 @@
 
 .triggersAutomaticos {
     display: grid;
-    grid-template-columns: 40% auto;
+    grid-template-columns: 35% auto;
     grid-template-rows: repeat(3, auto);
     grid-row-gap: .5rem;
     text-align: left;
@@ -294,6 +299,10 @@
 
 .entidadGlobal {
     margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 /*---- ESTILOS DE INFORMACIÓN ----*/
@@ -379,55 +388,26 @@ td {
 
 /*---- ESTILOS DE CODE ----*/
 
-code {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
+pre {
     background-color: var(--color-code);
-    padding: 2rem;
     width: 80vw;
     margin: 0 0 2rem 0;
+    padding: 2rem;
+    overflow: hidden;
 }
 
-.comment {
-    font-style: italic;
-    color: #808a92;
-}
-
-.keyword {
-    color: #f697f6;
-}
-
-.number {
-    color: #f89c6a;
-}
-
-.operator {
-    color: rgb(139, 169, 231);
-}
-
-.text {
-    color: rgb(156, 237, 210);
-}
-
-.identado {
-    margin-left: 2rem;
-}
-
-.identadoDoble {
-    margin-left: 4rem;
-}
-
-.identadoTriple {
-    margin-left: 6rem;
-}
-
-.identadoCuadruple {
-    margin-left: 8rem;
-}
-
+code {}
 /*---- ESTILOS DE NOTAS ----*/
 
 .notas {
     font-size: .8rem;
+}
+
+
+
+.diagramaVistaMagazine {
+    width: calc(80vw - 4rem);
+    padding: 0;
+    margin: 0;
+    overflow: visible;
 }
