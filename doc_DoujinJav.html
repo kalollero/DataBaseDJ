@@ -1679,14 +1679,22 @@ ORDER BY m.fecha_publicacion_magazine DESC;
                 </tr>
                 <tr class="filaAtributo">   
                   <td>7</td>
-                  <td>Contraportada</td>
+                  <td>Página</td>
                 </tr>
                 <tr class="filaAtributo">   
                   <td>8</td>
-                  <td>Gráfico</td>
+                  <td>Página Doble</td>
                 </tr>
                 <tr class="filaAtributo">   
                   <td>9</td>
+                  <td>Contraportada</td>
+                </tr>
+                <tr class="filaAtributo">   
+                  <td>10</td>
+                  <td>Gráfico</td>
+                </tr>
+                <tr class="filaAtributo">   
+                  <td>11</td>
                   <td>Gráfico Nuevo (Estado Temporal)</td>
                 </tr>
               </tbody>
@@ -2822,6 +2830,15 @@ por el usuario.
               <p>TIPO_PAGINA</p>
               <p>↓</p>
               <p>GRAFICO <br><span class="sub">(opcional)</span></p>
+            </div>
+            <div class="diagramaExpo">
+              <p>EXPO (1) </p>
+              <p>──→ </p>
+              <p>(N) EDICION_EXPO (1) </p>
+              <p>──→ </p>
+              <p>(N) GRAFICO</p>
+              <p>└──→ </p>
+              <p>(N) MAGAZINE</p>
             </div>
             <p class="comment"> --- VISTAS DERIVADAS (Solo lectura) ---</p>
             <div class="vistasMagazine">

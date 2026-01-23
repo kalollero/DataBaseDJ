@@ -2066,12 +2066,18 @@ html(lang="en")
                                     td Sección Especial
                                 tr.filaAtributo    
                                     td 7
-                                    td Contraportada
+                                    td Página
                                 tr.filaAtributo    
                                     td 8
-                                    td Gráfico
+                                    td Página Doble
                                 tr.filaAtributo    
                                     td 9
+                                    td Contraportada
+                                tr.filaAtributo    
+                                    td 10
+                                    td Gráfico
+                                tr.filaAtributo    
+                                    td 11
                                     td Gráfico Nuevo (Estado Temporal)
 
                     div.entidadGlobal#editorial
@@ -3276,6 +3282,15 @@ html(lang="en")
                                 br
                                 span.sub (opcional)
                         
+                        div.diagramaExpo
+                                p EXPO (1) 
+                                p ──→ 
+                                p (N) EDICION_EXPO (1) 
+                                p ──→ 
+                                p (N) GRAFICO
+                                p └──→ 
+                                p (N) MAGAZINE
+
                         p.comment  --- VISTAS DERIVADAS (Solo lectura) ---
                         div.vistasMagazine
                             pre.diagramaVistaMagazine.

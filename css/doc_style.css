@@ -111,14 +111,72 @@
     font-family: 'Victor Mono', 'Ubuntu Mono', monospace;
 }
 
-.diagramaMagazine,
 .diagramaGrafico,
+.diagramaMagazine,
+.diagramaExpo,
 .vistasMagazine,
 .triggersAutomaticos {
     margin-bottom: 4rem;
 }
 
 .vistasMagazine {}
+
+/*--- ---*/
+.diagramaGrafico {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-template-rows: repeat(5, auto);
+    grid-row-gap: .5rem;
+    text-align: center;
+    /* margin: 2rem 0 1rem 0; */
+}
+
+.diagramaGrafico :nth-child(1) {
+    grid-column: 1/2;
+    grid-row: 1;
+}
+
+.diagramaGrafico :nth-child(2) {
+    grid-column: 2/3;
+    grid-row: 1;
+}
+
+.diagramaGrafico :nth-child(3) {
+    grid-column: 3/4;
+    grid-row: 1;
+}
+
+.diagramaGrafico :nth-child(4) {
+    grid-column: 4/5;
+    grid-row: 1;
+}
+
+.diagramaGrafico :nth-child(5) {
+    grid-column: 5/6;
+    grid-row: 1;
+}
+
+.diagramaGrafico :nth-child(6) {
+    grid-column: 1/2;
+    grid-row: 2;
+}
+
+.diagramaGrafico :nth-child(7) {
+    grid-column: 1/2;
+    grid-row: 3;
+}
+
+.diagramaGrafico :nth-child(8) {
+    grid-column: 1/2;
+    grid-row: 4;
+}
+
+.diagramaGrafico :nth-child(9) {
+    grid-column: 1/2;
+    grid-row: 5;
+}
+
+/*--- ---*/
 
 .diagramaMagazine {
     display: grid;
@@ -184,62 +242,29 @@
     grid-row: 5;
 }
 
-.diagramaGrafico {
+.diagramaExpo {
     display: grid;
     grid-template-columns: repeat(5, auto);
-    grid-template-rows: repeat(5, auto);
+    grid-template-rows: repeat( 2, auto);
     grid-row-gap: .5rem;
     text-align: center;
     /* margin: 2rem 0 1rem 0; */
 }
 
-.diagramaGrafico :nth-child(1) {
-    grid-column: 1/2;
-    grid-row: 1;
-}
+.diagramaExpo :nth-child(1) { grid-column: 1/2; grid-row: 1; }
+.diagramaExpo :nth-child(2) { grid-column: 2/3; grid-row: 1; }
+.diagramaExpo :nth-child(3) { grid-column: 3/4; grid-row: 1; }
+.diagramaExpo :nth-child(4) { grid-column: 4/5; grid-row: 1; }
+.diagramaExpo :nth-child(5) { grid-column: 5/6; grid-row: 1; }
 
-.diagramaGrafico :nth-child(2) {
-    grid-column: 2/3;
-    grid-row: 1;
-}
+.diagramaExpo :nth-child(6) { grid-column: 4/5; grid-row: 2; }
+.diagramaExpo :nth-child(7) { grid-column: 5/6; grid-row: 2; }
+/* .diagramaMagazine :nth-child(8) { grid-column: 7/8; grid-row: 2; }
+.diagramaMagazine :nth-child(9) { grid-column: 7/8; grid-row: 3; }
+.diagramaMagazine :nth-child(10) { grid-column: 7/8; grid-row: 4; }
+.diagramaMagazine :nth-child(11) { grid-column: 7/8; grid-row: 5; } */
 
-.diagramaGrafico :nth-child(3) {
-    grid-column: 3/4;
-    grid-row: 1;
-}
-
-.diagramaGrafico :nth-child(4) {
-    grid-column: 4/5;
-    grid-row: 1;
-}
-
-.diagramaGrafico :nth-child(5) {
-    grid-column: 5/6;
-    grid-row: 1;
-}
-
-.diagramaGrafico :nth-child(6) {
-    grid-column: 1/2;
-    grid-row: 2;
-}
-
-.diagramaGrafico :nth-child(7) {
-    grid-column: 1/2;
-    grid-row: 3;
-}
-
-.diagramaGrafico :nth-child(8) {
-    grid-column: 1/2;
-    grid-row: 4;
-}
-
-.diagramaGrafico :nth-child(9) {
-    grid-column: 1/2;
-    grid-row: 5;
-}
-
-
-
+/*--- ---*/
 .triggersAutomaticos {
     display: grid;
     grid-template-columns: 35% auto;
