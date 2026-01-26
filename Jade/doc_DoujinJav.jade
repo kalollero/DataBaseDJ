@@ -602,7 +602,22 @@ html(lang="en")
                                 | La ruta absoluta o relativa donde se encuentra el archivo de la página en el sistema de almacenamiento.
                             div.atributo
                                 span.nombreAtributo · FK - ID TIPO DE PÁGINA. 
-                                | El tipo de contenido que es la página del cómic.
+                                | El tipo de contenido que es la página del cómic. Valores Posibles: 
+                                span.resaltado  Portada, 
+                                |,
+                                span.resaltado  Índice, 
+                                |,
+                                span.resaltado  Página, 
+                                |,
+                                span.resaltado  Página Doble, 
+                                |,
+                                span.resaltado  Ads,
+                                |,
+                                span.resaltado  Extra,
+                                |,
+                                span.resaltado  Artículo.
+                                | o,
+                                span.resaltado  Contraportada.
                         table.tabla
                             thead
                                 tr.nombreTabla
@@ -1849,6 +1864,12 @@ html(lang="en")
                             p - **Filtro de tipo:** El filtro `WHERE iv.id_tipo_pagina = 8` asegura que solo se consideren páginas de tipo "Gráfico", excluyendo portadas, índices, artículos, etc.
                             p - **Performance:** Para colecciones muy grandes, considera crear índices en las tablas base para optimizar las consultas.
                             p *Relación: Vistas derivadas (solo lectura)*
+
+                div#Episodio.episodio
+                    div.entidadMaestra
+
+                div#Serie.serie
+                    div.entidadMaestra
 
                 div#TablasGlobales.tablasGlobales 
                     div.titulosSeparadores Tablas Catálogos Globales
